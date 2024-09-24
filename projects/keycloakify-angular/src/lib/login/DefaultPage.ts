@@ -243,4 +243,4 @@ const DefaultPage = async (
   }));
 };
 
-export default DefaultPage;
+export { DefaultPage };

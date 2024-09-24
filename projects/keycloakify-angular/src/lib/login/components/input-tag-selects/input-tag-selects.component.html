@@ -20,10 +20,7 @@
       />
       <label
         [for]="attr.name + '-' + option"
-        [kcClass]="[
-          classLabel!,
-          attr.readOnly ? 'kcInputClassRadioCheckboxLabelDisabled' : $any(''),
-        ]"
+        [kcClass]="[classLabel!, attr.readOnly ? 'kcInputClassRadioCheckboxLabelDisabled' : $any('')]"
       >
         {{ option | kcTranslate }}
       </label>

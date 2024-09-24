@@ -13,6 +13,7 @@ const storybook = fixupPluginRules({
 });
 
 export default tseslint.config(
+  {ignores: ['dist', 'node_modules/**', 'dist_keycloak']},
   {
     files: ['*.stories.@(ts|tsx|js|jsx|mjs|cjs)', '*.story.@(ts|tsx|js|jsx|mjs|cjs)'],
     plugins: {
@@ -55,7 +56,12 @@ export default tseslint.config(
     plugins: {
       prettier,
     },
-    extends: [eslint.configs.recommended, ...tseslint.configs.recommended, ...tseslint.configs.stylistic, ...angular.configs.tsRecommended],
+    extends: [
+      eslint.configs.recommended,
+      ...tseslint.configs.recommended,
+      ...tseslint.configs.stylistic,
+      ...angular.configs.tsRecommended,
+    ],
     processor: angular.processInlineTemplates,
     rules: {
       '@typescript-eslint/consistent-type-definitions': 'off',

@@ -8,7 +8,4 @@ export type KcContextExtension = {
 
 export type KcContextExtensionPerPage = Record<string, Record<string, unknown>>;
 
-export type KcContext = ExtendKcContext<
-  KcContextExtension,
-  KcContextExtensionPerPage
->;
+export type KcContext = ExtendKcContext<KcContextExtension, KcContextExtensionPerPage>;

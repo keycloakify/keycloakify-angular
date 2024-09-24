@@ -9,11 +9,7 @@
     [attr.aria-invalid]="!!displayableErrors()?.length"
     [disabled]="attr.readOnly"
     [multiple]="multiple"
-    [size]="
-      !attr.annotations.inputTypeSize
-        ? undefined
-        : (attr.annotations.inputTypeSize | toNumber)
-    "
+    [size]="!attr.annotations.inputTypeSize ? undefined : (attr.annotations.inputTypeSize | toNumber)"
     (change)="onChange($event)"
     (blur)="onBlur()"
   >
@@ -23,14 +19,9 @@
     @for (option of options(); track option) {
       <option [value]="option">
         @if (!!attr.annotations.inputOptionLabels) {
-          {{
-            attr.annotations.inputOptionLabels[option] ?? option | kcTranslate
-          }}
+          {{ attr.annotations.inputOptionLabels[option] ?? option | kcTranslate }}
         } @else if (!!attr.annotations.inputOptionLabelsI18nPrefix) {
-          {{
-            attr.annotations.inputOptionLabelsI18nPrefix + "." + option
-              | kcTranslate
-          }}
+          {{ attr.annotations.inputOptionLabelsI18nPrefix + '.' + option | kcTranslate }}
         } @else {
           {{ option }}
         }

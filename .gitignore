@@ -1,4 +1,4 @@
-# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # Compiled output
 /dist
@@ -30,6 +30,8 @@ yarn-error.log
 
 # Miscellaneous
 /.angular/cache
+/.nx/cache
+/.nx/workspace-data
 .sass-cache/
 /connect.lock
 /coverage
@@ -40,3 +42,21 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+/src/login/i18n/messages_defaultSet/
+/src/account/i18n/
+
+# VS Code devcontainers
+.devcontainer
+/.yarn
+/.yarnrc.yml
+
+/dist_keycloak
+/build
+/storybook-static
+
+/stories/assets/fonts/
+/build_storybook/
+/storybook-static/
+
+*storybook.log

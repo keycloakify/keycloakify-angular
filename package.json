@@ -4,29 +4,33 @@
   "type": "module",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "lint": "ng lint --fix"
+    "build:keycloakify-angular": "ng build",
+    "watch:keycloakify-angular": "ng build --watch --configuration development",
+    "test:keycloakify-angular": "ng test",
+    "lint:keycloakify-angular": "ng lint --fix",
+    "dev": "vite",
+    "start": "npm run dev",
+    "build": "vite build",
+    "build-keycloak-theme": "npm run build && keycloakify build",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "lint": "eslint . --fix",
+    "test": "vitest"
   },
   "private": true,
-  "dependencies": {
+  "devDependencies": {
+    "@analogjs/vite-plugin-angular": "^1.8.1",
+    "@analogjs/vitest-angular": "^1.8.1",
+    "@angular-devkit/build-angular": "^18.2.5",
     "@angular/animations": "^18.2.0",
+    "@angular/cli": "^18.2.5",
     "@angular/common": "^18.2.0",
     "@angular/compiler": "^18.2.0",
+    "@angular/compiler-cli": "^18.2.0",
     "@angular/core": "^18.2.0",
     "@angular/forms": "^18.2.0",
     "@angular/platform-browser": "^18.2.0",
     "@angular/platform-browser-dynamic": "^18.2.0",
-    "rxjs": "~7.8.0",
-    "tslib": "^2.3.0",
-    "zone.js": "~0.14.10"
-  },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "^18.2.5",
-    "@angular/cli": "^18.2.5",
-    "@angular/compiler-cli": "^18.2.0",
     "@eslint/compat": "^1.1.1",
     "@storybook/addon-essentials": "^8.3.0",
     "@storybook/angular": "^8.3.0",
@@ -38,12 +42,19 @@
     "eslint": "^9.9.1",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-storybook": "^0.8.0",
+    "jsdom": "^22.0.0",
     "keycloakify": "^11.0.0",
     "ng-packagr": "^18.2.0",
     "prettier": "^3.3.3",
+    "prismjs": "^1.29.0",
+    "rxjs": "~7.8.0",
     "storybook": "^8.3.0",
+    "tslib": "^2.3.0",
     "typescript": "~5.5.2",
-    "typescript-eslint": "^8.2.0"
+    "typescript-eslint": "^8.2.0",
+    "vite": "^5.4.6",
+    "vite-tsconfig-paths": "^4.2.0",
+    "vitest": "^1.3.1"
   },
   "overrides": {
     "@typescript-eslint/utils": "^8.6.0"

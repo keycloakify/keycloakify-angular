@@ -1,4 +1,4 @@
-@let idPostfix = attribute()?.name ?? "" + "-" + (fieldIndex() ?? 0 + 1);
+@let idPostfix = attribute()?.name ?? '' + '-' + (fieldIndex() ?? 0 + 1);
 @if (hasRemove()) {
   <button
     [id]="'kc-remove-' + idPostfix"
@@ -6,7 +6,7 @@
     class="pf-c-button pf-m-inline pf-m-link"
     (click)="onRemove()"
   >
-    {{ "remove" | kcTranslate }}
+    {{ 'remove' | kcTranslate }}
   </button>
   @if (hasAdd()) {
     &nbsp;|&nbsp;
@@ -19,6 +19,6 @@
     class="pf-c-button pf-m-inline pf-m-link"
     (click)="onAdd()"
   >
-    {{ "addValue" | kcTranslate }}
+    {{ 'addValue' | kcTranslate }}
   </button>
 }

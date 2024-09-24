@@ -19,7 +19,10 @@
     <div id="kc-registration">
       <span>
         {{ "noAccount" | msgStr }}
-        <a tabindex="6" [href]="url?.registrationUrl">
+        <a
+          tabindex="6"
+          [href]="url?.registrationUrl"
+        >
           {{ "doRegister" | msgStr }}
         </a>
       </span>
@@ -36,22 +39,16 @@
         <ul
           [kcClass]="{
             kcFormSocialAccountListClass: true,
-            kcFormSocialAccountListGridClass:
-              (social?.providers?.length ?? 0) > 3,
+            kcFormSocialAccountListGridClass: (social?.providers?.length ?? 0) > 3,
           }"
         >
-          @for (
-            provider of social?.providers;
-            track provider.alias;
-            let idx = $index
-          ) {
+          @for (provider of social?.providers; track provider.alias; let idx = $index) {
             <li>
               <a
                 [id]="provider.alias"
                 [kcClass]="{
                   kcFormSocialAccountListButtonClass: true,
-                  kcFormSocialAccountGridItem:
-                    (social?.providers?.length ?? 0) > 3,
+                  kcFormSocialAccountGridItem: (social?.providers?.length ?? 0) > 3,
                 }"
                 type="button"
                 [href]="provider.loginUrl"
@@ -89,13 +86,17 @@
           >
             @if (!usernameHidden) {
               <div [kcClass]="'kcFormGroupClass'">
-                <label for="username" [kcClass]="'kcLabelClass'">
+                <label
+                  for="username"
+                  [kcClass]="'kcLabelClass'"
+                >
                   @if (!realm?.loginWithEmailAllowed) {
                     {{ "username" | msgStr }}
                   } @else if (!realm?.registrationEmailAsUsername) {
                     {{ "usernameOrEmail" | msgStr }}
                   } @else {
                     {{ "email" | msgStr }}
+
                   }
                 </label>
                 <input
@@ -107,19 +108,14 @@
                   autofocus
                   autoComplete="off"
                   [defaultValue]="login?.username || ''"
-                  [attr.aria-invalid]="
-                    messagesPerField?.existsError('username')
-                  "
+                  [attr.aria-invalid]="messagesPerField?.existsError('username')"
                 />
-                @if (messagesPerField?.existsError("username")) {
+                @if (messagesPerField?.existsError('username')) {
                   <span
                     id="input-error"
                     [kcClass]="'kcInputErrorMessageClass'"
                     aria-live="polite"
-                    [innerHTML]="
-                      messagesPerField?.getFirstError('username')
-                        | kcSanitize: 'html'
-                    "
+                    [innerHTML]="messagesPerField?.getFirstError('username') | kcSanitize: 'html'"
                   >
                   </span>
                 }
@@ -145,15 +141,13 @@
                 }
               </div>
             </div>
-            <div id="kc-form-buttons" [kcClass]="'kcFormGroupClass'">
+            <div
+              id="kc-form-buttons"
+              [kcClass]="'kcFormGroupClass'"
+            >
               <input
                 tabindex="4"
-                [kcClass]="[
-                  'kcButtonClass',
-                  'kcButtonPrimaryClass',
-                  'kcButtonBlockClass',
-                  'kcButtonLargeClass',
-                ]"
+                [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                 name="login"
                 id="kc-login"
                 type="submit"

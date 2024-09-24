@@ -1,12 +1,5 @@
 import { AsyncPipe, NgClass } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  forwardRef,
-  inject,
-  input,
-  signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input, signal } from '@angular/core';
 import { ClassKey } from 'keycloakify/login';
 import { KcContext } from 'keycloakify/login/KcContext';
 import { ComponentReference } from '../../classes/component-reference.class';
@@ -45,8 +38,7 @@ import { KC_CONTEXT } from '../../providers/keycloakify-angular.providers';
   ],
 })
 export class LoginUsernameComponent extends ComponentReference {
-  kcContext =
-    inject<Extract<KcContext, { pageId: 'login-username.ftl' }>>(KC_CONTEXT);
+  kcContext = inject<Extract<KcContext, { pageId: 'login-username.ftl' }>>(KC_CONTEXT);
   displayRequiredFields = input(false);
   documentTitle = input<string>();
   bodyClassName = input<string>();
@@ -57,6 +49,5 @@ export class LoginUsernameComponent extends ComponentReference {
     !!this.kcContext?.realm?.password &&
     !!this.kcContext?.realm?.registrationAllowed &&
     !this.kcContext?.registrationDisabled;
-  displayMessage: boolean =
-    !this.kcContext?.messagesPerField?.existsError('username');
+  displayMessage: boolean = !this.kcContext?.messagesPerField?.existsError('username');
 }

@@ -45,13 +45,8 @@ export class KcInputDirective {
     },
   ],
 })
-export class PasswordWrapperComponent
-  extends ComponentReference
-  implements AfterContentInit
-{
-  @ContentChild(KcInputDirective, { static: true }) input:
-    | KcInputDirective
-    | undefined;
+export class PasswordWrapperComponent extends ComponentReference implements AfterContentInit {
+  @ContentChild(KcInputDirective, { static: true }) input: KcInputDirective | undefined;
   passwordInputId = input<string>();
   override doUseDefaultCss = input<boolean>();
   override classes = input<Partial<Record<ClassKey, string>>>();
@@ -69,9 +64,7 @@ export class PasswordWrapperComponent
 
   private setPasswordInputType(): void {
     if (this.input) {
-      this.input.el.nativeElement.type = this.isPasswordRevealed()
-        ? 'text'
-        : 'password';
+      this.input.el.nativeElement.type = this.isPasswordRevealed() ? 'text' : 'password';
     }
   }
 }

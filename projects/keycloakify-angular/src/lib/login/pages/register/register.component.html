@@ -47,31 +47,28 @@
               [kcClass]="'kcCheckboxInputClass'"
               [checked]="areTermsAccepted()"
               (change)="areTermsAccepted.set($any($event.target).checked)"
-              [attr.aria-invalid]="
-                messagesPerField.existsError('termsAccepted')
-              "
+              [attr.aria-invalid]="messagesPerField.existsError('termsAccepted')"
             />
-            <label for="termsAccepted" [kcClass]="'kcLabelClass'">
+            <label
+              for="termsAccepted"
+              [kcClass]="'kcLabelClass'"
+            >
               {{ "acceptTerms" | msgStr }}
             </label>
           </div>
-          @if (messagesPerField.existsError("termsAccepted")) {
+          @if (messagesPerField.existsError('termsAccepted')) {
             <div [kcClass]="'kcLabelWrapperClass'">
               <span
                 id="input-error-terms-accepted"
                 [kcClass]="'kcInputErrorMessageClass'"
                 aria-live="polite"
-                [innerHtml]="
-                  messagesPerField.get('termsAccepted') | kcSanitize: 'html'
-                "
+                [innerHtml]="messagesPerField.get('termsAccepted') | kcSanitize: 'html'"
               ></span>
             </div>
           }
         </div>
       }
-      @if (
-        recaptchaRequired && (recaptchaVisible || recaptchaAction === undefined)
-      ) {
+      @if (recaptchaRequired && (recaptchaVisible || recaptchaAction === undefined)) {
         <div className="form-group">
           <div [kcClass]="'kcInputWrapperClass'">
             <div
@@ -85,7 +82,10 @@
       }
 
       <div [kcClass]="'kcFormGroupClass'">
-        <div id="kc-form-options" [kcClass]="'kcFormOptionsClass'">
+        <div
+          id="kc-form-options"
+          [kcClass]="'kcFormOptionsClass'"
+        >
           <div [kcClass]="'kcFormOptionsWrapperClass'">
             <span>
               <a
@@ -95,19 +95,13 @@
             </span>
           </div>
         </div>
-        @if (
-          recaptchaRequired &&
-          !recaptchaVisible &&
-          recaptchaAction !== undefined
-        ) {
-          <div id="kc-form-buttons" [kcClass]="'kcFormButtonsClass'">
+        @if (recaptchaRequired && !recaptchaVisible && recaptchaAction !== undefined) {
+          <div
+            id="kc-form-buttons"
+            [kcClass]="'kcFormButtonsClass'"
+          >
             <button
-              [kcClass]="[
-                'kcButtonClass',
-                'kcButtonPrimaryClass',
-                'kcButtonBlockClass',
-                'kcButtonLargeClass',
-              ]"
+              [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
               class="g-recaptcha"
               [attr.data-sitekey]="recaptchaSiteKey"
               [attr.data-callback]="onCallback"
@@ -118,18 +112,13 @@
             </button>
           </div>
         } @else {
-          <div id="kc-form-buttons" [kcClass]="'kcFormButtonsClass'">
+          <div
+            id="kc-form-buttons"
+            [kcClass]="'kcFormButtonsClass'"
+          >
             <input
-              [disabled]="
-                !isFormSubmittable ||
-                (termsAcceptanceRequired && !areTermsAccepted)
-              "
-              [kcClass]="[
-                'kcButtonClass',
-                'kcButtonPrimaryClass',
-                'kcButtonBlockClass',
-                'kcButtonLargeClass',
-              ]"
+              [disabled]="!isFormSubmittable || (termsAcceptanceRequired && !areTermsAccepted)"
+              [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
               type="submit"
               [value]="'doRegister' | msgStr"
             />

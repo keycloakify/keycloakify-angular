@@ -8,7 +8,10 @@ export * from './lib/login/pipes';
 // CLASSES
 export * from './lib/login/classes/component-reference.class';
 // SERVICES
+export * from './lib/login/services';
+// DEFAULT PAGE
 export * from './lib/login/DefaultPage';
+// PROVIDERS
 export {
   CLASSES,
   DO_MAKE_USER_CONFIRM_PASSWORD,
@@ -18,4 +21,3 @@ export {
   provideKeycloakifyAngular,
   type KeycloakifyAngularConfig,
 } from './lib/login/providers/keycloakify-angular.providers';
-export * from './lib/login/services/resource-injector.service';

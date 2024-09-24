@@ -21,19 +21,9 @@ interface CssClassState {
   touched: boolean;
 }
 
-type KcClassSupportedTypes =
-  | ClassKey[]
-  | Set<ClassKey>
-  | Partial<{ [key in ClassKey]: any }>
-  | null
-  | undefined;
+type KcClassSupportedTypes = ClassKey[] | Set<ClassKey> | Partial<{ [key in ClassKey]: any }> | null | undefined;
 
-type NgClassSupportedTypes =
-  | string[]
-  | Set<string>
-  | { [key: string]: any }
-  | null
-  | undefined;
+type NgClassSupportedTypes = string[] | Set<string> | { [key: string]: any } | null | undefined;
 
 @Directive({ selector: '[kcClass]', standalone: true })
 export class KcClassDirective implements DoCheck {
@@ -54,17 +44,13 @@ export class KcClassDirective implements DoCheck {
   // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('ngClass')
   set ngClass(value: string | NgClassSupportedTypes) {
-    this.rawClass =
-      typeof value === 'string' ? value.trim().split(/\s+/) : value;
+    this.rawClass = typeof value === 'string' ? value.trim().split(/\s+/) : value;
   }
 
   // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('kcClass')
   set kcClass(value: ClassKey | KcClassSupportedTypes) {
-    this.rawKcClass =
-      typeof value === 'string'
-        ? (value.trim().split(/\s+/) as ClassKey[])
-        : value;
+    this.rawKcClass = typeof value === 'string' ? (value.trim().split(/\s+/) as ClassKey[]) : value;
   }
 
   ngDoCheck(): void {
@@ -98,11 +84,7 @@ export class KcClassDirective implements DoCheck {
     this._applyStateDiff();
   }
 
-  private _updateState(
-    klass: string | ClassKey,
-    nextEnabled: boolean,
-    kcClsxCheck = false,
-  ) {
+  private _updateState(klass: string | ClassKey, nextEnabled: boolean, kcClsxCheck = false) {
     const state = this.stateMap.get(klass);
     if (state !== undefined) {
       if (state.enabled !== nextEnabled) {
@@ -150,9 +132,7 @@ export class KcClassDirective implements DoCheck {
   private _toggleClass(klass: string, enabled: boolean): void {
     if (isDevMode()) {
       if (typeof klass !== 'string') {
-        throw new Error(
-          `NgClass can only toggle CSS classes expressed as strings, got ${stringify(klass)}`,
-        );
+        throw new Error(`NgClass can only toggle CSS classes expressed as strings, got ${stringify(klass)}`);
       }
     }
 

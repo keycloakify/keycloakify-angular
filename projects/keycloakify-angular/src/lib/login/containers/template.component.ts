@@ -1,37 +1,19 @@
 import { AsyncPipe, NgTemplateOutlet } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  input,
-  OnInit,
-  Renderer2,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input, OnInit, Renderer2 } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { KcContext } from 'keycloakify/login/KcContext/KcContext';
 import { ClassKey, getKcClsx } from 'keycloakify/login/lib/kcClsx';
 import { Observable } from 'rxjs';
 import { KcClassDirective } from '../directives/kc-class.directive';
 import { KcSanitizePipe, KcTranslatePipe } from '../pipes';
-import {
-  CLASSES,
-  I18N,
-  KC_CONTEXT,
-  USE_DEFAULT_CSS,
-} from '../providers/keycloakify-angular.providers';
+import { CLASSES, I18N, KC_CONTEXT, USE_DEFAULT_CSS } from '../providers/keycloakify-angular.providers';
 import { ResourceInjectorService } from '../services/resource-injector.service';
 
 @Component({
   selector: 'kc-login-template',
   templateUrl: './template.component.html',
   standalone: true,
-  imports: [
-    AsyncPipe,
-    KcSanitizePipe,
-    NgTemplateOutlet,
-    KcClassDirective,
-    KcTranslatePipe,
-  ],
+  imports: [AsyncPipe, KcSanitizePipe, NgTemplateOutlet, KcClassDirective, KcTranslatePipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TemplateComponent implements OnInit {
@@ -53,13 +35,8 @@ export class TemplateComponent implements OnInit {
   isReadyToRender$: Observable<boolean>;
 
   constructor() {
-    this.title.setTitle(
-      this.documentTitle() ??
-        this.i18n.msgStr('loginTitle', this.kcContext.realm.displayName),
-    );
-    this.isReadyToRender$ = this.resourceInjectorService.injectResource(
-      this.doUseDefaultCss,
-    );
+    this.title.setTitle(this.documentTitle() ?? this.i18n.msgStr('loginTitle', this.kcContext.realm.displayName));
+    this.isReadyToRender$ = this.resourceInjectorService.injectResource(this.doUseDefaultCss);
   }
 
   ngOnInit() {

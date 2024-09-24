@@ -58,7 +58,7 @@ export class WebauthnRegisterComponent extends ComponentReference {
     const scripts: Script[] = [
       {
         type: 'module',
-        id: 'WebAuthnScript',
+        id: 'WebAuthnRegisterScript',
         textContent: `
               import { registerByWebAuthn } from "${url.resourcesPath}/js/webauthnRegister.js";
               const registerButton = document.getElementById('${this.authButtonId}');

@@ -4,21 +4,12 @@
   "compileOnSave": false,
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
-    "strict": true,
     "baseUrl": ".",
-    "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "isolatedModules": true,
     "paths": {
-      "keycloakify-angular/*": [
-        "dist/keycloakify-angular/*"
-      ],
-      "keycloakify-angular": [
-        "dist/keycloakify-angular"
-      ]
+      "keycloakify-angular/*": ["dist/keycloakify-angular/*"],
+      "keycloakify-angular": ["dist/keycloakify-angular"]
     },
     "esModuleInterop": true,
     "sourceMap": true,
@@ -28,10 +19,15 @@
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+    "lib": ["ES2022", "dom"],
+    /* Linting */
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": false,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

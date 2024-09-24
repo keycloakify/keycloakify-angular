@@ -1,3 +1,7 @@
+@let url = kcContext.url;
+@let isSetRetry = kcContext.isSetRetry;
+@let isAppInitiatedAction = kcContext.isAppInitiatedAction;
+
 <kc-login-template
   [displayInfo]="displayInfo"
   [bodyClassName]="bodyClassName()"
@@ -13,7 +17,7 @@
     <form
       id="register"
       [kcClass]="'kcFormClass'"
-      [action]="kcContext.url.loginAction"
+      [action]="url.loginAction"
       method="post"
     >
       <div [kcClass]="'kcFormGroupClass'">
@@ -56,5 +60,23 @@
       [id]="authButtonId"
       [value]="'doRegisterSecurityKey' | msgStr"
     />
+    @if (!isSetRetry && isAppInitiatedAction) {
+      <form
+        [action]="url.loginAction"
+        [kcClass]="'kcFormClass'"
+        id="kc-webauthn-settings-form"
+        method="post"
+      >
+        <button
+          type="submit"
+          [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
+          id="cancelWebAuthnAIA"
+          name="cancel-aia"
+          value="true"
+        >
+          {{ 'doCancel' | msgStr }}
+        </button>
+      </form>
+    }
   </ng-container>
 </kc-login-template>

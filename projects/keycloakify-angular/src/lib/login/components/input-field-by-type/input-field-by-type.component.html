@@ -1,0 +1,75 @@
+@let attr = attribute();
+@if (attr) {
+  @let type = attr.annotations.inputType;
+  @switch (type) {
+    @case ('textarea') {
+      <kc-textarea-tag
+        [attribute]="attribute()"
+        [value]="$any(valueOrValues())"
+        [displayableErrors]="displayableErrors()"
+        [doUseDefaultCss]="doUseDefaultCss()"
+        [classes]="classes()"
+        (dispatchFormAction)="dispatchFormAction.emit($event)"
+      ></kc-textarea-tag>
+    }
+    @case (type === 'select' || type === 'multiselect' ? type : '') {
+      <kc-select-tag
+        [attribute]="attribute()"
+        [valueOrValues]="valueOrValues()"
+        [displayableErrors]="displayableErrors()"
+        [doUseDefaultCss]="doUseDefaultCss()"
+        [classes]="classes()"
+        (dispatchFormAction)="dispatchFormAction.emit($event)"
+      ></kc-select-tag>
+    }
+    @case (type === 'select-radiobuttons' || type === 'multiselect-checkboxes' ? type : '') {
+      <kc-input-tag-selects
+        [attribute]="attribute()"
+        [valueOrValues]="valueOrValues()"
+        [displayableErrors]="displayableErrors()"
+        [doUseDefaultCss]="doUseDefaultCss()"
+        [classes]="classes()"
+        (dispatchFormAction)="dispatchFormAction.emit($event)"
+      ></kc-input-tag-selects>
+    }
+    @default {
+      @let values = valueOrValues();
+      <!-- if valueOrValues is string skip -->
+      @if (values && (values | toArray: true).length) {
+        @for (value of values; track value; let i = $index) {
+          <kc-input-tag
+            [attribute]="attribute()"
+            [valueOrValues]="valueOrValues()"
+            [fieldIndex]="i"
+            [displayableErrors]="displayableErrors()"
+            [doUseDefaultCss]="doUseDefaultCss()"
+            [classes]="classes()"
+            (dispatchFormAction)="dispatchFormAction.emit($event)"
+          ></kc-input-tag>
+        }
+      } @else {
+        @if (attr.name === 'password' || attr.name === 'password-confirm') {
+          <kc-password-wrapper [passwordInputId]="attr.name">
+            <kc-input-tag
+              [attribute]="attribute()"
+              [valueOrValues]="valueOrValues()"
+              [displayableErrors]="displayableErrors()"
+              [doUseDefaultCss]="doUseDefaultCss()"
+              [classes]="classes()"
+              (dispatchFormAction)="dispatchFormAction.emit($event)"
+            ></kc-input-tag>
+          </kc-password-wrapper>
+        } @else {
+          <kc-input-tag
+            [attribute]="attribute()"
+            [valueOrValues]="valueOrValues()"
+            [displayableErrors]="displayableErrors()"
+            [doUseDefaultCss]="doUseDefaultCss()"
+            [classes]="classes()"
+            (dispatchFormAction)="dispatchFormAction.emit($event)"
+          ></kc-input-tag>
+        }
+      }
+    }
+  }
+}

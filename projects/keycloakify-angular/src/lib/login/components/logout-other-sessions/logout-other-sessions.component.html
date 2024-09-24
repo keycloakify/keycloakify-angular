@@ -1,0 +1,16 @@
+<div id="kc-form-options" [kcClass]="'kcFormOptionsClass'">
+  <div [kcClass]="'kcFormOptionsWrapperClass'">
+    <div class="checkbox">
+      <label>
+        <input
+          type="checkbox"
+          id="logout-sessions"
+          name="logout-sessions"
+          value="on"
+          defaultChecked="true"
+        />
+        {{ "logoutOtherSessions" | kcTranslate }}
+      </label>
+    </div>
+  </div>
+</div>

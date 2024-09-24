@@ -1,0 +1,55 @@
+@let attr = attribute();
+@let index = fieldIndex();
+@if (attr) {
+  <input
+    [type]="attr.annotations.inputType | inputType"
+    [id]="attr.name"
+    [name]="attr.name"
+    [value]="value()"
+    [kcClass]="'kcInputClass'"
+    [attr.aria-invalid]="index && displayableErrors()?.[index] !== undefined"
+    [disabled]="attr.readOnly"
+    [autocomplete]="attr.autocomplete"
+    [placeholder]="attr.annotations.inputTypePlaceholder ?? '' | kcTranslate"
+    [pattern]="attr.annotations.inputTypePattern"
+    [size]="
+      !attr.annotations.inputTypeSize
+        ? 20
+        : (attr.annotations.inputTypeSize | toNumber) === 0
+          ? 20
+          : (attr.annotations.inputTypeSize | toNumber)
+    "
+    [maxLength]="
+      !attr.annotations.inputTypeMaxlength
+        ? undefined
+        : (attr.annotations.inputTypeMaxlength | toNumber)
+    "
+    [minLength]="
+      !attr.annotations.inputTypeMinlength
+        ? undefined
+        : (attr.annotations.inputTypeMinlength | toNumber)
+    "
+    [max]="attr.annotations.inputTypeMax"
+    [min]="attr.annotations.inputTypeMin"
+    [step]="attr.annotations.inputTypeStep"
+    [kcAttributes]="attr.html5DataAnnotations"
+    (change)="onChange($event)"
+    (blur)="onBlur()"
+  />
+  @if (index !== undefined) {
+    @let values = valueOrValues() ?? [] | toArray;
+    <kc-field-errors
+      [attribute]="attr"
+      [displayableErrors]="displayableErrors()"
+      [fieldIndex]="index"
+      [doUseDefaultCss]="doUseDefaultCss()"
+      [classes]="classes()"
+    ></kc-field-errors>
+    <kc-add-remove-buttons-multi-valued-attribute
+      [attribute]="attr"
+      [values]="values"
+      [fieldIndex]="index"
+      (dispatchFormAction)="dispatchFormAction.emit($event)"
+    ></kc-add-remove-buttons-multi-valued-attribute>
+  }
+}

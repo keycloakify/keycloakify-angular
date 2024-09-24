@@ -1,0 +1,15 @@
+{
+  "name": "keycloakify-angular",
+  "version": "0.0.1",
+  "type": "module",
+  "peerDependencies": {
+    "@angular/common": "^18.2.0",
+    "@angular/core": "^18.2.0",
+    "keycloakify": "^11.0.0",
+    "tsafe": "^1.7.2"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}

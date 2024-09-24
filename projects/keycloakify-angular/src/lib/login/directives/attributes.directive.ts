@@ -1,11 +1,4 @@
-import {
-  Directive,
-  effect,
-  ElementRef,
-  inject,
-  input,
-  Renderer2,
-} from '@angular/core';
+import { Directive, effect, ElementRef, inject, input, Renderer2 } from '@angular/core';
 
 @Directive({ selector: '[kcAttributes]', standalone: true })
 export class AttributesDirective {
@@ -18,11 +11,7 @@ export class AttributesDirective {
       const attributes = this.kcAttributes();
       if (attributes) {
         Object.entries(attributes).forEach(([key, value]) => {
-          this.#renderer.setAttribute(
-            this.#el.nativeElement,
-            `data-${key}`,
-            value,
-          );
+          this.#renderer.setAttribute(this.#el.nativeElement, `data-${key}`, value);
         });
       }
     });

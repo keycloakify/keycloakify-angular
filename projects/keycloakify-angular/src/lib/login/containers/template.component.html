@@ -7,8 +7,14 @@
 
 @if (isReadyToRender) {
   <div [kcClass]="'kcLoginClass'">
-    <div id="kc-header" [kcClass]="'kcHeaderClass'">
-      <div id="kc-header-wrapper" [kcClass]="'kcHeaderWrapperClass'">
+    <div
+      id="kc-header"
+      [kcClass]="'kcHeaderClass'"
+    >
+      <div
+        id="kc-header-wrapper"
+        [kcClass]="'kcHeaderWrapperClass'"
+      >
         <div [innerHTML]="realm?.displayNameHtml | kcSanitize: 'html'"></div>
       </div>
     </div>
@@ -17,8 +23,14 @@
       <header [kcClass]="'kcFormHeaderClass'">
         <!-- Locale switcher -->
         @if (i18n.enabledLanguages.length > 1) {
-          <div id="kc-locale" [kcClass]="'kcLocaleMainClass'">
-            <div id="kc-locale-wrapper" [kcClass]="'kcLocaleWrapperClass'">
+          <div
+            id="kc-locale"
+            [kcClass]="'kcLocaleMainClass'"
+          >
+            <div
+              id="kc-locale-wrapper"
+              [kcClass]="'kcLocaleWrapperClass'"
+            >
               <div
                 id="kc-locale-dropdown"
                 [kcClass]="'kcLocaleDropDownClass'"
@@ -42,12 +54,11 @@
                   id="language-switch1"
                   [kcClass]="'kcLocaleListClass'"
                 >
-                  @for (
-                    entry of i18n.enabledLanguages;
-                    track entry;
-                    let idx = $index
-                  ) {
-                    <li [kcClass]="'kcLocaleListItemClass'" role="none">
+                  @for (entry of i18n.enabledLanguages; track entry; let idx = $index) {
+                    <li
+                      [kcClass]="'kcLocaleListItemClass'"
+                      role="none"
+                    >
                       <a
                         role="menuitem"
                         tabindex="-1"
@@ -72,10 +83,11 @@
               <ng-content select="[headerNode]"></ng-content>
             </h1>
           } @else {
-            <div id="kc-username" [kcClass]="'kcFormGroupClass'">
-              <label id="kc-attempted-username">{{
-                auth?.attemptedUsername
-              }}</label>
+            <div
+              id="kc-username"
+              [kcClass]="'kcFormGroupClass'"
+            >
+              <label id="kc-attempted-username">{{ auth?.attemptedUsername }}</label>
               <a
                 id="reset-login"
                 [href]="url?.loginRestartFlowUrl"
@@ -84,7 +96,7 @@
                 <div class="kc-login-tooltip">
                   <i [kcClass]="'kcResetFlowIcon'"></i>
                   <span class="kc-tooltip-text">
-                    {{ "restartLoginTooltip" | kcTranslate }}
+                    {{ 'restartLoginTooltip' | kcTranslate }}
                   </span>
                 </div>
               </a>
@@ -94,10 +106,13 @@
 
         @if (displayRequiredFields()) {
           <div [kcClass]="'kcContentWrapperClass'">
-            <div [kcClass]="'kcLabelWrapperClass'" class="subtitle">
+            <div
+              [kcClass]="'kcLabelWrapperClass'"
+              class="subtitle"
+            >
               <span class="subtitle">
                 <span class="required">*</span>
-                {{ "requiredFields" | kcTranslate }}
+                {{ 'requiredFields' | kcTranslate }}
               </span>
             </div>
             <div class="col-md-10">
@@ -112,32 +127,24 @@
       <div id="kc-content">
         <div id="kc-content-wrapper">
           <!-- Message display -->
-          @if (
-            displayMessage() &&
-            message &&
-            (message.type !== "warning" || !isAppInitiatedAction)
-          ) {
+          @if (displayMessage() && message && (message.type !== 'warning' || !isAppInitiatedAction)) {
             <div
               [kcClass]="'kcAlertClass'"
-              [ngClass]="
-                message.type === 'error'
-                  ? 'pf-m-danger'
-                  : 'pf-m-' + message.type
-              "
+              [ngClass]="message.type === 'error' ? 'pf-m-danger' : 'pf-m-' + message.type"
               [class]="'alert-' + message.type"
             >
               <div class="pf-c-alert__icon">
                 @switch (message.type) {
-                  @case ("success") {
+                  @case ('success') {
                     <span [kcClass]="'kcFeedbackSuccessIcon'"></span>
                   }
-                  @case ("warning") {
+                  @case ('warning') {
                     <span [kcClass]="'kcFeedbackWarningIcon'"></span>
                   }
-                  @case ("info") {
+                  @case ('info') {
                     <span [kcClass]="'kcFeedbackInfoIcon'"></span>
                   }
-                  @case ("error") {
+                  @case ('error') {
                     <span [kcClass]="'kcFeedbackErrorIcon'"></span>
                   }
                 }
@@ -158,9 +165,16 @@
             >
               <div [kcClass]="'kcFormGroupClass'">
                 <div [kcClass]="'kcFormGroupClass'">
-                  <input type="hidden" name="tryAnotherWay" value="on" />
-                  <a id="try-another-way" (click)="tryAnotherWay()">
-                    {{ "doTryAnotherWay" | kcTranslate }}
+                  <input
+                    type="hidden"
+                    name="tryAnotherWay"
+                    value="on"
+                  />
+                  <a
+                    id="try-another-way"
+                    (click)="tryAnotherWay()"
+                  >
+                    {{ 'doTryAnotherWay' | kcTranslate }}
                   </a>
                 </div>
               </div>
@@ -170,8 +184,14 @@
           <ng-content select="[socialProvidersNode]"></ng-content>
           <!-- Info display -->
           @if (displayInfo()) {
-            <div id="kc-info" [kcClass]="'kcSignUpClass'">
-              <div id="kc-info-wrapper" [kcClass]="'kcInfoAreaWrapperClass'">
+            <div
+              id="kc-info"
+              [kcClass]="'kcSignUpClass'"
+            >
+              <div
+                id="kc-info-wrapper"
+                [kcClass]="'kcInfoAreaWrapperClass'"
+              >
                 <ng-content select="[infoNode]"></ng-content>
               </div>
             </div>

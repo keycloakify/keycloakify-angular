@@ -14,15 +14,18 @@
   [documentTitle]="documentTitle()"
 >
   <ng-container headerNode>
-    {{ "loginAccountTitle" | kcTranslate }}
+    {{ 'loginAccountTitle' | kcTranslate }}
   </ng-container>
   <ng-container infoNode>
     <div id="kc-registration-container">
       <div id="kc-registration">
         <span>
-          {{ "noAccount" | kcTranslate }}
-          <a tabindex="8" [href]="url?.registrationUrl">
-            {{ "doRegister" | kcTranslate }}
+          {{ 'noAccount' | kcTranslate }}
+          <a
+            tabindex="8"
+            [href]="url?.registrationUrl"
+          >
+            {{ 'doRegister' | kcTranslate }}
           </a>
         </span>
       </div>
@@ -35,26 +38,20 @@
         [kcClass]="'kcFormSocialAccountSectionClass'"
       >
         <hr />
-        <h2>{{ "identity-provider-login-label" | kcTranslate }}</h2>
+        <h2>{{ 'identity-provider-login-label' | kcTranslate }}</h2>
         <ul
           [kcClass]="{
             kcFormSocialAccountListClass: true,
-            kcFormSocialAccountListGridClass:
-              (social?.providers?.length ?? 0) > 3,
+            kcFormSocialAccountListGridClass: (social?.providers?.length ?? 0) > 3,
           }"
         >
-          @for (
-            provider of social?.providers;
-            track provider.alias;
-            let idx = $index
-          ) {
+          @for (provider of social?.providers; track provider.alias; let idx = $index) {
             <li>
               <a
                 [id]="provider.alias"
                 [kcClass]="{
                   kcFormSocialAccountListButtonClass: true,
-                  kcFormSocialAccountGridItem:
-                    (social?.providers?.length ?? 0) > 3,
+                  kcFormSocialAccountGridItem: (social?.providers?.length ?? 0) > 3,
                 }"
                 type="button"
                 [href]="provider.loginUrl"
@@ -93,13 +90,16 @@
           >
             @if (!usernameHidden) {
               <div [kcClass]="'kcFormGroupClass'">
-                <label for="username" [kcClass]="'kcLabelClass'">
+                <label
+                  for="username"
+                  [kcClass]="'kcLabelClass'"
+                >
                   @if (!realm?.loginWithEmailAllowed) {
-                    {{ "username" | kcTranslate }}
+                    {{ 'username' | kcTranslate }}
                   } @else if (!realm?.registrationEmailAsUsername) {
-                    {{ "usernameOrEmail" | kcTranslate }}
+                    {{ 'usernameOrEmail' | kcTranslate }}
                   } @else {
-                    {{ "email" | kcTranslate }}
+                    {{ 'email' | kcTranslate }}
                   }
                 </label>
                 <input
@@ -110,19 +110,14 @@
                   type="text"
                   autofocus
                   [defaultValue]="login?.username || ''"
-                  [attr.aria-invalid]="
-                    messagesPerField?.existsError('username', 'password')
-                  "
+                  [attr.aria-invalid]="messagesPerField?.existsError('username', 'password')"
                 />
-                @if (messagesPerField?.existsError("username", "password")) {
+                @if (messagesPerField?.existsError('username', 'password')) {
                   <span
                     id="input-error"
                     [kcClass]="'kcInputErrorMessageClass'"
                     aria-live="polite"
-                    [innerHTML]="
-                      messagesPerField?.getFirstError('username', 'password')
-                        | kcSanitize: 'html'
-                    "
+                    [innerHTML]="messagesPerField?.getFirstError('username', 'password') | kcSanitize: 'html'"
                   >
                   </span>
                 }
@@ -130,8 +125,11 @@
             }
 
             <div [kcClass]="'kcFormGroupClass'">
-              <label for="password" [kcClass]="'kcLabelClass'">
-                {{ "password" | kcTranslate }}
+              <label
+                for="password"
+                [kcClass]="'kcLabelClass'"
+              >
+                {{ 'password' | kcTranslate }}
               </label>
 
               <kc-password-wrapper passwordInputId="password">
@@ -143,23 +141,15 @@
                   name="password"
                   type="password"
                   autocomplete="off"
-                  [attr.aria-invalid]="
-                    messagesPerField.existsError('username', 'password')
-                  "
+                  [attr.aria-invalid]="messagesPerField.existsError('username', 'password')"
                 />
               </kc-password-wrapper>
-              @if (
-                usernameHidden &&
-                messagesPerField?.existsError("username", "password")
-              ) {
+              @if (usernameHidden && messagesPerField?.existsError('username', 'password')) {
                 <span
                   id="input-error"
                   [kcClass]="'kcInputErrorMessageClass'"
                   aria-live="polite"
-                  [innerHTML]="
-                    messagesPerField?.getFirstError('username', 'password')
-                      | kcSanitize: 'html'
-                  "
+                  [innerHTML]="messagesPerField?.getFirstError('username', 'password') | kcSanitize: 'html'"
                 >
                 </span>
               }
@@ -177,7 +167,7 @@
                         type="checkbox"
                         [defaultChecked]="!!login?.rememberMe"
                       />
-                      {{ "rememberMe" | kcTranslate }}
+                      {{ 'rememberMe' | kcTranslate }}
                     </label>
                   </div>
                 }
@@ -186,14 +176,19 @@
               <div [kcClass]="'kcFormOptionsWrapperClass'">
                 @if (realm?.resetPasswordAllowed) {
                   <span>
-                    <a tabindex="6" [href]="url?.loginResetCredentialsUrl">{{
-                      "doForgotPassword" | kcTranslate
-                    }}</a>
+                    <a
+                      tabindex="6"
+                      [href]="url?.loginResetCredentialsUrl"
+                      >{{ 'doForgotPassword' | kcTranslate }}</a
+                    >
                   </span>
                 }
               </div>
             </div>
-            <div id="kc-form-buttons" [kcClass]="'kcFormGroupClass'">
+            <div
+              id="kc-form-buttons"
+              [kcClass]="'kcFormGroupClass'"
+            >
               <input
                 type="hidden"
                 id="id-hidden-input"
@@ -202,12 +197,7 @@
               />
               <input
                 tabindex="7"
-                [kcClass]="[
-                  'kcButtonClass',
-                  'kcButtonPrimaryClass',
-                  'kcButtonBlockClass',
-                  'kcButtonLargeClass',
-                ]"
+                [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                 name="login"
                 id="kc-login"
                 type="submit"

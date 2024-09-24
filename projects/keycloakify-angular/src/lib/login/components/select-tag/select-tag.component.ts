@@ -1,20 +1,10 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  forwardRef,
-  input,
-  output,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, forwardRef, input, output } from '@angular/core';
 import { Attribute, ClassKey } from 'keycloakify/login';
 import { ComponentReference } from '../../classes/component-reference.class';
 import { KcClassDirective } from '../../directives/kc-class.directive';
 import { KcTranslatePipe } from '../../pipes/kcTranslate.pipe';
 import { ToNumberPipe } from '../../pipes/to-number.pipe';
-import {
-  FormAction,
-  FormFieldError,
-} from '../../services/user-profile-form.service';
+import { FormAction, FormFieldError } from '../../services/user-profile-form.service';
 
 @Component({
   standalone: true,
@@ -59,9 +49,9 @@ export class SelectTagComponent extends ComponentReference {
             break walk;
           }
 
-          const validator = (
-            attribute.validators as Record<string, { options?: string[] }>
-          )[inputOptionsFromValidation];
+          const validator = (attribute.validators as Record<string, { options?: string[] }>)[
+            inputOptionsFromValidation
+          ];
 
           if (validator === undefined) {
             break walk;
@@ -86,9 +76,7 @@ export class SelectTagComponent extends ComponentReference {
       name: this.attribute()?.name ?? '',
       valueOrValues: (() => {
         if (this.isMultiple()) {
-          return Array.from(
-            (event.target as HTMLSelectElement).selectedOptions,
-          ).map((option) => option.value);
+          return Array.from((event.target as HTMLSelectElement).selectedOptions).map((option) => option.value);
         }
 
         return (event.target as HTMLSelectElement).value;

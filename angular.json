@@ -34,7 +34,6 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "eslintConfig": "projects/keycloakify-angular/eslint.config.js",
             "lintFilePatterns": [
               "projects/keycloakify-angular/src/**/*.ts",
               "projects/keycloakify-angular/src/**/*.html"

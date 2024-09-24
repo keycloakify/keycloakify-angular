@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  input,
-  output,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
 import { Attribute } from 'keycloakify/login';
 import { KcTranslatePipe } from '../../pipes/kcTranslate.pipe';
 import { FormAction } from '../../services/user-profile-form.service';
@@ -68,9 +62,7 @@ export class AddRemoveButtonsMultiValuedAttributeComponent {
     this.dispatchFormAction.emit({
       action: 'update',
       name: this.attribute()?.name ?? '',
-      valueOrValues: (this.values() ?? []).filter(
-        (_, i) => i !== this.fieldIndex(),
-      ),
+      valueOrValues: (this.values() ?? []).filter((_, i) => i !== this.fieldIndex()),
     });
   }
 

@@ -1,12 +1,5 @@
 import { AsyncPipe, NgClass } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  forwardRef,
-  inject,
-  input,
-  signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input, signal } from '@angular/core';
 import { ClassKey } from 'keycloakify/login';
 import { KcContext } from 'keycloakify/login/KcContext';
 import { ComponentReference } from '../../classes/component-reference.class';
@@ -45,8 +38,7 @@ import { KC_CONTEXT } from '../../providers/keycloakify-angular.providers';
   ],
 })
 export class RegisterComponent extends ComponentReference {
-  kcContext =
-    inject<Extract<KcContext, { pageId: 'register.ftl' }>>(KC_CONTEXT);
+  kcContext = inject<Extract<KcContext, { pageId: 'register.ftl' }>>(KC_CONTEXT);
   displayRequiredFields = input(false);
   documentTitle = input<string>();
   bodyClassName = input<string>();
@@ -55,8 +47,7 @@ export class RegisterComponent extends ComponentReference {
   isFormSubmittable = signal(false);
   areTermsAccepted = signal(false);
   displayInfo: boolean = false;
-  displayMessage: boolean =
-    !this.kcContext?.messagesPerField?.existsError('global');
+  displayMessage: boolean = !this.kcContext?.messagesPerField?.existsError('global');
 
   onCallback() {
     (document.getElementById('kc-register-form') as HTMLFormElement).submit();

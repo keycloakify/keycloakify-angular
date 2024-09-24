@@ -1,11 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  forwardRef,
-  input,
-  output,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, forwardRef, input, output } from '@angular/core';
 import { Attribute, ClassKey } from 'keycloakify/login';
 import { ComponentReference } from '../../classes/component-reference.class';
 import { AttributesDirective } from '../../directives/attributes.directive';
@@ -14,10 +7,7 @@ import { InputTypePipe } from '../../pipes/input-type.pipe';
 import { KcTranslatePipe } from '../../pipes/kcTranslate.pipe';
 import { ToArrayPipe } from '../../pipes/to-array.pipe';
 import { ToNumberPipe } from '../../pipes/to-number.pipe';
-import {
-  FormAction,
-  FormFieldError,
-} from '../../services/user-profile-form.service';
+import { FormAction, FormFieldError } from '../../services/user-profile-form.service';
 import { AddRemoveButtonsMultiValuedAttributeComponent } from '../add-remove-buttons-multi-valued-attribute/add-remove-buttons-multi-valued-attribute.component';
 import { FieldErrorsComponent } from '../field-errors/field-errors.component';
 

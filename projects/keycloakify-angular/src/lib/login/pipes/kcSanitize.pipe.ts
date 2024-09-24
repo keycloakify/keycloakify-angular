@@ -1,12 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {
-  DomSanitizer,
-  SafeHtml,
-  SafeResourceUrl,
-  SafeScript,
-  SafeStyle,
-  SafeUrl,
-} from '@angular/platform-browser';
+import { DomSanitizer, SafeHtml, SafeResourceUrl, SafeScript, SafeStyle, SafeUrl } from '@angular/platform-browser';
 
 @Pipe({ name: 'kcSanitize', standalone: true })
 export class KcSanitizePipe implements PipeTransform {

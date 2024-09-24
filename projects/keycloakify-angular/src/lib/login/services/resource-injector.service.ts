@@ -8,10 +8,7 @@ import { Script } from '../models/script.model';
   providedIn: 'root',
 })
 export class ResourceInjectorService {
-  private renderer: Renderer2 = inject(RendererFactory2).createRenderer(
-    null,
-    null,
-  );
+  private renderer: Renderer2 = inject(RendererFactory2).createRenderer(null, null);
   private kcContext: KcContext = inject(KC_CONTEXT);
 
   injectResource(doUseDefaultCss = true) {

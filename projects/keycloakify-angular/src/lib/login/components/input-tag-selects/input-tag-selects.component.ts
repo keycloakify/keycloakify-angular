@@ -1,20 +1,9 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  forwardRef,
-  input,
-  output,
-  Signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, forwardRef, input, output, Signal } from '@angular/core';
 import { Attribute, ClassKey } from 'keycloakify/login';
 import { ComponentReference } from '../../classes/component-reference.class';
 import { KcClassDirective } from '../../directives/kc-class.directive';
 import { KcTranslatePipe } from '../../pipes/kcTranslate.pipe';
-import {
-  FormAction,
-  FormFieldError,
-} from '../../services/user-profile-form.service';
+import { FormAction, FormFieldError } from '../../services/user-profile-form.service';
 
 @Component({
   standalone: true,
@@ -84,9 +73,9 @@ export class InputTagSelectsComponent extends ComponentReference {
             break walk;
           }
 
-          const validator = (
-            attribute.validators as Record<string, { options?: string[] }>
-          )[inputOptionsFromValidation];
+          const validator = (attribute.validators as Record<string, { options?: string[] }>)[
+            inputOptionsFromValidation
+          ];
 
           if (validator === undefined) {
             break walk;

@@ -19,16 +19,8 @@
           ? 20
           : (attr.annotations.inputTypeSize | toNumber)
     "
-    [maxLength]="
-      !attr.annotations.inputTypeMaxlength
-        ? undefined
-        : (attr.annotations.inputTypeMaxlength | toNumber)
-    "
-    [minLength]="
-      !attr.annotations.inputTypeMinlength
-        ? undefined
-        : (attr.annotations.inputTypeMinlength | toNumber)
-    "
+    [maxLength]="!attr.annotations.inputTypeMaxlength ? undefined : (attr.annotations.inputTypeMaxlength | toNumber)"
+    [minLength]="!attr.annotations.inputTypeMinlength ? undefined : (attr.annotations.inputTypeMinlength | toNumber)"
     [max]="attr.annotations.inputTypeMax"
     [min]="attr.annotations.inputTypeMin"
     [step]="attr.annotations.inputTypeStep"

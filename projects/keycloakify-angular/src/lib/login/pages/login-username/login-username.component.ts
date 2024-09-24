@@ -18,6 +18,7 @@ import { TemplateComponent } from '../../containers/template.component';
 import { KcClassDirective } from '../../directives/kc-class.directive';
 import { KcSanitizePipe } from '../../pipes/kcSanitize.pipe';
 import { KcTranslatePipe } from '../../pipes/kcTranslate.pipe';
+import { MsgStrPipe } from '../../pipes/msg-str.pipe';
 import { KC_CONTEXT } from '../../providers/keycloakify-angular.providers';
 
 @Component({
@@ -34,6 +35,7 @@ import { KC_CONTEXT } from '../../providers/keycloakify-angular.providers';
     TemplateComponent,
     KcTranslatePipe,
     KcInputDirective,
+    MsgStrPipe,
   ],
   providers: [
     {

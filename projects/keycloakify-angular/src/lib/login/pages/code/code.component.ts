@@ -8,11 +8,14 @@ import {
 import { ClassKey } from 'keycloakify/login';
 import { KcContext } from 'keycloakify/login/KcContext';
 import { ComponentReference } from '../../classes/component-reference.class';
+import { TemplateComponent } from '../../containers/template.component';
+import { KcClassDirective } from '../../directives/kc-class.directive';
+import { MsgStrPipe } from '../../pipes/msg-str.pipe';
 import { KC_CONTEXT } from '../../providers/keycloakify-angular.providers';
 
 @Component({
   standalone: true,
-  imports: [],
+  imports: [MsgStrPipe, TemplateComponent, KcClassDirective],
   selector: 'kc-root',
   templateUrl: 'code.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

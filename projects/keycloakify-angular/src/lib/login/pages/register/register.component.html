@@ -15,7 +15,7 @@
   [documentTitle]="documentTitle()"
 >
   <ng-container headerNode>
-    {{ messageHeader ?? "registerTitle" | kcTranslate }}
+    {{ messageHeader ?? "registerTitle" | advancedMsgStr }}
   </ng-container>
   <ng-container content>
     <form
@@ -32,9 +32,9 @@
       @if (termsAcceptanceRequired) {
         <div className="form-group">
           <div [kcClass]="'kcInputWrapperClass'">
-            {{ "termsTitle" | kcTranslate }}
+            {{ "termsTitle" | msgStr }}
             <div id="kc-registration-terms-text">
-              {{ "termsText" | kcTranslate }}
+              {{ "termsText" | msgStr }}
             </div>
           </div>
         </div>
@@ -52,7 +52,7 @@
               "
             />
             <label for="termsAccepted" [kcClass]="'kcLabelClass'">
-              {{ "acceptTerms" | kcTranslate }}
+              {{ "acceptTerms" | msgStr }}
             </label>
           </div>
           @if (messagesPerField.existsError("termsAccepted")) {
@@ -90,7 +90,7 @@
             <span>
               <a
                 [href]="url.loginUrl"
-                [innerHTML]="'backToLogin' | kcTranslate | kcSanitize: 'html'"
+                [innerHTML]="'backToLogin' | msgStr | kcSanitize: 'html'"
               ></a>
             </span>
           </div>
@@ -114,7 +114,7 @@
               [attr.data-action]="recaptchaAction"
               type="submit"
             >
-              {{ "doRegister" | kcTranslate }}
+              {{ "doRegister" | msgStr }}
             </button>
           </div>
         } @else {
@@ -131,7 +131,7 @@
                 'kcButtonLargeClass',
               ]"
               type="submit"
-              [value]="'doRegister' | kcTranslate"
+              [value]="'doRegister' | msgStr"
             />
           </div>
         }

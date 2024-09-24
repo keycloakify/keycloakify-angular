@@ -13,14 +13,14 @@
   [documentTitle]="documentTitle()"
 >
   <ng-container headerNode>
-    {{ "doLogin" | kcTranslate }}
+    {{ "doLogIn" | msgStr }}
   </ng-container>
   <ng-container infoNode>
     <div id="kc-registration">
       <span>
-        {{ "noAccount" | kcTranslate }}
+        {{ "noAccount" | msgStr }}
         <a tabindex="6" [href]="url?.registrationUrl">
-          {{ "doRegister" | kcTranslate }}
+          {{ "doRegister" | msgStr }}
         </a>
       </span>
     </div>
@@ -32,7 +32,7 @@
         [kcClass]="'kcFormSocialAccountSectionClass'"
       >
         <hr />
-        <h2>{{ "identity-provider-login-label" | kcTranslate }}</h2>
+        <h2>{{ "identity-provider-login-label" | msgStr }}</h2>
         <ul
           [kcClass]="{
             kcFormSocialAccountListClass: true,
@@ -91,11 +91,11 @@
               <div [kcClass]="'kcFormGroupClass'">
                 <label for="username" [kcClass]="'kcLabelClass'">
                   @if (!realm?.loginWithEmailAllowed) {
-                    {{ "username" | kcTranslate }}
+                    {{ "username" | msgStr }}
                   } @else if (!realm?.registrationEmailAsUsername) {
-                    {{ "usernameOrEmail" | kcTranslate }}
+                    {{ "usernameOrEmail" | msgStr }}
                   } @else {
-                    {{ "email" | kcTranslate }}
+                    {{ "email" | msgStr }}
                   }
                 </label>
                 <input
@@ -139,7 +139,7 @@
                         type="checkbox"
                         [defaultChecked]="!!login?.rememberMe"
                       />
-                      {{ "rememberMe" | kcTranslate }}
+                      {{ "rememberMe" | msgStr }}
                     </label>
                   </div>
                 }
@@ -157,7 +157,7 @@
                 name="login"
                 id="kc-login"
                 type="submit"
-                [value]="'doLogIn' | kcTranslate"
+                [value]="'doLogIn' | msgStr"
               />
             </div>
           </form>

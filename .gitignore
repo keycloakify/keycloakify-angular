@@ -60,3 +60,8 @@ Thumbs.db
 /storybook-static/
 
 *storybook.log
+/src
+/public
+vite.config.ts
+tsconfig.app.json
+index.html

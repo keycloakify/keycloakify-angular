@@ -3,16 +3,16 @@
 <kc-login-template>
   <ng-container headerNode>
     @if (code.success) {
-      {{ "codeSuccessTitle" | msgStr }}
+      {{ 'codeSuccessTitle' | msgStr }}
     } @else {
-      {{ "codeErrorTitle" | msgStr: code.error }}
+      {{ 'codeErrorTitle' | msgStr: code.error }}
     }
   </ng-container>
 
   <ng-container content>
     <div id="kc-code">
       @if (code.success) {
-        <p>{{ "copyCodeInstruction" | msgStr }}</p>
+        <p>{{ 'copyCodeInstruction' | msgStr }}</p>
         <input
           id="code"
           [kcClass]="'kcTextareaClass'"

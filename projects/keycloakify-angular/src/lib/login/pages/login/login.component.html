@@ -14,18 +14,18 @@
   [documentTitle]="documentTitle()"
 >
   <ng-container headerNode>
-    {{ "loginAccountTitle" | msgStr }}
+    {{ 'loginAccountTitle' | msgStr }}
   </ng-container>
   <ng-container infoNode>
     <div id="kc-registration-container">
       <div id="kc-registration">
         <span>
-          {{ "noAccount" | msgStr }}
+          {{ 'noAccount' | msgStr }}
           <a
             tabindex="8"
             [href]="url?.registrationUrl"
           >
-            {{ "doRegister" | msgStr }}
+            {{ 'doRegister' | msgStr }}
           </a>
         </span>
       </div>
@@ -38,7 +38,7 @@
         [kcClass]="'kcFormSocialAccountSectionClass'"
       >
         <hr />
-        <h2>{{ "identity-provider-login-label" | msgStr }}</h2>
+        <h2>{{ 'identity-provider-login-label' | msgStr }}</h2>
         <ul
           [kcClass]="{
             kcFormSocialAccountListClass: true,
@@ -95,11 +95,11 @@
                   [kcClass]="'kcLabelClass'"
                 >
                   @if (!realm?.loginWithEmailAllowed) {
-                    {{ "username" | msgStr }}
+                    {{ 'username' | msgStr }}
                   } @else if (!realm?.registrationEmailAsUsername) {
-                    {{ "usernameOrEmail" | msgStr }}
+                    {{ 'usernameOrEmail' | msgStr }}
                   } @else {
-                    {{ "email" | msgStr }}
+                    {{ 'email' | msgStr }}
                   }
                 </label>
                 <input
@@ -129,7 +129,7 @@
                 for="password"
                 [kcClass]="'kcLabelClass'"
               >
-                {{ "password" | msgStr }}
+                {{ 'password' | msgStr }}
               </label>
 
               <kc-password-wrapper passwordInputId="password">
@@ -167,7 +167,7 @@
                         type="checkbox"
                         [defaultChecked]="!!login?.rememberMe"
                       />
-                      {{ "rememberMe" | msgStr }}
+                      {{ 'rememberMe' | msgStr }}
                     </label>
                   </div>
                 }

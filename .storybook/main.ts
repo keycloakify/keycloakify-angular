@@ -26,7 +26,13 @@ const config: StorybookConfig & StorybookConfigVite = {
     return mergeConfig(config, {
       // Add dependencies to pre-optimization
       optimizeDeps: {
-        include: ['@storybook/angular', '@storybook/angular/dist/client', '@angular/compiler', '@storybook/blocks', 'tslib'],
+        include: [
+          '@storybook/angular',
+          '@storybook/angular/dist/client',
+          '@angular/compiler',
+          '@storybook/blocks',
+          'tslib',
+        ],
       },
       plugins: [angular({ jit: true, tsconfig: './.storybook/tsconfig.json' })],
     });

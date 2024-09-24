@@ -15,7 +15,7 @@
   [documentTitle]="documentTitle()"
 >
   <ng-container headerNode>
-    {{ messageHeader ?? "registerTitle" | advancedMsgStr }}
+    {{ messageHeader ?? 'registerTitle' | advancedMsgStr }}
   </ng-container>
   <ng-container content>
     <form
@@ -32,9 +32,9 @@
       @if (termsAcceptanceRequired) {
         <div className="form-group">
           <div [kcClass]="'kcInputWrapperClass'">
-            {{ "termsTitle" | msgStr }}
+            {{ 'termsTitle' | msgStr }}
             <div id="kc-registration-terms-text">
-              {{ "termsText" | msgStr }}
+              {{ 'termsText' | msgStr }}
             </div>
           </div>
         </div>
@@ -53,7 +53,7 @@
               for="termsAccepted"
               [kcClass]="'kcLabelClass'"
             >
-              {{ "acceptTerms" | msgStr }}
+              {{ 'acceptTerms' | msgStr }}
             </label>
           </div>
           @if (messagesPerField.existsError('termsAccepted')) {
@@ -108,7 +108,7 @@
               [attr.data-action]="recaptchaAction"
               type="submit"
             >
-              {{ "doRegister" | msgStr }}
+              {{ 'doRegister' | msgStr }}
             </button>
           </div>
         } @else {

@@ -4,18 +4,10 @@
   "type": "module",
   "scripts": {
     "ng": "ng",
-    "build:keycloakify-angular": "ng build",
-    "watch:keycloakify-angular": "ng build --watch --configuration development",
-    "test:keycloakify-angular": "ng test",
-    "lint:keycloakify-angular": "ng lint --fix",
-    "dev": "vite",
-    "start": "npm run dev",
-    "build": "vite build",
-    "build-keycloak-theme": "npm run build && keycloakify build",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "lint": "eslint . --fix",
-    "test": "vitest"
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "lint": "ng lint --fix"
   },
   "private": true,
   "devDependencies": {

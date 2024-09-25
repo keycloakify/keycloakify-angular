@@ -2,11 +2,14 @@ import { ChangeDetectionStrategy, Component, forwardRef, inject, input } from '@
 import { ClassKey } from 'keycloakify/login';
 import { KcContext } from 'keycloakify/login/KcContext';
 import { ComponentReference } from '../../classes/component-reference.class';
+import { TemplateComponent } from '../../containers/template.component';
+import { KcSanitizePipe } from '../../pipes/kcSanitize.pipe';
+import { MsgStrPipe } from '../../pipes/msg-str.pipe';
 import { KC_CONTEXT } from '../../providers/keycloakify-angular.providers';
 
 @Component({
   standalone: true,
-  imports: [],
+  imports: [TemplateComponent, MsgStrPipe, KcSanitizePipe],
   selector: 'kc-root',
   templateUrl: 'error.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

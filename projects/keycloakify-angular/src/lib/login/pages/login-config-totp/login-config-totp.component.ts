@@ -2,11 +2,24 @@ import { ChangeDetectionStrategy, Component, forwardRef, inject, input } from '@
 import { ClassKey } from 'keycloakify/login';
 import { KcContext } from 'keycloakify/login/KcContext';
 import { ComponentReference } from '../../classes/component-reference.class';
+import { LogoutOtherSessionsComponent } from '../../components/logout-other-sessions/logout-other-sessions.component';
+import { TemplateComponent } from '../../containers/template.component';
+import { KcClassDirective } from '../../directives/kc-class.directive';
+import { AdvancedMsgStrPipe } from '../../pipes/advanced-msg-str.pipe';
+import { KcSanitizePipe } from '../../pipes/kcSanitize.pipe';
+import { MsgStrPipe } from '../../pipes/msg-str.pipe';
 import { KC_CONTEXT } from '../../providers/keycloakify-angular.providers';
 
 @Component({
   standalone: true,
-  imports: [],
+  imports: [
+    TemplateComponent,
+    MsgStrPipe,
+    AdvancedMsgStrPipe,
+    KcClassDirective,
+    KcSanitizePipe,
+    LogoutOtherSessionsComponent,
+  ],
   selector: 'kc-root',
   templateUrl: 'login-config-totp.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -19,6 +32,12 @@ import { KC_CONTEXT } from '../../providers/keycloakify-angular.providers';
 })
 export class LoginConfigTotpComponent extends ComponentReference {
   kcContext = inject<Extract<KcContext, { pageId: 'login-config-totp.ftl' }>>(KC_CONTEXT);
+
   override doUseDefaultCss = input<boolean>();
   override classes = input<Partial<Record<ClassKey, string>>>();
+  displayRequiredFields = input(false);
+  documentTitle = input<string>();
+  bodyClassName = input<string>();
+  displayInfo: boolean = false;
+  displayMessage: boolean = this.kcContext.messagesPerField.existsError('totp', 'userLabel');
 }

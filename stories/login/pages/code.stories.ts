@@ -1,4 +1,4 @@
-import { forwardRef, provideZoneChangeDetection } from '@angular/core';
+import { forwardRef, provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { applicationConfig, Meta, moduleMetadata, StoryObj } from '@storybook/angular';
 import {
   ComponentReference,
@@ -17,7 +17,7 @@ const meta: Meta<typeof CodeComponent> = {
   decorators: [
     applicationConfig({
       providers: [
-        provideZoneChangeDetection(),
+        provideExperimentalZonelessChangeDetection(),
         provideKeycloakifyAngular({
           getI18n: getI18n,
         }),

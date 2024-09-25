@@ -3,7 +3,7 @@ import { StorybookConfigVite } from '@storybook/builder-vite';
 import { UserConfig } from 'vite';
 
 const config: StorybookConfig & StorybookConfigVite = {
-  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  stories: ['../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: ['@storybook/addon-essentials'],
   framework: {
     name: '@storybook/angular',
@@ -18,12 +18,16 @@ const config: StorybookConfig & StorybookConfigVite = {
     },
   },
   staticDirs: ['../public'],
-  async viteFinal(config: UserConfig) {
+  async viteFinal(config: UserConfig, { configType }) {
     // Merge custom configuration into the default config
     const { mergeConfig } = await import('vite');
     const { default: angular } = await import('@analogjs/vite-plugin-angular');
 
     return mergeConfig(config, {
+      define: {
+        'process.env.NODE_ENV': JSON.stringify(configType === 'DEVELOPMENT' ? 'development' : 'production'),
+        'process.env.REACT_APP_ENV': JSON.stringify(configType === 'DEVELOPMENT' ? 'development' : 'production'),
+      },
       // Add dependencies to pre-optimization
       optimizeDeps: {
         include: [

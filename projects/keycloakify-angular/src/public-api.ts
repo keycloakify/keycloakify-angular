@@ -11,6 +11,10 @@ export * from './lib/login/classes/component-reference.class';
 export * from './lib/login/services';
 // DEFAULT PAGE
 export * from './lib/login/DefaultPage';
+// TEMPLATE
+export { TemplateComponent } from './lib/login/containers/template.component';
+// COMPONENTS
+export * from './lib/login/components';
 // PROVIDERS
 export {
   CLASSES,

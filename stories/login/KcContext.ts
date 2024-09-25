@@ -6,6 +6,6 @@ export type KcContextExtension = {
   properties: Record<KcEnvName, string> & {};
 };
 
-export type KcContextExtensionPerPage = Record<string, Record<string, string>>;
+export type KcContextExtensionPerPage = Record<string, Record<string, unknown>>;
 
 export type KcContext = ExtendKcContext<KcContextExtension, KcContextExtensionPerPage>;

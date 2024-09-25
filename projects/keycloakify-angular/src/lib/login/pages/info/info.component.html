@@ -23,21 +23,21 @@
       @if (!skipLink) {
         @if (pageRedirectUri) {
           <p>
-            <a href="{{ pageRedirectUri }}">
+            <a [href]="pageRedirectUri">
               {{ 'backToApplication' | msgStr }}
             </a>
           </p>
         }
         @if (actionUri) {
           <p>
-            <a href="{{ actionUri }}">
+            <a [href]="actionUri">
               {{ 'proceedWithAction' | msgStr }}
             </a>
           </p>
         }
         @if (client.baseUrl) {
           <p>
-            <a href="{{ client.baseUrl }}">
+            <a [href]="client.baseUrl">
               {{ 'backToApplication' | msgStr }}
             </a>
           </p>

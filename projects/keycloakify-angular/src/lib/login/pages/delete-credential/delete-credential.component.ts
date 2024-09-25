@@ -24,5 +24,9 @@ export class DeleteCredentialComponent extends ComponentReference {
   kcContext = inject<Extract<KcContext, { pageId: 'delete-credential.ftl' }>>(KC_CONTEXT);
   override doUseDefaultCss = input<boolean>();
   override classes = input<Partial<Record<ClassKey, string>>>();
+  displayRequiredFields = input(false);
+  documentTitle = input<string>();
+  bodyClassName = input<string>();
+  displayInfo: boolean = false;
   displayMessage: boolean = false;
 }

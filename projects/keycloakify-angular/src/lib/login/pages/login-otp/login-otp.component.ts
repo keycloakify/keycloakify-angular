@@ -6,7 +6,7 @@ import { TemplateComponent } from '../../containers/template.component';
 import { KcClassDirective } from '../../directives/kc-class.directive';
 import { MsgStrPipe } from '../../pipes/msg-str.pipe';
 import { KC_CONTEXT } from '../../providers/keycloakify-angular.providers';
-import { KcSanitizePipe } from '../../pipes';
+import { KcSanitizePipe } from '../../pipes/kc-sanitize.pipe';
 
 @Component({
   standalone: true,

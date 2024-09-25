@@ -9,7 +9,7 @@ import {
 } from '../../components/password-wrapper/password-wrapper.component';
 import { TemplateComponent } from '../../containers/template.component';
 import { KcClassDirective } from '../../directives/kc-class.directive';
-import { KcSanitizePipe } from '../../pipes/kcSanitize.pipe';
+import { KcSanitizePipe } from '../../pipes/kc-sanitize.pipe';
 import { MsgStrPipe } from '../../pipes/msg-str.pipe';
 import { KC_CONTEXT } from '../../providers/keycloakify-angular.providers';
 

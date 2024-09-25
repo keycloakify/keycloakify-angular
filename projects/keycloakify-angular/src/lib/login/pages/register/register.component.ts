@@ -11,7 +11,7 @@ import { UserProfileFormFieldsComponent } from '../../components/user-profile-fo
 import { TemplateComponent } from '../../containers/template.component';
 import { KcClassDirective } from '../../directives/kc-class.directive';
 import { AdvancedMsgStrPipe } from '../../pipes/advanced-msg-str.pipe';
-import { KcSanitizePipe } from '../../pipes/kcSanitize.pipe';
+import { KcSanitizePipe } from '../../pipes/kc-sanitize.pipe';
 import { MsgStrPipe } from '../../pipes/msg-str.pipe';
 import { KC_CONTEXT } from '../../providers/keycloakify-angular.providers';
 

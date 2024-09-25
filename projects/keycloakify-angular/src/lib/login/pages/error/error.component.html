@@ -11,7 +11,7 @@
         class="instruction"
         [innerHTML]="message.summary | kcSanitize: 'html'"
       ></p>
-      @if (!skipLink && client !== undefined && client.baseUrl !== undefined) {
+      @if (!skipLink && !!client?.baseUrl) {
         <p>
           <a
             id="backToApplication"

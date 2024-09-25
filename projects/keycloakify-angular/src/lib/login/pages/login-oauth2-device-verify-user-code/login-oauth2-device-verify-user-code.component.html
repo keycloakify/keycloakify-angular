@@ -1,0 +1,63 @@
+@let url = kcContext.url;
+<kc-login-template
+  [displayInfo]="displayInfo"
+  [bodyClassName]="bodyClassName()"
+  [displayMessage]="displayMessage"
+  [displayRequiredFields]="displayRequiredFields()"
+  [documentTitle]="documentTitle()"
+>
+  <ng-container headerNode>
+    {{ 'oauth2DeviceVerificationTitle' | msgStr }}
+  </ng-container>
+  <ng-container content>
+    <form
+      id="kc-user-verify-device-user-code-form"
+      [kcClass]="'kcFormClass'"
+      [action]="url.oauth2DeviceVerificationAction"
+      method="post"
+    >
+      <div [kcClass]="'kcFormGroupClass'">
+        <div [kcClass]="'kcLabelWrapperClass'">
+          <label
+            for="device-user-code"
+            [kcClass]="'kcLabelClass'"
+          >
+            {{ 'verifyOAuth2DeviceUserCode' | msgStr }}
+          </label>
+        </div>
+
+        <div [kcClass]="'kcInputWrapperClass'">
+          <input
+            id="device-user-code"
+            name="device_user_code"
+            autoComplete="off"
+            type="text"
+            [kcClass]="'kcInputClass'"
+            autofocus
+          />
+        </div>
+      </div>
+      <div [kcClass]="'kcFormGroupClass'">
+        <div
+          id="kc-form-options"
+          [kcClass]="'kcFormOptionsClass'"
+        >
+          <div [kcClass]="'kcFormOptionsWrapperClass'"></div>
+        </div>
+
+        <div
+          id="kc-form-buttons"
+          [kcClass]="'kcFormButtonsClass'"
+        >
+          <div [kcClass]="'kcFormButtonsWrapperClass'">
+            <input
+              [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
+              type="submit"
+              value="{{ 'doSubmit' | msgStr }}"
+            />
+          </div>
+        </div>
+      </div>
+    </form>
+  </ng-container>
+</kc-login-template>

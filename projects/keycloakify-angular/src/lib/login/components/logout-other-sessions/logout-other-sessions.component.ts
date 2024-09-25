@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, forwardRef, input } from '@angular/
 import { ClassKey } from 'keycloakify/login';
 import { ComponentReference } from '../../classes/component-reference.class';
 import { KcClassDirective } from '../../directives/kc-class.directive';
-import { KcTranslatePipe } from '../../pipes/kcTranslate.pipe';
+import { MsgStrPipe } from '../../pipes/msg-str.pipe';
 
 @Component({
   selector: 'kc-logout-other-sessions',
@@ -14,7 +14,7 @@ import { KcTranslatePipe } from '../../pipes/kcTranslate.pipe';
     `,
   ],
   standalone: true,
-  imports: [KcTranslatePipe, KcClassDirective],
+  imports: [KcClassDirective, MsgStrPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './logout-other-sessions.component.html',
   providers: [

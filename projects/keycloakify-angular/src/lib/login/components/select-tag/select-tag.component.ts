@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, forwardRef, input, output
 import { Attribute, ClassKey } from 'keycloakify/login';
 import { ComponentReference } from '../../classes/component-reference.class';
 import { KcClassDirective } from '../../directives/kc-class.directive';
-import { KcTranslatePipe } from '../../pipes/kcTranslate.pipe';
+import { AdvancedMsgStrPipe } from '../../pipes/advanced-msg-str.pipe';
 import { ToNumberPipe } from '../../pipes/to-number.pipe';
 import { FormAction, FormFieldError } from '../../services/user-profile-form.service';
 
@@ -15,7 +15,7 @@ import { FormAction, FormFieldError } from '../../services/user-profile-form.ser
       }
     `,
   ],
-  imports: [KcClassDirective, KcTranslatePipe, ToNumberPipe],
+  imports: [KcClassDirective, ToNumberPipe, AdvancedMsgStrPipe],
   selector: 'kc-select-tag',
   templateUrl: 'select-tag.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

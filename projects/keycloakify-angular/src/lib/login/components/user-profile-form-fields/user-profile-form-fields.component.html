@@ -34,7 +34,7 @@
         [for]="fieldState.attribute.name"
         [kcClass]="'kcLabelClass'"
       >
-        {{ fieldState.attribute.displayName ?? '' | kcTranslate }}
+        {{ fieldState.attribute.displayName ?? '' | advancedMsgStr }}
         @if (fieldState.attribute.required) {
           *
         }
@@ -48,7 +48,7 @@
           [id]="'form-help-text-before-' + fieldState.attribute.name"
           aria-live="polite"
         >
-          {{ fieldState.attribute.annotations.inputHelperTextBefore | kcTranslate }}
+          {{ fieldState.attribute.annotations.inputHelperTextBefore | advancedMsgStr }}
         </div>
       }
 
@@ -75,7 +75,7 @@
           [id]="'form-help-text-after-' + fieldState.attribute.name"
           aria-live="polite"
         >
-          {{ fieldState.attribute.annotations.inputHelperTextAfter | kcTranslate }}
+          {{ fieldState.attribute.annotations.inputHelperTextAfter | advancedMsgStr }}
         </div>
       }
 

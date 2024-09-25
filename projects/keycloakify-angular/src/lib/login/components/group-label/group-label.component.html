@@ -12,7 +12,7 @@
         [id]="'header-' + attr.group?.name"
         [kcClass]="'kcFormGroupHeader'"
       >
-        {{ groupHeaderText | kcTranslate }}
+        {{ groupHeaderText | advancedMsgStr }}
       </label>
     </div>
     @let groupDisplayDescription = attr.group?.displayDescription ?? '';
@@ -22,7 +22,7 @@
           [id]="'description-' + attr.group?.name"
           [kcClass]="'kcLabelClass'"
         >
-          {{ groupDisplayDescription | kcTranslate }}
+          {{ groupDisplayDescription | advancedMsgStr }}
         </label>
       </div>
     }

@@ -3,8 +3,8 @@ import { Attribute, ClassKey } from 'keycloakify/login';
 import { ComponentReference } from '../../classes/component-reference.class';
 import { AttributesDirective } from '../../directives/attributes.directive';
 import { KcClassDirective } from '../../directives/kc-class.directive';
+import { AdvancedMsgStrPipe } from '../../pipes/advanced-msg-str.pipe';
 import { InputTypePipe } from '../../pipes/input-type.pipe';
-import { KcTranslatePipe } from '../../pipes/kcTranslate.pipe';
 import { ToArrayPipe } from '../../pipes/to-array.pipe';
 import { ToNumberPipe } from '../../pipes/to-number.pipe';
 import { FormAction, FormFieldError } from '../../services/user-profile-form.service';
@@ -23,12 +23,12 @@ import { FieldErrorsComponent } from '../field-errors/field-errors.component';
   imports: [
     InputTypePipe,
     KcClassDirective,
-    KcTranslatePipe,
     ToNumberPipe,
     AttributesDirective,
     ToArrayPipe,
     FieldErrorsComponent,
     AddRemoveButtonsMultiValuedAttributeComponent,
+    AdvancedMsgStrPipe,
   ],
   selector: 'kc-input-tag',
   templateUrl: 'input-tag.component.html',

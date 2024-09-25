@@ -5,7 +5,8 @@ import { KcContext } from 'keycloakify/login/KcContext/KcContext';
 import { ClassKey, getKcClsx } from 'keycloakify/login/lib/kcClsx';
 import { Observable } from 'rxjs';
 import { KcClassDirective } from '../directives/kc-class.directive';
-import { KcSanitizePipe, KcTranslatePipe } from '../pipes';
+import { KcSanitizePipe } from '../pipes';
+import { MsgStrPipe } from '../pipes/msg-str.pipe';
 import { CLASSES, I18N, KC_CONTEXT, USE_DEFAULT_CSS } from '../providers/keycloakify-angular.providers';
 import { ResourceInjectorService } from '../services/resource-injector.service';
 
@@ -13,7 +14,7 @@ import { ResourceInjectorService } from '../services/resource-injector.service';
   selector: 'kc-login-template',
   templateUrl: './template.component.html',
   standalone: true,
-  imports: [AsyncPipe, KcSanitizePipe, NgTemplateOutlet, KcClassDirective, KcTranslatePipe],
+  imports: [AsyncPipe, KcSanitizePipe, NgTemplateOutlet, KcClassDirective, MsgStrPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TemplateComponent implements OnInit {

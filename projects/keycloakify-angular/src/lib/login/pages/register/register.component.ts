@@ -12,7 +12,6 @@ import { TemplateComponent } from '../../containers/template.component';
 import { KcClassDirective } from '../../directives/kc-class.directive';
 import { AdvancedMsgStrPipe } from '../../pipes/advanced-msg-str.pipe';
 import { KcSanitizePipe } from '../../pipes/kcSanitize.pipe';
-import { KcTranslatePipe } from '../../pipes/kcTranslate.pipe';
 import { MsgStrPipe } from '../../pipes/msg-str.pipe';
 import { KC_CONTEXT } from '../../providers/keycloakify-angular.providers';
 
@@ -28,7 +27,6 @@ import { KC_CONTEXT } from '../../providers/keycloakify-angular.providers';
     PasswordWrapperComponent,
     NgClass,
     TemplateComponent,
-    KcTranslatePipe,
     KcInputDirective,
     UserProfileFormFieldsComponent,
     MsgStrPipe,

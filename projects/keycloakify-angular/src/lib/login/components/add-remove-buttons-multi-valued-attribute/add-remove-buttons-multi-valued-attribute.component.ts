@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
 import { Attribute } from 'keycloakify/login';
-import { KcTranslatePipe } from '../../pipes/kcTranslate.pipe';
+import { MsgStrPipe } from '../../pipes/msg-str.pipe';
 import { FormAction } from '../../services/user-profile-form.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { FormAction } from '../../services/user-profile-form.service';
       }
     `,
   ],
-  imports: [KcTranslatePipe],
+  imports: [MsgStrPipe],
   selector: 'kc-add-remove-buttons-multi-valued-attribute',
   templateUrl: 'add-remove-buttons-multi-valued-attribute.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

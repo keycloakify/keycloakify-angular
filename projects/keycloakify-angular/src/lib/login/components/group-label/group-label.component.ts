@@ -3,7 +3,7 @@ import { Attribute, ClassKey } from 'keycloakify/login';
 import { ComponentReference } from '../../classes/component-reference.class';
 import { AttributesDirective } from '../../directives/attributes.directive';
 import { KcClassDirective } from '../../directives/kc-class.directive';
-import { KcTranslatePipe } from '../../pipes/kcTranslate.pipe';
+import { AdvancedMsgStrPipe } from '../../pipes/advanced-msg-str.pipe';
 
 @Component({
   standalone: true,
@@ -14,7 +14,7 @@ import { KcTranslatePipe } from '../../pipes/kcTranslate.pipe';
       }
     `,
   ],
-  imports: [KcClassDirective, AttributesDirective, KcTranslatePipe],
+  imports: [KcClassDirective, AttributesDirective, AdvancedMsgStrPipe],
   selector: 'kc-group-label',
   templateUrl: 'group-label.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -10,7 +10,7 @@
     [attr.aria-invalid]="index && displayableErrors()?.[index] !== undefined"
     [disabled]="attr.readOnly"
     [autocomplete]="attr.autocomplete"
-    [placeholder]="attr.annotations.inputTypePlaceholder ?? '' | kcTranslate"
+    [placeholder]="attr.annotations.inputTypePlaceholder ?? '' | advancedMsgStr"
     [pattern]="attr.annotations.inputTypePattern"
     [size]="
       !attr.annotations.inputTypeSize

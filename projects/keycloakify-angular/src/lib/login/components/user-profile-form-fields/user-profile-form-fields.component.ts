@@ -14,12 +14,12 @@ import { ClassKey } from 'keycloakify/login';
 import { KcContext } from 'keycloakify/login/KcContext';
 import { ComponentReference } from '../../classes/component-reference.class';
 import { KcClassDirective } from '../../directives/kc-class.directive';
-import { KcTranslatePipe } from '../../pipes/kcTranslate.pipe';
+import { AdvancedMsgStrPipe } from '../../pipes/advanced-msg-str.pipe';
+import { DO_MAKE_USER_CONFIRM_PASSWORD, KC_CONTEXT } from '../../providers/keycloakify-angular.providers';
 import { FormAction, UserProfileFormService } from '../../services/user-profile-form.service';
 import { FieldErrorsComponent } from '../field-errors/field-errors.component';
 import { GroupLabelComponent } from '../group-label/group-label.component';
 import { InputFieldByTypeComponent } from '../input-field-by-type/input-field-by-type.component';
-import { DO_MAKE_USER_CONFIRM_PASSWORD, KC_CONTEXT } from '../../providers/keycloakify-angular.providers';
 
 @Component({
   standalone: true,
@@ -32,11 +32,11 @@ import { DO_MAKE_USER_CONFIRM_PASSWORD, KC_CONTEXT } from '../../providers/keycl
   ],
   imports: [
     KcClassDirective,
-    KcTranslatePipe,
     FieldErrorsComponent,
     InputFieldByTypeComponent,
     GroupLabelComponent,
     NgTemplateOutlet,
+    AdvancedMsgStrPipe,
   ],
   selector: 'kc-user-profile-form-fields',
   templateUrl: 'user-profile-form-fields.component.html',

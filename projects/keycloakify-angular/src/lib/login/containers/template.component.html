@@ -39,7 +39,7 @@
                 <button
                   tabindex="1"
                   id="kc-current-locale-link"
-                  [attr.aria-label]="'languages' | kcTranslate"
+                  [attr.aria-label]="'languages' | msgStr"
                   aria-haspopup="true"
                   aria-expanded="false"
                   aria-controls="language-switch1"
@@ -91,12 +91,12 @@
               <a
                 id="reset-login"
                 [href]="url?.loginRestartFlowUrl"
-                [attr.aria-label]="'restartLoginTooltip' | kcTranslate"
+                [attr.aria-label]="'restartLoginTooltip' | msgStr"
               >
                 <div class="kc-login-tooltip">
                   <i [kcClass]="'kcResetFlowIcon'"></i>
                   <span class="kc-tooltip-text">
-                    {{ 'restartLoginTooltip' | kcTranslate }}
+                    {{ 'restartLoginTooltip' | msgStr }}
                   </span>
                 </div>
               </a>
@@ -112,7 +112,7 @@
             >
               <span class="subtitle">
                 <span class="required">*</span>
-                {{ 'requiredFields' | kcTranslate }}
+                {{ 'requiredFields' | msgStr }}
               </span>
             </div>
             <div class="col-md-10">
@@ -174,7 +174,7 @@
                     id="try-another-way"
                     (click)="tryAnotherWay()"
                   >
-                    {{ 'doTryAnotherWay' | kcTranslate }}
+                    {{ 'doTryAnotherWay' | msgStr }}
                   </a>
                 </div>
               </div>

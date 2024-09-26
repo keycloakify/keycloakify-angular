@@ -1,4 +1,4 @@
-import { AsyncPipe, NgTemplateOutlet } from '@angular/common';
+import { AsyncPipe, NgClass, NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, input, OnInit, Renderer2 } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { CLASSES, I18N, KC_CONTEXT, USE_DEFAULT_CSS } from 'keycloakify-angular';
@@ -12,10 +12,10 @@ import { MsgStrPipe } from '../pipes/msg-str.pipe';
 import { AccountResourceInjectorService } from '../services/resource-injector.service';
 
 @Component({
-  selector: 'kc-login-template',
+  selector: 'kc-account-template',
   templateUrl: './template.component.html',
   standalone: true,
-  imports: [AsyncPipe, KcSanitizePipe, NgTemplateOutlet, KcClassDirective, MsgStrPipe],
+  imports: [AsyncPipe, KcSanitizePipe, NgTemplateOutlet, KcClassDirective, MsgStrPipe, NgClass],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TemplateComponent implements OnInit {
@@ -28,16 +28,14 @@ export class TemplateComponent implements OnInit {
   classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
   accountResourceInjectorService = inject(AccountResourceInjectorService);
 
-  displayInfo = input(false);
-  displayMessage = input(true);
-  displayRequiredFields = input(false);
-  documentTitle = input<string>();
-  bodyClassName = input<string>();
+  active = input<
+    'account' | 'password' | 'totp' | 'social' | 'sessions' | 'applications' | 'log' | 'authorization' | undefined
+  >(undefined);
 
   isReadyToRender$: Observable<boolean>;
 
   constructor() {
-    // this.title.setTitle(this.documentTitle() ?? this.i18n.msgStr('loginTitle', this.kcContext.realm.displayName));
+    this.title.setTitle(this.i18n.msgStr('accountManagementTitle'));
     this.isReadyToRender$ = this.accountResourceInjectorService.injectResource(this.doUseDefaultCss);
   }
 
@@ -50,19 +48,16 @@ export class TemplateComponent implements OnInit {
       doUseDefaultCss: this.doUseDefaultCss,
       classes: this.classes,
     }).kcClsx;
-    const kcBodyClass = this.bodyClassName() ?? kcClsx('kcBodyClass');
+    const kcBodyClass = kcClsx('kcBodyClass');
     const kcHtmlClass = kcClsx('kcHtmlClass');
     const kcBodyClasses = kcBodyClass.split(/\s+/);
     const kcHtmlClasses = kcHtmlClass.split(/\s+/);
+    kcBodyClasses.push('admin-console', 'user');
     kcBodyClasses.forEach((klass) => {
       this.renderer.addClass(document.body, klass);
     });
     kcHtmlClasses.forEach((klass) => {
       this.renderer.addClass(document.documentElement, klass);
     });
-  }
-
-  tryAnotherWay() {
-    document.forms['kc-select-try-another-way-form' as never].submit();
   }
 }

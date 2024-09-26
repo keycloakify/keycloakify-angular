@@ -15,13 +15,3 @@ export * from './src/DefaultPage';
 export { TemplateComponent } from './src/containers/template.component';
 // COMPONENTS
 export * from './src/components';
-// PROVIDERS
-export {
-  CLASSES,
-  DO_MAKE_USER_CONFIRM_PASSWORD,
-  I18N,
-  KC_CONTEXT,
-  USE_DEFAULT_CSS,
-  provideKeycloakifyAngular,
-  type KeycloakifyAngularConfig,
-} from './src/providers/keycloakify-angular.providers';

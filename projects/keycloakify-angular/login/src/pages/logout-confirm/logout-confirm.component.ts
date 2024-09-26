@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, forwardRef, inject, input } from '@angular/core';
+import { KC_CONTEXT } from 'keycloakify-angular';
 import { ClassKey } from 'keycloakify/login';
 import { KcContext } from 'keycloakify/login/KcContext';
 import { ComponentReference } from '../../classes/component-reference.class';
-import { KC_CONTEXT } from '../../providers/keycloakify-angular.providers';
 
 @Component({
   standalone: true,

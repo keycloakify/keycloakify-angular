@@ -1,14 +1,15 @@
 import { AsyncPipe, NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, input, OnInit, Renderer2 } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
+import { CLASSES, I18N, KC_CONTEXT, USE_DEFAULT_CSS } from 'keycloakify-angular';
 import { KcContext } from 'keycloakify/login/KcContext/KcContext';
 import { ClassKey, getKcClsx } from 'keycloakify/login/lib/kcClsx';
 import { Observable } from 'rxjs';
 import { KcClassDirective } from '../directives/kc-class.directive';
 import { KcSanitizePipe } from '../pipes';
 import { MsgStrPipe } from '../pipes/msg-str.pipe';
-import { CLASSES, I18N, KC_CONTEXT, USE_DEFAULT_CSS } from '../providers/keycloakify-angular.providers';
 import { LoginResourceInjectorService } from '../services/login-resource-injector.service';
+import { I18n } from 'keycloakify/login/i18n';
 
 @Component({
   selector: 'kc-login-template',
@@ -18,7 +19,7 @@ import { LoginResourceInjectorService } from '../services/login-resource-injecto
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TemplateComponent implements OnInit {
-  i18n = inject(I18N);
+  i18n = inject<I18n>(I18N);
   renderer = inject(Renderer2);
   meta = inject(Meta);
   title = inject(Title);

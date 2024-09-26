@@ -1,14 +1,13 @@
 import { inject, Injectable } from '@angular/core';
-import { ResourceInjectorService, Script } from 'keycloakify-angular';
+import { KC_CONTEXT, ResourceInjectorService, Script } from 'keycloakify-angular';
 import { KcContext } from 'keycloakify/account/KcContext';
 import { catchError, forkJoin, of, switchMap } from 'rxjs';
-import { KC_CONTEXT } from '../providers/keycloakify-angular.providers';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AccountResourceInjectorService {
-  private kcContext: KcContext = inject(KC_CONTEXT);
+  private kcContext: KcContext = inject<KcContext>(KC_CONTEXT);
   private resourceInjectorService: ResourceInjectorService = inject(ResourceInjectorService);
 
   injectResource(doUseDefaultCss = true) {

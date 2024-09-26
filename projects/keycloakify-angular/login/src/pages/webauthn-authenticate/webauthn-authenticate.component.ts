@@ -1,15 +1,14 @@
 import { ChangeDetectionStrategy, Component, forwardRef, inject, input } from '@angular/core';
+import { KC_CONTEXT, Script } from 'keycloakify-angular';
 import { ClassKey } from 'keycloakify/login';
 import { KcContext } from 'keycloakify/login/KcContext';
 import { getKcClsx } from 'keycloakify/login/lib/kcClsx';
-import { Script } from 'keycloakify-angular';
 import { ComponentReference } from '../../classes/component-reference.class';
 import { LogoutOtherSessionsComponent } from '../../components/logout-other-sessions/logout-other-sessions.component';
 import { TemplateComponent } from '../../containers/template.component';
 import { KcClassDirective } from '../../directives';
 import { AdvancedMsgStrPipe } from '../../pipes/advanced-msg-str.pipe';
 import { MsgStrPipe } from '../../pipes/msg-str.pipe';
-import { KC_CONTEXT } from '../../providers/keycloakify-angular.providers';
 import { LoginResourceInjectorService } from '../../services';
 
 @Component({

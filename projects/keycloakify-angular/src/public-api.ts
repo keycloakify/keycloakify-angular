@@ -9,3 +9,4 @@ declare global {
 
 export * from './models';
 export * from './services';
+export * from './providers/keycloakify-angular.providers';

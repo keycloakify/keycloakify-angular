@@ -10,12 +10,12 @@ import {
   output,
   TemplateRef,
 } from '@angular/core';
+import { DO_MAKE_USER_CONFIRM_PASSWORD, KC_CONTEXT } from 'keycloakify-angular';
 import { ClassKey } from 'keycloakify/login';
 import { KcContext } from 'keycloakify/login/KcContext';
 import { ComponentReference } from '../../classes/component-reference.class';
 import { KcClassDirective } from '../../directives/kc-class.directive';
 import { AdvancedMsgStrPipe } from '../../pipes/advanced-msg-str.pipe';
-import { DO_MAKE_USER_CONFIRM_PASSWORD, KC_CONTEXT } from '../../providers/keycloakify-angular.providers';
 import { FormAction, UserProfileFormService } from '../../services/user-profile-form.service';
 import { FieldErrorsComponent } from '../field-errors/field-errors.component';
 import { GroupLabelComponent } from '../group-label/group-label.component';

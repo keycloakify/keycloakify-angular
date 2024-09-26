@@ -1,8 +1,5 @@
 import { APP_INITIALIZER, InjectionToken, makeEnvironmentProviders } from '@angular/core';
-import { ClassKey } from 'keycloakify/login';
-import { KcContextLike } from 'keycloakify/login/i18n';
-import { KcContext } from 'keycloakify/login/KcContext';
-import { I18nService } from 'keycloakify-angular';
+import { I18nService } from '../services';
 import { I18n } from '../i18n';
 
 export const I18N = new InjectionToken<I18n>('i18n');
@@ -10,6 +7,10 @@ export const KC_CONTEXT = new InjectionToken<KcContext>('keycloak context');
 export const USE_DEFAULT_CSS = new InjectionToken<boolean>('use default css');
 export const CLASSES = new InjectionToken<{ [key in ClassKey]?: string }>('classes');
 export const DO_MAKE_USER_CONFIRM_PASSWORD = new InjectionToken<boolean>('doMakeUserConfirmPassword');
+
+type ClassKey = import('keycloakify/login').ClassKey | import('keycloakify/account').ClassKey;
+type KcContextLike = import('keycloakify/login/i18n').KcContextLike | import('keycloakify/account/i18n').KcContextLike;
+type KcContext = import('keycloakify/login/KcContext').KcContext | import('keycloakify/account/KcContext').KcContext;
 
 export type KeycloakifyAngularConfig = {
   doMakeUserConfirmPassword?: boolean;

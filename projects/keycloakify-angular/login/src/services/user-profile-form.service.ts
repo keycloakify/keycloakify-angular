@@ -3,13 +3,13 @@
 
 import { computed, inject, Injectable, signal, Signal, WritableSignal } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DO_MAKE_USER_CONFIRM_PASSWORD, I18N, KC_CONTEXT } from 'keycloakify-angular';
 import { Attribute, KcContext, PasswordPolicies, Validators } from 'keycloakify/login/KcContext';
 import type { I18n, KcContextLike as KcContextLike_i18n, MessageKey_defaultSet } from 'keycloakify/login/i18n';
 import { emailRegexp } from 'keycloakify/tools/emailRegExp';
 import { formatNumber } from 'keycloakify/tools/formatNumber';
 import { structuredCloneButFunctions } from 'keycloakify/tools/structuredCloneButFunctions';
 import { assert, id } from 'tsafe';
-import { DO_MAKE_USER_CONFIRM_PASSWORD, I18N, KC_CONTEXT } from '../providers/keycloakify-angular.providers';
 import { LoginResourceInjectorService } from './login-resource-injector.service';
 
 type KcContextLike_useGetErrors = KcContextLike_i18n & {

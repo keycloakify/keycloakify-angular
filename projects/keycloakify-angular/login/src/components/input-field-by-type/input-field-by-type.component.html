@@ -51,7 +51,7 @@
         @if (attr.name === 'password' || attr.name === 'password-confirm') {
           <kc-password-wrapper [passwordInputId]="attr.name">
             <kc-input-tag
-              [attribute]="attribute()"
+              [attribute]="attributePassword()"
               [valueOrValues]="valueOrValues()"
               [displayableErrors]="displayableErrors()"
               [doUseDefaultCss]="doUseDefaultCss()"

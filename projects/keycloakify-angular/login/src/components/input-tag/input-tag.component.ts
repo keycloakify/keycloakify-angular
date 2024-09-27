@@ -59,7 +59,7 @@ export class InputTagComponent extends ComponentReference {
       }
       return null;
     }
-    return valueOrValues?.[0] ?? null;
+    return valueOrValues ?? null;
   });
 
   onChange(event: Event) {

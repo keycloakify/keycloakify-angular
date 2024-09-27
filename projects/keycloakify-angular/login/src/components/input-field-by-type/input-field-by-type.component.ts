@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, forwardRef, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, forwardRef, input, output } from '@angular/core';
 import { Attribute, ClassKey } from 'keycloakify/login';
+import { ComponentReference } from '../../classes/component-reference.class';
 import { ToArrayPipe } from '../../pipes/to-array.pipe';
 import { FormAction, FormFieldError } from '../../services/user-profile-form.service';
 import { InputTagSelectsComponent } from '../input-tag-selects/input-tag-selects.component';
@@ -7,8 +8,6 @@ import { InputTagComponent } from '../input-tag/input-tag.component';
 import { PasswordWrapperComponent } from '../password-wrapper/password-wrapper.component';
 import { SelectTagComponent } from '../select-tag/select-tag.component';
 import { TextareaTagComponent } from '../textarea-tag/textarea-tag.component';
-import { ComponentReference } from '../../classes/component-reference.class';
-
 @Component({
   standalone: true,
   styles: [
@@ -38,4 +37,9 @@ export class InputFieldByTypeComponent extends ComponentReference {
   dispatchFormAction = output<FormAction>();
   override doUseDefaultCss = input<boolean>();
   override classes = input<Partial<Record<ClassKey, string>>>();
+
+  attributePassword = computed<Attribute>(() => {
+    const attribute: Attribute = this.attribute() ?? ({} as Attribute);
+    return { ...attribute, annotations: { ...(attribute.annotations ?? {}), inputType: 'password' } };
+  });
 }

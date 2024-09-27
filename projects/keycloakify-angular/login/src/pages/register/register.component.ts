@@ -4,10 +4,6 @@ import { KC_CONTEXT } from 'keycloakify-angular';
 import { ClassKey } from 'keycloakify/login';
 import { KcContext } from 'keycloakify/login/KcContext';
 import { ComponentReference } from '../../classes/component-reference.class';
-import {
-  KcInputDirective,
-  PasswordWrapperComponent,
-} from '../../components/password-wrapper/password-wrapper.component';
 import { UserProfileFormFieldsComponent } from '../../components/user-profile-form-fields/user-profile-form-fields.component';
 import { TemplateComponent } from '../../containers/template.component';
 import { KcClassDirective } from '../../directives/kc-class.directive';
@@ -24,10 +20,8 @@ import { MsgStrPipe } from '../../pipes/msg-str.pipe';
     KcClassDirective,
     AsyncPipe,
     KcSanitizePipe,
-    PasswordWrapperComponent,
     NgClass,
     TemplateComponent,
-    KcInputDirective,
     UserProfileFormFieldsComponent,
     MsgStrPipe,
     AdvancedMsgStrPipe,

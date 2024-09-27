@@ -6,11 +6,11 @@ import { KcContext } from 'keycloakify/account/KcContext';
 import { ComponentReference } from '../../classes/component-reference.class';
 import { TemplateComponent } from '../../containers/template.component';
 import { KcClassDirective } from '../../directives';
-import { MsgStrPipe } from '../../pipes';
+import { AdvancedMsgStrPipe, KcSanitizePipe, MsgStrPipe } from '../../pipes';
 
 @Component({
   standalone: true,
-  imports: [KcClassDirective, TemplateComponent, MsgStrPipe, NgClass],
+  imports: [KcClassDirective, TemplateComponent, MsgStrPipe, AdvancedMsgStrPipe, KcSanitizePipe, NgClass],
   selector: 'kc-root',
   templateUrl: 'totp.component.html',
   providers: [

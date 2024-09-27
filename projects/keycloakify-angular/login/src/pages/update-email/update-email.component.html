@@ -1,0 +1,62 @@
+@let url = kcContext.url;
+@let isAppInitiatedAction = kcContext.isAppInitiatedAction;
+<kc-login-template
+  [displayInfo]="displayInfo"
+  [bodyClassName]="bodyClassName()"
+  [displayMessage]="displayMessage"
+  [displayRequiredFields]="displayRequiredFields()"
+  [documentTitle]="documentTitle()"
+>
+  <ng-container headerNode>
+    {{ 'updateEmailTitle' | msgStr }}
+  </ng-container>
+  <ng-container content>
+    <form
+      id="kc-update-email-form"
+      [kcClass]="'kcFormClass'"
+      [action]="url.loginAction"
+      method="post"
+    >
+      <kc-user-profile-form-fields
+        [classes]="classes()"
+        [doUseDefaultCss]="doUseDefaultCss()"
+        (onIsFormSubmittable)="isFormSubmittable.set($event)"
+      ></kc-user-profile-form-fields>
+      <div [kcClass]="'kcFormGroupClass'">
+        <div
+          id="kc-form-options"
+          [kcClass]="'kcFormOptionsClass'"
+        >
+          <div [kcClass]="'kcFormOptionsWrapperClass'"></div>
+        </div>
+        <kc-logout-other-sessions></kc-logout-other-sessions>
+        <div
+          id="kc-form-buttons"
+          [kcClass]="'kcFormButtonsClass'"
+        >
+          <input
+            [disabled]="!isFormSubmittable"
+            [kcClass]="{
+              kcButtonClass: true,
+              kcButtonPrimaryClass: true,
+              kcButtonBlockClass: isAppInitiatedAction,
+              kcButtonLargeClass: true,
+            }"
+            type="submit"
+            value="{{ 'doSubmit' | msgStr }}"
+          />
+          @if (isAppInitiatedAction) {
+            <button
+              [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
+              type="submit"
+              name="cancel-aia"
+              value="true"
+            >
+              {{ 'doCancel' | msgStr }}
+            </button>
+          }
+        </div>
+      </div>
+    </form>
+  </ng-container>
+</kc-login-template>

@@ -1,6 +1,6 @@
 @let url = kcContext.url;
 @let stateChecker = kcContext.stateChecker;
-@let applications = kcContext.applications.applications;
+@let applications = kcContext.applications?.applications;
 
 <kc-account-template [active]="'applications'">
   <ng-container content>
@@ -38,7 +38,7 @@
           </thead>
 
           <tbody>
-            @for (application of applications; track application) {
+            @for (application of applications ?? []; track application) {
               <tr>
                 <td>
                   @if (application.effectiveUrl) {

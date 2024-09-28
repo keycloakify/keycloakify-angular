@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, computed, forwardRef, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, forwardRef, inject, input } from '@angular/core';
+import { CLASSES, USE_DEFAULT_CSS } from 'keycloakify-angular';
 import { Attribute, ClassKey } from 'keycloakify/login';
 import { ComponentReference } from '../../classes/component-reference.class';
 import { AttributesDirective } from '../../directives/attributes.directive';
@@ -28,8 +29,8 @@ import { AdvancedMsgStrPipe } from '../../pipes/advanced-msg-str.pipe';
 export class GroupLabelComponent extends ComponentReference {
   attribute = input<Attribute>();
   groupName = input<string>();
-  override doUseDefaultCss = input<boolean>();
-  override classes = input<Partial<Record<ClassKey, string>>>();
+  override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
+  override classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
   groupNameRef = computed(() => {
     const attribute = this.attribute();
     const groupName = this.groupName();

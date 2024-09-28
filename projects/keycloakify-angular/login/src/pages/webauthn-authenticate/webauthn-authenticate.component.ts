@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, forwardRef, inject, input } from '@angular/core';
-import { KC_CONTEXT, Script } from 'keycloakify-angular';
+import { CLASSES, KC_CONTEXT, Script, USE_DEFAULT_CSS } from 'keycloakify-angular';
 import { ClassKey } from 'keycloakify/login';
 import { KcContext } from 'keycloakify/login/KcContext';
 import { getKcClsx } from 'keycloakify/login/lib/kcClsx';
@@ -29,8 +29,8 @@ export class WebauthnAuthenticateComponent extends ComponentReference {
   kcContext = inject<Extract<KcContext, { pageId: 'webauthn-authenticate.ftl' }>>(KC_CONTEXT);
   loginResourceInjectorService = inject(LoginResourceInjectorService);
   msgStr = inject(MsgStrPipe);
-  override doUseDefaultCss = input<boolean>();
-  override classes = input<Partial<Record<ClassKey, string>>>();
+  override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
+  override classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
   displayRequiredFields = input(false);
   documentTitle = input<string>();
   bodyClassName = input<string>();
@@ -67,7 +67,7 @@ export class WebauthnAuthenticateComponent extends ComponentReference {
   }
 
   selectAuthListItemIconClass(iconClass: string) {
-    const kcClsx = getKcClsx({ doUseDefaultCss: this.doUseDefaultCss() ?? true, classes: this.classes() }).kcClsx;
+    const kcClsx = getKcClsx({ doUseDefaultCss: this.doUseDefaultCss ?? true, classes: this.classes }).kcClsx;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const className = kcClsx(iconClass as any);
     if (className === iconClass) {

@@ -1,7 +1,7 @@
-import { APP_INITIALIZER, InjectionToken, LOCALE_ID, makeEnvironmentProviders } from '@angular/core';
-import { I18nService } from '../services';
-import { I18n } from '../i18n';
 import { DOCUMENT } from '@angular/common';
+import { APP_INITIALIZER, InjectionToken, LOCALE_ID, makeEnvironmentProviders } from '@angular/core';
+import { I18n } from '../i18n';
+import { I18nService } from '../services';
 
 export const I18N = new InjectionToken<I18n>('i18n');
 export const KC_CONTEXT = new InjectionToken<KcContext>('keycloak context');

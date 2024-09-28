@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, forwardRef, inject, input } from '@angular/core';
-import { KC_CONTEXT } from 'keycloakify-angular';
+import { ChangeDetectionStrategy, Component, forwardRef, inject } from '@angular/core';
+import { CLASSES, KC_CONTEXT, USE_DEFAULT_CSS } from 'keycloakify-angular';
 import { ClassKey } from 'keycloakify/login';
 import { KcContext } from 'keycloakify/login/KcContext';
 import { ComponentReference } from '../../classes/component-reference.class';
@@ -19,6 +19,6 @@ import { ComponentReference } from '../../classes/component-reference.class';
 })
 export class DeleteAccountConfirmComponent extends ComponentReference {
   kcContext = inject<Extract<KcContext, { pageId: 'delete-account-confirm.ftl' }>>(KC_CONTEXT);
-  override doUseDefaultCss = input<boolean>();
-  override classes = input<Partial<Record<ClassKey, string>>>();
+  override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
+  override classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
 }

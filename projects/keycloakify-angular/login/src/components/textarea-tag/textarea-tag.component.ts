@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, forwardRef, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input, output } from '@angular/core';
+import { CLASSES, USE_DEFAULT_CSS } from 'keycloakify-angular';
 import { Attribute, ClassKey } from 'keycloakify/login';
 import { ComponentReference } from '../../classes/component-reference.class';
 import { KcClassDirective } from '../../directives/kc-class.directive';
@@ -25,8 +26,8 @@ export class TextareaTagComponent extends ComponentReference {
   value = input<string>();
   displayableErrors = input<FormFieldError[]>();
   dispatchFormAction = output<FormAction>();
-  override doUseDefaultCss = input<boolean>();
-  override classes = input<Partial<Record<ClassKey, string>>>();
+  override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
+  override classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
 
   onChange(event: Event) {
     this.dispatchFormAction.emit({

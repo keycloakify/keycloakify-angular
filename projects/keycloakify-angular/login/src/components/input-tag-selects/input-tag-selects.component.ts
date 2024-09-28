@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, computed, forwardRef, input, output, Signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, forwardRef, inject, input, output, Signal } from '@angular/core';
+import { CLASSES, USE_DEFAULT_CSS } from 'keycloakify-angular';
 import { Attribute, ClassKey } from 'keycloakify/login';
 import { ComponentReference } from '../../classes/component-reference.class';
 import { KcClassDirective } from '../../directives/kc-class.directive';
@@ -30,8 +31,8 @@ export class InputTagSelectsComponent extends ComponentReference {
   valueOrValues = input<string | string[]>();
   dispatchFormAction = output<FormAction>();
   displayableErrors = input<FormFieldError[]>();
-  override doUseDefaultCss = input<boolean>();
-  override classes = input<Partial<Record<ClassKey, string>>>();
+  override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
+  override classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
 
   context: Signal<{
     inputType: 'radio' | 'checkbox';

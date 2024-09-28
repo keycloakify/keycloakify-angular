@@ -4,12 +4,7 @@
   <!-- [groupNameRef]="groupNameRef"
   TODO: verify this logic
   -->
-  <kc-group-label
-    [attribute]="fieldState.attribute"
-    [doUseDefaultCss]="doUseDefaultCss()"
-    [classes]="classes()"
-  >
-  </kc-group-label>
+  <kc-group-label [attribute]="fieldState.attribute"> </kc-group-label>
 
   @if (beforeField) {
     <ng-container
@@ -18,8 +13,6 @@
         attribute: fieldState.attribute,
         valueOrValues: fieldState.valueOrValues,
         displayableErrors: fieldState.displayableErrors,
-        doUseDefaultCss: doUseDefaultCss(),
-        classes: classes(),
       }"
     >
     </ng-container>
@@ -56,8 +49,6 @@
         [attribute]="fieldState.attribute"
         [valueOrValues]="fieldState.valueOrValues"
         [displayableErrors]="fieldState.displayableErrors"
-        [doUseDefaultCss]="doUseDefaultCss()"
-        [classes]="classes()"
         (dispatchFormAction)="onDispatch($event)"
       >
       </kc-input-field-by-type>
@@ -65,8 +56,6 @@
       <kc-field-errors
         [attribute]="fieldState.attribute"
         [displayableErrors]="fieldState.displayableErrors"
-        [doUseDefaultCss]="doUseDefaultCss()"
-        [classes]="classes()"
       >
       </kc-field-errors>
       @if (fieldState.attribute.annotations.inputHelperTextAfter) {
@@ -86,8 +75,6 @@
             attribute: fieldState.attribute,
             valueOrValues: fieldState.valueOrValues,
             displayableErrors: fieldState.displayableErrors,
-            doUseDefaultCss: doUseDefaultCss(),
-            classes: classes(),
           }"
         >
         </ng-container>

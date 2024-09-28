@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, computed, forwardRef, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, forwardRef, inject, input, output } from '@angular/core';
+import { CLASSES, USE_DEFAULT_CSS } from 'keycloakify-angular';
 import { Attribute, ClassKey } from 'keycloakify/login';
 import { ComponentReference } from '../../classes/component-reference.class';
 import { AttributesDirective } from '../../directives/attributes.directive';
@@ -47,8 +48,8 @@ export class InputTagComponent extends ComponentReference {
   values = input<string[]>();
   displayableErrors = input<FormFieldError[]>();
   dispatchFormAction = output<FormAction>();
-  override doUseDefaultCss = input<boolean>();
-  override classes = input<Partial<Record<ClassKey, string>>>();
+  override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
+  override classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
 
   value = computed(() => {
     const valueOrValues = this.valueOrValues();

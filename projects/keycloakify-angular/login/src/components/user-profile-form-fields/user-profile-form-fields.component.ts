@@ -6,7 +6,6 @@ import {
   effect,
   forwardRef,
   inject,
-  input,
   output,
   TemplateRef,
 } from '@angular/core';
@@ -20,6 +19,7 @@ import { FormAction, UserProfileFormService } from '../../services/user-profile-
 import { FieldErrorsComponent } from '../field-errors/field-errors.component';
 import { GroupLabelComponent } from '../group-label/group-label.component';
 import { InputFieldByTypeComponent } from '../input-field-by-type/input-field-by-type.component';
+import { CLASSES, USE_DEFAULT_CSS } from 'keycloakify-angular';
 
 @Component({
   standalone: true,
@@ -53,8 +53,8 @@ export class UserProfileFormFieldsComponent extends ComponentReference {
   kcContext = inject<KcContext>(KC_CONTEXT);
   userProfileFormService = inject(UserProfileFormService);
   doMakeUserConfirmPassword = inject(DO_MAKE_USER_CONFIRM_PASSWORD);
-  override doUseDefaultCss = input<boolean>();
-  override classes = input<Partial<Record<ClassKey, string>>>();
+  override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
+  override classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
 
   onIsFormSubmittable = output<boolean>();
 

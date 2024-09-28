@@ -9,6 +9,7 @@ import {
   signal,
   WritableSignal,
 } from '@angular/core';
+import { CLASSES, USE_DEFAULT_CSS } from 'keycloakify-angular';
 import { ClassKey } from 'keycloakify/login';
 import { ComponentReference } from '../../classes/component-reference.class';
 import { KcClassDirective } from '../../directives/kc-class.directive';
@@ -37,8 +38,8 @@ import { MsgStrPipe } from '../../pipes/msg-str.pipe';
 export class PasswordWrapperComponent extends ComponentReference {
   private renderer = inject(Renderer2);
   passwordInputId = input.required<string>();
-  override doUseDefaultCss = input<boolean>();
-  override classes = input<Partial<Record<ClassKey, string>>>();
+  override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
+  override classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
 
   isPasswordRevealed: WritableSignal<boolean> = signal(false);
 

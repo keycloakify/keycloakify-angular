@@ -1,15 +1,16 @@
 import { AsyncPipe, NgTemplateOutlet } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, input, OnInit, Renderer2 } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input, OnInit, Renderer2 } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { CLASSES, I18N, KC_CONTEXT, USE_DEFAULT_CSS } from 'keycloakify-angular';
+import { I18n } from 'keycloakify/login/i18n';
 import { KcContext } from 'keycloakify/login/KcContext/KcContext';
 import { ClassKey, getKcClsx } from 'keycloakify/login/lib/kcClsx';
 import { Observable } from 'rxjs';
+import { ComponentReference } from '../classes/component-reference.class';
 import { KcClassDirective } from '../directives/kc-class.directive';
 import { KcSanitizePipe } from '../pipes';
 import { MsgStrPipe } from '../pipes/msg-str.pipe';
 import { LoginResourceInjectorService } from '../services/login-resource-injector.service';
-import { I18n } from 'keycloakify/login/i18n';
 
 @Component({
   selector: 'kc-login-template',
@@ -17,15 +18,21 @@ import { I18n } from 'keycloakify/login/i18n';
   standalone: true,
   imports: [AsyncPipe, KcSanitizePipe, NgTemplateOutlet, KcClassDirective, MsgStrPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    {
+      provide: ComponentReference,
+      useExisting: forwardRef(() => TemplateComponent),
+    },
+  ],
 })
-export class TemplateComponent implements OnInit {
+export class TemplateComponent extends ComponentReference implements OnInit {
   i18n = inject<I18n>(I18N);
   renderer = inject(Renderer2);
   meta = inject(Meta);
   title = inject(Title);
   kcContext = inject<KcContext>(KC_CONTEXT);
-  doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
-  classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
+  override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
+  override classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
   loginResourceInjectorService = inject(LoginResourceInjectorService);
 
   displayInfo = input(false);
@@ -37,6 +44,7 @@ export class TemplateComponent implements OnInit {
   isReadyToRender$: Observable<boolean>;
 
   constructor() {
+    super();
     this.title.setTitle(this.documentTitle() ?? this.i18n.msgStr('loginTitle', this.kcContext.realm.displayName));
     this.isReadyToRender$ = this.loginResourceInjectorService.injectResource(this.doUseDefaultCss);
   }

@@ -1,4 +1,4 @@
-import { DefaultPage } from 'keycloakify-angular';
+import { DefaultPage } from 'keycloakify-angular/login';
 import { ClassKey } from 'keycloakify/login';
 import { KcContext } from './KcContext';
 

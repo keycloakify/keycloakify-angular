@@ -1,14 +1,14 @@
 import { forwardRef, provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { applicationConfig, Meta, moduleMetadata, StoryObj } from '@storybook/angular';
 import { provideKeycloakifyAngular } from 'keycloakify-angular';
-import { ComponentReference, KcClassDirective, MsgStrPipe, TemplateComponent } from 'keycloakify-angular/login';
+import { ComponentReference } from 'keycloakify-angular/login';
 import { getI18n } from '../i18n';
 import { createKcPageStory } from '../KcPageStory';
 
-const { KcPageStory } = createKcPageStory({ pageId: 'code.ftl' });
-const CodeComponent = (await KcPageStory({})).ComponentBootstrap;
-const meta: Meta<typeof CodeComponent> = {
-  component: CodeComponent,
+const { KcPageStory } = createKcPageStory({ pageId: 'login-x509-info.ftl' });
+const LoginX509InfoComponent = (await KcPageStory({})).ComponentBootstrap;
+const meta: Meta<typeof LoginX509InfoComponent> = {
+  component: LoginX509InfoComponent,
   decorators: [
     applicationConfig({
       providers: [
@@ -19,11 +19,11 @@ const meta: Meta<typeof CodeComponent> = {
       ],
     }),
     moduleMetadata({
-      imports: [MsgStrPipe, TemplateComponent, KcClassDirective],
+      imports: [],
       providers: [
         {
           provide: ComponentReference,
-          useExisting: forwardRef(() => CodeComponent),
+          useExisting: forwardRef(() => LoginX509InfoComponent),
         },
       ],
     }),

@@ -5,10 +5,10 @@ import { ComponentReference, KcClassDirective, MsgStrPipe, TemplateComponent } f
 import { getI18n } from '../i18n';
 import { createKcPageStory } from '../KcPageStory';
 
-const { KcPageStory } = createKcPageStory({ pageId: 'code.ftl' });
-const CodeComponent = (await KcPageStory({})).ComponentBootstrap;
-const meta: Meta<typeof CodeComponent> = {
-  component: CodeComponent,
+const { KcPageStory } = createKcPageStory({ pageId: 'delete-account-confirm.ftl' });
+const DeleteAccountConfirmComponent = (await KcPageStory({})).ComponentBootstrap;
+const meta: Meta<typeof DeleteAccountConfirmComponent> = {
+  component: DeleteAccountConfirmComponent,
   decorators: [
     applicationConfig({
       providers: [
@@ -23,7 +23,7 @@ const meta: Meta<typeof CodeComponent> = {
       providers: [
         {
           provide: ComponentReference,
-          useExisting: forwardRef(() => CodeComponent),
+          useExisting: forwardRef(() => DeleteAccountConfirmComponent),
         },
       ],
     }),

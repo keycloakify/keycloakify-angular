@@ -1,0 +1,49 @@
+@let attr = attribute();
+@let index = fieldIndex();
+@if (attr) {
+  <input
+    [type]="attr.annotations.inputType | inputType"
+    [id]="attr.name"
+    [name]="attr.name"
+    [value]="value()"
+    [kcClass]="'kcInputClass'"
+    [attr.aria-invalid]="index && displayableErrors()?.[index] !== undefined"
+    [disabled]="attr.readOnly"
+    [autocomplete]="attr.autocomplete"
+    [placeholder]="attr.annotations.inputTypePlaceholder ?? '' | advancedMsgStr"
+    [attr.pattern]="attr.annotations.inputTypePattern"
+    [attr.size]="
+      !attr.annotations.inputTypeSize
+        ? undefined
+        : (attr.annotations.inputTypeSize | toNumber) === 0
+          ? undefined
+          : (attr.annotations.inputTypeSize | toNumber)
+    "
+    [attr.maxlength]="
+      !attr.annotations.inputTypeMaxlength ? undefined : (attr.annotations.inputTypeMaxlength | toNumber)
+    "
+    [attr.minlength]="
+      !attr.annotations.inputTypeMinlength ? undefined : (attr.annotations.inputTypeMinlength | toNumber)
+    "
+    [attr.max]="attr.annotations.inputTypeMax"
+    [attr.min]="attr.annotations.inputTypeMin"
+    [attr.step]="attr.annotations.inputTypeStep"
+    [kcAttributes]="attr.html5DataAnnotations"
+    (change)="onChange($event)"
+    (blur)="onBlur()"
+  />
+  @if (index !== undefined) {
+    @let values = valueOrValues() ?? [] | toArray;
+    <kc-field-errors
+      [attribute]="attr"
+      [displayableErrors]="displayableErrors()"
+      [fieldIndex]="index"
+    ></kc-field-errors>
+    <kc-add-remove-buttons-multi-valued-attribute
+      [attribute]="attr"
+      [values]="values"
+      [fieldIndex]="index"
+      (dispatchFormAction)="dispatchFormAction.emit($event)"
+    ></kc-add-remove-buttons-multi-valued-attribute>
+  }
+}

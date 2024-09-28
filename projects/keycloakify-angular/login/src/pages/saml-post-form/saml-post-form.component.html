@@ -1,0 +1,51 @@
+@let samlPost = kcContext.samlPost;
+<kc-login-template
+  [displayInfo]="displayInfo"
+  [bodyClassName]="bodyClassName()"
+  [displayMessage]="displayMessage"
+  [displayRequiredFields]="displayRequiredFields()"
+  [documentTitle]="documentTitle()"
+>
+  <ng-container headerNode>
+    {{ 'saml.post-form.title' | msgStr }}
+  </ng-container>
+  <ng-container content>
+    <p>{{ 'saml.post-form.message' | msgStr }}</p>
+    <form
+      name="saml-post-binding"
+      method="post"
+      [action]="samlPost.url"
+      #setHtmlFormElement
+    >
+      @if (!!samlPost.SAMLRequest) {
+        <input
+          type="hidden"
+          name="SAMLRequest"
+          [value]="samlPost.SAMLRequest"
+        />
+      }
+      @if (!!samlPost.SAMLResponse) {
+        <input
+          type="hidden"
+          name="SAMLResponse"
+          [value]="samlPost.SAMLResponse"
+        />
+      }
+      @if (!!samlPost.relayState) {
+        <input
+          type="hidden"
+          name="RelayState"
+          [value]="samlPost.relayState"
+        />
+      }
+      <noscript>
+        <p>{{ 'saml.post-form.js-disabled' | msgStr }}</p>
+        <input
+          type="submit"
+          value="{{ 'doContinue' | msgStr }}"
+        />
+      </noscript>
+    </form>
+  </ng-container>
+  ></kc-login-template
+>

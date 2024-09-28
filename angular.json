@@ -6,8 +6,8 @@
     "keycloakify-angular": {
       "projectType": "library",
       "root": "projects/keycloakify-angular",
-      "sourceRoot": "projects/keycloakify-angular/src",
-      "prefix": "lib",
+      "sourceRoot": "projects/keycloakify-angular",
+      "prefix": "kc",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",

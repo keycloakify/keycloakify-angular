@@ -1,27 +1,12 @@
-/*
- * Public API Surface of keycloakify-angular
- */
-// DIRECTIVES
-export * from './lib/login/directives';
-// PIPES
-export * from './lib/login/pipes';
-// CLASSES
-export * from './lib/login/classes/component-reference.class';
-// SERVICES
-export * from './lib/login/services';
-// DEFAULT PAGE
-export * from './lib/login/DefaultPage';
-// TEMPLATE
-export { TemplateComponent } from './lib/login/containers/template.component';
-// COMPONENTS
-export * from './lib/login/components';
-// PROVIDERS
-export {
-  CLASSES,
-  DO_MAKE_USER_CONFIRM_PASSWORD,
-  I18N,
-  KC_CONTEXT,
-  USE_DEFAULT_CSS,
-  provideKeycloakifyAngular,
-  type KeycloakifyAngularConfig,
-} from './lib/login/providers/keycloakify-angular.providers';
+import { KcContext as KcAccountContext } from 'keycloakify/account/KcContext';
+import { KcContext as KcLoginContext } from 'keycloakify/login/KcContext';
+
+declare global {
+  interface Window {
+    kcContext?: KcLoginContext | KcAccountContext;
+  }
+}
+
+export * from './models';
+export * from './providers/keycloakify-angular.providers';
+export * from './services';

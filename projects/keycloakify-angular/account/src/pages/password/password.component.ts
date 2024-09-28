@@ -1,6 +1,6 @@
 import { NgClass } from '@angular/common';
-import { Component, forwardRef, inject, input, signal } from '@angular/core';
-import { KC_CONTEXT } from 'keycloakify-angular';
+import { Component, forwardRef, inject, signal } from '@angular/core';
+import { CLASSES, KC_CONTEXT, USE_DEFAULT_CSS } from 'keycloakify-angular';
 import { ClassKey } from 'keycloakify/account';
 import { KcContext } from 'keycloakify/account/KcContext';
 import { ComponentReference } from '../../classes/component-reference.class';
@@ -22,10 +22,10 @@ import { MsgStrPipe } from '../../pipes';
 })
 export class PasswordComponent extends ComponentReference {
   kcContext = inject<Extract<KcContext, { pageId: 'password.ftl' }>>(KC_CONTEXT);
-  override doUseDefaultCss = input<boolean>();
-  override classes = input<Partial<Record<ClassKey, string>>>();
+  override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
+  override classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
   override additionalClasses: Partial<Record<ClassKey, string>> = {
-    kcBodyClass: `${this.classes()?.kcBodyClass} password`,
+    kcBodyClass: `${this.classes?.kcBodyClass} password`,
   };
 
   currentPassword = signal('');

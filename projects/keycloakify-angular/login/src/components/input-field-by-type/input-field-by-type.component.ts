@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, computed, forwardRef, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, forwardRef, inject, input, output } from '@angular/core';
+import { CLASSES, USE_DEFAULT_CSS } from 'keycloakify-angular';
 import { Attribute, ClassKey } from 'keycloakify/login';
 import { ComponentReference } from '../../classes/component-reference.class';
 import { ToArrayPipe } from '../../pipes/to-array.pipe';
@@ -8,6 +9,7 @@ import { InputTagComponent } from '../input-tag/input-tag.component';
 import { PasswordWrapperComponent } from '../password-wrapper/password-wrapper.component';
 import { SelectTagComponent } from '../select-tag/select-tag.component';
 import { TextareaTagComponent } from '../textarea-tag/textarea-tag.component';
+
 @Component({
   standalone: true,
   styles: [
@@ -35,8 +37,8 @@ export class InputFieldByTypeComponent extends ComponentReference {
   valueOrValues = input<string | string[]>();
   displayableErrors = input<FormFieldError[]>();
   dispatchFormAction = output<FormAction>();
-  override doUseDefaultCss = input<boolean>();
-  override classes = input<Partial<Record<ClassKey, string>>>();
+  override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
+  override classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
 
   attributePassword = computed<Attribute>(() => {
     const attribute: Attribute = this.attribute() ?? ({} as Attribute);

@@ -16,11 +16,7 @@
       [action]="url.loginAction"
       method="post"
     >
-      <kc-user-profile-form-fields
-        [classes]="classes()"
-        [doUseDefaultCss]="doUseDefaultCss()"
-        (onIsFormSubmittable)="isFormSubmittable.set($event)"
-      />
+      <kc-user-profile-form-fields (onIsFormSubmittable)="isFormSubmittable.set($event)" />
       <div [kcClass]="'kcFormGroupClass'">
         <div
           id="kc-form-options"

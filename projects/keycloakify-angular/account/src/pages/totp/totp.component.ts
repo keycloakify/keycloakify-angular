@@ -1,6 +1,6 @@
 import { NgClass } from '@angular/common';
-import { Component, forwardRef, inject, input } from '@angular/core';
-import { KC_CONTEXT } from 'keycloakify-angular';
+import { Component, forwardRef, inject } from '@angular/core';
+import { CLASSES, KC_CONTEXT, USE_DEFAULT_CSS } from 'keycloakify-angular';
 import { ClassKey } from 'keycloakify/account';
 import { KcContext } from 'keycloakify/account/KcContext';
 import { ComponentReference } from '../../classes/component-reference.class';
@@ -22,6 +22,6 @@ import { AdvancedMsgStrPipe, KcSanitizePipe, MsgStrPipe } from '../../pipes';
 })
 export class TotpComponent extends ComponentReference {
   kcContext = inject<Extract<KcContext, { pageId: 'totp.ftl' }>>(KC_CONTEXT);
-  override doUseDefaultCss = input<boolean>();
-  override classes = input<Partial<Record<ClassKey, string>>>();
+  override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
+  override classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
 }

@@ -24,11 +24,7 @@
       [action]="url.registrationAction"
       method="post"
     >
-      <kc-user-profile-form-fields
-        [classes]="classes()"
-        [doUseDefaultCss]="doUseDefaultCss()"
-        (onIsFormSubmittable)="isFormSubmittable.set($event)"
-      ></kc-user-profile-form-fields>
+      <kc-user-profile-form-fields (onIsFormSubmittable)="isFormSubmittable.set($event)"></kc-user-profile-form-fields>
       @if (termsAcceptanceRequired) {
         <div className="form-group">
           <div [kcClass]="'kcInputWrapperClass'">

@@ -95,8 +95,8 @@ export class KcClassDirective implements DoCheck {
     } else {
       let klassChecked = klass;
       if (kcClsxCheck) {
-        const doUseDefaultCss = this.#host.doUseDefaultCss() ?? true;
-        const classes = { ...(this.#host.classes() ?? {}), ...(this.#host.additionalClasses ?? {}) };
+        const doUseDefaultCss = this.#host.doUseDefaultCss ?? true;
+        const classes = { ...(this.#host.classes ?? {}), ...(this.#host.additionalClasses ?? {}) };
         const kcClsx = getKcClsx({ doUseDefaultCss, classes }).kcClsx;
         klassChecked = kcClsx(klass as ClassKey);
       }

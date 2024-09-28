@@ -7,8 +7,6 @@
         [attribute]="attribute()"
         [value]="$any(valueOrValues())"
         [displayableErrors]="displayableErrors()"
-        [doUseDefaultCss]="doUseDefaultCss()"
-        [classes]="classes()"
         (dispatchFormAction)="dispatchFormAction.emit($event)"
       ></kc-textarea-tag>
     }
@@ -17,8 +15,6 @@
         [attribute]="attribute()"
         [valueOrValues]="valueOrValues()"
         [displayableErrors]="displayableErrors()"
-        [doUseDefaultCss]="doUseDefaultCss()"
-        [classes]="classes()"
         (dispatchFormAction)="dispatchFormAction.emit($event)"
       ></kc-select-tag>
     }
@@ -27,8 +23,6 @@
         [attribute]="attribute()"
         [valueOrValues]="valueOrValues()"
         [displayableErrors]="displayableErrors()"
-        [doUseDefaultCss]="doUseDefaultCss()"
-        [classes]="classes()"
         (dispatchFormAction)="dispatchFormAction.emit($event)"
       ></kc-input-tag-selects>
     }
@@ -42,8 +36,6 @@
             [valueOrValues]="valueOrValues()"
             [fieldIndex]="i"
             [displayableErrors]="displayableErrors()"
-            [doUseDefaultCss]="doUseDefaultCss()"
-            [classes]="classes()"
             (dispatchFormAction)="dispatchFormAction.emit($event)"
           ></kc-input-tag>
         }
@@ -54,8 +46,6 @@
               [attribute]="attributePassword()"
               [valueOrValues]="valueOrValues()"
               [displayableErrors]="displayableErrors()"
-              [doUseDefaultCss]="doUseDefaultCss()"
-              [classes]="classes()"
               (dispatchFormAction)="dispatchFormAction.emit($event)"
             ></kc-input-tag>
           </kc-password-wrapper>
@@ -64,8 +54,6 @@
             [attribute]="attribute()"
             [valueOrValues]="valueOrValues()"
             [displayableErrors]="displayableErrors()"
-            [doUseDefaultCss]="doUseDefaultCss()"
-            [classes]="classes()"
             (dispatchFormAction)="dispatchFormAction.emit($event)"
           ></kc-input-tag>
         }

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, forwardRef, inject, input, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, forwardRef, inject, input, ViewChild } from '@angular/core';
 import { CLASSES, KC_CONTEXT, USE_DEFAULT_CSS } from 'keycloakify-angular';
 import { ClassKey } from 'keycloakify/login';
 import { KcContext } from 'keycloakify/login/KcContext';
@@ -19,7 +19,7 @@ import { MsgStrPipe } from '../../pipes/msg-str.pipe';
     },
   ],
 })
-export class SamlPostFormComponent extends ComponentReference {
+export class SamlPostFormComponent extends ComponentReference implements AfterViewInit {
   kcContext = inject<Extract<KcContext, { pageId: 'saml-post-form.ftl' }>>(KC_CONTEXT);
   override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
   override classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
@@ -31,8 +31,7 @@ export class SamlPostFormComponent extends ComponentReference {
   @ViewChild('setHtmlFormElement')
   htmlFormElement!: HTMLFormElement;
 
-  constructor() {
-    super();
+  ngAfterViewInit(): void {
     if (this.htmlFormElement === null) {
       return;
     }

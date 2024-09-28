@@ -1,3 +1,63 @@
+@let url = kcContext.url;
+@let sessions = kcContext.sessions;
+@let stateChecker = kcContext.stateChecker;
+
 <kc-account-template [active]="'sessions'">
-  <ng-container content></ng-container>
+  <ng-container content>
+    <div [kcClass]="'kcContentWrapperClass'">
+      <div class="col-md-10">
+        <h2>{{ 'sessionsHtmlTitle' | msgStr }}</h2>
+      </div>
+    </div>
+
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>{{ 'ip' | msgStr }}</th>
+          <th>{{ 'started' | msgStr }}</th>
+          <th>{{ 'lastAccess' | msgStr }}</th>
+          <th>{{ 'expires' | msgStr }}</th>
+          <th>{{ 'clients' | msgStr }}</th>
+        </tr>
+      </thead>
+
+      <tbody role="rowgroup">
+        @for (session of sessions.sessions; track session) {
+          <tr>
+            <td>{{ session.ipAddress }}</td>
+            <td>{{ session?.started }}</td>
+            <td>{{ session?.lastAccess }}</td>
+            <td>{{ session?.expires }}</td>
+            <td>
+              @for (client of session.clients; track client) {
+                <div>
+                  {{ client }}
+                  <br />
+                </div>
+              }
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+
+    <form
+      [action]="url.sessionsUrl"
+      method="post"
+    >
+      <input
+        type="hidden"
+        id="stateChecker"
+        name="stateChecker"
+        [value]="stateChecker"
+      />
+      <button
+        id="logout-all-sessions"
+        type="submit"
+        [kcClass]="['kcButtonDefaultClass', 'kcButtonClass']"
+      >
+        {{ 'doLogOutAllSessions' | msgStr }}
+      </button>
+    </form>
+  </ng-container>
 </kc-account-template>

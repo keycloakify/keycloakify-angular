@@ -11,19 +11,23 @@
     [disabled]="attr.readOnly"
     [autocomplete]="attr.autocomplete"
     [placeholder]="attr.annotations.inputTypePlaceholder ?? '' | advancedMsgStr"
-    [pattern]="attr.annotations.inputTypePattern"
-    [size]="
+    [attr.pattern]="attr.annotations.inputTypePattern"
+    [attr.size]="
       !attr.annotations.inputTypeSize
-        ? 20
+        ? undefined
         : (attr.annotations.inputTypeSize | toNumber) === 0
-          ? 20
+          ? undefined
           : (attr.annotations.inputTypeSize | toNumber)
     "
-    [maxLength]="!attr.annotations.inputTypeMaxlength ? undefined : (attr.annotations.inputTypeMaxlength | toNumber)"
-    [minLength]="!attr.annotations.inputTypeMinlength ? undefined : (attr.annotations.inputTypeMinlength | toNumber)"
-    [max]="attr.annotations.inputTypeMax"
-    [min]="attr.annotations.inputTypeMin"
-    [step]="attr.annotations.inputTypeStep"
+    [attr.maxlength]="
+      !attr.annotations.inputTypeMaxlength ? undefined : (attr.annotations.inputTypeMaxlength | toNumber)
+    "
+    [attr.minlength]="
+      !attr.annotations.inputTypeMinlength ? undefined : (attr.annotations.inputTypeMinlength | toNumber)
+    "
+    [attr.max]="attr.annotations.inputTypeMax"
+    [attr.min]="attr.annotations.inputTypeMin"
+    [attr.step]="attr.annotations.inputTypeStep"
     [kcAttributes]="attr.html5DataAnnotations"
     (change)="onChange($event)"
     (blur)="onBlur()"

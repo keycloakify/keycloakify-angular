@@ -1,4 +1,4 @@
-import { NgClass } from '@angular/common';
+import { DatePipe, NgClass } from '@angular/common';
 import { Component, forwardRef, inject, input } from '@angular/core';
 import { KC_CONTEXT } from 'keycloakify-angular';
 import { ClassKey } from 'keycloakify/account';
@@ -10,7 +10,7 @@ import { MsgStrPipe } from '../../pipes';
 
 @Component({
   standalone: true,
-  imports: [KcClassDirective, TemplateComponent, MsgStrPipe, NgClass],
+  imports: [KcClassDirective, TemplateComponent, MsgStrPipe, NgClass, DatePipe],
   selector: 'kc-root',
   templateUrl: 'log.component.html',
   providers: [

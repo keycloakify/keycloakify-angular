@@ -1,14 +1,11 @@
 import { AsyncPipe } from '@angular/common';
 import {
-  AfterContentInit,
   ChangeDetectionStrategy,
   Component,
-  ContentChild,
-  Directive,
-  ElementRef,
   forwardRef,
   inject,
   input,
+  Renderer2,
   signal,
   WritableSignal,
 } from '@angular/core';
@@ -16,14 +13,6 @@ import { ClassKey } from 'keycloakify/login';
 import { ComponentReference } from '../../classes/component-reference.class';
 import { KcClassDirective } from '../../directives/kc-class.directive';
 import { MsgStrPipe } from '../../pipes/msg-str.pipe';
-
-@Directive({
-  selector: '[kcInput]',
-  standalone: true,
-})
-export class KcInputDirective {
-  el = inject<ElementRef<HTMLInputElement>>(ElementRef);
-}
 
 @Component({
   selector: 'kc-password-wrapper',
@@ -45,17 +34,13 @@ export class KcInputDirective {
     },
   ],
 })
-export class PasswordWrapperComponent extends ComponentReference implements AfterContentInit {
-  @ContentChild(KcInputDirective, { static: true }) input: KcInputDirective | undefined;
-  passwordInputId = input<string>();
+export class PasswordWrapperComponent extends ComponentReference {
+  private renderer = inject(Renderer2);
+  passwordInputId = input.required<string>();
   override doUseDefaultCss = input<boolean>();
   override classes = input<Partial<Record<ClassKey, string>>>();
 
   isPasswordRevealed: WritableSignal<boolean> = signal(false);
-
-  ngAfterContentInit(): void {
-    this.setPasswordInputType();
-  }
 
   togglePasswordVisibility(): void {
     this.isPasswordRevealed.update((revealed) => !revealed);
@@ -63,8 +48,9 @@ export class PasswordWrapperComponent extends ComponentReference implements Afte
   }
 
   private setPasswordInputType(): void {
-    if (this.input) {
-      this.input.el.nativeElement.type = this.isPasswordRevealed() ? 'text' : 'password';
+    const input = document.getElementById(this.passwordInputId());
+    if (input) {
+      this.renderer.setProperty(input, 'type', this.isPasswordRevealed() ? 'text' : 'password');
     }
   }
 }

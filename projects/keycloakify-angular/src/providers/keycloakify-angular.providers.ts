@@ -1,6 +1,7 @@
-import { APP_INITIALIZER, InjectionToken, makeEnvironmentProviders } from '@angular/core';
+import { APP_INITIALIZER, InjectionToken, LOCALE_ID, makeEnvironmentProviders } from '@angular/core';
 import { I18nService } from '../services';
 import { I18n } from '../i18n';
+import { DOCUMENT } from '@angular/common';
 
 export const I18N = new InjectionToken<I18n>('i18n');
 export const KC_CONTEXT = new InjectionToken<KcContext>('keycloak context');
@@ -31,6 +32,13 @@ export const provideKeycloakifyAngular = (config: KeycloakifyAngularConfig) =>
     {
       provide: DO_MAKE_USER_CONFIRM_PASSWORD,
       useValue: config?.doMakeUserConfirmPassword ?? true,
+    },
+    {
+      provide: LOCALE_ID,
+      useFactory: (document: Document) => {
+        return document.documentElement.lang ?? 'en';
+      },
+      deps: [DOCUMENT],
     },
     {
       provide: APP_INITIALIZER,

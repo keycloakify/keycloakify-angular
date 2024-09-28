@@ -1,0 +1,36 @@
+@let url = kcContext.url;
+<kc-login-template
+  [displayInfo]="displayInfo"
+  [bodyClassName]="bodyClassName()"
+  [displayMessage]="displayMessage"
+  [displayRequiredFields]="displayRequiredFields()"
+  [documentTitle]="documentTitle()"
+>
+  <ng-container headerNode>
+    {{ 'termsTitle' | msgStr }}
+  </ng-container>
+  <ng-container content>
+    <div id="kc-terms-text">{{ 'termsText' | msgStr }}</div>
+    <form
+      class="form-actions"
+      [action]="url.loginAction"
+      method="POST"
+    >
+      <input
+        [kcClass]="['kcButtonClass', 'kcButtonClass', 'kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
+        name="accept"
+        id="kc-accept"
+        type="submit"
+        [value]="'doAccept' | msgStr"
+      />
+      <input
+        [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
+        name="cancel"
+        id="kc-decline"
+        type="submit"
+        [value]="'doDecline' | msgStr"
+      />
+    </form>
+    <div className="clearfix"></div>
+  </ng-container>
+</kc-login-template>

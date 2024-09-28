@@ -31,9 +31,4 @@ export class SelectAuthenticatorComponent extends ComponentReference {
   bodyClassName = input<string>();
   displayInfo: boolean = false;
   displayMessage: boolean = false;
-
-  // todo add type of authenticationSelection
-  getIconCssClass(iconCssClass: string): ClassKey {
-    return iconCssClass as ClassKey;
-  }
 }

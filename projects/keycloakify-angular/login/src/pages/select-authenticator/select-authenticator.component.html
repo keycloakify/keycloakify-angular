@@ -26,12 +26,7 @@
             [value]="authenticationSelection.authExecId"
           >
             <div [kcClass]="'kcSelectAuthListItemIconClass'">
-              <i
-                [kcClass]="[
-                  'kcSelectAuthListItemIconPropertyClass',
-                  getIconCssClass(authenticationSelection.iconCssClass || 'kcAuthenticatorDefaultClass'),
-                ]"
-              ></i>
+              <i [kcClass]="['kcSelectAuthListItemIconPropertyClass', $any(authenticationSelection.iconCssClass)]"></i>
             </div>
             <div [kcClass]="'kcSelectAuthListItemBodyClass'">
               <div [kcClass]="'kcSelectAuthListItemHeadingClass'">

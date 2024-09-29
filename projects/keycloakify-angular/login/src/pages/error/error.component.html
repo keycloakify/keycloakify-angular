@@ -1,7 +1,7 @@
 @let message = kcContext.message;
 @let skipLink = kcContext.skipLink;
 @let client = kcContext.client;
-<kc-login-template>
+<kc-login-template [displayMessage]="false">
   <ng-container headerNode>
     {{ 'errorTitle' | msgStr }}
   </ng-container>

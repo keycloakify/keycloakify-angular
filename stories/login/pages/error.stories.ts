@@ -19,3 +19,12 @@ export const Default: Story = {
     overrides,
   },
 };
+
+export const WithAnotherMessage: Story = {
+  globals: {
+    pageId,
+    overrides: { message: { summary: 'With another error message' } } satisfies DeepPartial<
+      Extract<KcContext, { pageId: 'error.ftl' }>
+    >,
+  },
+};

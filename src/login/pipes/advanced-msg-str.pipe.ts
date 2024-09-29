@@ -1,5 +1,5 @@
 import { inject, Pipe, PipeTransform } from "@angular/core";
-import { I18N } from "@keycloakify/angular/lib/providers/keycloakify-angular.providers";
+import { I18N } from "@keycloakify/angular/lib/public-api";
 import { I18n } from "../i18n";
 @Pipe({
     name: "advancedMsgStr",

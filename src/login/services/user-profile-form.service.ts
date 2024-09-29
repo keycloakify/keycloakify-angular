@@ -14,7 +14,7 @@ import {
     DO_MAKE_USER_CONFIRM_PASSWORD,
     I18N,
     KC_CONTEXT
-} from "@keycloakify/angular/lib/providers/keycloakify-angular.providers";
+} from "@keycloakify/angular/lib/public-api";
 import {
     Attribute,
     KcContext,

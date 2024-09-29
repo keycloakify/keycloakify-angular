@@ -1,8 +1,5 @@
 import { ChangeDetectionStrategy, Component, forwardRef, inject } from "@angular/core";
-import {
-    CLASSES,
-    USE_DEFAULT_CSS
-} from "@keycloakify/angular/lib/providers/keycloakify-angular.providers";
+import { CLASSES, USE_DEFAULT_CSS } from "@keycloakify/angular/lib/public-api";
 import { ClassKey } from "keycloakify/login/lib/kcClsx";
 import { ComponentReference } from "@keycloakify/angular/login/classes/component-reference.class";
 import { KcClassDirective } from "@keycloakify/angular/login/directives/kc-class.directive";

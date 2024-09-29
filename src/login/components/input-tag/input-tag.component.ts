@@ -7,10 +7,7 @@ import {
     input,
     output
 } from "@angular/core";
-import {
-    CLASSES,
-    USE_DEFAULT_CSS
-} from "@keycloakify/angular/lib/providers/keycloakify-angular.providers";
+import { CLASSES, USE_DEFAULT_CSS } from "@keycloakify/angular/lib/public-api";
 import { Attribute } from "keycloakify/login/KcContext";
 import { ClassKey } from "keycloakify/login/lib/kcClsx";
 import { ComponentReference } from "@keycloakify/angular/login/classes/component-reference.class";
@@ -24,8 +21,8 @@ import {
     FormAction,
     FormFieldError
 } from "@keycloakify/angular/login/services/user-profile-form.service";
-import { AddRemoveButtonsMultiValuedAttributeComponent } from "../add-remove-buttons-multi-valued-attribute/add-remove-buttons-multi-valued-attribute.component";
-import { FieldErrorsComponent } from "../field-errors/field-errors.component";
+import { AddRemoveButtonsMultiValuedAttributeComponent } from "@keycloakify/angular/login/components/add-remove-buttons-multi-valued-attribute/add-remove-buttons-multi-valued-attribute.component";
+import { FieldErrorsComponent } from "@keycloakify/angular/login/components/field-errors/field-errors.component";
 
 @Component({
     standalone: true,

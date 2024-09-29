@@ -14,16 +14,16 @@ import {
     I18N,
     KC_CONTEXT,
     USE_DEFAULT_CSS
-} from "@keycloakify/angular/lib/providers/keycloakify-angular.providers";
-import type { I18n } from "../i18n";
+} from "@keycloakify/angular/lib/public-api";
+import type { I18n } from "@keycloakify/angular/login/i18n";
 import { KcContext } from "keycloakify/login/KcContext/KcContext";
 import { ClassKey, getKcClsx } from "keycloakify/login/lib/kcClsx";
 import { Observable } from "rxjs";
-import { ComponentReference } from "../classes/component-reference.class";
-import { KcClassDirective } from "../directives/kc-class.directive";
-import { KcSanitizePipe } from "../pipes";
-import { MsgStrPipe } from "../pipes/msg-str.pipe";
-import { LoginResourceInjectorService } from "../services/login-resource-injector.service";
+import { ComponentReference } from "@keycloakify/angular/login/classes/component-reference.class";
+import { KcClassDirective } from "@keycloakify/angular/login/directives/kc-class.directive";
+import { KcSanitizePipe } from "@keycloakify/angular/login/pipes";
+import { MsgStrPipe } from "@keycloakify/angular/login/pipes/msg-str.pipe";
+import { LoginResourceInjectorService } from "@keycloakify/angular/login/services/login-resource-injector.service";
 
 @Component({
     selector: "kc-login-template",

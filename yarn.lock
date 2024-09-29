@@ -682,10 +682,10 @@ json-parse-even-better-errors@^2.3.0:
   resolved "https://registry.yarnpkg.com/json-parse-even-better-errors/-/json-parse-even-better-errors-2.3.1.tgz#7c47805a94319928e05777405dc12e1f7a4ee02d"
   integrity sha512-xyFwyhro/JEof6Ghe2iz2NcXoj2sloNsWr/XsERDK/oiPCfaNhl5ONfp+jQdAZRQQ0IJWNzH9zIZF7li91kh2w==
 
-keycloakify@^11.2.0:
-  version "11.2.0"
-  resolved "https://registry.yarnpkg.com/keycloakify/-/keycloakify-11.2.0.tgz#8f00bb1240d18d09202c8d4bff5a1e92d7bfb049"
-  integrity sha512-8DnU5F6DmtCUKXOhApAm1/5E0ewGYCn3YNy5TKP6zHBpCEIlHNZ6i0lrGQj10rlmwwaOwPEDVNpOZTKZDsHp7Q==
+keycloakify@^11.2.2:
+  version "11.2.2"
+  resolved "https://registry.yarnpkg.com/keycloakify/-/keycloakify-11.2.2.tgz#316b562ad3545e304571d37543d69afdf62d552c"
+  integrity sha512-QiRTAyiya3zpuwnzuiSJiEKaBGe7Dk0NaAIKfv+bUaXPMsEAncQHaHBCeMy5vACfxIiMpBjdLAgIpPT9br7Qwg==
   dependencies:
     tsafe "^1.6.6"
 

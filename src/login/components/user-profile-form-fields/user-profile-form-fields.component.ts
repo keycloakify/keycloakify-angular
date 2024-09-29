@@ -14,7 +14,7 @@ import {
     KC_CONTEXT,
     CLASSES,
     USE_DEFAULT_CSS
-} from "@keycloakify/angular/lib/providers/keycloakify-angular.providers";
+} from "@keycloakify/angular/lib/public-api";
 import { ClassKey } from "keycloakify/login/lib/kcClsx";
 import { KcContext } from "keycloakify/login/KcContext";
 import { ComponentReference } from "@keycloakify/angular/login/classes/component-reference.class";
@@ -24,9 +24,9 @@ import {
     FormAction,
     UserProfileFormService
 } from "@keycloakify/angular/login/services/user-profile-form.service";
-import { FieldErrorsComponent } from "../field-errors/field-errors.component";
-import { GroupLabelComponent } from "../group-label/group-label.component";
-import { InputFieldByTypeComponent } from "../input-field-by-type/input-field-by-type.component";
+import { FieldErrorsComponent } from "@keycloakify/angular/login/components/field-errors/field-errors.component";
+import { GroupLabelComponent } from "@keycloakify/angular/login/components/group-label/group-label.component";
+import { InputFieldByTypeComponent } from "@keycloakify/angular/login/components/input-field-by-type/input-field-by-type.component";
 
 @Component({
     standalone: true,

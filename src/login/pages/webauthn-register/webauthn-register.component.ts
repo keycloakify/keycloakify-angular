@@ -9,7 +9,7 @@ import {
     CLASSES,
     KC_CONTEXT,
     USE_DEFAULT_CSS
-} from "@keycloakify/angular/lib/providers/keycloakify-angular.providers";
+} from "@keycloakify/angular/lib/public-api";
 import { Script } from "@keycloakify/angular/lib/models";
 import { ClassKey } from "keycloakify/login/lib/kcClsx";
 import { KcContext } from "keycloakify/login/KcContext";

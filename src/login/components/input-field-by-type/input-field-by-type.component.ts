@@ -7,10 +7,7 @@ import {
     input,
     output
 } from "@angular/core";
-import {
-    CLASSES,
-    USE_DEFAULT_CSS
-} from "@keycloakify/angular/lib/providers/keycloakify-angular.providers";
+import { CLASSES, USE_DEFAULT_CSS } from "@keycloakify/angular/lib/public-api";
 import { Attribute } from "keycloakify/login/KcContext";
 import { ClassKey } from "keycloakify/login/lib/kcClsx";
 import { ComponentReference } from "@keycloakify/angular/login/classes/component-reference.class";
@@ -19,11 +16,11 @@ import {
     FormAction,
     FormFieldError
 } from "@keycloakify/angular/login/services/user-profile-form.service";
-import { InputTagSelectsComponent } from "../input-tag-selects/input-tag-selects.component";
-import { InputTagComponent } from "../input-tag/input-tag.component";
-import { PasswordWrapperComponent } from "../password-wrapper/password-wrapper.component";
-import { SelectTagComponent } from "../select-tag/select-tag.component";
-import { TextareaTagComponent } from "../textarea-tag/textarea-tag.component";
+import { InputTagSelectsComponent } from "@keycloakify/angular/login/components/input-tag-selects/input-tag-selects.component";
+import { InputTagComponent } from "@keycloakify/angular/login/components/input-tag/input-tag.component";
+import { PasswordWrapperComponent } from "@keycloakify/angular/login/components/password-wrapper/password-wrapper.component";
+import { SelectTagComponent } from "@keycloakify/angular/login/components/select-tag/select-tag.component";
+import { TextareaTagComponent } from "@keycloakify/angular/login/components/textarea-tag/textarea-tag.component";
 
 @Component({
     standalone: true,

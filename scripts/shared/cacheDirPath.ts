@@ -1,5 +1,5 @@
 import { join as pathJoin } from "path";
-import { getThisCodebaseRootDirPath } from "../../src/bin/tools/getThisCodebaseRootDirPath";
+import { getThisCodebaseRootDirPath } from "../tools/getThisCodebaseRootDirPath";
 
 export const cacheDirPath = pathJoin(
     getThisCodebaseRootDirPath(),

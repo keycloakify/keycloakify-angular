@@ -1,15 +1,15 @@
 import { execSync } from "child_process";
 import { join as pathJoin, relative as pathRelative } from "path";
-import { getThisCodebaseRootDirPath } from "../src/bin/tools/getThisCodebaseRootDirPath";
+import { getThisCodebaseRootDirPath } from "./tools/getThisCodebaseRootDirPath";
 import * as fs from "fs";
 import * as os from "os";
 
-const singletonDependencies: string[] = ["react", "@types/react"];
+const singletonDependencies: string[] = ["keycloakify", "rxjs", "zone.js"];
 
 // For example [ "@emotion" ] it's more convenient than
 // having to list every sub emotion packages (@emotion/css @emotion/utils ...)
 // in singletonDependencies
-const namespaceSingletonDependencies: string[] = [];
+const namespaceSingletonDependencies: string[] = ["@angular"];
 
 const rootDirPath = getThisCodebaseRootDirPath();
 

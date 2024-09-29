@@ -1,0 +1,31 @@
+@let attr = attribute();
+@let multiple = isMultiple();
+@if (attr) {
+  <select
+    [id]="attr.name"
+    [name]="attr.name"
+    [value]="valueOrValues()"
+    [kcClass]="'kcInputClass'"
+    [attr.aria-invalid]="!!displayableErrors()?.length"
+    [disabled]="attr.readOnly"
+    [multiple]="multiple"
+    [size]="!attr.annotations.inputTypeSize ? undefined : (attr.annotations.inputTypeSize | toNumber)"
+    (change)="onChange($event)"
+    (blur)="onBlur()"
+  >
+    @if (!multiple) {
+      <option value=""></option>
+    }
+    @for (option of options(); track option) {
+      <option [value]="option">
+        @if (!!attr.annotations.inputOptionLabels) {
+          {{ attr.annotations.inputOptionLabels[option] ?? option | advancedMsgStr }}
+        } @else if (!!attr.annotations.inputOptionLabelsI18nPrefix) {
+          {{ attr.annotations.inputOptionLabelsI18nPrefix + '.' + option | advancedMsgStr }}
+        } @else {
+          {{ option }}
+        }
+      </option>
+    }
+  </select>
+}

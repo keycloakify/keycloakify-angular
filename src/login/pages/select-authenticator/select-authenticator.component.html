@@ -1,0 +1,49 @@
+@let url = kcContext.url;
+@let auth = kcContext.auth;
+<kc-login-template
+  [displayInfo]="displayInfo"
+  [bodyClassName]="bodyClassName()"
+  [displayMessage]="displayMessage"
+  [displayRequiredFields]="displayRequiredFields()"
+  [documentTitle]="documentTitle()"
+>
+  <ng-container headerNode>
+    {{ 'loginChooseAuthenticator' | msgStr }}
+  </ng-container>
+  <ng-container content>
+    <form
+      id="kc-select-credential-form"
+      [kcClass]="'kcFormClass'"
+      [action]="url.loginAction"
+      method="post"
+    >
+      <div [kcClass]="'kcSelectAuthListClass'">
+        @for (authenticationSelection of auth.authenticationSelections; track authenticationSelection; let i = $index) {
+          <button
+            [kcClass]="'kcSelectAuthListItemClass'"
+            type="submit"
+            name="authenticationExecution"
+            [value]="authenticationSelection.authExecId"
+          >
+            <div [kcClass]="'kcSelectAuthListItemIconClass'">
+              <i [kcClass]="['kcSelectAuthListItemIconPropertyClass', $any(authenticationSelection.iconCssClass)]"></i>
+            </div>
+            <div [kcClass]="'kcSelectAuthListItemBodyClass'">
+              <div [kcClass]="'kcSelectAuthListItemHeadingClass'">
+                {{ authenticationSelection.displayName | advancedMsgStr }}
+              </div>
+              <div [kcClass]="'kcSelectAuthListItemDescriptionClass'">
+                {{ authenticationSelection.helpText | advancedMsgStr }}
+              </div>
+            </div>
+            <div [kcClass]="'kcSelectAuthListItemFillClass'"></div>
+            <div [kcClass]="'kcSelectAuthListItemArrowClass'">
+              <i [kcClass]="'kcSelectAuthListItemArrowIconClass'"></i>
+            </div>
+          </button>
+        }
+      </div>
+    </form>
+  </ng-container>
+  ></kc-login-template
+>

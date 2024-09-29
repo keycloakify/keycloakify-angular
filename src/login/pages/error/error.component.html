@@ -1,0 +1,25 @@
+@let message = kcContext.message;
+@let skipLink = kcContext.skipLink;
+@let client = kcContext.client;
+<kc-login-template [displayMessage]="false">
+  <ng-container headerNode>
+    {{ 'errorTitle' | msgStr }}
+  </ng-container>
+  <ng-container content>
+    <div id="kc-error-message">
+      <p
+        class="instruction"
+        [innerHTML]="message.summary | kcSanitize: 'html'"
+      ></p>
+      @if (!skipLink && !!client?.baseUrl) {
+        <p>
+          <a
+            id="backToApplication"
+            [href]="client.baseUrl"
+            [innerHTML]="'backToApplication' | msgStr | kcSanitize: 'html'"
+          ></a>
+        </p>
+      }
+    </div>
+  </ng-container>
+</kc-login-template>

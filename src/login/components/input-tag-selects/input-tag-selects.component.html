@@ -1,0 +1,29 @@
+@let inputType = context()?.inputType;
+@let classInput = context()?.classInput;
+@let classLabel = context()?.classLabel;
+@let classDiv = context()?.classDiv;
+@let attr = attribute();
+@if (attr) {
+  @for (option of options(); track option) {
+    <div [kcClass]="classDiv">
+      <input
+        [type]="inputType"
+        [id]="attr.name + '-' + option"
+        [name]="attr.name"
+        [value]="option"
+        [kcClass]="classInput"
+        [attr.aria-invalid]="!!displayableErrors()?.length"
+        [disabled]="attr.readOnly"
+        [checked]="checked(option)"
+        (change)="onChange($event, option)"
+        (blur)="onBlur()"
+      />
+      <label
+        [for]="attr.name + '-' + option"
+        [kcClass]="[classLabel!, attr.readOnly ? 'kcInputClassRadioCheckboxLabelDisabled' : $any('')]"
+      >
+        {{ option | advancedMsgStr }}
+      </label>
+    </div>
+  }
+}

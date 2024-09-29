@@ -1,0 +1,18 @@
+@let attr = attribute();
+@if (attr) {
+  <textarea
+    [id]="attr.name"
+    [name]="attr.name"
+    [kcClass]="'kcInputClass'"
+    [attr.aria-invalid]="!!displayableErrors()?.length"
+    [disabled]="attr.readOnly"
+    [cols]="attr.annotations.inputTypeCols === undefined ? undefined : (attr.annotations.inputTypeCols | toNumber)"
+    [rows]="attr.annotations.inputTypeRows === undefined ? undefined : (attr.annotations.inputTypeRows | toNumber)"
+    [maxLength]="
+      attr.annotations.inputTypeMaxlength === undefined ? undefined : (attr.annotations.inputTypeMaxlength | toNumber)
+    "
+    [value]="value()"
+    (change)="onChange($event)"
+    (blur)="onBlur()"
+  ></textarea>
+}

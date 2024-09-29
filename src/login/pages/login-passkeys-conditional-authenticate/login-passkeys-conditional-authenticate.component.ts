@@ -1,14 +1,19 @@
 import { ChangeDetectionStrategy, Component, forwardRef, inject } from "@angular/core";
-import { CLASSES, KC_CONTEXT, Script, USE_DEFAULT_CSS } from "keycloakify-angular";
-import { ClassKey } from "keycloakify/login";
+import {
+    CLASSES,
+    KC_CONTEXT,
+    USE_DEFAULT_CSS
+} from "@keycloakify/angular/lib/providers/keycloakify-angular.providers";
+import { Script } from "@keycloakify/angular/lib/models";
+import { ClassKey } from "keycloakify/login/lib/kcClsx";
 import { KcContext } from "keycloakify/login/KcContext";
 import { getKcClsx } from "keycloakify/login/lib/kcClsx";
-import { ComponentReference } from "../../classes/component-reference.class";
-import { TemplateComponent } from "../../containers/template.component";
-import { KcClassDirective } from "../../directives/kc-class.directive";
-import { AdvancedMsgStrPipe } from "../../pipes/advanced-msg-str.pipe";
-import { MsgStrPipe } from "../../pipes/msg-str.pipe";
-import { LoginResourceInjectorService } from "../../services";
+import { ComponentReference } from "@keycloakify/angular/login/classes/component-reference.class";
+import { TemplateComponent } from "@keycloakify/angular/login/containers/template.component";
+import { KcClassDirective } from "@keycloakify/angular/login/directives/kc-class.directive";
+import { AdvancedMsgStrPipe } from "@keycloakify/angular/login/pipes/advanced-msg-str.pipe";
+import { MsgStrPipe } from "@keycloakify/angular/login/pipes/msg-str.pipe";
+import { LoginResourceInjectorService } from "@keycloakify/angular/login/services";
 
 @Component({
     standalone: true,

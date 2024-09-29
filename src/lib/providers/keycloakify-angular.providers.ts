@@ -17,11 +17,11 @@ export const DO_MAKE_USER_CONFIRM_PASSWORD = new InjectionToken<boolean>(
 );
 
 type ClassKey =
-    | import("keycloakify/login").ClassKey
-    | import("keycloakify/account").ClassKey;
+    | import("keycloakify/login/lib/kcClsx").ClassKey
+    | import("keycloakify/account/lib/kcClsx").ClassKey;
 type KcContextLike =
-    | import("keycloakify/login/i18n").KcContextLike
-    | import("keycloakify/account/i18n").KcContextLike;
+    | import("keycloakify/login/i18n/noJsx").KcContextLike
+    | import("keycloakify/account/i18n/noJsx").KcContextLike;
 type KcContext =
     | import("keycloakify/login/KcContext").KcContext
     | import("keycloakify/account/KcContext").KcContext;

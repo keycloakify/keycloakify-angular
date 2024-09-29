@@ -5,16 +5,20 @@ import {
     inject,
     input
 } from "@angular/core";
-import { CLASSES, KC_CONTEXT, USE_DEFAULT_CSS } from "keycloakify-angular";
-import { ClassKey } from "keycloakify/login";
+import {
+    CLASSES,
+    KC_CONTEXT,
+    USE_DEFAULT_CSS
+} from "@keycloakify/angular/lib/providers/keycloakify-angular.providers";
+import { ClassKey } from "keycloakify/login/lib/kcClsx";
 import { KcContext } from "keycloakify/login/KcContext";
-import { ComponentReference } from "../../classes/component-reference.class";
-import { LogoutOtherSessionsComponent } from "../../components/logout-other-sessions/logout-other-sessions.component";
-import { PasswordWrapperComponent } from "../../components/password-wrapper/password-wrapper.component";
-import { TemplateComponent } from "../../containers/template.component";
-import { KcClassDirective } from "../../directives";
-import { KcSanitizePipe } from "../../pipes/kc-sanitize.pipe";
-import { MsgStrPipe } from "../../pipes/msg-str.pipe";
+import { ComponentReference } from "@keycloakify/angular/login/classes/component-reference.class";
+import { LogoutOtherSessionsComponent } from "@keycloakify/angular/login/components/logout-other-sessions/logout-other-sessions.component";
+import { PasswordWrapperComponent } from "@keycloakify/angular/login/components/password-wrapper/password-wrapper.component";
+import { TemplateComponent } from "@keycloakify/angular/login/containers/template.component";
+import { KcClassDirective } from "@keycloakify/angular/login/directives";
+import { KcSanitizePipe } from "@keycloakify/angular/login/pipes/kc-sanitize.pipe";
+import { MsgStrPipe } from "@keycloakify/angular/login/pipes/msg-str.pipe";
 
 @Component({
     standalone: true,

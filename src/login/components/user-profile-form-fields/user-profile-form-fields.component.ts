@@ -9,20 +9,24 @@ import {
     output,
     TemplateRef
 } from "@angular/core";
-import { DO_MAKE_USER_CONFIRM_PASSWORD, KC_CONTEXT } from "keycloakify-angular";
-import { ClassKey } from "keycloakify/login";
+import {
+    DO_MAKE_USER_CONFIRM_PASSWORD,
+    KC_CONTEXT,
+    CLASSES,
+    USE_DEFAULT_CSS
+} from "@keycloakify/angular/lib/providers/keycloakify-angular.providers";
+import { ClassKey } from "keycloakify/login/lib/kcClsx";
 import { KcContext } from "keycloakify/login/KcContext";
-import { ComponentReference } from "../../classes/component-reference.class";
-import { KcClassDirective } from "../../directives/kc-class.directive";
-import { AdvancedMsgStrPipe } from "../../pipes/advanced-msg-str.pipe";
+import { ComponentReference } from "@keycloakify/angular/login/classes/component-reference.class";
+import { KcClassDirective } from "@keycloakify/angular/login/directives/kc-class.directive";
+import { AdvancedMsgStrPipe } from "@keycloakify/angular/login/pipes/advanced-msg-str.pipe";
 import {
     FormAction,
     UserProfileFormService
-} from "../../services/user-profile-form.service";
+} from "@keycloakify/angular/login/services/user-profile-form.service";
 import { FieldErrorsComponent } from "../field-errors/field-errors.component";
 import { GroupLabelComponent } from "../group-label/group-label.component";
 import { InputFieldByTypeComponent } from "../input-field-by-type/input-field-by-type.component";
-import { CLASSES, USE_DEFAULT_CSS } from "keycloakify-angular";
 
 @Component({
     standalone: true,

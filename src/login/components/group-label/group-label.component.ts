@@ -6,12 +6,16 @@ import {
     inject,
     input
 } from "@angular/core";
-import { CLASSES, USE_DEFAULT_CSS } from "keycloakify-angular";
-import { Attribute, ClassKey } from "keycloakify/login";
-import { ComponentReference } from "../../classes/component-reference.class";
-import { AttributesDirective } from "../../directives/attributes.directive";
-import { KcClassDirective } from "../../directives/kc-class.directive";
-import { AdvancedMsgStrPipe } from "../../pipes/advanced-msg-str.pipe";
+import {
+    CLASSES,
+    USE_DEFAULT_CSS
+} from "@keycloakify/angular/lib/providers/keycloakify-angular.providers";
+import { Attribute } from "keycloakify/login/KcContext";
+import { ClassKey } from "keycloakify/login/lib/kcClsx";
+import { ComponentReference } from "@keycloakify/angular/login/classes/component-reference.class";
+import { AttributesDirective } from "@keycloakify/angular/login/directives/attributes.directive";
+import { KcClassDirective } from "@keycloakify/angular/login/directives/kc-class.directive";
+import { AdvancedMsgStrPipe } from "@keycloakify/angular/login/pipes/advanced-msg-str.pipe";
 
 @Component({
     standalone: true,

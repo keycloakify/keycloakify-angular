@@ -40,7 +40,9 @@
     },
     "peerDependencies": {
         "keycloakify": "^11.2.0",
-        "@angular/core": "^18.0.0"
+        "@angular/core": "^18.0.0",
+        "@angular/common": "^18.0.0",
+        "@angular/platform-browser": "^18.0.0"
     },
     "devDependencies": {
         "keycloakify": "^11.2.0",
@@ -50,6 +52,8 @@
         "lint-staged": "^11.0.0",
         "tsc-alias": "^1.8.10",
         "tsx": "^4.15.5",
-        "@angular/core": "^18.2.6"
+        "@angular/core": "^18.2.6",
+        "@angular/common": "^18.2.6",
+        "@angular/platform-browser": "^18.2.6"
     }
 }

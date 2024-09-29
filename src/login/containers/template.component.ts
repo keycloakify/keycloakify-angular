@@ -9,8 +9,13 @@ import {
     Renderer2
 } from "@angular/core";
 import { Meta, Title } from "@angular/platform-browser";
-import { CLASSES, I18N, KC_CONTEXT, USE_DEFAULT_CSS } from "keycloakify-angular";
-import { I18n } from "keycloakify/login/i18n";
+import {
+    CLASSES,
+    I18N,
+    KC_CONTEXT,
+    USE_DEFAULT_CSS
+} from "@keycloakify/angular/lib/providers/keycloakify-angular.providers";
+import type { I18n } from "../i18n";
 import { KcContext } from "keycloakify/login/KcContext/KcContext";
 import { ClassKey, getKcClsx } from "keycloakify/login/lib/kcClsx";
 import { Observable } from "rxjs";

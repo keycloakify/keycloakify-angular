@@ -1,5 +1,6 @@
 import { inject, Injectable } from "@angular/core";
-import { KC_CONTEXT, ResourceInjectorService, Script } from "keycloakify-angular";
+import { KC_CONTEXT } from "@keycloakify/angular/lib/providers/keycloakify-angular.providers";
+import { ResourceInjectorService, Script } from "@keycloakify/angular/lib/public-api";
 import { KcContext } from "keycloakify/login/KcContext";
 import { catchError, forkJoin, of, switchMap } from "rxjs";
 

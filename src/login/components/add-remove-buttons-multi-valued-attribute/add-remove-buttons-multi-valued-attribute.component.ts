@@ -5,9 +5,9 @@ import {
     input,
     output
 } from "@angular/core";
-import { Attribute } from "keycloakify/login";
-import { MsgStrPipe } from "../../pipes/msg-str.pipe";
-import { FormAction } from "../../services/user-profile-form.service";
+import { Attribute } from "keycloakify/login/KcContext";
+import { MsgStrPipe } from "@keycloakify/angular/login/pipes/msg-str.pipe";
+import { FormAction } from "@keycloakify/angular/login/services/user-profile-form.service";
 
 @Component({
     standalone: true,

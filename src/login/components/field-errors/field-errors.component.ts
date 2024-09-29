@@ -5,11 +5,15 @@ import {
     inject,
     input
 } from "@angular/core";
-import { CLASSES, USE_DEFAULT_CSS } from "keycloakify-angular";
-import { Attribute, ClassKey } from "keycloakify/login";
-import { ComponentReference } from "../../classes/component-reference.class";
-import { KcClassDirective } from "../../directives/kc-class.directive";
-import { FormFieldError } from "../../services/user-profile-form.service";
+import {
+    CLASSES,
+    USE_DEFAULT_CSS
+} from "@keycloakify/angular/lib/providers/keycloakify-angular.providers";
+import { Attribute } from "keycloakify/login/KcContext";
+import { ClassKey } from "keycloakify/login/lib/kcClsx";
+import { ComponentReference } from "@keycloakify/angular/login/classes/component-reference.class";
+import { KcClassDirective } from "@keycloakify/angular/login/directives/kc-class.directive";
+import { FormFieldError } from "@keycloakify/angular/login/services/user-profile-form.service";
 
 @Component({
     standalone: true,

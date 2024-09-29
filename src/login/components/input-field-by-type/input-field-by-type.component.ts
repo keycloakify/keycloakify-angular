@@ -7,11 +7,18 @@ import {
     input,
     output
 } from "@angular/core";
-import { CLASSES, USE_DEFAULT_CSS } from "keycloakify-angular";
-import { Attribute, ClassKey } from "keycloakify/login";
-import { ComponentReference } from "../../classes/component-reference.class";
-import { ToArrayPipe } from "../../pipes/to-array.pipe";
-import { FormAction, FormFieldError } from "../../services/user-profile-form.service";
+import {
+    CLASSES,
+    USE_DEFAULT_CSS
+} from "@keycloakify/angular/lib/providers/keycloakify-angular.providers";
+import { Attribute } from "keycloakify/login/KcContext";
+import { ClassKey } from "keycloakify/login/lib/kcClsx";
+import { ComponentReference } from "@keycloakify/angular/login/classes/component-reference.class";
+import { ToArrayPipe } from "@keycloakify/angular/login/pipes/to-array.pipe";
+import {
+    FormAction,
+    FormFieldError
+} from "@keycloakify/angular/login/services/user-profile-form.service";
 import { InputTagSelectsComponent } from "../input-tag-selects/input-tag-selects.component";
 import { InputTagComponent } from "../input-tag/input-tag.component";
 import { PasswordWrapperComponent } from "../password-wrapper/password-wrapper.component";

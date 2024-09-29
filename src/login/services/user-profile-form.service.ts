@@ -10,7 +10,11 @@ import {
     WritableSignal
 } from "@angular/core";
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
-import { DO_MAKE_USER_CONFIRM_PASSWORD, I18N, KC_CONTEXT } from "keycloakify-angular";
+import {
+    DO_MAKE_USER_CONFIRM_PASSWORD,
+    I18N,
+    KC_CONTEXT
+} from "@keycloakify/angular/lib/providers/keycloakify-angular.providers";
 import {
     Attribute,
     KcContext,
@@ -18,10 +22,10 @@ import {
     Validators
 } from "keycloakify/login/KcContext";
 import type {
-    I18n,
     KcContextLike as KcContextLike_i18n,
     MessageKey_defaultSet
-} from "keycloakify/login/i18n";
+} from "keycloakify/login/i18n/noJsx";
+import type { I18n } from "../i18n";
 import { emailRegexp } from "keycloakify/tools/emailRegExp";
 import { formatNumber } from "keycloakify/tools/formatNumber";
 import { structuredCloneButFunctions } from "keycloakify/tools/structuredCloneButFunctions";

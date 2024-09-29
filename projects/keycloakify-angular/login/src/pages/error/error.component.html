@@ -16,9 +16,8 @@
           <a
             id="backToApplication"
             [href]="client.baseUrl"
-          >
-            {{ 'backToApplication' | msgStr }}
-          </a>
+            [innerHTML]="'backToApplication' | msgStr | kcSanitize: 'html'"
+          ></a>
         </p>
       }
     </div>

@@ -23,22 +23,28 @@
       @if (!skipLink) {
         @if (pageRedirectUri) {
           <p>
-            <a [href]="pageRedirectUri">
-              {{ 'backToApplication' | msgStr }}
+            <a
+              [href]="pageRedirectUri"
+              [innerHTML]="'backToApplication' | msgStr | kcSanitize: 'html'"
+            >
             </a>
           </p>
         }
         @if (actionUri) {
           <p>
-            <a [href]="actionUri">
-              {{ 'proceedWithAction' | msgStr }}
+            <a
+              [href]="actionUri"
+              [innerHTML]="'proceedWithAction' | msgStr | kcSanitize: 'html'"
+            >
             </a>
           </p>
         }
         @if (client.baseUrl) {
           <p>
-            <a [href]="client.baseUrl">
-              {{ 'backToApplication' | msgStr }}
+            <a
+              [href]="client.baseUrl"
+              [innerHTML]="'backToApplication' | msgStr | kcSanitize: 'html'"
+            >
             </a>
           </p>
         }

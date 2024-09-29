@@ -13,8 +13,8 @@
 
   <ng-container content>
     <div
-      [kcClass]="'kcFormClass'"
-      class="'pf-c-alert pf-m-warning pf-m-inline'"
+      [kcClass]="'kcRecoveryCodesWarning'"
+      class="pf-c-alert pf-m-warning pf-m-inline"
       aria-label="Warning alert"
     >
       <div class="pf-c-alert__icon">
@@ -83,15 +83,17 @@
     <!-- confirmation checkbox -->
 
     <div [kcClass]="'kcFormOptionsClass'">
-      <input
-        [kcClass]="'kcCheckInputClass'"
-        type="checkbox"
-        id="kcRecoveryCodesConfirmationCheck"
-        name="kcRecoveryCodesConfirmationCheck"
-        [checked]="toggleRecoveryCodesConfirmation()"
-        (change)="toggleRecoveryCodesConfirmation.set($any($event.target).checked)"
-      />
-      <label for="kcRecoveryCodesConfirmationCheck">{{ 'recovery-codes-confirmation-message' | msgStr }}</label>
+      <label for="kcRecoveryCodesConfirmationCheck">
+        <input
+          [kcClass]="'kcCheckInputClass'"
+          type="checkbox"
+          id="kcRecoveryCodesConfirmationCheck"
+          name="kcRecoveryCodesConfirmationCheck"
+          [checked]="toggleRecoveryCodesConfirmation()"
+          (change)="toggleRecoveryCodesConfirmation.set($any($event.target).checked)"
+        />
+        {{ 'recovery-codes-confirmation-message' | msgStr }}
+      </label>
     </div>
 
     <form

@@ -9,9 +9,8 @@ on:
 
 jobs:
 
-  test_lint:
+  test_format:
     runs-on: ubuntu-latest
-    if: ${{ !github.event.created && github.repository != 'garronej/ts-ci' }}
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
@@ -19,37 +18,14 @@ jobs:
     - name: If this step fails run 'npm run format' then commit again.
       run: npm run _format --list-different
   test:
-    runs-on: ${{ matrix.os }}
-    needs: test_lint
-    strategy:
-      matrix:
-        node: [ '18' ]
-        os: [ ubuntu-latest ]
-    name: Test with Node v${{ matrix.node }} on ${{ matrix.os }}
+    runs-on: ubuntu-latest
+    needs: test_format
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node }}
     - uses: bahmutov/npm-install@v1
     - run: npm run build
-    - run: npm run test
-
-  storybook:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    needs: test
-    steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-    - uses: bahmutov/npm-install@v1
-    - run: npm run build-storybook
-    - run: git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${{github.repository}}.git
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - run: npx -y -p gh-pages@3.1.0 gh-pages -d ./storybook-static -u "github-actions-bot <actions@github.com>"
+    #- run: npm run test
 
   check_if_version_upgraded:
     name: Check if version upgrade

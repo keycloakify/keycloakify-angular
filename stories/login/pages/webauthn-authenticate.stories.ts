@@ -1,26 +1,21 @@
-import { forwardRef } from '@angular/core';
-import { Meta, moduleMetadata, StoryObj } from '@storybook/angular';
-import { ComponentReference } from 'keycloakify-angular/login';
-import { createKcPageStory } from '../KcPageStory';
+import { Meta, StoryObj } from '@storybook/angular';
+import { DeepPartial } from 'keycloakify/tools/DeepPartial';
+import { WrapperComponent } from '../../wrapper-component';
+import { KcContext } from '../KcContext';
 
-const { KcPageStory } = createKcPageStory({ pageId: 'webauthn-authenticate.ftl' });
-const WebauthnAuthenticateComponent = (await KcPageStory({})).ComponentBootstrap;
-const meta: Meta<typeof WebauthnAuthenticateComponent> = {
-  component: WebauthnAuthenticateComponent,
-  decorators: [
-    moduleMetadata({
-      imports: [],
-      providers: [
-        {
-          provide: ComponentReference,
-          useExisting: forwardRef(() => WebauthnAuthenticateComponent),
-        },
-      ],
-    }),
-  ],
+const meta: Meta<WrapperComponent> = {
+  component: WrapperComponent,
 };
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<WrapperComponent>;
 
-export const Default: Story = {};
+const pageId: KcContext['pageId'] = 'webauthn-authenticate.ftl';
+const overrides: DeepPartial<Extract<KcContext, { pageId: 'webauthn-authenticate.ftl' }>> = {};
+
+export const Default: Story = {
+  globals: {
+    pageId,
+    overrides,
+  },
+};

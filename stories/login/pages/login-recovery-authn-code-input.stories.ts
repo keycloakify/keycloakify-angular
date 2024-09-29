@@ -1,36 +1,21 @@
-import { forwardRef, provideExperimentalZonelessChangeDetection } from '@angular/core';
-import { applicationConfig, Meta, moduleMetadata, StoryObj } from '@storybook/angular';
-import { provideKeycloakifyAngular } from 'keycloakify-angular';
-import { ComponentReference } from 'keycloakify-angular/login';
-import { getI18n } from '../i18n';
-import { createKcPageStory } from '../KcPageStory';
+import { Meta, StoryObj } from '@storybook/angular';
+import { DeepPartial } from 'keycloakify/tools/DeepPartial';
+import { WrapperComponent } from '../../wrapper-component';
+import { KcContext } from '../KcContext';
 
-const { KcPageStory } = createKcPageStory({ pageId: 'login-recovery-authn-code-input.ftl' });
-const LoginRecoveryAuthnCodeInputComponent = (await KcPageStory({})).ComponentBootstrap;
-const meta: Meta<typeof LoginRecoveryAuthnCodeInputComponent> = {
-  component: LoginRecoveryAuthnCodeInputComponent,
-  decorators: [
-    applicationConfig({
-      providers: [
-        provideExperimentalZonelessChangeDetection(),
-        provideKeycloakifyAngular({
-          getI18n: getI18n,
-        }),
-      ],
-    }),
-    moduleMetadata({
-      imports: [],
-      providers: [
-        {
-          provide: ComponentReference,
-          useExisting: forwardRef(() => LoginRecoveryAuthnCodeInputComponent),
-        },
-      ],
-    }),
-  ],
+const meta: Meta<WrapperComponent> = {
+  component: WrapperComponent,
 };
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<WrapperComponent>;
 
-export const Default: Story = {};
+const pageId: KcContext['pageId'] = 'login-recovery-authn-code-input.ftl';
+const overrides: DeepPartial<Extract<KcContext, { pageId: 'login-recovery-authn-code-input.ftl' }>> = {};
+
+export const Default: Story = {
+  globals: {
+    pageId,
+    overrides,
+  },
+};

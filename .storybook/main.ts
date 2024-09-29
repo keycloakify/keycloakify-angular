@@ -1,5 +1,6 @@
 import type { StorybookConfig } from '@storybook/angular';
 import { StorybookConfigVite } from '@storybook/builder-vite';
+import path from 'node:path';
 import { UserConfig } from 'vite';
 
 const config: StorybookConfig & StorybookConfigVite = {
@@ -27,6 +28,9 @@ const config: StorybookConfig & StorybookConfigVite = {
       define: {
         'process.env.NODE_ENV': JSON.stringify(configType === 'DEVELOPMENT' ? 'development' : 'production'),
         'process.env.REACT_APP_ENV': JSON.stringify(configType === 'DEVELOPMENT' ? 'development' : 'production'),
+      },
+      alias: {
+        'keycloakify-angular': path.resolve(__dirname, './dist/keycloakify-angular'),
       },
       // Add dependencies to pre-optimization
       optimizeDeps: {

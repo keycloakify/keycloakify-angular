@@ -83,15 +83,17 @@
     <!-- confirmation checkbox -->
 
     <div [kcClass]="'kcFormOptionsClass'">
-      <input
-        [kcClass]="'kcCheckInputClass'"
-        type="checkbox"
-        id="kcRecoveryCodesConfirmationCheck"
-        name="kcRecoveryCodesConfirmationCheck"
-        [checked]="toggleRecoveryCodesConfirmation()"
-        (change)="toggleRecoveryCodesConfirmation.set($any($event.target).checked)"
-      />
-      <label for="kcRecoveryCodesConfirmationCheck">{{ 'recovery-codes-confirmation-message' | msgStr }}</label>
+      <label for="kcRecoveryCodesConfirmationCheck">
+        <input
+          [kcClass]="'kcCheckInputClass'"
+          type="checkbox"
+          id="kcRecoveryCodesConfirmationCheck"
+          name="kcRecoveryCodesConfirmationCheck"
+          [checked]="toggleRecoveryCodesConfirmation()"
+          (change)="toggleRecoveryCodesConfirmation.set($any($event.target).checked)"
+        />
+        {{ 'recovery-codes-confirmation-message' | msgStr }}
+      </label>
     </div>
 
     <form

@@ -26,8 +26,8 @@
               [kcClass]="'kcLoginOTPListInputClass'"
               type="radio"
               name="selectedCredentialId"
-              value="otpCredential.id"
-              defaultChecked="otpCredential.id === configuredOtpCredentials.selectedCredentialId"
+              [value]="otpCredential.id"
+              [defaultChecked]="otpCredential.id === configuredOtpCredentials.selectedCredentialId"
             />
             <label
               for="kc-otp-credential-0"

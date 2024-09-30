@@ -15,7 +15,7 @@ import { crawl } from '../tools/crawl';
 
     // tsc + angular JIT
     {
-        const angularWorkspaceDirPath = pathJoin(distDirPath, 'workspace');
+        const angularWorkspaceDirPath = pathJoin(distDirPath, 'wp');
 
         if (fs.existsSync(angularWorkspaceDirPath)) {
             fs.rmSync(angularWorkspaceDirPath, { recursive: true, force: true });

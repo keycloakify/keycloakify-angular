@@ -13,12 +13,18 @@ import { crawl } from '../tools/crawl';
 
     const distDirPath = pathJoin(getThisCodebaseRootDirPath(), 'dist');
 
-    fs.readdirSync(distDirPath).forEach(basename => {
-        if (basename === 'package.json') {
-            return;
+    clean_dit: {
+        if (!fs.existsSync(distDirPath)) {
+            break clean_dit;
         }
-        fs.rmSync(pathJoin(distDirPath, basename), { recursive: true, force: true });
-    });
+
+        fs.readdirSync(distDirPath).forEach(basename => {
+            if (basename === 'package.json') {
+                return;
+            }
+            fs.rmSync(pathJoin(distDirPath, basename), { recursive: true, force: true });
+        });
+    }
 
     // tsc + angular JIT
     {

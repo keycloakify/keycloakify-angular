@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, forwardRef, inject } from '@angular
 import { CLASSES, KC_CONTEXT, USE_DEFAULT_CSS } from '@keycloakify/angular/lib/public-api';
 import { Script } from '@keycloakify/angular/lib/models';
 import { ClassKey } from 'keycloakify/login/lib/kcClsx';
-import { KcContext } from 'keycloakify/login/KcContext';
+import { KcContext } from '../../KcContext';
 import { getKcClsx } from 'keycloakify/login/lib/kcClsx';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
 import { TemplateComponent } from '@keycloakify/angular/login/containers/template.component';

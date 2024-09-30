@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, forwardRef, inject } from '@angular/core';
-import { Script } from '@keycloakify/angular/lib/models/script.model';
+import { type Script } from '@keycloakify/angular/lib/models/script.model';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css.token';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
 import { TemplateComponent } from '@keycloakify/angular/login/containers/template.component';
@@ -8,9 +8,9 @@ import { LoginResourceInjectorService } from '@keycloakify/angular/login/service
 import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes.token';
 import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n.token';
 import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context.token';
-import { ClassKey, getKcClsx } from 'keycloakify/login/lib/kcClsx';
-import { I18n } from '../../i18n';
-import { KcContext } from '../../KcContext';
+import { type ClassKey, getKcClsx } from 'keycloakify/login/lib/kcClsx';
+import { type I18n } from '../../i18n';
+import { type KcContext } from '../../KcContext';
 
 @Component({
     standalone: true,

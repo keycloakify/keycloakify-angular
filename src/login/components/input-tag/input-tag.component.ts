@@ -11,9 +11,9 @@ import { ToNumberPipe } from '@keycloakify/angular/login/pipes/to-number.pipe';
 import { FormAction, FormFieldError } from '@keycloakify/angular/login/services/user-profile-form.service';
 import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes.token';
 import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n.token';
-import { Attribute } from 'keycloakify/login/KcContext';
-import { ClassKey } from 'keycloakify/login/lib/kcClsx';
-import { I18n } from '../../i18n';
+import { type Attribute } from 'keycloakify/login/KcContext';
+import { type ClassKey } from 'keycloakify/login/lib/kcClsx';
+import { type I18n } from '../../i18n';
 
 @Component({
     standalone: true,

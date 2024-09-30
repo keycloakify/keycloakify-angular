@@ -5,9 +5,9 @@ import { TemplateComponent } from '@keycloakify/angular/login/containers/templat
 import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes.token';
 import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n.token';
 import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context.token';
-import { ClassKey } from 'keycloakify/login/lib/kcClsx';
-import { I18n } from '../../i18n';
-import { KcContext } from '../../KcContext';
+import { type ClassKey } from 'keycloakify/login/lib/kcClsx';
+import { type I18n } from '../../i18n';
+import { type KcContext } from '../../KcContext';
 
 @Component({
     standalone: true,

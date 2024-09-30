@@ -1,9 +1,9 @@
 import { inject, Injectable } from '@angular/core';
 import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context.token';
 import { ResourceInjectorService } from '@keycloakify/angular/lib/services/resource-injector.service';
-import { KcContext } from 'keycloakify/login/KcContext';
+import { type KcContext } from '../KcContext';
 import { catchError, forkJoin, of, switchMap } from 'rxjs';
-import { Script } from '@keycloakify/angular/lib/models/script.model';
+import { type Script } from '@keycloakify/angular/lib/models/script.model';
 
 @Injectable({
     providedIn: 'root'

@@ -5,9 +5,9 @@ import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes.token';
 import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n.token';
 import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context.token';
 import { DO_MAKE_USER_CONFIRM_PASSWORD } from '@keycloakify/angular/login/tokens/make-user-confirm-password.token';
-import { KcContextLike } from 'keycloakify/login/i18n/noJsx';
-import { ClassKey } from 'keycloakify/login/lib/kcClsx';
-import { KcContext } from '../KcContext';
+import { type KcContextLike } from 'keycloakify/login/i18n/noJsx';
+import { type ClassKey } from 'keycloakify/login/lib/kcClsx';
+import { type KcContext } from '../KcContext';
 import { I18nService } from '@keycloakify/angular/login/services/i18n.service';
 
 export type KeycloakifyAngularLoginConfig = {

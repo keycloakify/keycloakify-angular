@@ -5,10 +5,10 @@ import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context.t
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
 import { TemplateComponent } from '@keycloakify/angular/login/containers/template.component';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class.directive';
-import { ClassKey } from 'keycloakify/login/lib/kcClsx';
-import { KcContext } from '../../KcContext';
+import { type ClassKey } from 'keycloakify/login/lib/kcClsx';
+import { type KcContext } from '../../KcContext';
 import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n.token';
-import { I18n } from '../../i18n';
+import { type I18n } from '../../i18n';
 
 @Component({
     standalone: true,

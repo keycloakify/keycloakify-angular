@@ -2,12 +2,12 @@ import { ChangeDetectionStrategy, Component, computed, forwardRef, inject, input
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css.token';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class.directive';
-import { FormAction, FormFieldError } from '@keycloakify/angular/login/services/user-profile-form.service';
+import { type FormAction, type FormFieldError } from '@keycloakify/angular/login/services/user-profile-form.service';
 import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes.token';
 import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n.token';
-import { Attribute } from 'keycloakify/login/KcContext';
-import { ClassKey } from 'keycloakify/login/lib/kcClsx';
-import { I18n } from '../../i18n';
+import { type Attribute } from 'keycloakify/login/KcContext';
+import { type ClassKey } from 'keycloakify/login/lib/kcClsx';
+import { type I18n } from '../../i18n';
 
 @Component({
     standalone: true,

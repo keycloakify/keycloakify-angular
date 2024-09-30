@@ -10,25 +10,25 @@ import {
     WritableSignal
 } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n.token';
+import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context.token';
+import { DO_MAKE_USER_CONFIRM_PASSWORD } from '@keycloakify/angular/login/tokens/make-user-confirm-password.token';
 import {
-    Attribute,
-    KcContext,
-    PasswordPolicies,
-    Validators
+    type Attribute,
+    type PasswordPolicies,
+    type Validators
 } from 'keycloakify/login/KcContext';
 import type {
     KcContextLike as KcContextLike_i18n,
     MessageKey_defaultSet
 } from 'keycloakify/login/i18n/noJsx';
-import type { I18n } from '../i18n';
 import { emailRegexp } from 'keycloakify/tools/emailRegExp';
 import { formatNumber } from 'keycloakify/tools/formatNumber';
 import { structuredCloneButFunctions } from 'keycloakify/tools/structuredCloneButFunctions';
 import { assert, id } from 'tsafe';
+import { type KcContext } from '../KcContext';
+import type { I18n } from '../i18n';
 import { LoginResourceInjectorService } from './login-resource-injector.service';
-import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context.token';
-import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n.token';
-import { DO_MAKE_USER_CONFIRM_PASSWORD } from '@keycloakify/angular/login/tokens/make-user-confirm-password.token';
 
 type KcContextLike_useGetErrors = KcContextLike_i18n & {
     messagesPerField: Pick<KcContext['messagesPerField'], 'existsError' | 'get'>;

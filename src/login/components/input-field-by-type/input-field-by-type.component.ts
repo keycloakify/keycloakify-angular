@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, computed, forwardRef, inject, input, output } from '@angular/core';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css.token';
 import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes.token';
-import { Attribute } from 'keycloakify/login/KcContext';
-import { ClassKey } from 'keycloakify/login/lib/kcClsx';
+import { type Attribute } from 'keycloakify/login/KcContext';
+import { type ClassKey } from 'keycloakify/login/lib/kcClsx';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
 import { ToArrayPipe } from '@keycloakify/angular/login/pipes/to-array.pipe';
 import { FormAction, FormFieldError } from '@keycloakify/angular/login/services/user-profile-form.service';

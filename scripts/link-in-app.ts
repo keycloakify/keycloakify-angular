@@ -4,7 +4,13 @@ import { getThisCodebaseRootDirPath } from './tools/getThisCodebaseRootDirPath';
 import * as fs from 'fs';
 import * as os from 'os';
 
-const singletonDependencies: string[] = ['keycloakify', 'rxjs', 'zone.js'];
+const singletonDependencies: string[] = [
+    'keycloakify',
+    'rxjs',
+    'zone.js',
+    'tslib',
+    'typescript'
+];
 
 // For example [ "@emotion" ] it's more convenient than
 // having to list every sub emotion packages (@emotion/css @emotion/utils ...)
@@ -63,6 +69,21 @@ fs.mkdirSync(yarnGlobalDirPath);
 
 const execYarnLink = (params: { targetModuleName?: string; cwd: string }) => {
     const { targetModuleName, cwd } = params;
+
+    if (targetModuleName === undefined) {
+        const packageJsonFilePath = pathJoin(cwd, 'package.json');
+
+        const packageJson = JSON.parse(
+            fs.readFileSync(packageJsonFilePath).toString('utf8')
+        );
+
+        delete packageJson['packageManager'];
+
+        fs.writeFileSync(
+            packageJsonFilePath,
+            Buffer.from(JSON.stringify(packageJson, null, 2))
+        );
+    }
 
     const cmd = [
         'yarn',

@@ -17,8 +17,8 @@ import { crawl } from '../tools/crawl';
     {
         const angularWorkspaceDirPath = pathJoin(distDirPath, 'workspace');
 
-        if (fs.existsSync(distDirPath)) {
-            fs.rmSync(distDirPath, { recursive: true, force: true });
+        if (fs.existsSync(angularWorkspaceDirPath)) {
+            fs.rmSync(angularWorkspaceDirPath, { recursive: true, force: true });
         }
 
         transformCodebase({
@@ -56,13 +56,6 @@ import { crawl } from '../tools/crawl';
                 )
             );
         }
-
-        console.log("copying angular's node_modules...");
-
-        transformCodebase({
-            srcDirPath: pathJoin(getThisCodebaseRootDirPath(), 'node_modules'),
-            destDirPath: pathJoin(angularWorkspaceDirPath, 'node_modules')
-        });
 
         run(`npx ng build`, { cwd: angularWorkspaceDirPath });
 

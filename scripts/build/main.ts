@@ -136,6 +136,25 @@ import { crawl } from '../tools/crawl';
         }
     });
 
+    bump_dev_package_json_version: {
+        const devPackageJsonFilePath = pathJoin(distDirPath, 'package.json');
+
+        if (!fs.existsSync(devPackageJsonFilePath)) {
+            break bump_dev_package_json_version;
+        }
+
+        const devPackageJson = JSON.parse(
+            fs.readFileSync(devPackageJsonFilePath).toString('utf8')
+        );
+
+        devPackageJson.version = `0.0.0-rc.${Date.now()}`;
+
+        fs.writeFileSync(
+            devPackageJsonFilePath,
+            Buffer.from(JSON.stringify(devPackageJson, null, 2))
+        );
+    }
+
     console.log(
         chalk.green(`✓ built in ${((Date.now() - startTime) / 1000).toFixed(2)}s`)
     );

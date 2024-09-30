@@ -176,4 +176,82 @@ testAppPaths.forEach(testAppPath =>
     })
 );
 
+testAppPaths.forEach(testAppPath => {
+    const ngFilePath = pathJoin(testAppPath, 'node_modules', '.bin', 'ng');
+
+    fs.rmSync(ngFilePath);
+
+    fs.writeFileSync(
+        ngFilePath,
+        Buffer.from(
+            `#!/usr/bin/env node
+
+const { spawn } = require('child_process');
+const fs = require('fs');
+const { join: pathJoin } = require('path');
+
+const [nodePath, , ...args] = process.argv;
+
+(function callee() {
+
+    const serverProcess = spawn(
+        nodePath,
+        [
+            pathJoin(__dirname, "..", "@angular", "cli", "bin", "ng.js"),
+            ...args
+        ],
+        { stdio: 'inherit' }
+    );
+
+    const getPackageJsonVersion = () => {
+        const packageJson = JSON.parse(
+            fs.readFileSync(
+                pathJoin(__dirname, "..", "@keycloakify", "angular", "package.json"),
+                "utf8"
+            )
+        );
+
+        return packageJson.version;
+    };
+
+    let packageJsonVersion = getPackageJsonVersion();
+
+    fs.watch(
+        pathJoin(__dirname, "..", "@keycloakify", "angular", "package.json"),
+        eventType => {
+
+            if (eventType !== "change") {
+                return;
+            }
+
+            const newPackageJsonVersion = getPackageJsonVersion();
+
+            if (packageJsonVersion === newPackageJsonVersion) {
+                return;
+            }
+
+            console.log("Detected change in package.json. Restarting ng...");
+
+            serverProcess.kill('SIGTERM');
+
+            fs.rmSync(
+                pathJoin(__dirname, "..", "..", ".angular", "cache"),
+                { recursive: true }
+            );
+
+            callee();
+
+        }
+    );
+
+})();
+            `,
+            'utf8'
+        )
+    );
+
+    // add execute permission
+    fs.chmodSync(ngFilePath, '755');
+});
+
 export {};

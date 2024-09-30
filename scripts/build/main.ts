@@ -9,6 +9,8 @@ import { crawl } from '../tools/crawl';
 (async () => {
     console.log(chalk.cyan('Building @keycloakify/angular...'));
 
+    console.log('0');
+
     const startTime = Date.now();
 
     const distDirPath = pathJoin(getThisCodebaseRootDirPath(), 'dist');

@@ -18,7 +18,7 @@ jobs:
     - name: If this step fails run 'npm run format' then commit again.
       run: npm run _format --list-different
   test:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     needs: test_format
     steps:
     - uses: actions/checkout@v4

@@ -69,7 +69,14 @@ import { crawl } from '../tools/crawl';
             );
         }
 
-        console.log('g');
+        console.log('g', JSON.stringify(process.env, null, 4));
+
+        transformCodebase({
+            srcDirPath: pathJoin(getThisCodebaseRootDirPath(), 'node_modules'),
+            destDirPath: pathJoin(angularWorkspaceDirPath, 'node_modules')
+        });
+
+        console.log('g2');
 
         run(`npx ng build`, { cwd: angularWorkspaceDirPath });
 

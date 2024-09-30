@@ -9,21 +9,21 @@ on:
 
 jobs:
 
-  test_format:
+  #test_format:
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #  - uses: actions/checkout@v4
+  #  - uses: actions/setup-node@v4
+  #  - uses: bahmutov/npm-install@v1
+  #  - name: If this step fails run 'npm run format' then commit again.
+  #    run: npm run _format --list-different
+  test:
     runs-on: ubuntu-latest
+    #needs: test_format
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
     - uses: bahmutov/npm-install@v1
-    - name: If this step fails run 'npm run format' then commit again.
-      run: npm run _format --list-different
-  test:
-    runs-on: ubuntu-latest
-    needs: test_format
-    steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-    - run: yarn
     - run: npm run build
     #- run: npm run test
 

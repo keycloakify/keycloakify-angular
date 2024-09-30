@@ -90,7 +90,12 @@ import { crawl } from '../tools/crawl';
                     return undefined;
                 }
 
-                return { modifiedSourceCode: sourceCode };
+                return {
+                    newFileName: !fileRelativePath.endsWith('.mjs')
+                        ? undefined
+                        : pathBasename(fileRelativePath).replace(/\.mjs$/, '.js'),
+                    modifiedSourceCode: sourceCode
+                };
             }
         });
 

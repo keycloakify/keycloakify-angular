@@ -7,7 +7,7 @@ import { getThisCodebaseRootDirPath } from '../tools/getThisCodebaseRootDirPath'
 import { crawl } from '../tools/crawl';
 
 (async () => {
-    console.log(chalk.cyan('Building Keycloakify...'));
+    console.log(chalk.cyan('Building @keycloakify/angular...'));
 
     const startTime = Date.now();
 
@@ -57,7 +57,7 @@ import { crawl } from '../tools/crawl';
             );
         }
 
-        run(`yarn build`, { cwd: angularWorkspaceDirPath });
+        run(`npm run build`, { cwd: angularWorkspaceDirPath });
 
         const angularDistDirPath = pathJoin(
             angularWorkspaceDirPath,

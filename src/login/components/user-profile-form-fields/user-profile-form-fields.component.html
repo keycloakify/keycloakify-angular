@@ -27,7 +27,7 @@
                 [for]="fieldState.attribute.name"
                 [kcClass]="'kcLabelClass'"
             >
-                {{ fieldState.attribute.displayName ?? '' | advancedMsgStr }}
+                {{ i18n.advancedMsgStr(fieldState.attribute.displayName ?? '') }}
                 @if (fieldState.attribute.required) {
                     *
                 }
@@ -41,7 +41,7 @@
                     [id]="'form-help-text-before-' + fieldState.attribute.name"
                     aria-live="polite"
                 >
-                    {{ fieldState.attribute.annotations.inputHelperTextBefore | advancedMsgStr }}
+                    {{ i18n.advancedMsgStr(fieldState.attribute.annotations.inputHelperTextBefore) }}
                 </div>
             }
 
@@ -64,7 +64,7 @@
                     [id]="'form-help-text-after-' + fieldState.attribute.name"
                     aria-live="polite"
                 >
-                    {{ fieldState.attribute.annotations.inputHelperTextAfter | advancedMsgStr }}
+                    {{ i18n.advancedMsgStr(fieldState.attribute.annotations.inputHelperTextAfter) }}
                 </div>
             }
 

@@ -8,7 +8,7 @@
     [documentTitle]="documentTitle()"
 >
     <ng-container headerNode>
-        {{ 'doLogIn' | msgStr }}
+        {{ i18n.msgStr('doLogIn') }}
     </ng-container>
     <ng-container content>
         <form
@@ -20,7 +20,7 @@
             <div [kcClass]="'kcInputWrapperClass'">
                 <div [kcClass]="'kcInfoAreaWrapperClass'">
                     <p id="kc-otp-reset-form-description">
-                        {{ 'otp-reset-description' | msgStr }}
+                        {{ i18n.msgStr('otp-reset-description') }}
                     </p>
                     @for (otpCredential of configuredOtpCredentials.userOtpCredentials; track otpCredential; let i = $index) {
                         <input
@@ -56,7 +56,7 @@
                                 id="kc-otp-reset-form-submit"
                                 [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                                 type="submit"
-                                [value]="'doSubmit' | msgStr"
+                                [value]="i18n.msgStr('doSubmit')"
                             />
                         </div>
                     </div>

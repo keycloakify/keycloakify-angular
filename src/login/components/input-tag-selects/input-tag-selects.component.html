@@ -22,7 +22,7 @@
                 [for]="attr.name + '-' + option"
                 [kcClass]="[classLabel!, attr.readOnly ? 'kcInputClassRadioCheckboxLabelDisabled' : $any('')]"
             >
-                {{ option | advancedMsgStr }}
+                {{ i18n.advancedMsgStr(option) }}
             </label>
         </div>
     }

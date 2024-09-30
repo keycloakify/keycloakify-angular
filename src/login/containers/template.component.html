@@ -15,7 +15,7 @@
                 id="kc-header-wrapper"
                 [kcClass]="'kcHeaderWrapperClass'"
             >
-                <div [innerHTML]="realm?.displayNameHtml | kcSanitize: 'html'"></div>
+                <div [innerHTML]="realm?.displayNameHtml ?? '' | kcSanitize: 'html'"></div>
             </div>
         </div>
 
@@ -39,7 +39,7 @@
                                 <button
                                     tabindex="1"
                                     id="kc-current-locale-link"
-                                    [attr.aria-label]="'languages' | msgStr"
+                                    [attr.aria-label]="i18n.msgStr('languages')"
                                     aria-haspopup="true"
                                     aria-expanded="false"
                                     aria-controls="language-switch1"
@@ -91,12 +91,12 @@
                             <a
                                 id="reset-login"
                                 [href]="url?.loginRestartFlowUrl"
-                                [attr.aria-label]="'restartLoginTooltip' | msgStr"
+                                [attr.aria-label]="i18n.msgStr('restartLoginTooltip')"
                             >
                                 <div class="kc-login-tooltip">
                                     <i [kcClass]="'kcResetFlowIcon'"></i>
                                     <span class="kc-tooltip-text">
-                                        {{ 'restartLoginTooltip' | msgStr }}
+                                        {{ i18n.msgStr('restartLoginTooltip') }}
                                     </span>
                                 </div>
                             </a>
@@ -112,7 +112,7 @@
                         >
                             <span class="subtitle">
                                 <span class="required">*</span>
-                                {{ 'requiredFields' | msgStr }}
+                                {{ i18n.msgStr('requiredFields') }}
                             </span>
                         </div>
                         <div class="col-md-10">
@@ -174,7 +174,7 @@
                                         id="try-another-way"
                                         (click)="tryAnotherWay()"
                                     >
-                                        {{ 'doTryAnotherWay' | msgStr }}
+                                        {{ i18n.msgStr('doTryAnotherWay') }}
                                     </a>
                                 </div>
                             </div>

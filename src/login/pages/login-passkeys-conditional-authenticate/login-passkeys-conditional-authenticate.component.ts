@@ -1,24 +1,24 @@
 import { ChangeDetectionStrategy, Component, forwardRef, inject } from '@angular/core';
-import { CLASSES, KC_CONTEXT, USE_DEFAULT_CSS } from '@keycloakify/angular/lib/public-api';
-import { Script } from '@keycloakify/angular/lib/models';
-import { ClassKey } from 'keycloakify/login/lib/kcClsx';
-import { KcContext } from '../../KcContext';
-import { getKcClsx } from 'keycloakify/login/lib/kcClsx';
+import { Script } from '@keycloakify/angular/lib/models/script.model';
+import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css.token';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
 import { TemplateComponent } from '@keycloakify/angular/login/containers/template.component';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class.directive';
-import { AdvancedMsgStrPipe } from '@keycloakify/angular/login/pipes/advanced-msg-str.pipe';
-import { MsgStrPipe } from '@keycloakify/angular/login/pipes/msg-str.pipe';
-import { LoginResourceInjectorService } from '@keycloakify/angular/login/services';
+import { LoginResourceInjectorService } from '@keycloakify/angular/login/services/login-resource-injector.service';
+import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes.token';
+import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n.token';
+import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context.token';
+import { ClassKey, getKcClsx } from 'keycloakify/login/lib/kcClsx';
+import { I18n } from '../../i18n';
+import { KcContext } from '../../KcContext';
 
 @Component({
     standalone: true,
-    imports: [TemplateComponent, MsgStrPipe, KcClassDirective, AdvancedMsgStrPipe],
+    imports: [TemplateComponent, KcClassDirective],
     selector: 'kc-root',
     templateUrl: 'login-passkeys-conditional-authenticate.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
-        MsgStrPipe,
         {
             provide: ComponentReference,
             useExisting: forwardRef(() => LoginPasskeysConditionalAuthenticateComponent)
@@ -26,11 +26,11 @@ import { LoginResourceInjectorService } from '@keycloakify/angular/login/service
     ]
 })
 export class LoginPasskeysConditionalAuthenticateComponent extends ComponentReference {
-    kcContext = inject<Extract<KcContext, { pageId: 'login-passkeys-conditional-authenticate.ftl' }>>(KC_CONTEXT);
+    kcContext = inject<Extract<KcContext, { pageId: 'login-passkeys-conditional-authenticate.ftl' }>>(KC_LOGIN_CONTEXT);
     loginResourceInjectorService = inject(LoginResourceInjectorService);
-    msgStr = inject(MsgStrPipe);
+    i18n = inject<I18n>(LOGIN_I18N);
     override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
-    override classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
+    override classes = inject<Partial<Record<ClassKey, string>>>(LOGIN_CLASSES);
     displayInfo: boolean = true;
 
     authButtonId = 'authenticateWebAuthnButton';
@@ -65,13 +65,13 @@ export class LoginPasskeysConditionalAuthenticateComponent extends ComponentRefe
                     authButton.addEventListener("click", () => {
                         authenticateByWebAuthn({
                             ...input,
-                            errmsg : ${JSON.stringify(this.msgStr.transform('webauthn-unsupported-browser-text'))}
+                            errmsg : ${JSON.stringify(this.i18n.msgStr('webauthn-unsupported-browser-text'))}
                         });
                     });
 
                     initAuthenticate({
                         ...input,
-                        errmsg : ${JSON.stringify(this.msgStr.transform('passkey-unsupported-browser-text'))}
+                        errmsg : ${JSON.stringify(this.i18n.msgStr('passkey-unsupported-browser-text'))}
                     });
           `
             }

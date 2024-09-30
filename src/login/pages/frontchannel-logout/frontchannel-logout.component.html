@@ -4,13 +4,13 @@
     [bodyClassName]="bodyClassName()"
     [displayMessage]="displayMessage"
     [displayRequiredFields]="displayRequiredFields()"
-    [documentTitle]="'frontchannel-logout.title' | msgStr"
+    [documentTitle]="i18n.msgStr('frontchannel-logout.title')"
 >
     <ng-container headerNode>
-        {{ 'frontchannel-logout.title' | msgStr }}
+        {{ i18n.msgStr('frontchannel-logout.title') }}
     </ng-container>
     <ng-container content>
-        <p>{{ 'frontchannel-logout.message' | msgStr }}</p>
+        <p>{{ i18n.msgStr('frontchannel-logout.message') }}</p>
         <ul>
             @for (client of logout.clients; track client.name; let idx = $index) {
                 <li>
@@ -28,7 +28,7 @@
                 class="btn btn-primary"
                 [href]="logout.logoutRedirectUri"
             >
-                {{ 'doContinue' | msgStr }}
+                {{ i18n.msgStr('doContinue') }}
             </a>
         }
     </ng-container>

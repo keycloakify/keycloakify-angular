@@ -8,7 +8,7 @@
     [documentTitle]="documentTitle()"
 >
     <ng-container headerNode>
-        {{ 'confirmLinkIdpTitle' | msgStr }}
+        {{ i18n.msgStr('confirmLinkIdpTitle') }}
     </ng-container>
     <ng-container content>
         <form
@@ -24,7 +24,7 @@
                     id="updateProfile"
                     value="updateProfile"
                 >
-                    {{ 'confirmLinkIdpReviewProfile' | msgStr }}
+                    {{ i18n.msgStr('confirmLinkIdpReviewProfile') }}
                 </button>
                 <button
                     type="submit"
@@ -33,7 +33,7 @@
                     id="linkAccount"
                     value="linkAccount"
                 >
-                    {{ 'confirmLinkIdpContinue' | msgStr: idpAlias }}
+                    {{ i18n.msgStr('confirmLinkIdpContinue', idpAlias) }}
                 </button>
             </div>
         </form>

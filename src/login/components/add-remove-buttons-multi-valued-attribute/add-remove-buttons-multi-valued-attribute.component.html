@@ -6,7 +6,7 @@
         class="pf-c-button pf-m-inline pf-m-link"
         (click)="onRemove()"
     >
-        {{ 'remove' | msgStr }}
+        {{ i18n.msgStr('remove') }}
     </button>
     @if (hasAdd()) {
         &nbsp;|&nbsp;
@@ -19,6 +19,6 @@
         class="pf-c-button pf-m-inline pf-m-link"
         (click)="onAdd()"
     >
-        {{ 'addValue' | msgStr }}
+        {{ i18n.msgStr('addValue') }}
     </button>
 }

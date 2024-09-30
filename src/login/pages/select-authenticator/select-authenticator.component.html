@@ -8,7 +8,7 @@
     [documentTitle]="documentTitle()"
 >
     <ng-container headerNode>
-        {{ 'loginChooseAuthenticator' | msgStr }}
+        {{ i18n.msgStr('loginChooseAuthenticator') }}
     </ng-container>
     <ng-container content>
         <form
@@ -30,10 +30,10 @@
                         </div>
                         <div [kcClass]="'kcSelectAuthListItemBodyClass'">
                             <div [kcClass]="'kcSelectAuthListItemHeadingClass'">
-                                {{ authenticationSelection.displayName | advancedMsgStr }}
+                                {{ i18n.advancedMsgStr(authenticationSelection.displayName) }}
                             </div>
                             <div [kcClass]="'kcSelectAuthListItemDescriptionClass'">
-                                {{ authenticationSelection.helpText | advancedMsgStr }}
+                                {{ i18n.advancedMsgStr(authenticationSelection.helpText) }}
                             </div>
                         </div>
                         <div [kcClass]="'kcSelectAuthListItemFillClass'"></div>

@@ -12,7 +12,7 @@
     [documentTitle]="documentTitle()"
 >
     <ng-container headerNode>
-        <span [innerHTML]="messageHeader ?? message.summary | advancedMsgStr | kcSanitize: 'html'"> </span>
+        <span [innerHTML]="messageHeader ?? i18n.advancedMsgStr(message.summary) | kcSanitize: 'html'"> </span>
     </ng-container>
     <ng-container content>
         <div id="kc-info-message">
@@ -25,7 +25,7 @@
                     <p>
                         <a
                             [href]="pageRedirectUri"
-                            [innerHTML]="'backToApplication' | msgStr | kcSanitize: 'html'"
+                            [innerHTML]="i18n.msgStr('backToApplication') | kcSanitize: 'html'"
                         >
                         </a>
                     </p>
@@ -34,7 +34,7 @@
                     <p>
                         <a
                             [href]="actionUri"
-                            [innerHTML]="'proceedWithAction' | msgStr | kcSanitize: 'html'"
+                            [innerHTML]="i18n.msgStr('proceedWithAction') | kcSanitize: 'html'"
                         >
                         </a>
                     </p>
@@ -43,7 +43,7 @@
                     <p>
                         <a
                             [href]="client.baseUrl"
-                            [innerHTML]="'backToApplication' | msgStr | kcSanitize: 'html'"
+                            [innerHTML]="i18n.msgStr('backToApplication') | kcSanitize: 'html'"
                         >
                         </a>
                     </p>

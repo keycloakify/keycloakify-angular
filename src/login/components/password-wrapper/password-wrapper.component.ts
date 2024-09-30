@@ -1,10 +1,12 @@
 import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, forwardRef, inject, input, Renderer2, signal, WritableSignal } from '@angular/core';
-import { CLASSES, USE_DEFAULT_CSS } from '@keycloakify/angular/lib/public-api';
-import { ClassKey } from 'keycloakify/login/lib/kcClsx';
+import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css.token';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class.directive';
-import { MsgStrPipe } from '@keycloakify/angular/login/pipes/msg-str.pipe';
+import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes.token';
+import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n.token';
+import { ClassKey } from 'keycloakify/login/lib/kcClsx';
+import { I18n } from '../../i18n';
 
 @Component({
     selector: 'kc-password-wrapper',
@@ -17,7 +19,7 @@ import { MsgStrPipe } from '@keycloakify/angular/login/pipes/msg-str.pipe';
     ],
     standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [KcClassDirective, AsyncPipe, MsgStrPipe],
+    imports: [KcClassDirective, AsyncPipe],
     templateUrl: './password-wrapper.component.html',
     providers: [
         {
@@ -27,10 +29,11 @@ import { MsgStrPipe } from '@keycloakify/angular/login/pipes/msg-str.pipe';
     ]
 })
 export class PasswordWrapperComponent extends ComponentReference {
+    i18n = inject<I18n>(LOGIN_I18N);
     private renderer = inject(Renderer2);
     passwordInputId = input.required<string>();
     override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
-    override classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
+    override classes = inject<Partial<Record<ClassKey, string>>>(LOGIN_CLASSES);
 
     isPasswordRevealed: WritableSignal<boolean> = signal(false);
 

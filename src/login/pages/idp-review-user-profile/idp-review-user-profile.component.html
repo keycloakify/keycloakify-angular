@@ -7,7 +7,7 @@
     [documentTitle]="documentTitle()"
 >
     <ng-container headerNode>
-        {{ 'loginIdpReviewProfileTitle' | msgStr }}
+        {{ i18n.msgStr('loginIdpReviewProfileTitle') }}
     </ng-container>
     <ng-container content>
         <form
@@ -31,7 +31,7 @@
                     <input
                         [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                         type="submit"
-                        value="{{ 'doSubmit' | msgStr }}"
+                        [value]="i18n.msgStr('doSubmit')"
                         [disabled]="!isFormSubmittable"
                     />
                 </div>

@@ -2,7 +2,7 @@
 @let triggered_from_aia = kcContext.triggered_from_aia;
 <kc-login-template>
     <ng-container headerNode>
-        {{ 'deleteAccountConfirm' | msgStr }}
+        {{ i18n.msgStr('deleteAccountConfirm') }}
     </ng-container>
     <ng-container content>
         <form
@@ -15,21 +15,21 @@
                 style="margin-top: 0; margin-bottom: 30px"
             >
                 <span class="pficon pficon-warning-triangle-o"></span>
-                {{ 'irreversibleAction' | msgStr }}
+                {{ i18n.msgStr('irreversibleAction') }}
             </div>
-            <p>{{ 'deletingImplies' | msgStr }}</p>
+            <p>{{ i18n.msgStr('deletingImplies') }}</p>
             <ul style="color: #72767b; list-style: disc; list-style-position: inside">
-                <li>{{ 'loggingOutImmediately' | msgStr }}</li>
-                <li>{{ 'errasingData' | msgStr }}</li>
+                <li>{{ i18n.msgStr('loggingOutImmediately') }}</li>
+                <li>{{ i18n.msgStr('errasingData') }}</li>
             </ul>
             <p class="delete-account-text">
-                {{ 'finalDeletionConfirmation' | msgStr }}
+                {{ i18n.msgStr('finalDeletionConfirmation') }}
             </p>
             <div id="kc-form-buttons">
                 <input
                     [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                     type="submit"
-                    value="{{ 'doConfirmDelete' | msgStr }}"
+                    [value]="i18n.msgStr('doConfirmDelete')"
                 />
                 @if (triggered_from_aia) {
                     <button
@@ -39,7 +39,7 @@
                         name="cancel-aia"
                         value="true"
                     >
-                        {{ 'doCancel' | msgStr }}
+                        {{ i18n.msgStr('doCancel') }}
                     </button>
                 }
             </div>

@@ -1,22 +1,24 @@
 import { AsyncPipe, NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, forwardRef, inject, input, OnInit, Renderer2 } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { CLASSES, I18N, KC_CONTEXT, USE_DEFAULT_CSS } from '@keycloakify/angular/lib/public-api';
 import type { I18n } from '@keycloakify/angular/login/i18n';
 import { KcContext } from 'keycloakify/login/KcContext/KcContext';
 import { ClassKey, getKcClsx } from 'keycloakify/login/lib/kcClsx';
 import { Observable } from 'rxjs';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class.directive';
-import { KcSanitizePipe } from '@keycloakify/angular/login/pipes';
-import { MsgStrPipe } from '@keycloakify/angular/login/pipes/msg-str.pipe';
+import { KcSanitizePipe } from '@keycloakify/angular/login/pipes/kc-sanitize.pipe';
 import { LoginResourceInjectorService } from '@keycloakify/angular/login/services/login-resource-injector.service';
+import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n.token';
+import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes.token';
+import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context.token';
+import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css.token';
 
 @Component({
     selector: 'kc-login-template',
     templateUrl: './template.component.html',
     standalone: true,
-    imports: [AsyncPipe, KcSanitizePipe, NgTemplateOutlet, KcClassDirective, MsgStrPipe],
+    imports: [AsyncPipe, KcSanitizePipe, NgTemplateOutlet, KcClassDirective],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         {
@@ -26,13 +28,13 @@ import { LoginResourceInjectorService } from '@keycloakify/angular/login/service
     ]
 })
 export class TemplateComponent extends ComponentReference implements OnInit {
-    i18n = inject<I18n>(I18N);
+    i18n = inject<I18n>(LOGIN_I18N);
     renderer = inject(Renderer2);
     meta = inject(Meta);
     title = inject(Title);
-    kcContext = inject<KcContext>(KC_CONTEXT);
+    kcContext = inject<KcContext>(KC_LOGIN_CONTEXT);
     override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
-    override classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
+    override classes = inject<Partial<Record<ClassKey, string>>>(LOGIN_CLASSES);
     loginResourceInjectorService = inject(LoginResourceInjectorService);
 
     displayInfo = input(false);

@@ -1,11 +1,13 @@
 import { ChangeDetectionStrategy, Component, computed, forwardRef, inject, input, output, Signal } from '@angular/core';
-import { CLASSES, USE_DEFAULT_CSS } from '@keycloakify/angular/lib/public-api';
-import { Attribute } from 'keycloakify/login/KcContext';
-import { ClassKey } from 'keycloakify/login/lib/kcClsx';
+import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css.token';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class.directive';
-import { AdvancedMsgStrPipe } from '@keycloakify/angular/login/pipes/advanced-msg-str.pipe';
 import { FormAction, FormFieldError } from '@keycloakify/angular/login/services/user-profile-form.service';
+import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes.token';
+import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n.token';
+import { Attribute } from 'keycloakify/login/KcContext';
+import { ClassKey } from 'keycloakify/login/lib/kcClsx';
+import { I18n } from '../../i18n';
 
 @Component({
     standalone: true,
@@ -16,7 +18,7 @@ import { FormAction, FormFieldError } from '@keycloakify/angular/login/services/
             }
         `
     ],
-    imports: [KcClassDirective, AdvancedMsgStrPipe],
+    imports: [KcClassDirective],
     selector: 'kc-input-tag-selects',
     templateUrl: 'input-tag-selects.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -28,12 +30,13 @@ import { FormAction, FormFieldError } from '@keycloakify/angular/login/services/
     ]
 })
 export class InputTagSelectsComponent extends ComponentReference {
+    i18n = inject<I18n>(LOGIN_I18N);
     attribute = input<Attribute>();
     valueOrValues = input<string | string[]>();
     dispatchFormAction = output<FormAction>();
     displayableErrors = input<FormFieldError[]>();
     override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
-    override classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
+    override classes = inject<Partial<Record<ClassKey, string>>>(LOGIN_CLASSES);
 
     context: Signal<{
         inputType: 'radio' | 'checkbox';

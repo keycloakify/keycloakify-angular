@@ -19,9 +19,9 @@
         @for (option of options(); track option) {
             <option [value]="option">
                 @if (!!attr.annotations.inputOptionLabels) {
-                    {{ attr.annotations.inputOptionLabels[option] ?? option | advancedMsgStr }}
+                    {{ i18n.advancedMsgStr(attr.annotations.inputOptionLabels[option] ?? option) }}
                 } @else if (!!attr.annotations.inputOptionLabelsI18nPrefix) {
-                    {{ attr.annotations.inputOptionLabelsI18nPrefix + '.' + option | advancedMsgStr }}
+                    {{ i18n.advancedMsgStr(attr.annotations.inputOptionLabelsI18nPrefix + '.' + option) }}
                 } @else {
                     {{ option }}
                 }

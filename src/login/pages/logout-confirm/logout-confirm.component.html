@@ -10,14 +10,14 @@
     [documentTitle]="documentTitle()"
 >
     <ng-container headerNode>
-        {{ 'logoutConfirmTitle' | msgStr }}
+        {{ i18n.msgStr('logoutConfirmTitle') }}
     </ng-container>
     <ng-container content>
         <div
             id="kc-logout-confirm"
             class="content-area"
         >
-            <p class="instruction">{{ 'logoutConfirmHeader' | msgStr }}</p>
+            <p class="instruction">{{ i18n.msgStr('logoutConfirmHeader') }}</p>
             <form
                 class="form-actions"
                 [action]="url.logoutConfirmAction"
@@ -42,7 +42,7 @@
                             name="confirmLogout"
                             id="kc-logout"
                             type="submit"
-                            [value]="'doLogout' | msgStr"
+                            [value]="i18n.msgStr('doLogout')"
                         />
                     </div>
                 </div>
@@ -50,7 +50,7 @@
             <div id="kc-info-message">
                 @if (!logoutConfirm.skipLink && client.baseUrl) {
                     <p>
-                        <a [href]="client.baseUrl">{{ 'backToApplication' | msgStr }}</a>
+                        <a [href]="client.baseUrl">{{ i18n.msgStr('backToApplication') }}</a>
                     </p>
                 }
             </div>

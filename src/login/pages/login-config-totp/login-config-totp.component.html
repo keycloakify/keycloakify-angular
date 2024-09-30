@@ -11,54 +11,54 @@
     [documentTitle]="documentTitle()"
 >
     <ng-container headerNode>
-        {{ 'loginTotpStep1' | msgStr }}
+        {{ i18n.msgStr('loginTotpStep1') }}
     </ng-container>
     <ng-container content>
         <ol id="kc-totp-settings">
             <li>
-                <p>{{ 'loginTotpStep1' | msgStr }}</p>
+                <p>{{ i18n.msgStr('loginTotpStep1') }}</p>
                 <ul id="kc-totp-supported-apps">
                     @for (app of totp.supportedApplications; track app) {
-                        <li>{{ app | advancedMsgStr }}</li>
+                        <li>{{ i18n.advancedMsgStr(app) }}</li>
                     }
                 </ul>
             </li>
             @if (kcContext.mode === 'manual') {
                 <li>
-                    <p>{{ 'loginTotpManualStep2' | msgStr }}</p>
+                    <p>{{ i18n.msgStr('loginTotpManualStep2') }}</p>
                     <p>
                         <span id="kc-totp-secret-key">{{ totp.totpSecretEncoded }}</span>
                     </p>
                     <p>
                         <a
-                            href="{{ totp.qrUrl }}"
+                            [href]="totp.qrUrl"
                             id="mode-barcode"
                         >
-                            {{ 'loginTotpScanBarcode' | msgStr }}
+                            {{ i18n.msgStr('loginTotpScanBarcode') }}
                         </a>
                     </p>
                 </li>
                 <li>
-                    <p>{{ 'loginTotpManualStep3' | msgStr }}</p>
+                    <p>{{ i18n.msgStr('loginTotpManualStep3') }}</p>
                     <p></p>
                     <ul>
                         <li id="kc-totp-type">
-                            {{ 'loginTotpType' | msgStr }}:
-                            {{ 'loginTotp.' + totp.policy.type | advancedMsgStr }}
+                            {{ i18n.msgStr('loginTotpType') }}:
+                            {{ i18n.advancedMsgStr('loginTotp.' + totp.policy.type) }}
                         </li>
                         <li id="kc-totp-algorithm">
-                            {{ 'loginTotpAlgorithm' | msgStr }}:
+                            {{ i18n.msgStr('loginTotpAlgorithm') }}:
                             {{ totp.policy.getAlgorithmKey() }}
                         </li>
-                        <li id="kc-totp-digits">{{ 'loginTotpDigits' | msgStr }}: {{ totp.policy.digits }}</li>
+                        <li id="kc-totp-digits">{{ i18n.msgStr('loginTotpDigits') }}: {{ totp.policy.digits }}</li>
                         @if (totp.policy.type === 'totp') {
                             <li id="kc-totp-period">
-                                {{ 'loginTotpInterval' | msgStr }}:
+                                {{ i18n.msgStr('loginTotpInterval') }}:
                                 {{ totp.policy.period }}
                             </li>
                         } @else {
                             <li id="kc-totp-counter">
-                                {{ 'loginTotpCounter' | msgStr }}:
+                                {{ i18n.msgStr('loginTotpCounter') }}:
                                 {{ totp.policy.initialCounter }}
                             </li>
                         }
@@ -66,26 +66,26 @@
                 </li>
             } @else {
                 <li>
-                    <p>{{ 'loginTotpStep2' | msgStr }}</p>
+                    <p>{{ i18n.msgStr('loginTotpStep2') }}</p>
                     <img
                         id="kc-totp-secret-qr-code"
-                        src="{{ 'data:image/png;base64, ' + totp.totpSecretQrCode }}"
+                        [src]="'data:image/png;base64, ' + totp.totpSecretQrCode"
                         alt="Figure: Barcode"
                     />
                     <br />
                     <p>
                         <a
-                            href="{{ totp.manualUrl }}"
+                            [href]="totp.manualUrl"
                             id="mode-manual"
                         >
-                            {{ 'loginTotpUnableToScan' | msgStr }}
+                            {{ i18n.msgStr('loginTotpUnableToScan') }}
                         </a>
                     </p>
                 </li>
             }
             <li>
-                <p>{{ 'loginTotpStep3' | msgStr }}</p>
-                <p>{{ 'loginTotpStep3DeviceName' | msgStr }}</p>
+                <p>{{ i18n.msgStr('loginTotpStep3') }}</p>
+                <p>{{ i18n.msgStr('loginTotpStep3DeviceName') }}</p>
             </li>
         </ol>
         <form
@@ -100,7 +100,7 @@
                         for="totp"
                         [kcClass]="'kcLabelClass'"
                     >
-                        {{ 'authenticatorCode' | msgStr }}
+                        {{ i18n.msgStr('authenticatorCode') }}
                     </label>
                     <span class="required">*</span>
                 </div>
@@ -142,7 +142,7 @@
                         for="userLabel"
                         [kcClass]="'kcLabelClass'"
                     >
-                        {{ 'loginTotpDeviceName' | msgStr }}
+                        {{ i18n.msgStr('loginTotpDeviceName') }}
                     </label>
                     @if (totp.otpCredentials.length >= 1) {
                         <span class="required">*</span>
@@ -176,7 +176,7 @@
                     type="submit"
                     [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                     id="saveTOTPBtn"
-                    [value]="'doSubmit' | msgStr"
+                    [value]="i18n.msgStr('doSubmit')"
                 />
                 <button
                     type="submit"
@@ -185,14 +185,14 @@
                     name="cancel-aia"
                     [value]="true"
                 >
-                    {{ 'doCancel' | msgStr }}
+                    {{ i18n.msgStr('doCancel') }}
                 </button>
             } @else {
                 <input
                     type="submit"
                     [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                     id="saveTOTPBtn"
-                    [value]="'doSubmit' | msgStr"
+                    [value]="i18n.msgStr('doSubmit')"
                 />
             }
         </form>

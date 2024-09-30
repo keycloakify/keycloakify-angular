@@ -9,7 +9,7 @@
     [documentTitle]="documentTitle()"
 >
     <ng-container headerNode>
-        {{ 'webauthn-error-title' | msgStr }}
+        {{ i18n.msgStr('webauthn-error-title') }}
     </ng-container>
     <ng-container content>
         <form
@@ -36,7 +36,7 @@
             [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
             name="try-again"
             id="kc-try-again"
-            [value]="'doTryAgain' | msgStr"
+            [value]="i18n.msgStr('doTryAgain')"
         />
         @if (isAppInitiatedAction) {
             <form
@@ -52,7 +52,7 @@
                     name="cancel-aia"
                     value="true"
                 >
-                    {{ 'doCancel' | msgStr }}
+                    {{ i18n.msgStr('doCancel') }}
                 </button>
             </form>
         }

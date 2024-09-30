@@ -1,14 +1,15 @@
 import { inject, Injectable } from '@angular/core';
-import { KC_CONTEXT } from '@keycloakify/angular/lib/public-api';
-import { ResourceInjectorService, Script } from '@keycloakify/angular/lib/public-api';
+import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context.token';
+import { ResourceInjectorService } from '@keycloakify/angular/lib/services/resource-injector.service';
 import { KcContext } from 'keycloakify/login/KcContext';
 import { catchError, forkJoin, of, switchMap } from 'rxjs';
+import { Script } from '@keycloakify/angular/lib/models/script.model';
 
 @Injectable({
     providedIn: 'root'
 })
 export class LoginResourceInjectorService {
-    private kcContext: KcContext = inject<KcContext>(KC_CONTEXT);
+    private kcContext: KcContext = inject<KcContext>(KC_LOGIN_CONTEXT);
     private resourceInjectorService: ResourceInjectorService = inject(
         ResourceInjectorService
     );

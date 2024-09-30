@@ -1,9 +1,11 @@
 import { ChangeDetectionStrategy, Component, forwardRef, inject } from '@angular/core';
-import { CLASSES, USE_DEFAULT_CSS } from '@keycloakify/angular/lib/public-api';
-import { ClassKey } from 'keycloakify/login/lib/kcClsx';
+import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css.token';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class.directive';
-import { MsgStrPipe } from '@keycloakify/angular/login/pipes/msg-str.pipe';
+import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes.token';
+import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n.token';
+import { ClassKey } from 'keycloakify/login/lib/kcClsx';
+import { I18n } from '../../i18n';
 
 @Component({
     selector: 'kc-logout-other-sessions',
@@ -15,7 +17,7 @@ import { MsgStrPipe } from '@keycloakify/angular/login/pipes/msg-str.pipe';
         `
     ],
     standalone: true,
-    imports: [KcClassDirective, MsgStrPipe],
+    imports: [KcClassDirective],
     changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: './logout-other-sessions.component.html',
     providers: [
@@ -26,6 +28,7 @@ import { MsgStrPipe } from '@keycloakify/angular/login/pipes/msg-str.pipe';
     ]
 })
 export class LogoutOtherSessionsComponent extends ComponentReference {
+    i18n = inject<I18n>(LOGIN_I18N);
     override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
-    override classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
+    override classes = inject<Partial<Record<ClassKey, string>>>(LOGIN_CLASSES);
 }

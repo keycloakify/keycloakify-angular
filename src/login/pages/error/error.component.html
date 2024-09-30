@@ -3,7 +3,7 @@
 @let client = kcContext.client;
 <kc-login-template [displayMessage]="false">
     <ng-container headerNode>
-        {{ 'errorTitle' | msgStr }}
+        {{ i18n.msgStr('errorTitle') }}
     </ng-container>
     <ng-container content>
         <div id="kc-error-message">
@@ -16,7 +16,7 @@
                     <a
                         id="backToApplication"
                         [href]="client.baseUrl"
-                        [innerHTML]="'backToApplication' | msgStr | kcSanitize: 'html'"
+                        [innerHTML]="i18n.msgStr('backToApplication') | kcSanitize: 'html'"
                     ></a>
                 </p>
             }

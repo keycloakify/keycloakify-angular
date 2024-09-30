@@ -7,27 +7,27 @@
     [documentTitle]="documentTitle()"
 >
     <ng-container headerNode>
-        {{ 'pageExpiredTitle' | msgStr }}
+        {{ i18n.msgStr('pageExpiredTitle') }}
     </ng-container>
     <ng-container content>
         <p
             id="instruction1"
             class="instruction"
         >
-            {{ 'pageExpiredMsg1' | msgStr }}
+            {{ i18n.msgStr('pageExpiredMsg1') }}
             <a
                 id="loginRestartLink"
                 [href]="url.loginRestartFlowUrl"
             >
-                {{ 'doClickHere' | msgStr }}
+                {{ i18n.msgStr('doClickHere') }}
             </a>
             .<br />
-            {{ 'pageExpiredMsg2' | msgStr }}
+            {{ i18n.msgStr('pageExpiredMsg2') }}
             <a
                 id="loginContinueLink"
                 [href]="url.loginAction"
             >
-                {{ 'doClickHere' | msgStr }}
+                {{ i18n.msgStr('doClickHere') }}
             </a>
             .
         </p>

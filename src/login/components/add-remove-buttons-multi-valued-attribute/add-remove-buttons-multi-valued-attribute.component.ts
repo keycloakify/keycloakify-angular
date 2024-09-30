@@ -1,7 +1,8 @@
-import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
-import { Attribute } from 'keycloakify/login/KcContext';
-import { MsgStrPipe } from '@keycloakify/angular/login/pipes/msg-str.pipe';
+import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
 import { FormAction } from '@keycloakify/angular/login/services/user-profile-form.service';
+import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n.token';
+import { Attribute } from 'keycloakify/login/KcContext';
+import { I18n } from '../../i18n';
 
 @Component({
     standalone: true,
@@ -12,12 +13,13 @@ import { FormAction } from '@keycloakify/angular/login/services/user-profile-for
             }
         `
     ],
-    imports: [MsgStrPipe],
+    imports: [],
     selector: 'kc-add-remove-buttons-multi-valued-attribute',
     templateUrl: 'add-remove-buttons-multi-valued-attribute.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AddRemoveButtonsMultiValuedAttributeComponent {
+    i18n = inject<I18n>(LOGIN_I18N);
     attribute = input<Attribute>();
     values = input<string[]>();
     fieldIndex = input<number>();

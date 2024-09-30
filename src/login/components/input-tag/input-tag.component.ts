@@ -1,17 +1,19 @@
 import { ChangeDetectionStrategy, Component, computed, forwardRef, inject, input, output } from '@angular/core';
-import { CLASSES, USE_DEFAULT_CSS } from '@keycloakify/angular/lib/public-api';
-import { Attribute } from 'keycloakify/login/KcContext';
-import { ClassKey } from 'keycloakify/login/lib/kcClsx';
+import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css.token';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
+import { AddRemoveButtonsMultiValuedAttributeComponent } from '@keycloakify/angular/login/components/add-remove-buttons-multi-valued-attribute/add-remove-buttons-multi-valued-attribute.component';
+import { FieldErrorsComponent } from '@keycloakify/angular/login/components/field-errors/field-errors.component';
 import { AttributesDirective } from '@keycloakify/angular/login/directives/attributes.directive';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class.directive';
-import { AdvancedMsgStrPipe } from '@keycloakify/angular/login/pipes/advanced-msg-str.pipe';
 import { InputTypePipe } from '@keycloakify/angular/login/pipes/input-type.pipe';
 import { ToArrayPipe } from '@keycloakify/angular/login/pipes/to-array.pipe';
 import { ToNumberPipe } from '@keycloakify/angular/login/pipes/to-number.pipe';
 import { FormAction, FormFieldError } from '@keycloakify/angular/login/services/user-profile-form.service';
-import { AddRemoveButtonsMultiValuedAttributeComponent } from '@keycloakify/angular/login/components/add-remove-buttons-multi-valued-attribute/add-remove-buttons-multi-valued-attribute.component';
-import { FieldErrorsComponent } from '@keycloakify/angular/login/components/field-errors/field-errors.component';
+import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes.token';
+import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n.token';
+import { Attribute } from 'keycloakify/login/KcContext';
+import { ClassKey } from 'keycloakify/login/lib/kcClsx';
+import { I18n } from '../../i18n';
 
 @Component({
     standalone: true,
@@ -29,8 +31,7 @@ import { FieldErrorsComponent } from '@keycloakify/angular/login/components/fiel
         AttributesDirective,
         ToArrayPipe,
         FieldErrorsComponent,
-        AddRemoveButtonsMultiValuedAttributeComponent,
-        AdvancedMsgStrPipe
+        AddRemoveButtonsMultiValuedAttributeComponent
     ],
     selector: 'kc-input-tag',
     templateUrl: 'input-tag.component.html',
@@ -43,6 +44,7 @@ import { FieldErrorsComponent } from '@keycloakify/angular/login/components/fiel
     ]
 })
 export class InputTagComponent extends ComponentReference {
+    i18n = inject<I18n>(LOGIN_I18N);
     attribute = input<Attribute>();
     valueOrValues = input<string | string[]>();
     fieldIndex = input<number | undefined>(undefined);
@@ -50,7 +52,7 @@ export class InputTagComponent extends ComponentReference {
     displayableErrors = input<FormFieldError[]>();
     dispatchFormAction = output<FormAction>();
     override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
-    override classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
+    override classes = inject<Partial<Record<ClassKey, string>>>(LOGIN_CLASSES);
 
     value = computed(() => {
         const valueOrValues = this.valueOrValues();

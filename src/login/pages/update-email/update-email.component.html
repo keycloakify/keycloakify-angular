@@ -8,7 +8,7 @@
     [documentTitle]="documentTitle()"
 >
     <ng-container headerNode>
-        {{ 'updateEmailTitle' | msgStr }}
+        {{ i18n.msgStr('updateEmailTitle') }}
     </ng-container>
     <ng-container content>
         <form
@@ -39,7 +39,7 @@
                             kcButtonLargeClass: true
                         }"
                         type="submit"
-                        value="{{ 'doSubmit' | msgStr }}"
+                        [value]="i18n.msgStr('doSubmit')"
                     />
                     @if (isAppInitiatedAction) {
                         <button
@@ -48,7 +48,7 @@
                             name="cancel-aia"
                             value="true"
                         >
-                            {{ 'doCancel' | msgStr }}
+                            {{ i18n.msgStr('doCancel') }}
                         </button>
                     }
                 </div>

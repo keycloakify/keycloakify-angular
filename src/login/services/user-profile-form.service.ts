@@ -11,11 +11,6 @@ import {
 } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import {
-    DO_MAKE_USER_CONFIRM_PASSWORD,
-    I18N,
-    KC_CONTEXT
-} from '@keycloakify/angular/lib/public-api';
-import {
     Attribute,
     KcContext,
     PasswordPolicies,
@@ -31,6 +26,9 @@ import { formatNumber } from 'keycloakify/tools/formatNumber';
 import { structuredCloneButFunctions } from 'keycloakify/tools/structuredCloneButFunctions';
 import { assert, id } from 'tsafe';
 import { LoginResourceInjectorService } from './login-resource-injector.service';
+import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context.token';
+import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n.token';
+import { DO_MAKE_USER_CONFIRM_PASSWORD } from '@keycloakify/angular/login/tokens/make-user-confirm-password.token';
 
 type KcContextLike_useGetErrors = KcContextLike_i18n & {
     messagesPerField: Pick<KcContext['messagesPerField'], 'existsError' | 'get'>;
@@ -119,8 +117,8 @@ export type FormAction =
 @Injectable({ providedIn: 'root' })
 export class UserProfileFormService {
     private kcContext: KcContextLike =
-        inject<Extract<KcContext, { pageId: 'register.ftl' }>>(KC_CONTEXT);
-    private i18n = inject<I18n>(I18N);
+        inject<Extract<KcContext, { pageId: 'register.ftl' }>>(KC_LOGIN_CONTEXT);
+    private i18n = inject<I18n>(LOGIN_I18N);
     private doMakeUserConfirmPassword = inject(DO_MAKE_USER_CONFIRM_PASSWORD);
     private loginResourceInjectorService = inject(LoginResourceInjectorService);
     private sanitizer: DomSanitizer = inject(DomSanitizer);

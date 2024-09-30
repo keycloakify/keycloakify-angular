@@ -8,7 +8,7 @@
     [documentTitle]="documentTitle()"
 >
     <ng-container headerNode>
-        {{ 'doLogIn' | msgStr }}
+        {{ i18n.msgStr('doLogIn') }}
     </ng-container>
     <ng-container content>
         <form
@@ -23,7 +23,7 @@
                         for="certificate_subjectDN"
                         [kcClass]="'kcLabelClass'"
                     >
-                        {{ 'clientCertificate' | msgStr }}
+                        {{ i18n.msgStr('clientCertificate') }}
                     </label>
                 </div>
                 @if (x509.formData.subjectDN) {
@@ -41,7 +41,7 @@
                             id="certificate_subjectDN"
                             [kcClass]="'kcLabelClass'"
                         >
-                            {{ 'noCertificate' | msgStr }}
+                            {{ i18n.msgStr('noCertificate') }}
                         </label>
                     </div>
                 }
@@ -53,7 +53,7 @@
                             for="username"
                             [kcClass]="'kcLabelClass'"
                         >
-                            {{ 'doX509Login' | msgStr }}
+                            {{ i18n.msgStr('doX509Login') }}
                         </label>
                     </div>
                     <div [kcClass]="'kcLabelWrapperClass'">
@@ -83,7 +83,7 @@
                             name="login"
                             id="kc-login"
                             type="submit"
-                            [value]="'doContinue' | msgStr"
+                            [value]="i18n.msgStr('doContinue')"
                         />
                         @if (x509.formData.isUserEnabled) {
                             <input
@@ -91,7 +91,7 @@
                                 name="cancel"
                                 id="kc-cancel"
                                 type="submit"
-                                [value]="'doIgnore' | msgStr"
+                                [value]="i18n.msgStr('doIgnore')"
                             />
                         }
                     </div>

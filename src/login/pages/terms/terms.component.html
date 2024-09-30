@@ -7,10 +7,10 @@
     [documentTitle]="documentTitle()"
 >
     <ng-container headerNode>
-        {{ 'termsTitle' | msgStr }}
+        {{ i18n.msgStr('termsTitle') }}
     </ng-container>
     <ng-container content>
-        <div id="kc-terms-text">{{ 'termsText' | msgStr }}</div>
+        <div id="kc-terms-text">{{ i18n.msgStr('termsText') }}</div>
         <form
             class="form-actions"
             [action]="url.loginAction"
@@ -21,14 +21,14 @@
                 name="accept"
                 id="kc-accept"
                 type="submit"
-                [value]="'doAccept' | msgStr"
+                [value]="i18n.msgStr('doAccept')"
             />
             <input
                 [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
                 name="cancel"
                 id="kc-decline"
                 type="submit"
-                [value]="'doDecline' | msgStr"
+                [value]="i18n.msgStr('doDecline')"
             />
         </form>
         <div className="clearfix"></div>

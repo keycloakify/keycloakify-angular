@@ -9,7 +9,7 @@
     [documentTitle]="documentTitle()"
 >
     <ng-container headerNode>
-        {{ 'confirmOverrideIdpTitle' | msgStr }}
+        {{ i18n.msgStr('confirmOverrideIdpTitle') }}
     </ng-container>
     <ng-container content>
         <form
@@ -17,12 +17,12 @@
             [action]="url.loginAction"
             method="post"
         >
-            {{ 'pageExpiredMsg1' | msgStr }}
+            {{ i18n.msgStr('pageExpiredMsg1') }}
             <a
                 id="loginRestartLink"
                 [href]="url.loginRestartFlowUrl"
             >
-                {{ 'doClickHere' | msgStr }}
+                {{ i18n.msgStr('doClickHere') }}
             </a>
             <br />
             <br />
@@ -33,7 +33,7 @@
                 id="confirmOverride"
                 value="confirmOverride"
             >
-                {{ 'confirmOverrideIdpContinue' | msgStr: idpDisplayName }}
+                {{ i18n.msgStr('confirmOverrideIdpContinue', idpDisplayName) }}
             </button>
         </form>
     </ng-container>

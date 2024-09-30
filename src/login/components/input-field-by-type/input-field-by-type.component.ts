@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, forwardRef, inject, input, output } from '@angular/core';
-import { CLASSES, USE_DEFAULT_CSS } from '@keycloakify/angular/lib/public-api';
+import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css.token';
+import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes.token';
 import { Attribute } from 'keycloakify/login/KcContext';
 import { ClassKey } from 'keycloakify/login/lib/kcClsx';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
@@ -37,7 +38,7 @@ export class InputFieldByTypeComponent extends ComponentReference {
     displayableErrors = input<FormFieldError[]>();
     dispatchFormAction = output<FormAction>();
     override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
-    override classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
+    override classes = inject<Partial<Record<ClassKey, string>>>(LOGIN_CLASSES);
 
     attributePassword = computed<Attribute>(() => {
         const attribute: Attribute = this.attribute() ?? ({} as Attribute);

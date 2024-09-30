@@ -11,7 +11,7 @@
 >
     <ng-container headerNode>
         <span [kcClass]="'kcWebAuthnKeyIcon'"></span>
-        {{ 'webauthn-registration-title' | msgStr }}
+        {{ i18n.msgStr('webauthn-registration-title') }}
     </ng-container>
     <ng-container content>
         <form
@@ -58,7 +58,7 @@
             type="submit"
             [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
             [id]="authButtonId"
-            [value]="'doRegisterSecurityKey' | msgStr"
+            [value]="i18n.msgStr('doRegisterSecurityKey')"
         />
         @if (!isSetRetry && isAppInitiatedAction) {
             <form
@@ -74,7 +74,7 @@
                     name="cancel-aia"
                     value="true"
                 >
-                    {{ 'doCancel' | msgStr }}
+                    {{ i18n.msgStr('doCancel') }}
                 </button>
             </form>
         }

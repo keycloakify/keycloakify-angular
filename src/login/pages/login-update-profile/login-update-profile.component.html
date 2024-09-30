@@ -8,7 +8,7 @@
     [documentTitle]="documentTitle()"
 >
     <ng-container headerNode>
-        {{ 'loginProfileTitle' | msgStr }}
+        {{ i18n.msgStr('loginProfileTitle') }}
     </ng-container>
     <ng-container content>
         <form
@@ -39,7 +39,7 @@
                             kcButtonLargeClass: true
                         }"
                         type="submit"
-                        value="{{ 'doSubmit' | msgStr }}"
+                        [value]="i18n.msgStr('doSubmit')"
                     />
                     @if (isAppInitiatedAction) {
                         <button
@@ -49,7 +49,7 @@
                             value="true"
                             formNoValidate
                         >
-                            {{ 'doCancel' | msgStr }}
+                            {{ i18n.msgStr('doCancel') }}
                         </button>
                     }
                 </div>

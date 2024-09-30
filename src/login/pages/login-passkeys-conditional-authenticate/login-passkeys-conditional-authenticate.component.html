@@ -8,18 +8,18 @@
 @let registrationDisabled = kcContext.registrationDisabled;
 <kc-login-template [displayInfo]="displayInfo">
     <ng-container headerNode>
-        {{ 'passkey-login-title' | msgStr }}
+        {{ i18n.msgStr('passkey-login-title') }}
     </ng-container>
     <ng-container infoNode>
         @if (realm.registrationAllowed && !registrationDisabled) {
             <div id="kc-registration">
                 <span>
-                    {{ 'noAccount' | msgStr }}
+                    {{ i18n.msgStr('noAccount') }}
                     <a
                         tabIndex="6"
                         [href]="url.registrationUrl"
                     >
-                        {{ 'doRegister' | msgStr }}
+                        {{ i18n.msgStr('doRegister') }}
                     </a>
                 </span>
             </div>
@@ -86,7 +86,7 @@
                 @if (shouldDisplayAuthenticators) {
                     @if (authenticators.authenticators.length > 1) {
                         <p [kcClass]="'kcSelectAuthListItemTitle'">
-                            {{ 'passkey-available-authenticators' | msgStr }}
+                            {{ i18n.msgStr('passkey-available-authenticators') }}
                         </p>
                     }
 
@@ -106,7 +106,7 @@
                                         [id]="'kc-webauthn-authenticator-label-' + i"
                                         [kcClass]="'kcSelectAuthListItemHeadingClass'"
                                     >
-                                        {{ authenticator.label | advancedMsgStr }}
+                                        {{ i18n.advancedMsgStr(authenticator.label) }}
                                     </div>
                                     @if (
                                         authenticator.transports !== undefined &&
@@ -123,7 +123,7 @@
                                                 let i = $index
                                             ) {
                                                 <span>
-                                                    {{ nameProperty | advancedMsgStr }}
+                                                    {{ i18n.advancedMsgStr(nameProperty) }}
                                                 </span>
                                                 @if (i !== authenticator.transports.displayNameProperties.length - 1) {
                                                     <span>, </span>
@@ -132,7 +132,7 @@
                                         </div>
                                         <div [kcClass]="'kcSelectAuthListItemDescriptionClass'">
                                             <span [id]="'kc-webauthn-authenticator-createdlabel-' + i">
-                                                {{ 'passkey-createdAt-label' | msgStr }}
+                                                {{ i18n.msgStr('passkey-createdAt-label') }}
                                             </span>
                                             <span [id]="'kc-webauthn-authenticator-created-' + i">
                                                 {{ authenticator.createdAt }}
@@ -160,7 +160,7 @@
                                     for="username"
                                     [kcClass]="'kcLabelClass'"
                                 >
-                                    {{ 'passkey-autofill-select' | msgStr }}
+                                    {{ i18n.msgStr('passkey-autofill-select') }}
                                 </label>
                                 <input
                                     tabIndex="1"
@@ -194,7 +194,7 @@
                             id="authButtonId"
                             type="button"
                             autoFocus
-                            value="{{ 'passkey-doAuthenticate' | msgStr }}"
+                            [value]="i18n.msgStr('passkey-doAuthenticate')"
                             [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                         />
                     </div>

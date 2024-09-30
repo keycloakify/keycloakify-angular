@@ -10,7 +10,7 @@
     [documentTitle]="documentTitle()"
 >
     <ng-container headerNode>
-        {{ 'auth-recovery-code-header' | msgStr }}
+        {{ i18n.msgStr('auth-recovery-code-header') }}
     </ng-container>
 
     <ng-container content>
@@ -26,7 +26,7 @@
                         for="recoveryCodeInput"
                         [kcClass]="'kcLabelClass'"
                     >
-                        {{ 'auth-recovery-code-prompt' | msgStr: recoveryAuthnCodesInputBean.codeNumber.toString() }}
+                        {{ i18n.msgStr('auth-recovery-code-prompt', recoveryAuthnCodesInputBean.codeNumber.toString()) }}
                     </label>
                 </div>
                 <div [kcClass]="'kcInputWrapperClass'">
@@ -67,7 +67,7 @@
                         name="login"
                         id="kc-login"
                         type="submit"
-                        [value]="'doLogIn' | msgStr"
+                        [value]="i18n.msgStr('doLogIn')"
                     />
                 </div>
             </div>

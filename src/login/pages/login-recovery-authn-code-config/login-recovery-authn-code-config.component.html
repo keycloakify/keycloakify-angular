@@ -8,7 +8,7 @@
     [documentTitle]="documentTitle()"
 >
     <ng-container headerNode>
-        {{ 'recovery-code-config-header' | msgStr }}
+        {{ i18n.msgStr('recovery-code-config-header') }}
     </ng-container>
 
     <ng-container content>
@@ -25,10 +25,10 @@
             </div>
             <h4 class="pf-c-alert__title">
                 <span class="pf-screen-reader">Warning alert:</span>
-                {{ 'recovery-code-config-warning-title' | msgStr }}
+                {{ i18n.msgStr('recovery-code-config-warning-title') }}
             </h4>
             <div class="pf-c-alert__description">
-                <p>{{ 'recovery-code-config-warning-message' | msgStr }}</p>
+                <p>{{ i18n.msgStr('recovery-code-config-warning-message') }}</p>
             </div>
         </div>
 
@@ -54,7 +54,7 @@
                     class="pficon-print"
                     aria-hidden="true"
                 ></i>
-                {{ 'recovery-codes-print' | msgStr }}
+                {{ i18n.msgStr('recovery-codes-print') }}
             </button>
             <button
                 id="downloadRecoveryCodes"
@@ -65,7 +65,7 @@
                     class="pficon-save"
                     aria-hidden="true"
                 ></i>
-                {{ 'recovery-codes-download' | msgStr }}
+                {{ i18n.msgStr('recovery-codes-download') }}
             </button>
             <button
                 id="copyRecoveryCodes"
@@ -76,7 +76,7 @@
                     class="pficon-blueprint"
                     aria-hidden="true"
                 ></i>
-                {{ 'recovery-codes-copy' | msgStr }}
+                {{ i18n.msgStr('recovery-codes-copy') }}
             </button>
         </div>
 
@@ -95,7 +95,7 @@
                     [checked]="toggleRecoveryCodesConfirmation()"
                     (change)="toggleRecoveryCodesConfirmation.set($any($event.target).checked)"
                 />
-                {{ 'recovery-codes-confirmation-message' | msgStr }}
+                {{ i18n.msgStr('recovery-codes-confirmation-message') }}
             </label>
         </div>
 
@@ -119,7 +119,7 @@
                 type="hidden"
                 id="userLabel"
                 name="userLabel"
-                [value]="'recovery-codes-label-default' | msgStr"
+                [value]="i18n.msgStr('recovery-codes-label-default')"
             />
 
             <kc-logout-other-sessions></kc-logout-other-sessions>
@@ -129,7 +129,7 @@
                     type="submit"
                     [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                     id="saveRecoveryAuthnCodesBtn"
-                    [value]="'recovery-codes-action-complete' | msgStr"
+                    [value]="i18n.msgStr('recovery-codes-action-complete')"
                     [disabled]="!toggleRecoveryCodesConfirmation()"
                 />
                 <button
@@ -139,14 +139,14 @@
                     name="cancel-aia"
                     value="true"
                 >
-                    {{ 'recovery-codes-action-cancel' | msgStr }}
+                    {{ i18n.msgStr('recovery-codes-action-cancel') }}
                 </button>
             } @else {
                 <input
                     type="submit"
                     [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                     id="saveRecoveryAuthnCodesBtn"
-                    [value]="'recovery-codes-action-complete' | msgStr"
+                    [value]="i18n.msgStr('recovery-codes-action-complete')"
                     [disabled]="!toggleRecoveryCodesConfirmation()"
                 />
             }

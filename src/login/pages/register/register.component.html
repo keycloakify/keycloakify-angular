@@ -15,7 +15,7 @@
     [documentTitle]="documentTitle()"
 >
     <ng-container headerNode>
-        {{ messageHeader ?? 'registerTitle' | advancedMsgStr }}
+        {{ messageHeader ?? i18n.advancedMsgStr('registerTitle') }}
     </ng-container>
     <ng-container content>
         <form
@@ -28,9 +28,9 @@
             @if (termsAcceptanceRequired) {
                 <div className="form-group">
                     <div [kcClass]="'kcInputWrapperClass'">
-                        {{ 'termsTitle' | msgStr }}
+                        {{ i18n.msgStr('termsTitle') }}
                         <div id="kc-registration-terms-text">
-                            {{ 'termsText' | msgStr }}
+                            {{ i18n.msgStr('termsText') }}
                         </div>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                             for="termsAccepted"
                             [kcClass]="'kcLabelClass'"
                         >
-                            {{ 'acceptTerms' | msgStr }}
+                            {{ i18n.msgStr('acceptTerms') }}
                         </label>
                     </div>
                     @if (messagesPerField.existsError('termsAccepted')) {
@@ -86,7 +86,7 @@
                         <span>
                             <a
                                 [href]="url.loginUrl"
-                                [innerHTML]="'backToLogin' | msgStr | kcSanitize: 'html'"
+                                [innerHTML]="i18n.msgStr('backToLogin') | kcSanitize: 'html'"
                             ></a>
                         </span>
                     </div>
@@ -104,7 +104,7 @@
                             [attr.data-action]="recaptchaAction"
                             type="submit"
                         >
-                            {{ 'doRegister' | msgStr }}
+                            {{ i18n.msgStr('doRegister') }}
                         </button>
                     </div>
                 } @else {
@@ -116,7 +116,7 @@
                             [disabled]="!isFormSubmittable || (termsAcceptanceRequired && !areTermsAccepted)"
                             [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                             type="submit"
-                            [value]="'doRegister' | msgStr"
+                            [value]="i18n.msgStr('doRegister')"
                         />
                     </div>
                 }

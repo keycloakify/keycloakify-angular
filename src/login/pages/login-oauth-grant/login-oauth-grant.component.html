@@ -16,7 +16,7 @@
             />
         }
         <p>
-            {{ 'oauthGrantTitle' | msgStr: (client.name ? (client.name | advancedMsgStr) : client.clientId) }}
+            {{ i18n.msgStr('oauthGrantTitle', client.name ? i18n.advancedMsgStr(client.name) : client.clientId) }}
         </p>
     </ng-container>
 
@@ -25,12 +25,12 @@
             id="kc-oauth"
             class="content-area"
         >
-            <h3>{{ 'oauthGrantRequest' | msgStr }}</h3>
+            <h3>{{ i18n.msgStr('oauthGrantRequest') }}</h3>
             <ul>
                 @for (clientScope of oauth.clientScopesRequested; track clientScope) {
                     <li>
                         <span>
-                            {{ clientScope.consentScreenText | advancedMsgStr }}
+                            {{ i18n.advancedMsgStr(clientScope.consentScreenText) }}
                             @if (clientScope.dynamicScopeParameter) {
                                 : <b>{{ clientScope.dynamicScopeParameter }}</b>
                             }
@@ -42,17 +42,17 @@
             @if (client.attributes['policyUri'] || client.attributes['tosUri']) {
                 <h3>
                     @if (client.name) {
-                        {{ 'oauthGrantInformation' | msgStr: (client.name | advancedMsgStr) }}
+                        {{ i18n.msgStr('oauthGrantInformation', i18n.advancedMsgStr(client.name)) }}
                     } @else {
-                        {{ 'oauthGrantInformation' | msgStr: client.clientId }}
+                        {{ i18n.msgStr('oauthGrantInformation', client.clientId) }}
                     }
                     @if (client.attributes['policyUri']) {
-                        {{ 'oauthGrantReview' | msgStr }}
+                        {{ i18n.msgStr('oauthGrantReview') }}
                         <a
                             [href]="client.attributes['policyUri']"
                             target="_blank"
                         >
-                            {{ 'oauthGrantPolicy' | msgStr }}
+                            {{ i18n.msgStr('oauthGrantPolicy') }}
                         </a>
                     }
                 </h3>
@@ -77,12 +77,12 @@
                             <input
                                 [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                                 type="submit"
-                                [value]="'doYes' | msgStr"
+                                [value]="i18n.msgStr('doYes')"
                             />
                             <input
                                 [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
                                 type="submit"
-                                [value]="'doNo' | msgStr"
+                                [value]="i18n.msgStr('doNo')"
                             />
                         </div>
                     </div>

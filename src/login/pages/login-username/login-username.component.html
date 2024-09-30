@@ -13,17 +13,17 @@
     [documentTitle]="documentTitle()"
 >
     <ng-container headerNode>
-        {{ 'doLogIn' | msgStr }}
+        {{ i18n.msgStr('doLogIn') }}
     </ng-container>
     <ng-container infoNode>
         <div id="kc-registration">
             <span>
-                {{ 'noAccount' | msgStr }}
+                {{ i18n.msgStr('noAccount') }}
                 <a
                     tabindex="6"
                     [href]="url?.registrationUrl"
                 >
-                    {{ 'doRegister' | msgStr }}
+                    {{ i18n.msgStr('doRegister') }}
                 </a>
             </span>
         </div>
@@ -35,7 +35,7 @@
                 [kcClass]="'kcFormSocialAccountSectionClass'"
             >
                 <hr />
-                <h2>{{ 'identity-provider-login-label' | msgStr }}</h2>
+                <h2>{{ i18n.msgStr('identity-provider-login-label') }}</h2>
                 <ul
                     [kcClass]="{
                         kcFormSocialAccountListClass: true,
@@ -91,11 +91,11 @@
                                     [kcClass]="'kcLabelClass'"
                                 >
                                     @if (!realm?.loginWithEmailAllowed) {
-                                        {{ 'username' | msgStr }}
+                                        {{ i18n.msgStr('username') }}
                                     } @else if (!realm?.registrationEmailAsUsername) {
-                                        {{ 'usernameOrEmail' | msgStr }}
+                                        {{ i18n.msgStr('usernameOrEmail') }}
                                     } @else {
-                                        {{ 'email' | msgStr }}
+                                        {{ i18n.msgStr('email') }}
                                     }
                                 </label>
                                 <input
@@ -114,7 +114,7 @@
                                         id="input-error"
                                         [kcClass]="'kcInputErrorMessageClass'"
                                         aria-live="polite"
-                                        [innerHTML]="messagesPerField?.getFirstError('username') | kcSanitize: 'html'"
+                                        [innerHTML]="messagesPerField.getFirstError('username') | kcSanitize: 'html'"
                                     >
                                     </span>
                                 }
@@ -134,7 +134,7 @@
                                                 type="checkbox"
                                                 [defaultChecked]="!!login?.rememberMe"
                                             />
-                                            {{ 'rememberMe' | msgStr }}
+                                            {{ i18n.msgStr('rememberMe') }}
                                         </label>
                                     </div>
                                 }
@@ -150,7 +150,7 @@
                                 name="login"
                                 id="kc-login"
                                 type="submit"
-                                [value]="'doLogIn' | msgStr"
+                                [value]="i18n.msgStr('doLogIn')"
                             />
                         </div>
                     </form>

@@ -7,10 +7,10 @@
     [documentTitle]="documentTitle()"
 >
     <ng-container headerNode>
-        {{ 'saml.post-form.title' | msgStr }}
+        {{ i18n.msgStr('saml.post-form.title') }}
     </ng-container>
     <ng-container content>
-        <p>{{ 'saml.post-form.message' | msgStr }}</p>
+        <p>{{ i18n.msgStr('saml.post-form.message') }}</p>
         <form
             name="saml-post-binding"
             method="post"
@@ -39,10 +39,10 @@
                 />
             }
             <noscript>
-                <p>{{ 'saml.post-form.js-disabled' | msgStr }}</p>
+                <p>{{ i18n.msgStr('saml.post-form.js-disabled') }}</p>
                 <input
                     type="submit"
-                    value="{{ 'doContinue' | msgStr }}"
+                    [value]="i18n.msgStr('doContinue')"
                 />
             </noscript>
         </form>

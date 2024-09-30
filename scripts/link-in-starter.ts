@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import { join } from 'path';
 import { startRebuildOnSrcChange } from './shared/startRebuildOnSrcChange';
-import { crawl } from '../src/bin/tools/crawl';
+import { crawl } from './tools/crawl';
 import { run } from './shared/run';
 
 {
@@ -35,7 +35,7 @@ fs.rmSync('.yarn_home', { recursive: true, force: true });
 run('yarn install');
 run('yarn build');
 
-const starterName = 'keycloakify-starter';
+const starterName = 'keycloakify-angular-starter';
 
 fs.rmSync(join('..', starterName, 'node_modules'), {
     recursive: true,

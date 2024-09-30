@@ -2,59 +2,59 @@
 @let isAppInitiatedAction = kcContext.isAppInitiatedAction;
 
 <kc-login-template
-  [displayInfo]="displayInfo"
-  [bodyClassName]="bodyClassName()"
-  [displayMessage]="displayMessage"
-  [displayRequiredFields]="displayRequiredFields()"
-  [documentTitle]="documentTitle()"
+    [displayInfo]="displayInfo"
+    [bodyClassName]="bodyClassName()"
+    [displayMessage]="displayMessage"
+    [displayRequiredFields]="displayRequiredFields()"
+    [documentTitle]="documentTitle()"
 >
-  <ng-container headerNode>
-    {{ 'webauthn-error-title' | msgStr }}
-  </ng-container>
-  <ng-container content>
-    <form
-      id="kc-error-credential-form"
-      [kcClass]="'kcFormClass'"
-      [action]="url.loginAction"
-      method="post"
-    >
-      <input
-        type="hidden"
-        id="executionValue"
-        name="authenticationExecution"
-      />
-      <input
-        type="hidden"
-        id="isSetRetry"
-        name="isSetRetry"
-      />
-    </form>
-    <input
-      tabIndex="4"
-      (click)="onClick()"
-      type="button"
-      [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
-      name="try-again"
-      id="kc-try-again"
-      [value]="'doTryAgain' | msgStr"
-    />
-    @if (isAppInitiatedAction) {
-      <form
-        [action]="url.loginAction"
-        [kcClass]="'kcFormClass'"
-        id="kc-webauthn-settings-form"
-        method="post"
-      >
-        <button
-          type="submit"
-          [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
-          id="cancelWebAuthnAIA"
-          name="cancel-aia"
-          value="true"
+    <ng-container headerNode>
+        {{ 'webauthn-error-title' | msgStr }}
+    </ng-container>
+    <ng-container content>
+        <form
+            id="kc-error-credential-form"
+            [kcClass]="'kcFormClass'"
+            [action]="url.loginAction"
+            method="post"
         >
-          {{ 'doCancel' | msgStr }}
-        </button>
-      </form>
-    }
-  </ng-container>
+            <input
+                type="hidden"
+                id="executionValue"
+                name="authenticationExecution"
+            />
+            <input
+                type="hidden"
+                id="isSetRetry"
+                name="isSetRetry"
+            />
+        </form>
+        <input
+            tabIndex="4"
+            (click)="onClick()"
+            type="button"
+            [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
+            name="try-again"
+            id="kc-try-again"
+            [value]="'doTryAgain' | msgStr"
+        />
+        @if (isAppInitiatedAction) {
+            <form
+                [action]="url.loginAction"
+                [kcClass]="'kcFormClass'"
+                id="kc-webauthn-settings-form"
+                method="post"
+            >
+                <button
+                    type="submit"
+                    [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
+                    id="cancelWebAuthnAIA"
+                    name="cancel-aia"
+                    value="true"
+                >
+                    {{ 'doCancel' | msgStr }}
+                </button>
+            </form>
+        }
+    </ng-container>
 </kc-login-template>

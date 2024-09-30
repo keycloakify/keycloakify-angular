@@ -9,12 +9,12 @@
     "scripts": {
         "build": "tsx scripts/build/main.ts",
         "link-in-starter": "tsx scripts/link-in-starter.ts",
-        "_format": "prettier '**/*.{ts,tsx,json,md}'",
+        "_format": "prettier '**/*.{ts,html,json,md}'",
         "format": "yarn _format --write",
         "link-in-app": "tsx scripts/link-in-app.ts"
     },
     "lint-staged": {
-        "*.{ts,tsx,json,md}": [
+        "*.{ts,html,json,md}": [
             "prettier --write"
         ]
     },
@@ -68,5 +68,6 @@
     },
     "publishConfig": {
         "access": "public"
-    }
+    },
+    "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

@@ -1,17 +1,6 @@
 import { AsyncPipe, NgClass } from '@angular/common';
-import {
-    ChangeDetectionStrategy,
-    Component,
-    forwardRef,
-    inject,
-    input,
-    signal
-} from '@angular/core';
-import {
-    CLASSES,
-    KC_CONTEXT,
-    USE_DEFAULT_CSS
-} from '@keycloakify/angular/lib/public-api';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input, signal } from '@angular/core';
+import { CLASSES, KC_CONTEXT, USE_DEFAULT_CSS } from '@keycloakify/angular/lib/public-api';
 import { ClassKey } from 'keycloakify/login/lib/kcClsx';
 import { KcContext } from 'keycloakify/login/KcContext';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
@@ -26,15 +15,7 @@ import { MsgStrPipe } from '@keycloakify/angular/login/pipes/msg-str.pipe';
     templateUrl: './login.component.html',
     standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [
-        KcClassDirective,
-        AsyncPipe,
-        KcSanitizePipe,
-        PasswordWrapperComponent,
-        NgClass,
-        TemplateComponent,
-        MsgStrPipe
-    ],
+    imports: [KcClassDirective, AsyncPipe, KcSanitizePipe, PasswordWrapperComponent, NgClass, TemplateComponent, MsgStrPipe],
     providers: [
         {
             provide: ComponentReference,
@@ -50,12 +31,6 @@ export class LoginComponent extends ComponentReference {
     override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
     override classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
     isLoginButtonDisabled = signal(false);
-    displayInfo: boolean =
-        !!this.kcContext?.realm?.password &&
-        !!this.kcContext?.realm?.registrationAllowed &&
-        !this.kcContext?.registrationDisabled;
-    displayMessage: boolean = !this.kcContext?.messagesPerField?.existsError(
-        'username',
-        'password'
-    );
+    displayInfo: boolean = !!this.kcContext?.realm?.password && !!this.kcContext?.realm?.registrationAllowed && !this.kcContext?.registrationDisabled;
+    displayMessage: boolean = !this.kcContext?.messagesPerField?.existsError('username', 'password');
 }

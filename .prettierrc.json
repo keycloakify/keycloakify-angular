@@ -7,16 +7,18 @@
     "trailingComma": "none",
     "bracketSpacing": true,
     "arrowParens": "avoid",
+    "singleAttributePerLine": true,
     "overrides": [
         {
-            "files": "*.tsx",
+            "files": "*.component.ts",
             "options": {
                 "printWidth": 150
             }
         },
         {
-            "files": "useUserProfileForm.tsx",
+            "files": "*.html",
             "options": {
+                "parser": "angular",
                 "printWidth": 150
             }
         }

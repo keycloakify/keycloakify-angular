@@ -1,20 +1,7 @@
 import { AsyncPipe, NgTemplateOutlet } from '@angular/common';
-import {
-    ChangeDetectionStrategy,
-    Component,
-    forwardRef,
-    inject,
-    input,
-    OnInit,
-    Renderer2
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input, OnInit, Renderer2 } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import {
-    CLASSES,
-    I18N,
-    KC_CONTEXT,
-    USE_DEFAULT_CSS
-} from '@keycloakify/angular/lib/public-api';
+import { CLASSES, I18N, KC_CONTEXT, USE_DEFAULT_CSS } from '@keycloakify/angular/lib/public-api';
 import type { I18n } from '@keycloakify/angular/login/i18n';
 import { KcContext } from 'keycloakify/login/KcContext/KcContext';
 import { ClassKey, getKcClsx } from 'keycloakify/login/lib/kcClsx';
@@ -58,13 +45,8 @@ export class TemplateComponent extends ComponentReference implements OnInit {
 
     constructor() {
         super();
-        this.title.setTitle(
-            this.documentTitle() ??
-                this.i18n.msgStr('loginTitle', this.kcContext.realm.displayName)
-        );
-        this.isReadyToRender$ = this.loginResourceInjectorService.injectResource(
-            this.doUseDefaultCss
-        );
+        this.title.setTitle(this.documentTitle() ?? this.i18n.msgStr('loginTitle', this.kcContext.realm.displayName));
+        this.isReadyToRender$ = this.loginResourceInjectorService.injectResource(this.doUseDefaultCss);
     }
 
     ngOnInit() {

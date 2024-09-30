@@ -2,91 +2,93 @@
 @let oauth = kcContext.oauth;
 @let url = kcContext.url;
 <kc-login-template
-  [displayInfo]="displayInfo"
-  [bodyClassName]="bodyClassName()"
-  [displayMessage]="displayMessage"
-  [displayRequiredFields]="displayRequiredFields()"
-  [documentTitle]="documentTitle()"
+    [displayInfo]="displayInfo"
+    [bodyClassName]="bodyClassName()"
+    [displayMessage]="displayMessage"
+    [displayRequiredFields]="displayRequiredFields()"
+    [documentTitle]="documentTitle()"
 >
-  <ng-container headerNode>
-    @if (client.attributes['logoUri']) {
-      <img
-        [src]="client.attributes['logoUri']"
-        alt=""
-      />
-    }
-    <p>{{ 'oauthGrantTitle' | msgStr: (client.name ? (client.name | advancedMsgStr) : client.clientId) }}</p>
-  </ng-container>
-
-  <ng-container content>
-    <div
-      id="kc-oauth"
-      class="content-area"
-    >
-      <h3>{{ 'oauthGrantRequest' | msgStr }}</h3>
-      <ul>
-        @for (clientScope of oauth.clientScopesRequested; track clientScope) {
-          <li>
-            <span>
-              {{ clientScope.consentScreenText | advancedMsgStr }}
-              @if (clientScope.dynamicScopeParameter) {
-                : <b>{{ clientScope.dynamicScopeParameter }}</b>
-              }
-            </span>
-          </li>
+    <ng-container headerNode>
+        @if (client.attributes['logoUri']) {
+            <img
+                [src]="client.attributes['logoUri']"
+                alt=""
+            />
         }
-      </ul>
+        <p>
+            {{ 'oauthGrantTitle' | msgStr: (client.name ? (client.name | advancedMsgStr) : client.clientId) }}
+        </p>
+    </ng-container>
 
-      @if (client.attributes['policyUri'] || client.attributes['tosUri']) {
-        <h3>
-          @if (client.name) {
-            {{ 'oauthGrantInformation' | msgStr: (client.name | advancedMsgStr) }}
-          } @else {
-            {{ 'oauthGrantInformation' | msgStr: client.clientId }}
-          }
-          @if (client.attributes['policyUri']) {
-            {{ 'oauthGrantReview' | msgStr }}
-            <a
-              [href]="client.attributes['policyUri']"
-              target="_blank"
+    <ng-container content>
+        <div
+            id="kc-oauth"
+            class="content-area"
+        >
+            <h3>{{ 'oauthGrantRequest' | msgStr }}</h3>
+            <ul>
+                @for (clientScope of oauth.clientScopesRequested; track clientScope) {
+                    <li>
+                        <span>
+                            {{ clientScope.consentScreenText | advancedMsgStr }}
+                            @if (clientScope.dynamicScopeParameter) {
+                                : <b>{{ clientScope.dynamicScopeParameter }}</b>
+                            }
+                        </span>
+                    </li>
+                }
+            </ul>
+
+            @if (client.attributes['policyUri'] || client.attributes['tosUri']) {
+                <h3>
+                    @if (client.name) {
+                        {{ 'oauthGrantInformation' | msgStr: (client.name | advancedMsgStr) }}
+                    } @else {
+                        {{ 'oauthGrantInformation' | msgStr: client.clientId }}
+                    }
+                    @if (client.attributes['policyUri']) {
+                        {{ 'oauthGrantReview' | msgStr }}
+                        <a
+                            [href]="client.attributes['policyUri']"
+                            target="_blank"
+                        >
+                            {{ 'oauthGrantPolicy' | msgStr }}
+                        </a>
+                    }
+                </h3>
+            }
+            <form
+                class="form-actions"
+                [action]="url.oauthAction"
+                method="post"
             >
-              {{ 'oauthGrantPolicy' | msgStr }}
-            </a>
-          }
-        </h3>
-      }
-      <form
-        class="form-actions"
-        [action]="url.oauthAction"
-        method="post"
-      >
-        <input
-          type="hidden"
-          name="code"
-          [value]="oauth.code"
-        />
-        <div [kcClass]="'kcFormGroupClass'">
-          <div id="kc-form-options">
-            <div [kcClass]="'kcFormOptionsWrapperClass'"></div>
-          </div>
+                <input
+                    type="hidden"
+                    name="code"
+                    [value]="oauth.code"
+                />
+                <div [kcClass]="'kcFormGroupClass'">
+                    <div id="kc-form-options">
+                        <div [kcClass]="'kcFormOptionsWrapperClass'"></div>
+                    </div>
 
-          <div id="kc-form-buttons">
-            <div [kcClass]="'kcFormButtonsWrapperClass'">
-              <input
-                [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
-                type="submit"
-                [value]="'doYes' | msgStr"
-              />
-              <input
-                [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
-                type="submit"
-                [value]="'doNo' | msgStr"
-              />
-            </div>
-          </div>
+                    <div id="kc-form-buttons">
+                        <div [kcClass]="'kcFormButtonsWrapperClass'">
+                            <input
+                                [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
+                                type="submit"
+                                [value]="'doYes' | msgStr"
+                            />
+                            <input
+                                [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
+                                type="submit"
+                                [value]="'doNo' | msgStr"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div className="clearfix"></div>
         </div>
-      </form>
-      <div className="clearfix"></div>
-    </div>
-  </ng-container>
+    </ng-container>
 </kc-login-template>

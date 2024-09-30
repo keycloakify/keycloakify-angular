@@ -1,15 +1,5 @@
-import {
-    ChangeDetectionStrategy,
-    Component,
-    forwardRef,
-    inject,
-    input
-} from '@angular/core';
-import {
-    CLASSES,
-    KC_CONTEXT,
-    USE_DEFAULT_CSS
-} from '@keycloakify/angular/lib/public-api';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input } from '@angular/core';
+import { CLASSES, KC_CONTEXT, USE_DEFAULT_CSS } from '@keycloakify/angular/lib/public-api';
 import { ClassKey } from 'keycloakify/login/lib/kcClsx';
 import { KcContext } from 'keycloakify/login/KcContext';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
@@ -20,12 +10,7 @@ import { MsgStrPipe } from '@keycloakify/angular/login/pipes/msg-str.pipe';
 
 @Component({
     standalone: true,
-    imports: [
-        TemplateComponent,
-        MsgStrPipe,
-        KcClassDirective,
-        LogoutOtherSessionsComponent
-    ],
+    imports: [TemplateComponent, MsgStrPipe, KcClassDirective, LogoutOtherSessionsComponent],
     selector: 'kc-root',
     templateUrl: 'webauthn-error.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,

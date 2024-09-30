@@ -1,10 +1,4 @@
-import {
-    ChangeDetectionStrategy,
-    Component,
-    computed,
-    input,
-    output
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
 import { Attribute } from 'keycloakify/login/KcContext';
 import { MsgStrPipe } from '@keycloakify/angular/login/pipes/msg-str.pipe';
 import { FormAction } from '@keycloakify/angular/login/services/user-profile-form.service';
@@ -72,11 +66,7 @@ export class AddRemoveButtonsMultiValuedAttributeComponent {
         });
     }
 
-    private getButtonToDisplayForMultivaluedAttributeField(params: {
-        attribute: Attribute;
-        values: string[];
-        fieldIndex: number;
-    }) {
+    private getButtonToDisplayForMultivaluedAttributeField(params: { attribute: Attribute; values: string[]; fieldIndex: number }) {
         const { attribute, values, fieldIndex } = params;
 
         const hasRemove = (() => {

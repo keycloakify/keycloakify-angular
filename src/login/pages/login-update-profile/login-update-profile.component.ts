@@ -1,16 +1,5 @@
-import {
-    ChangeDetectionStrategy,
-    Component,
-    forwardRef,
-    inject,
-    input,
-    signal
-} from '@angular/core';
-import {
-    CLASSES,
-    KC_CONTEXT,
-    USE_DEFAULT_CSS
-} from '@keycloakify/angular/lib/public-api';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input, signal } from '@angular/core';
+import { CLASSES, KC_CONTEXT, USE_DEFAULT_CSS } from '@keycloakify/angular/lib/public-api';
 import { ClassKey } from 'keycloakify/login/lib/kcClsx';
 import { KcContext } from 'keycloakify/login/KcContext';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
@@ -21,12 +10,7 @@ import { MsgStrPipe } from '@keycloakify/angular/login/pipes/msg-str.pipe';
 
 @Component({
     standalone: true,
-    imports: [
-        TemplateComponent,
-        KcClassDirective,
-        MsgStrPipe,
-        UserProfileFormFieldsComponent
-    ],
+    imports: [TemplateComponent, KcClassDirective, MsgStrPipe, UserProfileFormFieldsComponent],
     selector: 'kc-root',
     templateUrl: 'login-update-profile.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -38,8 +22,7 @@ import { MsgStrPipe } from '@keycloakify/angular/login/pipes/msg-str.pipe';
     ]
 })
 export class LoginUpdateProfileComponent extends ComponentReference {
-    kcContext =
-        inject<Extract<KcContext, { pageId: 'login-update-profile.ftl' }>>(KC_CONTEXT);
+    kcContext = inject<Extract<KcContext, { pageId: 'login-update-profile.ftl' }>>(KC_CONTEXT);
     override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
     override classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
     displayRequiredFields = input(true);

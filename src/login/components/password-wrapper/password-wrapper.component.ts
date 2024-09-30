@@ -1,14 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import {
-    ChangeDetectionStrategy,
-    Component,
-    forwardRef,
-    inject,
-    input,
-    Renderer2,
-    signal,
-    WritableSignal
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input, Renderer2, signal, WritableSignal } from '@angular/core';
 import { CLASSES, USE_DEFAULT_CSS } from '@keycloakify/angular/lib/public-api';
 import { ClassKey } from 'keycloakify/login/lib/kcClsx';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
@@ -51,11 +42,7 @@ export class PasswordWrapperComponent extends ComponentReference {
     private setPasswordInputType(): void {
         const input = document.getElementById(this.passwordInputId());
         if (input) {
-            this.renderer.setProperty(
-                input,
-                'type',
-                this.isPasswordRevealed() ? 'text' : 'password'
-            );
+            this.renderer.setProperty(input, 'type', this.isPasswordRevealed() ? 'text' : 'password');
         }
     }
 }

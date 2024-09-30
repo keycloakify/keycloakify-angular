@@ -55,9 +55,7 @@ export namespace SemVer {
     }
 
     export function stringify(v: Omit<SemVer, 'parsedFrom'>): string {
-        return `${v.major}.${v.minor}.${v.patch}${
-            v.rc === undefined ? '' : `-rc.${v.rc}`
-        }`;
+        return `${v.major}.${v.minor}.${v.patch}${v.rc === undefined ? '' : `-rc.${v.rc}`}`;
     }
 
     /**
@@ -101,9 +99,7 @@ export namespace SemVer {
 
         if (compare(versionBehind, versionAhead) === 1) {
             throw new Error(
-                `Version regression ${stringify(versionBehind)} -> ${stringify(
-                    versionAhead
-                )}`
+                `Version regression ${stringify(versionBehind)} -> ${stringify(versionAhead)}`
             );
         }
 

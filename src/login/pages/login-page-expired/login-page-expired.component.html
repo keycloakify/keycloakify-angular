@@ -1,35 +1,35 @@
 @let url = kcContext.url;
 <kc-login-template
-  [displayInfo]="displayInfo"
-  [bodyClassName]="bodyClassName()"
-  [displayMessage]="displayMessage"
-  [displayRequiredFields]="displayRequiredFields()"
-  [documentTitle]="documentTitle()"
+    [displayInfo]="displayInfo"
+    [bodyClassName]="bodyClassName()"
+    [displayMessage]="displayMessage"
+    [displayRequiredFields]="displayRequiredFields()"
+    [documentTitle]="documentTitle()"
 >
-  <ng-container headerNode>
-    {{ 'pageExpiredTitle' | msgStr }}
-  </ng-container>
-  <ng-container content>
-    <p
-      id="instruction1"
-      class="instruction"
-    >
-      {{ 'pageExpiredMsg1' | msgStr }}
-      <a
-        id="loginRestartLink"
-        [href]="url.loginRestartFlowUrl"
-      >
-        {{ 'doClickHere' | msgStr }}
-      </a>
-      .<br />
-      {{ 'pageExpiredMsg2' | msgStr }}
-      <a
-        id="loginContinueLink"
-        [href]="url.loginAction"
-      >
-        {{ 'doClickHere' | msgStr }}
-      </a>
-      .
-    </p>
-  </ng-container>
+    <ng-container headerNode>
+        {{ 'pageExpiredTitle' | msgStr }}
+    </ng-container>
+    <ng-container content>
+        <p
+            id="instruction1"
+            class="instruction"
+        >
+            {{ 'pageExpiredMsg1' | msgStr }}
+            <a
+                id="loginRestartLink"
+                [href]="url.loginRestartFlowUrl"
+            >
+                {{ 'doClickHere' | msgStr }}
+            </a>
+            .<br />
+            {{ 'pageExpiredMsg2' | msgStr }}
+            <a
+                id="loginContinueLink"
+                [href]="url.loginAction"
+            >
+                {{ 'doClickHere' | msgStr }}
+            </a>
+            .
+        </p>
+    </ng-container>
 </kc-login-template>

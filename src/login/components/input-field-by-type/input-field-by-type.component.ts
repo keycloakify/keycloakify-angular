@@ -1,21 +1,10 @@
-import {
-    ChangeDetectionStrategy,
-    Component,
-    computed,
-    forwardRef,
-    inject,
-    input,
-    output
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, forwardRef, inject, input, output } from '@angular/core';
 import { CLASSES, USE_DEFAULT_CSS } from '@keycloakify/angular/lib/public-api';
 import { Attribute } from 'keycloakify/login/KcContext';
 import { ClassKey } from 'keycloakify/login/lib/kcClsx';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
 import { ToArrayPipe } from '@keycloakify/angular/login/pipes/to-array.pipe';
-import {
-    FormAction,
-    FormFieldError
-} from '@keycloakify/angular/login/services/user-profile-form.service';
+import { FormAction, FormFieldError } from '@keycloakify/angular/login/services/user-profile-form.service';
 import { InputTagSelectsComponent } from '@keycloakify/angular/login/components/input-tag-selects/input-tag-selects.component';
 import { InputTagComponent } from '@keycloakify/angular/login/components/input-tag/input-tag.component';
 import { PasswordWrapperComponent } from '@keycloakify/angular/login/components/password-wrapper/password-wrapper.component';
@@ -31,14 +20,7 @@ import { TextareaTagComponent } from '@keycloakify/angular/login/components/text
             }
         `
     ],
-    imports: [
-        ToArrayPipe,
-        TextareaTagComponent,
-        SelectTagComponent,
-        InputTagSelectsComponent,
-        InputTagComponent,
-        PasswordWrapperComponent
-    ],
+    imports: [ToArrayPipe, TextareaTagComponent, SelectTagComponent, InputTagSelectsComponent, InputTagComponent, PasswordWrapperComponent],
     selector: 'kc-input-field-by-type',
     templateUrl: 'input-field-by-type.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,

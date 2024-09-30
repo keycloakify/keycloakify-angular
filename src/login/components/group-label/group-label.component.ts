@@ -1,11 +1,4 @@
-import {
-    ChangeDetectionStrategy,
-    Component,
-    computed,
-    forwardRef,
-    inject,
-    input
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, forwardRef, inject, input } from '@angular/core';
 import { CLASSES, USE_DEFAULT_CSS } from '@keycloakify/angular/lib/public-api';
 import { Attribute } from 'keycloakify/login/KcContext';
 import { ClassKey } from 'keycloakify/login/lib/kcClsx';

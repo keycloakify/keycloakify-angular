@@ -1,12 +1,4 @@
-import {
-    ChangeDetectionStrategy,
-    Component,
-    computed,
-    forwardRef,
-    inject,
-    input,
-    output
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, forwardRef, inject, input, output } from '@angular/core';
 import { CLASSES, USE_DEFAULT_CSS } from '@keycloakify/angular/lib/public-api';
 import { Attribute } from 'keycloakify/login/KcContext';
 import { ClassKey } from 'keycloakify/login/lib/kcClsx';
@@ -17,10 +9,7 @@ import { AdvancedMsgStrPipe } from '@keycloakify/angular/login/pipes/advanced-ms
 import { InputTypePipe } from '@keycloakify/angular/login/pipes/input-type.pipe';
 import { ToArrayPipe } from '@keycloakify/angular/login/pipes/to-array.pipe';
 import { ToNumberPipe } from '@keycloakify/angular/login/pipes/to-number.pipe';
-import {
-    FormAction,
-    FormFieldError
-} from '@keycloakify/angular/login/services/user-profile-form.service';
+import { FormAction, FormFieldError } from '@keycloakify/angular/login/services/user-profile-form.service';
 import { AddRemoveButtonsMultiValuedAttributeComponent } from '@keycloakify/angular/login/components/add-remove-buttons-multi-valued-attribute/add-remove-buttons-multi-valued-attribute.component';
 import { FieldErrorsComponent } from '@keycloakify/angular/login/components/field-errors/field-errors.component';
 

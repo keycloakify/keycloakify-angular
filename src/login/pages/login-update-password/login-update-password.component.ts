@@ -1,15 +1,5 @@
-import {
-    ChangeDetectionStrategy,
-    Component,
-    forwardRef,
-    inject,
-    input
-} from '@angular/core';
-import {
-    CLASSES,
-    KC_CONTEXT,
-    USE_DEFAULT_CSS
-} from '@keycloakify/angular/lib/public-api';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input } from '@angular/core';
+import { CLASSES, KC_CONTEXT, USE_DEFAULT_CSS } from '@keycloakify/angular/lib/public-api';
 import { ClassKey } from 'keycloakify/login/lib/kcClsx';
 import { KcContext } from 'keycloakify/login/KcContext';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
@@ -22,14 +12,7 @@ import { MsgStrPipe } from '@keycloakify/angular/login/pipes/msg-str.pipe';
 
 @Component({
     standalone: true,
-    imports: [
-        TemplateComponent,
-        MsgStrPipe,
-        KcClassDirective,
-        PasswordWrapperComponent,
-        KcSanitizePipe,
-        LogoutOtherSessionsComponent
-    ],
+    imports: [TemplateComponent, MsgStrPipe, KcClassDirective, PasswordWrapperComponent, KcSanitizePipe, LogoutOtherSessionsComponent],
     selector: 'kc-root',
     templateUrl: 'login-update-password.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -41,16 +24,12 @@ import { MsgStrPipe } from '@keycloakify/angular/login/pipes/msg-str.pipe';
     ]
 })
 export class LoginUpdatePasswordComponent extends ComponentReference {
-    kcContext =
-        inject<Extract<KcContext, { pageId: 'login-update-password.ftl' }>>(KC_CONTEXT);
+    kcContext = inject<Extract<KcContext, { pageId: 'login-update-password.ftl' }>>(KC_CONTEXT);
     override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
     override classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
     displayRequiredFields = input(false);
     documentTitle = input<string>();
     bodyClassName = input<string>();
     displayInfo = false;
-    displayMessage = !this.kcContext.messagesPerField.existsError(
-        'password',
-        'password-confirm'
-    );
+    displayMessage = !this.kcContext.messagesPerField.existsError('password', 'password-confirm');
 }

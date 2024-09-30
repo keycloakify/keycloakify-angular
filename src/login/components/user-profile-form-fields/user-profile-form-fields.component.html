@@ -1,85 +1,85 @@
 @let formFieldStates = formState().formFieldStates;
 
 @for (fieldState of formFieldStates; track fieldState.attribute) {
-  <!-- [groupNameRef]="groupNameRef"
+    <!-- [groupNameRef]="groupNameRef"
   TODO: verify this logic
   -->
-  <kc-group-label [attribute]="fieldState.attribute"> </kc-group-label>
+    <kc-group-label [attribute]="fieldState.attribute"> </kc-group-label>
 
-  @if (beforeField) {
-    <ng-container
-      [ngTemplateOutlet]="beforeField"
-      [ngTemplateOutletContext]="{
-        attribute: fieldState.attribute,
-        valueOrValues: fieldState.valueOrValues,
-        displayableErrors: fieldState.displayableErrors,
-      }"
-    >
-    </ng-container>
-  }
-
-  <div
-    [kcClass]="'kcFormGroupClass'"
-    [style.display]="fieldState.attribute.name === 'password-confirm' && !doMakeUserConfirmPassword ? 'none' : 'block'"
-  >
-    <div [kcClass]="'kcLabelWrapperClass'">
-      <label
-        [for]="fieldState.attribute.name"
-        [kcClass]="'kcLabelClass'"
-      >
-        {{ fieldState.attribute.displayName ?? '' | advancedMsgStr }}
-        @if (fieldState.attribute.required) {
-          *
-        }
-      </label>
-    </div>
-
-    <div [kcClass]="'kcInputWrapperClass'">
-      @if (fieldState.attribute.annotations.inputHelperTextBefore) {
-        <div
-          [kcClass]="'kcInputHelperTextBeforeClass'"
-          [id]="'form-help-text-before-' + fieldState.attribute.name"
-          aria-live="polite"
-        >
-          {{ fieldState.attribute.annotations.inputHelperTextBefore | advancedMsgStr }}
-        </div>
-      }
-
-      <kc-input-field-by-type
-        [attribute]="fieldState.attribute"
-        [valueOrValues]="fieldState.valueOrValues"
-        [displayableErrors]="fieldState.displayableErrors"
-        (dispatchFormAction)="onDispatch($event)"
-      >
-      </kc-input-field-by-type>
-
-      <kc-field-errors
-        [attribute]="fieldState.attribute"
-        [displayableErrors]="fieldState.displayableErrors"
-      >
-      </kc-field-errors>
-      @if (fieldState.attribute.annotations.inputHelperTextAfter) {
-        <div
-          [kcClass]="'kcInputHelperTextAfterClass'"
-          [id]="'form-help-text-after-' + fieldState.attribute.name"
-          aria-live="polite"
-        >
-          {{ fieldState.attribute.annotations.inputHelperTextAfter | advancedMsgStr }}
-        </div>
-      }
-
-      @if (afterField) {
+    @if (beforeField) {
         <ng-container
-          [ngTemplateOutlet]="afterField"
-          [ngTemplateOutletContext]="{
-            attribute: fieldState.attribute,
-            valueOrValues: fieldState.valueOrValues,
-            displayableErrors: fieldState.displayableErrors,
-          }"
+            [ngTemplateOutlet]="beforeField"
+            [ngTemplateOutletContext]="{
+                attribute: fieldState.attribute,
+                valueOrValues: fieldState.valueOrValues,
+                displayableErrors: fieldState.displayableErrors
+            }"
         >
         </ng-container>
-      }
-      <!-- NOTE: Downloading of html5DataAnnotations scripts is done in the useUserProfileForm hook -->
+    }
+
+    <div
+        [kcClass]="'kcFormGroupClass'"
+        [style.display]="fieldState.attribute.name === 'password-confirm' && !doMakeUserConfirmPassword ? 'none' : 'block'"
+    >
+        <div [kcClass]="'kcLabelWrapperClass'">
+            <label
+                [for]="fieldState.attribute.name"
+                [kcClass]="'kcLabelClass'"
+            >
+                {{ fieldState.attribute.displayName ?? '' | advancedMsgStr }}
+                @if (fieldState.attribute.required) {
+                    *
+                }
+            </label>
+        </div>
+
+        <div [kcClass]="'kcInputWrapperClass'">
+            @if (fieldState.attribute.annotations.inputHelperTextBefore) {
+                <div
+                    [kcClass]="'kcInputHelperTextBeforeClass'"
+                    [id]="'form-help-text-before-' + fieldState.attribute.name"
+                    aria-live="polite"
+                >
+                    {{ fieldState.attribute.annotations.inputHelperTextBefore | advancedMsgStr }}
+                </div>
+            }
+
+            <kc-input-field-by-type
+                [attribute]="fieldState.attribute"
+                [valueOrValues]="fieldState.valueOrValues"
+                [displayableErrors]="fieldState.displayableErrors"
+                (dispatchFormAction)="onDispatch($event)"
+            >
+            </kc-input-field-by-type>
+
+            <kc-field-errors
+                [attribute]="fieldState.attribute"
+                [displayableErrors]="fieldState.displayableErrors"
+            >
+            </kc-field-errors>
+            @if (fieldState.attribute.annotations.inputHelperTextAfter) {
+                <div
+                    [kcClass]="'kcInputHelperTextAfterClass'"
+                    [id]="'form-help-text-after-' + fieldState.attribute.name"
+                    aria-live="polite"
+                >
+                    {{ fieldState.attribute.annotations.inputHelperTextAfter | advancedMsgStr }}
+                </div>
+            }
+
+            @if (afterField) {
+                <ng-container
+                    [ngTemplateOutlet]="afterField"
+                    [ngTemplateOutletContext]="{
+                        attribute: fieldState.attribute,
+                        valueOrValues: fieldState.valueOrValues,
+                        displayableErrors: fieldState.displayableErrors
+                    }"
+                >
+                </ng-container>
+            }
+            <!-- NOTE: Downloading of html5DataAnnotations scripts is done in the useUserProfileForm hook -->
+        </div>
     </div>
-  </div>
 }

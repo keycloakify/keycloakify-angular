@@ -1,15 +1,5 @@
-import {
-    ChangeDetectionStrategy,
-    Component,
-    forwardRef,
-    inject,
-    input
-} from '@angular/core';
-import {
-    CLASSES,
-    KC_CONTEXT,
-    USE_DEFAULT_CSS
-} from '@keycloakify/angular/lib/public-api';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input } from '@angular/core';
+import { CLASSES, KC_CONTEXT, USE_DEFAULT_CSS } from '@keycloakify/angular/lib/public-api';
 import { Script } from '@keycloakify/angular/lib/models';
 import { ClassKey } from 'keycloakify/login/lib/kcClsx';
 import { KcContext } from 'keycloakify/login/KcContext';
@@ -24,13 +14,7 @@ import { LoginResourceInjectorService } from '@keycloakify/angular/login/service
 
 @Component({
     standalone: true,
-    imports: [
-        TemplateComponent,
-        MsgStrPipe,
-        AdvancedMsgStrPipe,
-        KcClassDirective,
-        LogoutOtherSessionsComponent
-    ],
+    imports: [TemplateComponent, MsgStrPipe, AdvancedMsgStrPipe, KcClassDirective, LogoutOtherSessionsComponent],
     selector: 'kc-root',
     templateUrl: 'webauthn-authenticate.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -43,8 +27,7 @@ import { LoginResourceInjectorService } from '@keycloakify/angular/login/service
     ]
 })
 export class WebauthnAuthenticateComponent extends ComponentReference {
-    kcContext =
-        inject<Extract<KcContext, { pageId: 'webauthn-authenticate.ftl' }>>(KC_CONTEXT);
+    kcContext = inject<Extract<KcContext, { pageId: 'webauthn-authenticate.ftl' }>>(KC_CONTEXT);
     loginResourceInjectorService = inject(LoginResourceInjectorService);
     msgStr = inject(MsgStrPipe);
     override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
@@ -59,14 +42,7 @@ export class WebauthnAuthenticateComponent extends ComponentReference {
 
     constructor() {
         super();
-        const {
-            url,
-            isUserIdentified,
-            challenge,
-            userVerification,
-            rpId,
-            createTimeout
-        } = this.kcContext;
+        const { url, isUserIdentified, challenge, userVerification, rpId, createTimeout } = this.kcContext;
         const scripts: Script[] = [
             {
                 type: 'module',

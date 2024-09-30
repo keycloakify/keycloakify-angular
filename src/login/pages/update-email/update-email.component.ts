@@ -1,16 +1,5 @@
-import {
-    ChangeDetectionStrategy,
-    Component,
-    forwardRef,
-    inject,
-    input,
-    signal
-} from '@angular/core';
-import {
-    CLASSES,
-    KC_CONTEXT,
-    USE_DEFAULT_CSS
-} from '@keycloakify/angular/lib/public-api';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input, signal } from '@angular/core';
+import { CLASSES, KC_CONTEXT, USE_DEFAULT_CSS } from '@keycloakify/angular/lib/public-api';
 import { ClassKey } from 'keycloakify/login/lib/kcClsx';
 import { KcContext } from 'keycloakify/login/KcContext';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
@@ -22,13 +11,7 @@ import { MsgStrPipe } from '@keycloakify/angular/login/pipes/msg-str.pipe';
 
 @Component({
     standalone: true,
-    imports: [
-        TemplateComponent,
-        MsgStrPipe,
-        KcClassDirective,
-        UserProfileFormFieldsComponent,
-        LogoutOtherSessionsComponent
-    ],
+    imports: [TemplateComponent, MsgStrPipe, KcClassDirective, UserProfileFormFieldsComponent, LogoutOtherSessionsComponent],
     selector: 'kc-root',
     templateUrl: 'update-email.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,

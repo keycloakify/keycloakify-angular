@@ -2,102 +2,102 @@
 @let otpLogin = kcContext.otpLogin;
 @let messagesPerField = kcContext.messagesPerField;
 <kc-login-template
-  [displayInfo]="displayInfo"
-  [bodyClassName]="bodyClassName()"
-  [displayMessage]="displayMessage"
-  [displayRequiredFields]="displayRequiredFields()"
-  [documentTitle]="documentTitle()"
+    [displayInfo]="displayInfo"
+    [bodyClassName]="bodyClassName()"
+    [displayMessage]="displayMessage"
+    [displayRequiredFields]="displayRequiredFields()"
+    [documentTitle]="documentTitle()"
 >
-  <ng-container headerNode>
-    {{ 'doLogIn' | msgStr }}
-  </ng-container>
-  <ng-container content>
-    <form
-      id="kc-otp-login-form"
-      [kcClass]="['kcFormClass']"
-      [action]="url.loginAction"
-      method="post"
-    >
-      @if (otpLogin.userOtpCredentials.length > 1) {
-        <div [kcClass]="'kcFormGroupClass'">
-          <div [kcClass]="'kcInputWrapperClass'">
-            @for (otpCredential of otpLogin.userOtpCredentials; track otpCredential; let i = $index) {
-              <ng-container>
-                <input
-                  [id]="'kc-otp-credential-' + i"
-                  [kcClass]="'kcLoginOTPListClass'"
-                  type="radio"
-                  name="selectedCredentialId"
-                  [value]="otpCredential.id"
-                  [checked]="otpCredential.id === otpLogin.selectedCredentialId"
-                />
-                <label
-                  [for]="'kc-otp-credential-' + i"
-                  [kcClass]="'kcLoginOTPListClass'"
-                  [tabIndex]="i"
-                >
-                  <span [kcClass]="'kcLoginOTPListItemHeaderClass'">
-                    <span [kcClass]="'kcLoginOTPListItemIconBodyClass'">
-                      <i
-                        [kcClass]="'kcLoginOTPListItemIconClass'"
-                        aria-hidden="true"
-                      ></i>
-                    </span>
-                    <span [kcClass]="'kcLoginOTPListItemTitleClass'">{{ otpCredential.userLabel }}</span>
-                  </span>
-                </label>
-              </ng-container>
-            }
-          </div>
-        </div>
-      }
-      <div [kcClass]="'kcFormGroupClass'">
-        <div [kcClass]="'kcLabelWrapperClass'">
-          <label
-            for="otp"
-            [kcClass]="'kcLabelClass'"
-          >
-            {{ 'loginOtpOneTime' | msgStr }}
-          </label>
-        </div>
-        <div [kcClass]="'kcInputWrapperClass'">
-          <input
-            id="otp"
-            name="otp"
-            autoComplete="off"
-            type="text"
-            [kcClass]="'kcInputClass'"
-            autoFocus
-            [attr.aria-invalid]="messagesPerField.existsError('totp')"
-          />
-          @if (messagesPerField.existsError('totp')) {
-            <span
-              id="input-error-otp-code"
-              [kcClass]="['kcInputErrorMessageClass']"
-              aria-live="polite"
-              [innerHTML]="messagesPerField.get('totp') | kcSanitize: 'html'"
-            ></span>
-          }
-        </div>
-      </div>
-      <div [kcClass]="'kcFormGroupClass'">
-        <div
-          id="kc-form-options"
-          [kcClass]="'kcFormOptionsClass'"
-        ></div>
-        <div
-          id="kc-form-buttons"
-          [kcClass]="'kcFormButtonsClass'"
+    <ng-container headerNode>
+        {{ 'doLogIn' | msgStr }}
+    </ng-container>
+    <ng-container content>
+        <form
+            id="kc-otp-login-form"
+            [kcClass]="['kcFormClass']"
+            [action]="url.loginAction"
+            method="post"
         >
-          <input
-            [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
-            name="login"
-            id="kc-login"
-            type="submit"
-            value="{{ 'doLogIn' | msgStr }}"
-          />
-        </div>
-      </div>
-    </form>
-  </ng-container>
+            @if (otpLogin.userOtpCredentials.length > 1) {
+                <div [kcClass]="'kcFormGroupClass'">
+                    <div [kcClass]="'kcInputWrapperClass'">
+                        @for (otpCredential of otpLogin.userOtpCredentials; track otpCredential; let i = $index) {
+                            <ng-container>
+                                <input
+                                    [id]="'kc-otp-credential-' + i"
+                                    [kcClass]="'kcLoginOTPListClass'"
+                                    type="radio"
+                                    name="selectedCredentialId"
+                                    [value]="otpCredential.id"
+                                    [checked]="otpCredential.id === otpLogin.selectedCredentialId"
+                                />
+                                <label
+                                    [for]="'kc-otp-credential-' + i"
+                                    [kcClass]="'kcLoginOTPListClass'"
+                                    [tabIndex]="i"
+                                >
+                                    <span [kcClass]="'kcLoginOTPListItemHeaderClass'">
+                                        <span [kcClass]="'kcLoginOTPListItemIconBodyClass'">
+                                            <i
+                                                [kcClass]="'kcLoginOTPListItemIconClass'"
+                                                aria-hidden="true"
+                                            ></i>
+                                        </span>
+                                        <span [kcClass]="'kcLoginOTPListItemTitleClass'">{{ otpCredential.userLabel }}</span>
+                                    </span>
+                                </label>
+                            </ng-container>
+                        }
+                    </div>
+                </div>
+            }
+            <div [kcClass]="'kcFormGroupClass'">
+                <div [kcClass]="'kcLabelWrapperClass'">
+                    <label
+                        for="otp"
+                        [kcClass]="'kcLabelClass'"
+                    >
+                        {{ 'loginOtpOneTime' | msgStr }}
+                    </label>
+                </div>
+                <div [kcClass]="'kcInputWrapperClass'">
+                    <input
+                        id="otp"
+                        name="otp"
+                        autoComplete="off"
+                        type="text"
+                        [kcClass]="'kcInputClass'"
+                        autoFocus
+                        [attr.aria-invalid]="messagesPerField.existsError('totp')"
+                    />
+                    @if (messagesPerField.existsError('totp')) {
+                        <span
+                            id="input-error-otp-code"
+                            [kcClass]="['kcInputErrorMessageClass']"
+                            aria-live="polite"
+                            [innerHTML]="messagesPerField.get('totp') | kcSanitize: 'html'"
+                        ></span>
+                    }
+                </div>
+            </div>
+            <div [kcClass]="'kcFormGroupClass'">
+                <div
+                    id="kc-form-options"
+                    [kcClass]="'kcFormOptionsClass'"
+                ></div>
+                <div
+                    id="kc-form-buttons"
+                    [kcClass]="'kcFormButtonsClass'"
+                >
+                    <input
+                        [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
+                        name="login"
+                        id="kc-login"
+                        type="submit"
+                        value="{{ 'doLogIn' | msgStr }}"
+                    />
+                </div>
+            </div>
+        </form>
+    </ng-container>
 </kc-login-template>

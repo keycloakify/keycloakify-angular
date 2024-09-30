@@ -1,15 +1,5 @@
-import {
-    ChangeDetectionStrategy,
-    Component,
-    forwardRef,
-    inject,
-    input
-} from '@angular/core';
-import {
-    CLASSES,
-    KC_CONTEXT,
-    USE_DEFAULT_CSS
-} from '@keycloakify/angular/lib/public-api';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input } from '@angular/core';
+import { CLASSES, KC_CONTEXT, USE_DEFAULT_CSS } from '@keycloakify/angular/lib/public-api';
 import { Script } from '@keycloakify/angular/lib/models';
 import { ClassKey } from 'keycloakify/login/lib/kcClsx';
 import { KcContext } from 'keycloakify/login/KcContext';
@@ -22,12 +12,7 @@ import { LoginResourceInjectorService } from '@keycloakify/angular/login/service
 
 @Component({
     standalone: true,
-    imports: [
-        TemplateComponent,
-        MsgStrPipe,
-        KcClassDirective,
-        LogoutOtherSessionsComponent
-    ],
+    imports: [TemplateComponent, MsgStrPipe, KcClassDirective, LogoutOtherSessionsComponent],
     selector: 'kc-root',
     templateUrl: 'webauthn-register.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -40,8 +25,7 @@ import { LoginResourceInjectorService } from '@keycloakify/angular/login/service
     ]
 })
 export class WebauthnRegisterComponent extends ComponentReference {
-    kcContext =
-        inject<Extract<KcContext, { pageId: 'webauthn-register.ftl' }>>(KC_CONTEXT);
+    kcContext = inject<Extract<KcContext, { pageId: 'webauthn-register.ftl' }>>(KC_CONTEXT);
     loginResourceInjectorService = inject(LoginResourceInjectorService);
     msgStr = inject(MsgStrPipe);
     override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);

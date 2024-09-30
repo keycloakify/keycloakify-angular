@@ -1,9 +1,5 @@
 import { ChangeDetectionStrategy, Component, forwardRef, inject } from '@angular/core';
-import {
-    CLASSES,
-    KC_CONTEXT,
-    USE_DEFAULT_CSS
-} from '@keycloakify/angular/lib/public-api';
+import { CLASSES, KC_CONTEXT, USE_DEFAULT_CSS } from '@keycloakify/angular/lib/public-api';
 import { Script } from '@keycloakify/angular/lib/models';
 import { ClassKey } from 'keycloakify/login/lib/kcClsx';
 import { KcContext } from 'keycloakify/login/KcContext';
@@ -30,10 +26,7 @@ import { LoginResourceInjectorService } from '@keycloakify/angular/login/service
     ]
 })
 export class LoginPasskeysConditionalAuthenticateComponent extends ComponentReference {
-    kcContext =
-        inject<
-            Extract<KcContext, { pageId: 'login-passkeys-conditional-authenticate.ftl' }>
-        >(KC_CONTEXT);
+    kcContext = inject<Extract<KcContext, { pageId: 'login-passkeys-conditional-authenticate.ftl' }>>(KC_CONTEXT);
     loginResourceInjectorService = inject(LoginResourceInjectorService);
     msgStr = inject(MsgStrPipe);
     override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);

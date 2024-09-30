@@ -194,6 +194,21 @@ const [nodePath, , ...args] = process.argv;
 
 (function callee() {
 
+    remove_angular_cache: {
+
+        const angularCacheDirPath = pathJoin(__dirname, "..", "..", ".angular", "cache");
+
+        if( !fs.existsSync(angularCacheDirPath) ){
+            break remove_angular_cache;
+        }
+
+        fs.rmSync(
+            angularCacheDirPath,
+            { recursive: true }
+        );
+
+    }
+
     const serverProcess = spawn(
         nodePath,
         [
@@ -233,11 +248,6 @@ const [nodePath, , ...args] = process.argv;
             console.log("Detected change in package.json. Restarting ng...");
 
             serverProcess.kill('SIGTERM');
-
-            fs.rmSync(
-                pathJoin(__dirname, "..", "..", ".angular", "cache"),
-                { recursive: true }
-            );
 
             callee();
 

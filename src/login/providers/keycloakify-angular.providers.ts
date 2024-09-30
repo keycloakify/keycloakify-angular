@@ -7,18 +7,17 @@ import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context.t
 import { DO_MAKE_USER_CONFIRM_PASSWORD } from '@keycloakify/angular/login/tokens/make-user-confirm-password.token';
 import { KcContextLike } from 'keycloakify/login/i18n/noJsx';
 import { ClassKey } from 'keycloakify/login/lib/kcClsx';
-import { I18n } from '../i18n';
 import { KcContext } from '../KcContext';
 
 export type KeycloakifyAngularLoginConfig = {
     doMakeUserConfirmPassword?: boolean;
     doUseDefaultCss?: boolean;
     classes?: { [key in ClassKey]?: string };
-    getI18n: <T extends I18n>(params: {
+    getI18n: (params: {
         kcContext: KcContextLike;
     }) => {
-        i18n: T;
-        prI18n_currentLanguage: Promise<T> | undefined;
+        i18n: unknown;
+        prI18n_currentLanguage: Promise<unknown> | undefined;
     };
 };
 

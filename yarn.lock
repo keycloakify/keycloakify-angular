@@ -4723,12 +4723,12 @@ karma-source-map-support@1.4.0:
   dependencies:
     source-map-support "^0.5.5"
 
-keycloakify@^11.2.2:
-  version "11.2.2"
-  resolved "https://registry.yarnpkg.com/keycloakify/-/keycloakify-11.2.2.tgz#316b562ad3545e304571d37543d69afdf62d552c"
-  integrity sha512-QiRTAyiya3zpuwnzuiSJiEKaBGe7Dk0NaAIKfv+bUaXPMsEAncQHaHBCeMy5vACfxIiMpBjdLAgIpPT9br7Qwg==
+keycloakify@^11.2.4:
+  version "11.2.4"
+  resolved "https://registry.yarnpkg.com/keycloakify/-/keycloakify-11.2.4.tgz#445d2555548c245d36db819a764dcab44f5defb7"
+  integrity sha512-T9xH+DiD6C6f24woxFV7wXGAcbVSH9ggcsDhMbmMopdYSLN+5dqTZMBc/Qqv9NSfvQeTYCdAOpgqaiBfXXEl+A==
   dependencies:
-    tsafe "^1.6.6"
+    tsafe "^1.7.4"
 
 kind-of@^6.0.2:
   version "6.0.3"
@@ -6749,10 +6749,10 @@ tree-kill@1.2.2:
   resolved "https://registry.yarnpkg.com/tree-kill/-/tree-kill-1.2.2.tgz#4ca09a9092c88b73a7cdc5e8a01b507b0790a0cc"
   integrity sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==
 
-tsafe@^1.6.6:
-  version "1.7.2"
-  resolved "https://registry.yarnpkg.com/tsafe/-/tsafe-1.7.2.tgz#0f63d414876287ad01b135f832722f93e22da374"
-  integrity sha512-dAPfQLhCfCRre5qs+Z5Q2a7s2CV7RxffZUmvj7puGaePYjECzWREJFd3w4XSFe/T5tbxgowfItA/JSSZ6Ma3dA==
+tsafe@^1.7.4:
+  version "1.7.4"
+  resolved "https://registry.yarnpkg.com/tsafe/-/tsafe-1.7.4.tgz#7dd288b1a1be8d9c25e84ab8dd8a7df6094168d7"
+  integrity sha512-4BrLklZMJ14dEtA+CkhY9OtID3al4+/GJhaeocWPtUuoZPr4SJkaqoPemyFgkLC1Y3LRNXF9zxa94SwssRGMaQ==
 
 tsc-alias@^1.8.10:
   version "1.8.10"

@@ -57,7 +57,7 @@ import { crawl } from '../tools/crawl';
             );
         }
 
-        run(`npm run build`, { cwd: angularWorkspaceDirPath });
+        run(`npx ng build`, { cwd: angularWorkspaceDirPath });
 
         const angularDistDirPath = pathJoin(
             angularWorkspaceDirPath,

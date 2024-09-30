@@ -2,7 +2,7 @@ import * as child_process from 'child_process';
 import { waitForDebounceFactory } from '../tools/waitForDebounce';
 import chokidar from 'chokidar';
 import * as runExclusive from 'run-exclusive';
-import { Deferred } from 'evt/tools/Deferred';
+import { Deferred } from '../tools/Deferred';
 import chalk from 'chalk';
 
 export function startRebuildOnSrcChange() {

@@ -73,6 +73,10 @@ import { crawl } from '../tools/crawl';
                     return undefined;
                 }
 
+                if (fileRelativePath === 'public-api.mjs') {
+                    return undefined;
+                }
+
                 return { modifiedSourceCode: sourceCode };
             }
         });
@@ -90,6 +94,14 @@ import { crawl } from '../tools/crawl';
                 }
 
                 if (!fileRelativePath.endsWith('.d.ts')) {
+                    return undefined;
+                }
+
+                if (fileRelativePath === 'index.d.ts') {
+                    return undefined;
+                }
+
+                if (fileRelativePath === 'public-api.d.ts') {
                     return undefined;
                 }
 
@@ -116,7 +128,7 @@ import { crawl } from '../tools/crawl';
         srcDirPath: pathJoin(getThisCodebaseRootDirPath(), 'stories'),
         destDirPath: pathJoin(getThisCodebaseRootDirPath(), 'dist', 'stories'),
         transformSourceCode: ({ fileRelativePath, sourceCode }) => {
-            if (!fileRelativePath.endsWith('.stories.tsx')) {
+            if (!fileRelativePath.endsWith('.stories.ts')) {
                 return undefined;
             }
 

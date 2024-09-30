@@ -1,30 +1,30 @@
-import { DOCUMENT } from "@angular/common";
+import { DOCUMENT } from '@angular/common';
 import {
     APP_INITIALIZER,
     InjectionToken,
     LOCALE_ID,
     makeEnvironmentProviders
-} from "@angular/core";
-import { I18n } from "../i18n";
-import { I18nService } from "../services";
+} from '@angular/core';
+import { I18n } from '../i18n';
+import { I18nService } from '../services';
 
-export const I18N = new InjectionToken<I18n>("i18n");
-export const KC_CONTEXT = new InjectionToken<KcContext>("keycloak context");
-export const USE_DEFAULT_CSS = new InjectionToken<boolean>("use default css");
-export const CLASSES = new InjectionToken<{ [key in ClassKey]?: string }>("classes");
+export const I18N = new InjectionToken<I18n>('i18n');
+export const KC_CONTEXT = new InjectionToken<KcContext>('keycloak context');
+export const USE_DEFAULT_CSS = new InjectionToken<boolean>('use default css');
+export const CLASSES = new InjectionToken<{ [key in ClassKey]?: string }>('classes');
 export const DO_MAKE_USER_CONFIRM_PASSWORD = new InjectionToken<boolean>(
-    "doMakeUserConfirmPassword"
+    'doMakeUserConfirmPassword'
 );
 
 type ClassKey =
-    | import("keycloakify/login/lib/kcClsx").ClassKey
-    | import("keycloakify/account/lib/kcClsx").ClassKey;
+    | import('keycloakify/login/lib/kcClsx').ClassKey
+    | import('keycloakify/account/lib/kcClsx').ClassKey;
 type KcContextLike =
-    | import("keycloakify/login/i18n/noJsx").KcContextLike
-    | import("keycloakify/account/i18n/noJsx").KcContextLike;
+    | import('keycloakify/login/i18n/noJsx').KcContextLike
+    | import('keycloakify/account/i18n/noJsx').KcContextLike;
 type KcContext =
-    | import("keycloakify/login/KcContext").KcContext
-    | import("keycloakify/account/KcContext").KcContext;
+    | import('keycloakify/login/KcContext').KcContext
+    | import('keycloakify/account/KcContext').KcContext;
 
 export type KeycloakifyAngularConfig = {
     doMakeUserConfirmPassword?: boolean;
@@ -49,7 +49,7 @@ export const provideKeycloakifyAngular = (config: KeycloakifyAngularConfig) =>
         {
             provide: LOCALE_ID,
             useFactory: (document: Document) => {
-                return document.documentElement.lang ?? "en";
+                return document.documentElement.lang ?? 'en';
             },
             deps: [DOCUMENT]
         },
@@ -58,7 +58,7 @@ export const provideKeycloakifyAngular = (config: KeycloakifyAngularConfig) =>
             multi: true,
             useFactory:
                 (
-                    i18nService: I18nService<ReturnType<typeof config.getI18n>["i18n"]>,
+                    i18nService: I18nService<ReturnType<typeof config.getI18n>['i18n']>,
                     kcContext: KcContext
                 ) =>
                 async () => {
@@ -83,7 +83,7 @@ export const provideKeycloakifyAngular = (config: KeycloakifyAngularConfig) =>
         {
             provide: I18N,
             useFactory: (
-                i18nService: I18nService<ReturnType<typeof config.getI18n>["i18n"]>
+                i18nService: I18nService<ReturnType<typeof config.getI18n>['i18n']>
             ) => {
                 return i18nService.i18n;
             },

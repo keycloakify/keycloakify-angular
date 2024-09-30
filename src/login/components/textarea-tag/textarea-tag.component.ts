@@ -5,17 +5,17 @@ import {
     inject,
     input,
     output
-} from "@angular/core";
-import { CLASSES, USE_DEFAULT_CSS } from "@keycloakify/angular/lib/public-api";
-import { Attribute } from "keycloakify/login/KcContext";
-import { ClassKey } from "keycloakify/login/lib/kcClsx";
-import { ComponentReference } from "@keycloakify/angular/login/classes/component-reference.class";
-import { KcClassDirective } from "@keycloakify/angular/login/directives/kc-class.directive";
-import { ToNumberPipe } from "@keycloakify/angular/login/pipes/to-number.pipe";
+} from '@angular/core';
+import { CLASSES, USE_DEFAULT_CSS } from '@keycloakify/angular/lib/public-api';
+import { Attribute } from 'keycloakify/login/KcContext';
+import { ClassKey } from 'keycloakify/login/lib/kcClsx';
+import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
+import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class.directive';
+import { ToNumberPipe } from '@keycloakify/angular/login/pipes/to-number.pipe';
 import {
     FormAction,
     FormFieldError
-} from "@keycloakify/angular/login/services/user-profile-form.service";
+} from '@keycloakify/angular/login/services/user-profile-form.service';
 
 @Component({
     standalone: true,
@@ -27,8 +27,8 @@ import {
         `
     ],
     imports: [KcClassDirective, ToNumberPipe],
-    selector: "kc-textarea-tag",
-    templateUrl: "textarea-tag.component.html",
+    selector: 'kc-textarea-tag',
+    templateUrl: 'textarea-tag.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         {
@@ -47,16 +47,16 @@ export class TextareaTagComponent extends ComponentReference {
 
     onChange(event: Event) {
         this.dispatchFormAction.emit({
-            action: "update",
-            name: this.attribute()?.name ?? "",
+            action: 'update',
+            name: this.attribute()?.name ?? '',
             valueOrValues: (event.target as HTMLTextAreaElement).value
         });
     }
 
     onBlur() {
         this.dispatchFormAction.emit({
-            action: "focus lost",
-            name: this.attribute()?.name ?? "",
+            action: 'focus lost',
+            name: this.attribute()?.name ?? '',
             fieldIndex: undefined
         });
     }

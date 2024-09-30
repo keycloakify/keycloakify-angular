@@ -9,10 +9,10 @@ import {
     isDevMode,
     Renderer2,
     ɵstringify as stringify
-} from "@angular/core";
-import { ClassKey } from "keycloakify/login/lib/kcClsx";
-import { getKcClsx } from "keycloakify/login/lib/kcClsx";
-import { ComponentReference } from "../classes/component-reference.class";
+} from '@angular/core';
+import { ClassKey } from 'keycloakify/login/lib/kcClsx';
+import { getKcClsx } from 'keycloakify/login/lib/kcClsx';
+import { ComponentReference } from '../classes/component-reference.class';
 
 interface CssClassState {
     // PERF: could use a bit mask to represent state as all fields are boolean flags
@@ -35,7 +35,7 @@ type NgClassSupportedTypes =
     | null
     | undefined;
 
-@Directive({ selector: "[kcClass]", standalone: true })
+@Directive({ selector: '[kcClass]', standalone: true })
 export class KcClassDirective implements DoCheck {
     private initialClasses: string[] = [];
     private rawClass: NgClassSupportedTypes;
@@ -46,22 +46,22 @@ export class KcClassDirective implements DoCheck {
     readonly #el = inject(ElementRef);
     readonly #host = inject(ComponentReference);
     // eslint-disable-next-line @angular-eslint/no-input-rename
-    @Input("class")
+    @Input('class')
     set klass(value: string) {
         this.initialClasses = value != null ? value.trim().split(/\s+/) : [];
     }
 
     // eslint-disable-next-line @angular-eslint/no-input-rename
-    @Input("ngClass")
+    @Input('ngClass')
     set ngClass(value: string | NgClassSupportedTypes) {
-        this.rawClass = typeof value === "string" ? value.trim().split(/\s+/) : value;
+        this.rawClass = typeof value === 'string' ? value.trim().split(/\s+/) : value;
     }
 
     // eslint-disable-next-line @angular-eslint/no-input-rename
-    @Input("kcClass")
+    @Input('kcClass')
     set kcClass(value: ClassKey | KcClassSupportedTypes) {
         this.rawKcClass =
-            typeof value === "string" ? (value.trim().split(/\s+/) as ClassKey[]) : value;
+            typeof value === 'string' ? (value.trim().split(/\s+/) as ClassKey[]) : value;
     }
 
     ngDoCheck(): void {
@@ -146,7 +146,7 @@ export class KcClassDirective implements DoCheck {
 
     private _toggleClass(klass: string, enabled: boolean): void {
         if (isDevMode()) {
-            if (typeof klass !== "string") {
+            if (typeof klass !== 'string') {
                 throw new Error(
                     `NgClass can only toggle CSS classes expressed as strings, got ${stringify(klass)}`
                 );

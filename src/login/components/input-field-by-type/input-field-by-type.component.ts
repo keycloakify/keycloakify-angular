@@ -6,21 +6,21 @@ import {
     inject,
     input,
     output
-} from "@angular/core";
-import { CLASSES, USE_DEFAULT_CSS } from "@keycloakify/angular/lib/public-api";
-import { Attribute } from "keycloakify/login/KcContext";
-import { ClassKey } from "keycloakify/login/lib/kcClsx";
-import { ComponentReference } from "@keycloakify/angular/login/classes/component-reference.class";
-import { ToArrayPipe } from "@keycloakify/angular/login/pipes/to-array.pipe";
+} from '@angular/core';
+import { CLASSES, USE_DEFAULT_CSS } from '@keycloakify/angular/lib/public-api';
+import { Attribute } from 'keycloakify/login/KcContext';
+import { ClassKey } from 'keycloakify/login/lib/kcClsx';
+import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
+import { ToArrayPipe } from '@keycloakify/angular/login/pipes/to-array.pipe';
 import {
     FormAction,
     FormFieldError
-} from "@keycloakify/angular/login/services/user-profile-form.service";
-import { InputTagSelectsComponent } from "@keycloakify/angular/login/components/input-tag-selects/input-tag-selects.component";
-import { InputTagComponent } from "@keycloakify/angular/login/components/input-tag/input-tag.component";
-import { PasswordWrapperComponent } from "@keycloakify/angular/login/components/password-wrapper/password-wrapper.component";
-import { SelectTagComponent } from "@keycloakify/angular/login/components/select-tag/select-tag.component";
-import { TextareaTagComponent } from "@keycloakify/angular/login/components/textarea-tag/textarea-tag.component";
+} from '@keycloakify/angular/login/services/user-profile-form.service';
+import { InputTagSelectsComponent } from '@keycloakify/angular/login/components/input-tag-selects/input-tag-selects.component';
+import { InputTagComponent } from '@keycloakify/angular/login/components/input-tag/input-tag.component';
+import { PasswordWrapperComponent } from '@keycloakify/angular/login/components/password-wrapper/password-wrapper.component';
+import { SelectTagComponent } from '@keycloakify/angular/login/components/select-tag/select-tag.component';
+import { TextareaTagComponent } from '@keycloakify/angular/login/components/textarea-tag/textarea-tag.component';
 
 @Component({
     standalone: true,
@@ -39,8 +39,8 @@ import { TextareaTagComponent } from "@keycloakify/angular/login/components/text
         InputTagComponent,
         PasswordWrapperComponent
     ],
-    selector: "kc-input-field-by-type",
-    templateUrl: "input-field-by-type.component.html",
+    selector: 'kc-input-field-by-type',
+    templateUrl: 'input-field-by-type.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         {
@@ -61,7 +61,7 @@ export class InputFieldByTypeComponent extends ComponentReference {
         const attribute: Attribute = this.attribute() ?? ({} as Attribute);
         return {
             ...attribute,
-            annotations: { ...(attribute.annotations ?? {}), inputType: "password" }
+            annotations: { ...(attribute.annotations ?? {}), inputType: 'password' }
         };
     });
 }

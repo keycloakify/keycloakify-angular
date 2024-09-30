@@ -1,7 +1,7 @@
-import * as fs from "fs";
-import * as path from "path";
-import { crawl } from "./crawl";
-import { rmSync } from "../tools/fs.rmSync";
+import * as fs from 'fs';
+import * as path from 'path';
+import { crawl } from './crawl';
+import { rmSync } from '../tools/fs.rmSync';
 
 type TransformSourceCode = (params: {
     sourceCode: Buffer;
@@ -26,10 +26,10 @@ export function transformCodebase(params: {
 }) {
     const { srcDirPath, transformSourceCode } = params;
 
-    const isTargetSameAsSource = path.relative(srcDirPath, params.destDirPath) === "";
+    const isTargetSameAsSource = path.relative(srcDirPath, params.destDirPath) === '';
 
     const destDirPath = isTargetSameAsSource
-        ? path.join(srcDirPath, "..", "tmp_xOsPdkPsTdzPs34sOkHs")
+        ? path.join(srcDirPath, '..', 'tmp_xOsPdkPsTdzPs34sOkHs')
         : params.destDirPath;
 
     fs.mkdirSync(destDirPath, {
@@ -38,7 +38,7 @@ export function transformCodebase(params: {
 
     for (const fileRelativePath of crawl({
         dirPath: srcDirPath,
-        returnedPathsType: "relative to dirPath"
+        returnedPathsType: 'relative to dirPath'
     })) {
         const filePath = path.join(srcDirPath, fileRelativePath);
         const destFilePath = path.join(destDirPath, fileRelativePath);

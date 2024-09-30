@@ -5,19 +5,19 @@ import {
     inject,
     input,
     signal
-} from "@angular/core";
+} from '@angular/core';
 import {
     CLASSES,
     KC_CONTEXT,
     USE_DEFAULT_CSS
-} from "@keycloakify/angular/lib/public-api";
-import { ClassKey } from "keycloakify/login/lib/kcClsx";
-import { KcContext } from "keycloakify/login/KcContext";
-import { ComponentReference } from "@keycloakify/angular/login/classes/component-reference.class";
-import { LogoutOtherSessionsComponent } from "@keycloakify/angular/login/components/logout-other-sessions/logout-other-sessions.component";
-import { TemplateComponent } from "@keycloakify/angular/login/containers/template.component";
-import { KcClassDirective } from "@keycloakify/angular/login/directives";
-import { MsgStrPipe } from "@keycloakify/angular/login/pipes/msg-str.pipe";
+} from '@keycloakify/angular/lib/public-api';
+import { ClassKey } from 'keycloakify/login/lib/kcClsx';
+import { KcContext } from 'keycloakify/login/KcContext';
+import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
+import { LogoutOtherSessionsComponent } from '@keycloakify/angular/login/components/logout-other-sessions/logout-other-sessions.component';
+import { TemplateComponent } from '@keycloakify/angular/login/containers/template.component';
+import { KcClassDirective } from '@keycloakify/angular/login/directives';
+import { MsgStrPipe } from '@keycloakify/angular/login/pipes/msg-str.pipe';
 
 @Component({
     standalone: true,
@@ -27,8 +27,8 @@ import { MsgStrPipe } from "@keycloakify/angular/login/pipes/msg-str.pipe";
         KcClassDirective,
         LogoutOtherSessionsComponent
     ],
-    selector: "kc-root",
-    templateUrl: "login-recovery-authn-code-config.component.html",
+    selector: 'kc-root',
+    templateUrl: 'login-recovery-authn-code-config.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         {
@@ -39,7 +39,7 @@ import { MsgStrPipe } from "@keycloakify/angular/login/pipes/msg-str.pipe";
 })
 export class LoginRecoveryAuthnCodeConfigComponent extends ComponentReference {
     kcContext =
-        inject<Extract<KcContext, { pageId: "login-recovery-authn-code-config.ftl" }>>(
+        inject<Extract<KcContext, { pageId: 'login-recovery-authn-code-config.ftl' }>>(
             KC_CONTEXT
         );
     override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
@@ -51,5 +51,5 @@ export class LoginRecoveryAuthnCodeConfigComponent extends ComponentReference {
     displayMessage: boolean = false;
     toggleRecoveryCodesConfirmation = signal(false);
 
-    olRecoveryCodesListId = "kc-recovery-codes-list";
+    olRecoveryCodesListId = 'kc-recovery-codes-list';
 }

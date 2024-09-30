@@ -1,79 +1,75 @@
-import * as fs from "fs";
-import { join as pathJoin, basename as pathBasename } from "path";
-import { transformCodebase } from "../tools/transformCodebase";
-import chalk from "chalk";
-import { run } from "../shared/run";
-import { getThisCodebaseRootDirPath } from "../tools/getThisCodebaseRootDirPath";
-import { crawl } from "../tools/crawl";
+import * as fs from 'fs';
+import { join as pathJoin, basename as pathBasename } from 'path';
+import { transformCodebase } from '../tools/transformCodebase';
+import chalk from 'chalk';
+import { run } from '../shared/run';
+import { getThisCodebaseRootDirPath } from '../tools/getThisCodebaseRootDirPath';
+import { crawl } from '../tools/crawl';
 
 (async () => {
-    console.log(chalk.cyan("Building Keycloakify..."));
+    console.log(chalk.cyan('Building Keycloakify...'));
 
     const startTime = Date.now();
 
-    const distDirPath = pathJoin(getThisCodebaseRootDirPath(), "dist");
+    const distDirPath = pathJoin(getThisCodebaseRootDirPath(), 'dist');
 
     if (fs.existsSync(distDirPath)) {
         fs.rmSync(distDirPath, { recursive: true, force: true });
     }
 
-    // Compile for angular
+    // tsc + angular JIT
     {
-        const angularWorkspaceDirPath = pathJoin(distDirPath, "workspace");
+        const angularWorkspaceDirPath = pathJoin(distDirPath, 'workspace');
 
         transformCodebase({
-            srcDirPath: pathJoin(__dirname, "workspace"),
+            srcDirPath: pathJoin(__dirname, 'workspace'),
             destDirPath: angularWorkspaceDirPath
         });
 
         const srcDirPath_workspace = pathJoin(
             angularWorkspaceDirPath,
-            "projects",
-            "keycloakify-angular",
-            "src"
+            'projects',
+            'keycloakify-angular',
+            'src'
         );
 
         transformCodebase({
-            srcDirPath: pathJoin(getThisCodebaseRootDirPath(), "src"),
+            srcDirPath: pathJoin(getThisCodebaseRootDirPath(), 'src'),
             destDirPath: srcDirPath_workspace
         });
 
         {
             const typescriptFilesRelativeFilePaths = crawl({
-                dirPath: pathJoin(getThisCodebaseRootDirPath(), "src"),
-                returnedPathsType: "relative to dirPath"
-            }).filter(relativePath => relativePath.endsWith(".ts"));
+                dirPath: pathJoin(getThisCodebaseRootDirPath(), 'src'),
+                returnedPathsType: 'relative to dirPath'
+            }).filter(relativePath => relativePath.endsWith('.ts'));
 
             fs.writeFileSync(
-                pathJoin(srcDirPath_workspace, "public-api.ts"),
+                pathJoin(srcDirPath_workspace, 'public-api.ts'),
                 Buffer.from(
                     typescriptFilesRelativeFilePaths
                         .map(
                             (relativeFilePath, i) =>
-                                `export * as e${i} from "./${relativeFilePath.replace(/\.ts$/, "")}";`
+                                `export * as e${i} from "./${relativeFilePath.replace(/\.ts$/, '')}";`
                         )
-                        .join("\n")
+                        .join('\n')
                 )
             );
-
-            if (Date.now() > 0) {
-                process.exit(0);
-            }
         }
 
         run(`yarn build`, { cwd: angularWorkspaceDirPath });
 
         const angularDistDirPath = pathJoin(
             angularWorkspaceDirPath,
-            "dist",
-            "keycloakify-angular"
+            'dist',
+            'keycloakify-angular'
         );
 
         transformCodebase({
-            srcDirPath: pathJoin(angularDistDirPath, "esm2022"),
+            srcDirPath: pathJoin(angularDistDirPath, 'esm2022'),
             destDirPath: distDirPath,
             transformSourceCode: ({ fileRelativePath, sourceCode }) => {
-                if (pathBasename(fileRelativePath) === "keycloakify-angular.mjs") {
+                if (pathBasename(fileRelativePath) === 'keycloakify-angular.mjs') {
                     return undefined;
                 }
 
@@ -85,15 +81,15 @@ import { crawl } from "../tools/crawl";
             srcDirPath: angularDistDirPath,
             destDirPath: distDirPath,
             transformSourceCode: ({ fileRelativePath, sourceCode }) => {
-                if (fileRelativePath.startsWith("esm2022")) {
+                if (fileRelativePath.startsWith('esm2022')) {
                     return undefined;
                 }
 
-                if (fileRelativePath.startsWith("fesm2022")) {
+                if (fileRelativePath.startsWith('fesm2022')) {
                     return undefined;
                 }
 
-                if (!fileRelativePath.endsWith(".d.ts")) {
+                if (!fileRelativePath.endsWith('.d.ts')) {
                     return undefined;
                 }
 
@@ -104,47 +100,29 @@ import { crawl } from "../tools/crawl";
         fs.rmSync(angularWorkspaceDirPath, { recursive: true, force: true });
     }
 
-    /*
-    run(`npx tsc -p ${join("src", "tsconfig.json")}`);
-
-    transformCodebase({
-        srcDirPath: join("src"),
-        destDirPath: join("dist"),
-        transformSourceCode: ({ fileRelativePath, sourceCode }) => {
-            if (!fileRelativePath.endsWith(".html")) {
-                return undefined;
-            }
-
-            return { modifiedSourceCode: sourceCode };
-        }
-    });
-    */
-
-    run(`npx tsc-alias -p ${pathJoin("src", "tsconfig.json")}`);
+    run(`npx tsc-alias -p ${pathJoin('src', 'tsconfig.json')}`);
 
     {
-        const dirBasename = "src";
+        const dirBasename = 'src';
 
-        const destDirPath = pathJoin("dist", dirBasename);
+        const destDirPath = pathJoin('dist', dirBasename);
 
         fs.rmSync(destDirPath, { recursive: true, force: true });
 
         fs.cpSync(dirBasename, destDirPath, { recursive: true });
     }
 
-    /*
     transformCodebase({
-        srcDirPath: join("stories"),
-        destDirPath: join("dist", "stories"),
+        srcDirPath: pathJoin(getThisCodebaseRootDirPath(), 'stories'),
+        destDirPath: pathJoin(getThisCodebaseRootDirPath(), 'dist', 'stories'),
         transformSourceCode: ({ fileRelativePath, sourceCode }) => {
-            if (!fileRelativePath.endsWith(".stories.tsx")) {
+            if (!fileRelativePath.endsWith('.stories.tsx')) {
                 return undefined;
             }
 
             return { modifiedSourceCode: sourceCode };
         }
     });
-    */
 
     console.log(
         chalk.green(`✓ built in ${((Date.now() - startTime) / 1000).toFixed(2)}s`)

@@ -1,25 +1,25 @@
-import { ChangeDetectionStrategy, Component, forwardRef, inject } from "@angular/core";
+import { ChangeDetectionStrategy, Component, forwardRef, inject } from '@angular/core';
 import {
     CLASSES,
     KC_CONTEXT,
     USE_DEFAULT_CSS
-} from "@keycloakify/angular/lib/public-api";
-import { Script } from "@keycloakify/angular/lib/models";
-import { ClassKey } from "keycloakify/login/lib/kcClsx";
-import { KcContext } from "keycloakify/login/KcContext";
-import { getKcClsx } from "keycloakify/login/lib/kcClsx";
-import { ComponentReference } from "@keycloakify/angular/login/classes/component-reference.class";
-import { TemplateComponent } from "@keycloakify/angular/login/containers/template.component";
-import { KcClassDirective } from "@keycloakify/angular/login/directives/kc-class.directive";
-import { AdvancedMsgStrPipe } from "@keycloakify/angular/login/pipes/advanced-msg-str.pipe";
-import { MsgStrPipe } from "@keycloakify/angular/login/pipes/msg-str.pipe";
-import { LoginResourceInjectorService } from "@keycloakify/angular/login/services";
+} from '@keycloakify/angular/lib/public-api';
+import { Script } from '@keycloakify/angular/lib/models';
+import { ClassKey } from 'keycloakify/login/lib/kcClsx';
+import { KcContext } from 'keycloakify/login/KcContext';
+import { getKcClsx } from 'keycloakify/login/lib/kcClsx';
+import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
+import { TemplateComponent } from '@keycloakify/angular/login/containers/template.component';
+import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class.directive';
+import { AdvancedMsgStrPipe } from '@keycloakify/angular/login/pipes/advanced-msg-str.pipe';
+import { MsgStrPipe } from '@keycloakify/angular/login/pipes/msg-str.pipe';
+import { LoginResourceInjectorService } from '@keycloakify/angular/login/services';
 
 @Component({
     standalone: true,
     imports: [TemplateComponent, MsgStrPipe, KcClassDirective, AdvancedMsgStrPipe],
-    selector: "kc-root",
-    templateUrl: "login-passkeys-conditional-authenticate.component.html",
+    selector: 'kc-root',
+    templateUrl: 'login-passkeys-conditional-authenticate.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         MsgStrPipe,
@@ -32,7 +32,7 @@ import { LoginResourceInjectorService } from "@keycloakify/angular/login/service
 export class LoginPasskeysConditionalAuthenticateComponent extends ComponentReference {
     kcContext =
         inject<
-            Extract<KcContext, { pageId: "login-passkeys-conditional-authenticate.ftl" }>
+            Extract<KcContext, { pageId: 'login-passkeys-conditional-authenticate.ftl' }>
         >(KC_CONTEXT);
     loginResourceInjectorService = inject(LoginResourceInjectorService);
     msgStr = inject(MsgStrPipe);
@@ -40,7 +40,7 @@ export class LoginPasskeysConditionalAuthenticateComponent extends ComponentRefe
     override classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
     displayInfo: boolean = true;
 
-    authButtonId = "authenticateWebAuthnButton";
+    authButtonId = 'authenticateWebAuthnButton';
 
     constructor() {
         super();
@@ -55,8 +55,8 @@ export class LoginPasskeysConditionalAuthenticateComponent extends ComponentRefe
         } = this.kcContext;
         const scripts: Script[] = [
             {
-                type: "module",
-                id: "LoginRecoveryAuthnCodeConfig",
+                type: 'module',
+                id: 'LoginRecoveryAuthnCodeConfig',
                 textContent: `
                     import { authenticateByWebAuthn } from "${url.resourcesPath}/js/webauthnAuthenticate.js";
                     import { initAuthenticate } from "${url.resourcesPath}/js/passkeysConditionalAuth.js";
@@ -72,13 +72,13 @@ export class LoginPasskeysConditionalAuthenticateComponent extends ComponentRefe
                     authButton.addEventListener("click", () => {
                         authenticateByWebAuthn({
                             ...input,
-                            errmsg : ${JSON.stringify(this.msgStr.transform("webauthn-unsupported-browser-text"))}
+                            errmsg : ${JSON.stringify(this.msgStr.transform('webauthn-unsupported-browser-text'))}
                         });
                     });
 
                     initAuthenticate({
                         ...input,
-                        errmsg : ${JSON.stringify(this.msgStr.transform("passkey-unsupported-browser-text"))}
+                        errmsg : ${JSON.stringify(this.msgStr.transform('passkey-unsupported-browser-text'))}
                     });
           `
             }
@@ -94,7 +94,7 @@ export class LoginPasskeysConditionalAuthenticateComponent extends ComponentRefe
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const className = kcClsx(iconClass as any);
         if (className === iconClass) {
-            return kcClsx("kcWebAuthnDefaultIcon");
+            return kcClsx('kcWebAuthnDefaultIcon');
         }
         return className;
     }

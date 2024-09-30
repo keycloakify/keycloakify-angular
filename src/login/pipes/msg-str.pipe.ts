@@ -1,9 +1,9 @@
-import { inject, Pipe, PipeTransform } from "@angular/core";
-import { I18N } from "@keycloakify/angular/lib/public-api";
-import { I18n } from "../i18n";
-import { MessageKey } from "keycloakify/login/i18n/messages_defaultSet/types";
+import { inject, Pipe, PipeTransform } from '@angular/core';
+import { I18N } from '@keycloakify/angular/lib/public-api';
+import { I18n } from '../i18n';
+import { MessageKey } from 'keycloakify/login/i18n/messages_defaultSet/types';
 @Pipe({
-    name: "msgStr",
+    name: 'msgStr',
     standalone: true
 })
 export class MsgStrPipe implements PipeTransform {

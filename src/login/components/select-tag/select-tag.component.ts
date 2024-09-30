@@ -6,18 +6,18 @@ import {
     inject,
     input,
     output
-} from "@angular/core";
-import { CLASSES, USE_DEFAULT_CSS } from "@keycloakify/angular/lib/public-api";
-import { Attribute } from "keycloakify/login/KcContext";
-import { ClassKey } from "keycloakify/login/lib/kcClsx";
-import { ComponentReference } from "@keycloakify/angular/login/classes/component-reference.class";
-import { KcClassDirective } from "@keycloakify/angular/login/directives/kc-class.directive";
-import { AdvancedMsgStrPipe } from "@keycloakify/angular/login/pipes/advanced-msg-str.pipe";
-import { ToNumberPipe } from "@keycloakify/angular/login/pipes/to-number.pipe";
+} from '@angular/core';
+import { CLASSES, USE_DEFAULT_CSS } from '@keycloakify/angular/lib/public-api';
+import { Attribute } from 'keycloakify/login/KcContext';
+import { ClassKey } from 'keycloakify/login/lib/kcClsx';
+import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
+import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class.directive';
+import { AdvancedMsgStrPipe } from '@keycloakify/angular/login/pipes/advanced-msg-str.pipe';
+import { ToNumberPipe } from '@keycloakify/angular/login/pipes/to-number.pipe';
 import {
     FormAction,
     FormFieldError
-} from "@keycloakify/angular/login/services/user-profile-form.service";
+} from '@keycloakify/angular/login/services/user-profile-form.service';
 
 @Component({
     standalone: true,
@@ -29,8 +29,8 @@ import {
         `
     ],
     imports: [KcClassDirective, ToNumberPipe, AdvancedMsgStrPipe],
-    selector: "kc-select-tag",
-    templateUrl: "select-tag.component.html",
+    selector: 'kc-select-tag',
+    templateUrl: 'select-tag.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         {
@@ -48,7 +48,7 @@ export class SelectTagComponent extends ComponentReference {
     override classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
 
     isMultiple = computed(() => {
-        return this.attribute()?.annotations?.inputType === "multiselect";
+        return this.attribute()?.annotations?.inputType === 'multiselect';
     });
 
     options = computed(() => {
@@ -85,8 +85,8 @@ export class SelectTagComponent extends ComponentReference {
 
     onChange(event: Event) {
         this.dispatchFormAction.emit({
-            action: "update",
-            name: this.attribute()?.name ?? "",
+            action: 'update',
+            name: this.attribute()?.name ?? '',
             valueOrValues: (() => {
                 if (this.isMultiple()) {
                     return Array.from(
@@ -101,8 +101,8 @@ export class SelectTagComponent extends ComponentReference {
 
     onBlur() {
         this.dispatchFormAction.emit({
-            action: "focus lost",
-            name: this.attribute()?.name ?? "",
+            action: 'focus lost',
+            name: this.attribute()?.name ?? '',
             fieldIndex: undefined
         });
     }

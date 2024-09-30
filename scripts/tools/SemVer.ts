@@ -7,7 +7,7 @@ export type SemVer = {
 };
 
 export namespace SemVer {
-    const bumpTypes = ["major", "minor", "patch", "rc", "no bump"] as const;
+    const bumpTypes = ['major', 'minor', 'patch', 'rc', 'no bump'] as const;
 
     export type BumpType = (typeof bumpTypes)[number];
 
@@ -20,7 +20,7 @@ export namespace SemVer {
             throw new Error(`${versionStr} is not a valid semantic version`);
         }
 
-        const semVer: Omit<SemVer, "parsedFrom"> = {
+        const semVer: Omit<SemVer, 'parsedFrom'> = {
             major: parseInt(match[1]),
             minor: parseInt(match[2]),
             patch: (() => {
@@ -36,7 +36,7 @@ export namespace SemVer {
 
         const initialStr = stringify(semVer);
 
-        Object.defineProperty(semVer, "parsedFrom", {
+        Object.defineProperty(semVer, 'parsedFrom', {
             enumerable: true,
             get: function () {
                 const currentStr = stringify(this);
@@ -54,9 +54,9 @@ export namespace SemVer {
         return semVer as any;
     }
 
-    export function stringify(v: Omit<SemVer, "parsedFrom">): string {
+    export function stringify(v: Omit<SemVer, 'parsedFrom'>): string {
         return `${v.major}.${v.minor}.${v.patch}${
-            v.rc === undefined ? "" : `-rc.${v.rc}`
+            v.rc === undefined ? '' : `-rc.${v.rc}`
         }`;
     }
 
@@ -71,7 +71,7 @@ export namespace SemVer {
         const sign = (diff: number): -1 | 0 | 1 => (diff === 0 ? 0 : diff < 0 ? -1 : 1);
         const noUndefined = (n: number | undefined) => n ?? Infinity;
 
-        for (const level of ["major", "minor", "patch", "rc"] as const) {
+        for (const level of ['major', 'minor', 'patch', 'rc'] as const) {
             if (noUndefined(v1[level]) !== noUndefined(v2[level])) {
                 return sign(noUndefined(v1[level]) - noUndefined(v2[level]));
             }
@@ -89,13 +89,13 @@ export namespace SemVer {
     export function bumpType(params: {
         versionBehind: string | SemVer;
         versionAhead: string | SemVer;
-    }): BumpType | "no bump" {
+    }): BumpType | 'no bump' {
         const versionAhead =
-            typeof params.versionAhead === "string"
+            typeof params.versionAhead === 'string'
                 ? parse(params.versionAhead)
                 : params.versionAhead;
         const versionBehind =
-            typeof params.versionBehind === "string"
+            typeof params.versionBehind === 'string'
                 ? parse(params.versionBehind)
                 : params.versionBehind;
 
@@ -107,12 +107,12 @@ export namespace SemVer {
             );
         }
 
-        for (const level of ["major", "minor", "patch", "rc"] as const) {
+        for (const level of ['major', 'minor', 'patch', 'rc'] as const) {
             if (versionBehind[level] !== versionAhead[level]) {
                 return level;
             }
         }
 
-        return "no bump";
+        return 'no bump';
     }
 }

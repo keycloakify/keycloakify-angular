@@ -47,7 +47,7 @@ export function createStatefulObservable<T>(
                 };
             }
         },
-        "current",
+        'current',
         {
             enumerable: true,
             get,

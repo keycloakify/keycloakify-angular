@@ -7,17 +7,17 @@ import {
     input,
     output,
     Signal
-} from "@angular/core";
-import { CLASSES, USE_DEFAULT_CSS } from "@keycloakify/angular/lib/public-api";
-import { Attribute } from "keycloakify/login/KcContext";
-import { ClassKey } from "keycloakify/login/lib/kcClsx";
-import { ComponentReference } from "@keycloakify/angular/login/classes/component-reference.class";
-import { KcClassDirective } from "@keycloakify/angular/login/directives/kc-class.directive";
-import { AdvancedMsgStrPipe } from "@keycloakify/angular/login/pipes/advanced-msg-str.pipe";
+} from '@angular/core';
+import { CLASSES, USE_DEFAULT_CSS } from '@keycloakify/angular/lib/public-api';
+import { Attribute } from 'keycloakify/login/KcContext';
+import { ClassKey } from 'keycloakify/login/lib/kcClsx';
+import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
+import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class.directive';
+import { AdvancedMsgStrPipe } from '@keycloakify/angular/login/pipes/advanced-msg-str.pipe';
 import {
     FormAction,
     FormFieldError
-} from "@keycloakify/angular/login/services/user-profile-form.service";
+} from '@keycloakify/angular/login/services/user-profile-form.service';
 
 @Component({
     standalone: true,
@@ -29,8 +29,8 @@ import {
         `
     ],
     imports: [KcClassDirective, AdvancedMsgStrPipe],
-    selector: "kc-input-tag-selects",
-    templateUrl: "input-tag-selects.component.html",
+    selector: 'kc-input-tag-selects',
+    templateUrl: 'input-tag-selects.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         {
@@ -48,7 +48,7 @@ export class InputTagSelectsComponent extends ComponentReference {
     override classes = inject<Partial<Record<ClassKey, string>>>(CLASSES);
 
     context: Signal<{
-        inputType: "radio" | "checkbox";
+        inputType: 'radio' | 'checkbox';
         classDiv: ClassKey;
         classInput: ClassKey;
         classLabel: ClassKey;
@@ -57,19 +57,19 @@ export class InputTagSelectsComponent extends ComponentReference {
         if (attribute) {
             const { inputType } = attribute.annotations;
             switch (inputType) {
-                case "select-radiobuttons":
+                case 'select-radiobuttons':
                     return {
-                        inputType: "radio",
-                        classDiv: "kcInputClassRadio",
-                        classInput: "kcInputClassRadioInput",
-                        classLabel: "kcInputClassRadioLabel"
+                        inputType: 'radio',
+                        classDiv: 'kcInputClassRadio',
+                        classInput: 'kcInputClassRadioInput',
+                        classLabel: 'kcInputClassRadioLabel'
                     };
-                case "multiselect-checkboxes":
+                case 'multiselect-checkboxes':
                     return {
-                        inputType: "checkbox",
-                        classDiv: "kcInputClassCheckbox",
-                        classInput: "kcInputClassCheckboxInput",
-                        classLabel: "kcInputClassCheckboxLabel"
+                        inputType: 'checkbox',
+                        classDiv: 'kcInputClassCheckbox',
+                        classInput: 'kcInputClassCheckboxInput',
+                        classLabel: 'kcInputClassCheckboxLabel'
                     };
             }
         }
@@ -120,8 +120,8 @@ export class InputTagSelectsComponent extends ComponentReference {
         const valueOrValues = this.valueOrValues();
         const isChecked = (event.target as HTMLInputElement).checked;
         this.dispatchFormAction.emit({
-            action: "update",
-            name: this.attribute()?.name ?? "",
+            action: 'update',
+            name: this.attribute()?.name ?? '',
             valueOrValues: (() => {
                 if (valueOrValues instanceof Array) {
                     const newValues = [...valueOrValues];
@@ -135,15 +135,15 @@ export class InputTagSelectsComponent extends ComponentReference {
                     return newValues;
                 }
 
-                return (event.target as HTMLInputElement)?.checked ? option : "";
+                return (event.target as HTMLInputElement)?.checked ? option : '';
             })()
         });
     }
 
     onBlur() {
         this.dispatchFormAction.emit({
-            action: "focus lost",
-            name: this.attribute()?.name ?? "",
+            action: 'focus lost',
+            name: this.attribute()?.name ?? '',
             fieldIndex: undefined
         });
     }

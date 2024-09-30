@@ -4,10 +4,10 @@ import {
     computed,
     input,
     output
-} from "@angular/core";
-import { Attribute } from "keycloakify/login/KcContext";
-import { MsgStrPipe } from "@keycloakify/angular/login/pipes/msg-str.pipe";
-import { FormAction } from "@keycloakify/angular/login/services/user-profile-form.service";
+} from '@angular/core';
+import { Attribute } from 'keycloakify/login/KcContext';
+import { MsgStrPipe } from '@keycloakify/angular/login/pipes/msg-str.pipe';
+import { FormAction } from '@keycloakify/angular/login/services/user-profile-form.service';
 
 @Component({
     standalone: true,
@@ -19,8 +19,8 @@ import { FormAction } from "@keycloakify/angular/login/services/user-profile-for
         `
     ],
     imports: [MsgStrPipe],
-    selector: "kc-add-remove-buttons-multi-valued-attribute",
-    templateUrl: "add-remove-buttons-multi-valued-attribute.component.html",
+    selector: 'kc-add-remove-buttons-multi-valued-attribute',
+    templateUrl: 'add-remove-buttons-multi-valued-attribute.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AddRemoveButtonsMultiValuedAttributeComponent {
@@ -58,16 +58,16 @@ export class AddRemoveButtonsMultiValuedAttributeComponent {
 
     onAdd() {
         this.dispatchFormAction.emit({
-            action: "update",
-            name: this.attribute()?.name ?? "",
-            valueOrValues: [...(this.values() ?? []), ""]
+            action: 'update',
+            name: this.attribute()?.name ?? '',
+            valueOrValues: [...(this.values() ?? []), '']
         });
     }
 
     onRemove() {
         this.dispatchFormAction.emit({
-            action: "update",
-            name: this.attribute()?.name ?? "",
+            action: 'update',
+            name: this.attribute()?.name ?? '',
             valueOrValues: (this.values() ?? []).filter((_, i) => i !== this.fieldIndex())
         });
     }

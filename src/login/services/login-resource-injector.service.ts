@@ -1,11 +1,11 @@
-import { inject, Injectable } from "@angular/core";
-import { KC_CONTEXT } from "@keycloakify/angular/lib/public-api";
-import { ResourceInjectorService, Script } from "@keycloakify/angular/lib/public-api";
-import { KcContext } from "keycloakify/login/KcContext";
-import { catchError, forkJoin, of, switchMap } from "rxjs";
+import { inject, Injectable } from '@angular/core';
+import { KC_CONTEXT } from '@keycloakify/angular/lib/public-api';
+import { ResourceInjectorService, Script } from '@keycloakify/angular/lib/public-api';
+import { KcContext } from 'keycloakify/login/KcContext';
+import { catchError, forkJoin, of, switchMap } from 'rxjs';
 
 @Injectable({
-    providedIn: "root"
+    providedIn: 'root'
 })
 export class LoginResourceInjectorService {
     private kcContext: KcContext = inject<KcContext>(KC_CONTEXT);
@@ -34,7 +34,7 @@ export class LoginResourceInjectorService {
                 return of(true);
             }),
             catchError(error => {
-                console.error("Error loading styles:", error);
+                console.error('Error loading styles:', error);
                 return of(false);
             })
         );
@@ -47,18 +47,18 @@ export class LoginResourceInjectorService {
     private injectScripts() {
         const scripts: Script[] = [
             {
-                type: "module",
+                type: 'module',
                 id: `${this.kcContext.url.resourcesPath}/js/menu-button-links.js`,
                 src: `${this.kcContext.url.resourcesPath}/js/menu-button-links.js`
             },
             ...this.kcContext.scripts.map(script => ({
-                type: "text/javascript",
+                type: 'text/javascript',
                 src: script,
                 id: script
             })),
             {
-                type: "module",
-                id: "authenticationSession",
+                type: 'module',
+                id: 'authenticationSession',
                 textContent: `
         import { checkCookiesAndSetTimer } from "${this.kcContext.url.resourcesPath}/js/authChecker.js";
           

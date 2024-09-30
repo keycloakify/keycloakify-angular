@@ -1,4 +1,4 @@
-import { AsyncPipe, NgTemplateOutlet } from "@angular/common";
+import { AsyncPipe, NgTemplateOutlet } from '@angular/common';
 import {
     ChangeDetectionStrategy,
     Component,
@@ -7,27 +7,27 @@ import {
     input,
     OnInit,
     Renderer2
-} from "@angular/core";
-import { Meta, Title } from "@angular/platform-browser";
+} from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import {
     CLASSES,
     I18N,
     KC_CONTEXT,
     USE_DEFAULT_CSS
-} from "@keycloakify/angular/lib/public-api";
-import type { I18n } from "@keycloakify/angular/login/i18n";
-import { KcContext } from "keycloakify/login/KcContext/KcContext";
-import { ClassKey, getKcClsx } from "keycloakify/login/lib/kcClsx";
-import { Observable } from "rxjs";
-import { ComponentReference } from "@keycloakify/angular/login/classes/component-reference.class";
-import { KcClassDirective } from "@keycloakify/angular/login/directives/kc-class.directive";
-import { KcSanitizePipe } from "@keycloakify/angular/login/pipes";
-import { MsgStrPipe } from "@keycloakify/angular/login/pipes/msg-str.pipe";
-import { LoginResourceInjectorService } from "@keycloakify/angular/login/services/login-resource-injector.service";
+} from '@keycloakify/angular/lib/public-api';
+import type { I18n } from '@keycloakify/angular/login/i18n';
+import { KcContext } from 'keycloakify/login/KcContext/KcContext';
+import { ClassKey, getKcClsx } from 'keycloakify/login/lib/kcClsx';
+import { Observable } from 'rxjs';
+import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
+import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class.directive';
+import { KcSanitizePipe } from '@keycloakify/angular/login/pipes';
+import { MsgStrPipe } from '@keycloakify/angular/login/pipes/msg-str.pipe';
+import { LoginResourceInjectorService } from '@keycloakify/angular/login/services/login-resource-injector.service';
 
 @Component({
-    selector: "kc-login-template",
-    templateUrl: "./template.component.html",
+    selector: 'kc-login-template',
+    templateUrl: './template.component.html',
     standalone: true,
     imports: [AsyncPipe, KcSanitizePipe, NgTemplateOutlet, KcClassDirective, MsgStrPipe],
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -60,7 +60,7 @@ export class TemplateComponent extends ComponentReference implements OnInit {
         super();
         this.title.setTitle(
             this.documentTitle() ??
-                this.i18n.msgStr("loginTitle", this.kcContext.realm.displayName)
+                this.i18n.msgStr('loginTitle', this.kcContext.realm.displayName)
         );
         this.isReadyToRender$ = this.loginResourceInjectorService.injectResource(
             this.doUseDefaultCss
@@ -76,8 +76,8 @@ export class TemplateComponent extends ComponentReference implements OnInit {
             doUseDefaultCss: this.doUseDefaultCss,
             classes: this.classes
         }).kcClsx;
-        const kcBodyClass = this.bodyClassName() ?? kcClsx("kcBodyClass");
-        const kcHtmlClass = kcClsx("kcHtmlClass");
+        const kcBodyClass = this.bodyClassName() ?? kcClsx('kcBodyClass');
+        const kcHtmlClass = kcClsx('kcHtmlClass');
         const kcBodyClasses = kcBodyClass.split(/\s+/);
         const kcHtmlClasses = kcHtmlClass.split(/\s+/);
         kcBodyClasses.forEach(klass => {
@@ -89,6 +89,6 @@ export class TemplateComponent extends ComponentReference implements OnInit {
     }
 
     tryAnotherWay() {
-        document.forms["kc-select-try-another-way-form" as never].submit();
+        document.forms['kc-select-try-another-way-form' as never].submit();
     }
 }

@@ -1,8 +1,8 @@
-import { inject, Pipe, PipeTransform } from "@angular/core";
-import { I18N } from "@keycloakify/angular/lib/public-api";
-import { I18n } from "../i18n";
+import { inject, Pipe, PipeTransform } from '@angular/core';
+import { I18N } from '@keycloakify/angular/lib/public-api';
+import { I18n } from '../i18n';
 @Pipe({
-    name: "advancedMsgStr",
+    name: 'advancedMsgStr',
     standalone: true
 })
 export class AdvancedMsgStrPipe implements PipeTransform {

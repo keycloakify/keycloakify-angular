@@ -8,32 +8,32 @@ import {
     signal,
     Signal,
     WritableSignal
-} from "@angular/core";
-import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
+} from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import {
     DO_MAKE_USER_CONFIRM_PASSWORD,
     I18N,
     KC_CONTEXT
-} from "@keycloakify/angular/lib/public-api";
+} from '@keycloakify/angular/lib/public-api';
 import {
     Attribute,
     KcContext,
     PasswordPolicies,
     Validators
-} from "keycloakify/login/KcContext";
+} from 'keycloakify/login/KcContext';
 import type {
     KcContextLike as KcContextLike_i18n,
     MessageKey_defaultSet
-} from "keycloakify/login/i18n/noJsx";
-import type { I18n } from "../i18n";
-import { emailRegexp } from "keycloakify/tools/emailRegExp";
-import { formatNumber } from "keycloakify/tools/formatNumber";
-import { structuredCloneButFunctions } from "keycloakify/tools/structuredCloneButFunctions";
-import { assert, id } from "tsafe";
-import { LoginResourceInjectorService } from "./login-resource-injector.service";
+} from 'keycloakify/login/i18n/noJsx';
+import type { I18n } from '../i18n';
+import { emailRegexp } from 'keycloakify/tools/emailRegExp';
+import { formatNumber } from 'keycloakify/tools/formatNumber';
+import { structuredCloneButFunctions } from 'keycloakify/tools/structuredCloneButFunctions';
+import { assert, id } from 'tsafe';
+import { LoginResourceInjectorService } from './login-resource-injector.service';
 
 type KcContextLike_useGetErrors = KcContextLike_i18n & {
-    messagesPerField: Pick<KcContext["messagesPerField"], "existsError" | "get">;
+    messagesPerField: Pick<KcContext['messagesPerField'], 'existsError' | 'get'>;
     passwordPolicies?: PasswordPolicies;
 };
 export namespace FormFieldError {
@@ -45,20 +45,20 @@ export namespace FormFieldError {
 
     export namespace Source {
         export type Validator = {
-            type: "validator";
+            type: 'validator';
             name: keyof Validators;
         };
         export type PasswordPolicy = {
-            type: "passwordPolicy";
+            type: 'passwordPolicy';
             name: keyof PasswordPolicies;
         };
         export type Server = {
-            type: "server";
+            type: 'server';
         };
 
         export type Other = {
-            type: "other";
-            rule: "passwordConfirmMatchesPassword" | "requiredField";
+            type: 'other';
+            rule: 'passwordConfirmMatchesPassword' | 'requiredField';
         };
     }
 }
@@ -104,22 +104,22 @@ type FormState = {
 };
 export type FormAction =
     | {
-          action: "update";
+          action: 'update';
           name: string;
           valueOrValues: string | string[];
           /** Default false */
           displayErrorsImmediately?: boolean;
       }
     | {
-          action: "focus lost";
+          action: 'focus lost';
           name: string;
           fieldIndex: number | undefined;
       };
 
-@Injectable({ providedIn: "root" })
+@Injectable({ providedIn: 'root' })
 export class UserProfileFormService {
     private kcContext: KcContextLike =
-        inject<Extract<KcContext, { pageId: "register.ftl" }>>(KC_CONTEXT);
+        inject<Extract<KcContext, { pageId: 'register.ftl' }>>(KC_CONTEXT);
     private i18n = inject<I18n>(I18N);
     private doMakeUserConfirmPassword = inject(DO_MAKE_USER_CONFIRM_PASSWORD);
     private loginResourceInjectorService = inject(LoginResourceInjectorService);
@@ -128,22 +128,22 @@ export class UserProfileFormService {
         const attributes: Attribute[] = (() => {
             mock_user_profile_attributes_for_older_keycloak_versions: {
                 if (
-                    "profile" in this.kcContext &&
-                    "attributesByName" in this.kcContext.profile &&
+                    'profile' in this.kcContext &&
+                    'attributesByName' in this.kcContext.profile &&
                     Object.keys(this.kcContext.profile.attributesByName).length !== 0
                 ) {
                     break mock_user_profile_attributes_for_older_keycloak_versions;
                 }
 
                 if (
-                    "register" in this.kcContext &&
+                    'register' in this.kcContext &&
                     this.kcContext.register instanceof Object &&
-                    "formData" in this.kcContext.register
+                    'formData' in this.kcContext.register
                 ) {
                     //NOTE: Handle legacy register.ftl page
-                    return (["firstName", "lastName", "email", "username"] as const)
+                    return (['firstName', 'lastName', 'email', 'username'] as const)
                         .filter(name =>
-                            name !== "username"
+                            name !== 'username'
                                 ? true
                                 : !this.kcContext.realm.registrationEmailAsUsername
                         )
@@ -155,17 +155,17 @@ export class UserProfileFormService {
                                 ),
                                 required: true,
                                 value:
-                                    (this.kcContext as any).register.formData[name] ?? "",
+                                    (this.kcContext as any).register.formData[name] ?? '',
                                 html5DataAnnotations: {},
                                 readOnly: false,
                                 validators: {},
                                 annotations: {},
                                 autocomplete: (() => {
                                     switch (name) {
-                                        case "email":
-                                            return "email";
-                                        case "username":
-                                            return "username";
+                                        case 'email':
+                                            return 'email';
+                                        case 'username':
+                                            return 'username';
                                         default:
                                             return undefined;
                                     }
@@ -174,11 +174,11 @@ export class UserProfileFormService {
                         );
                 }
 
-                if ("user" in this.kcContext && this.kcContext.user instanceof Object) {
+                if ('user' in this.kcContext && this.kcContext.user instanceof Object) {
                     //NOTE: Handle legacy login-update-profile.ftl
-                    return (["username", "email", "firstName", "lastName"] as const)
+                    return (['username', 'email', 'firstName', 'lastName'] as const)
                         .filter(name =>
-                            name !== "username"
+                            name !== 'username'
                                 ? true
                                 : (this.kcContext as any).user.editUsernameAllowed
                         )
@@ -189,17 +189,17 @@ export class UserProfileFormService {
                                     `\${${name}}`
                                 ),
                                 required: true,
-                                value: (this.kcContext as any).user[name] ?? "",
+                                value: (this.kcContext as any).user[name] ?? '',
                                 html5DataAnnotations: {},
                                 readOnly: false,
                                 validators: {},
                                 annotations: {},
                                 autocomplete: (() => {
                                     switch (name) {
-                                        case "email":
-                                            return "email";
-                                        case "username":
-                                            return "username";
+                                        case 'email':
+                                            return 'email';
+                                        case 'username':
+                                            return 'username';
                                         default:
                                             return undefined;
                                     }
@@ -208,24 +208,24 @@ export class UserProfileFormService {
                         );
                 }
 
-                if ("email" in this.kcContext && this.kcContext.email instanceof Object) {
+                if ('email' in this.kcContext && this.kcContext.email instanceof Object) {
                     //NOTE: Handle legacy update-email.ftl
                     return [
                         id<Attribute>({
-                            name: "email",
+                            name: 'email',
                             displayName: id<`\${${MessageKey_defaultSet}}`>(`\${email}`),
                             required: true,
-                            value: (this.kcContext.email as any).value ?? "",
+                            value: (this.kcContext.email as any).value ?? '',
                             html5DataAnnotations: {},
                             readOnly: false,
                             validators: {},
                             annotations: {},
-                            autocomplete: "email"
+                            autocomplete: 'email'
                         })
                     ];
                 }
 
-                assert(false, "Unable to mock user profile from the current kcContext");
+                assert(false, 'Unable to mock user profile from the current kcContext');
             }
 
             return Object.values(this.kcContext.profile.attributesByName).map(
@@ -235,7 +235,7 @@ export class UserProfileFormService {
         // Retro-compatibility and consistency patches
         attributes.forEach(attribute => {
             patch_legacy_group: {
-                if (typeof attribute.group !== "string") {
+                if (typeof attribute.group !== 'string') {
                     break patch_legacy_group;
                 }
 
@@ -259,7 +259,7 @@ export class UserProfileFormService {
                 // @ts-expect-error
                 delete attribute.groupAnnotations;
 
-                if (group === "") {
+                if (group === '') {
                     break patch_legacy_group;
                 }
 
@@ -277,7 +277,7 @@ export class UserProfileFormService {
                 attribute.validators.options !== undefined &&
                 attribute.annotations.inputType === undefined
             ) {
-                attribute.annotations.inputType = "select";
+                attribute.annotations.inputType = 'select';
             }
 
             // Consistency patch on values/value property
@@ -305,8 +305,8 @@ export class UserProfileFormService {
                 if (
                     attribute.name !==
                     (this.kcContext.realm.registrationEmailAsUsername
-                        ? "email"
-                        : "username")
+                        ? 'email'
+                        : 'username')
                 ) {
                     // NOTE: We want to add password and password-confirm after the field that identifies the user.
                     // It's either email or username.
@@ -317,25 +317,25 @@ export class UserProfileFormService {
                     i + 1,
                     0,
                     {
-                        name: "password",
-                        displayName: id<`\${${MessageKey_defaultSet}}`>("${password}"),
+                        name: 'password',
+                        displayName: id<`\${${MessageKey_defaultSet}}`>('${password}'),
                         required: true,
                         readOnly: false,
                         validators: {},
                         annotations: {},
-                        autocomplete: "new-password",
+                        autocomplete: 'new-password',
                         html5DataAnnotations: {}
                     },
                     {
-                        name: "password-confirm",
+                        name: 'password-confirm',
                         displayName:
-                            id<`\${${MessageKey_defaultSet}}`>("${passwordConfirm}"),
+                            id<`\${${MessageKey_defaultSet}}`>('${passwordConfirm}'),
                         required: true,
                         readOnly: false,
                         validators: {},
                         annotations: {},
                         html5DataAnnotations: {},
-                        autocomplete: "new-password"
+                        autocomplete: 'new-password'
                     }
                 );
             });
@@ -351,7 +351,7 @@ export class UserProfileFormService {
                     break handle_multi_valued_attribute;
                 }
 
-                const values = attribute.values?.length ? attribute.values : [""];
+                const values = attribute.values?.length ? attribute.values : [''];
 
                 apply_validator_min_range: {
                     if (this.getIsMultivaluedSingleField({ attribute })) {
@@ -373,7 +373,7 @@ export class UserProfileFormService {
                     const min = parseInt(`${minStr}`);
 
                     for (let index = values.length; index < min; index++) {
-                        values.push("");
+                        values.push('');
                     }
                 }
 
@@ -387,7 +387,7 @@ export class UserProfileFormService {
 
             initialFormFieldState.push({
                 attribute,
-                valueOrValues: attribute.value ?? ""
+                valueOrValues: attribute.value ?? ''
             });
         }
 
@@ -425,7 +425,7 @@ export class UserProfileFormService {
                 }) => ({
                     displayableErrors: errors.filter(error => {
                         const hasLostFocusAtLeastOnce =
-                            typeof hasLostFocusAtLeastOnceOrArr === "boolean"
+                            typeof hasLostFocusAtLeastOnceOrArr === 'boolean'
                                 ? hasLostFocusAtLeastOnceOrArr
                                 : error.fieldIndex !== undefined
                                   ? hasLostFocusAtLeastOnceOrArr[error.fieldIndex]
@@ -434,64 +434,64 @@ export class UserProfileFormService {
                                     ];
                         let value = false;
                         switch (error.source.type) {
-                            case "server":
+                            case 'server':
                                 value = true;
                                 break;
-                            case "other":
+                            case 'other':
                                 switch (error.source.rule) {
-                                    case "requiredField":
+                                    case 'requiredField':
                                         value = hasLostFocusAtLeastOnce;
                                         break;
-                                    case "passwordConfirmMatchesPassword":
+                                    case 'passwordConfirmMatchesPassword':
                                         value = hasLostFocusAtLeastOnce;
                                         break;
                                 }
                                 // assert<Equals<typeof error.source.rule, never>>(false);
                                 break;
-                            case "passwordPolicy":
+                            case 'passwordPolicy':
                                 switch (error.source.name) {
-                                    case "length":
+                                    case 'length':
                                         value = hasLostFocusAtLeastOnce;
                                         break;
-                                    case "digits":
+                                    case 'digits':
                                         value = hasLostFocusAtLeastOnce;
                                         break;
-                                    case "lowerCase":
+                                    case 'lowerCase':
                                         value = hasLostFocusAtLeastOnce;
                                         break;
-                                    case "upperCase":
+                                    case 'upperCase':
                                         value = hasLostFocusAtLeastOnce;
                                         break;
-                                    case "specialChars":
+                                    case 'specialChars':
                                         value = hasLostFocusAtLeastOnce;
                                         break;
-                                    case "notUsername":
+                                    case 'notUsername':
                                         value = true;
                                         break;
-                                    case "notEmail":
+                                    case 'notEmail':
                                         value = true;
                                         break;
                                 }
                                 // assert<Equals<typeof error.source, never>>(false);
                                 break;
-                            case "validator":
+                            case 'validator':
                                 switch (error.source.name) {
-                                    case "length":
+                                    case 'length':
                                         value = hasLostFocusAtLeastOnce;
                                         break;
-                                    case "pattern":
+                                    case 'pattern':
                                         value = hasLostFocusAtLeastOnce;
                                         break;
-                                    case "email":
+                                    case 'email':
                                         value = hasLostFocusAtLeastOnce;
                                         break;
-                                    case "integer":
+                                    case 'integer':
                                         value = hasLostFocusAtLeastOnce;
                                         break;
-                                    case "multivalued":
+                                    case 'multivalued':
                                         value = hasLostFocusAtLeastOnce;
                                         break;
-                                    case "options":
+                                    case 'options':
                                         value = hasLostFocusAtLeastOnce;
                                         break;
                                 }
@@ -513,9 +513,9 @@ export class UserProfileFormService {
     constructor() {
         this.loginResourceInjectorService.insertAdditionalScripts(
             Object.keys(this.kcContext.profile?.html5DataAnnotations ?? {})
-                .filter(key => key !== "kcMultivalued" && key !== "kcNumberFormat") // NOTE: Keycloakify handles it.
+                .filter(key => key !== 'kcMultivalued' && key !== 'kcNumberFormat') // NOTE: Keycloakify handles it.
                 .map(key => ({
-                    type: "module",
+                    type: 'module',
                     src: `${this.kcContext.url.resourcesPath}/js/${key}.js`,
                     id: `${this.kcContext.url.resourcesPath}/js/${key}.js`
                 }))
@@ -530,7 +530,7 @@ export class UserProfileFormService {
         );
         assert(formFieldState !== undefined);
         switch (formAction.action) {
-            case "update":
+            case 'update':
                 formFieldState.valueOrValues = formAction.valueOrValues;
 
                 apply_formatters: {
@@ -570,7 +570,7 @@ export class UserProfileFormService {
                         ? formAction.valueOrValues.map((...[, index]) => index)
                         : [undefined]) {
                         this.dispatchFormAction({
-                            action: "focus lost",
+                            action: 'focus lost',
                             name: formAction.name,
                             fieldIndex
                         });
@@ -582,13 +582,13 @@ export class UserProfileFormService {
                         break update_password_confirm;
                     }
 
-                    if (formAction.name !== "password") {
+                    if (formAction.name !== 'password') {
                         break update_password_confirm;
                     }
 
                     this.dispatchFormAction({
-                        action: "update",
-                        name: "password-confirm",
+                        action: 'update',
+                        name: 'password-confirm',
                         valueOrValues: formAction.valueOrValues,
                         displayErrorsImmediately: formAction.displayErrorsImmediately
                     });
@@ -599,16 +599,16 @@ export class UserProfileFormService {
                         break trigger_password_confirm_validation_on_password_change;
                     }
 
-                    if (formAction.name !== "password") {
+                    if (formAction.name !== 'password') {
                         break trigger_password_confirm_validation_on_password_change;
                     }
 
                     this.dispatchFormAction({
-                        action: "update",
-                        name: "password-confirm",
+                        action: 'update',
+                        name: 'password-confirm',
                         valueOrValues: (() => {
                             const formFieldState = state.formFieldStates.find(
-                                ({ attribute }) => attribute.name === "password-confirm"
+                                ({ attribute }) => attribute.name === 'password-confirm'
                             );
 
                             assert(formFieldState !== undefined);
@@ -620,7 +620,7 @@ export class UserProfileFormService {
                 }
 
                 break;
-            case "focus lost":
+            case 'focus lost':
                 if (formFieldState.hasLostFocusAtLeastOnce instanceof Array) {
                     const { fieldIndex } = formAction;
                     assert(fieldIndex !== undefined);
@@ -643,7 +643,7 @@ export class UserProfileFormService {
     private getIsMultivaluedSingleField(params: { attribute: Attribute }) {
         const { attribute } = params;
 
-        return attribute.annotations.inputType?.startsWith("multiselect") ?? false;
+        return attribute.annotations.inputType?.startsWith('multiselect') ?? false;
     }
 
     private getErrors(params: {
@@ -692,7 +692,7 @@ export class UserProfileFormService {
 
         server_side_error: {
             if (attribute.multivalued) {
-                const defaultValues = attribute.values?.length ? attribute.values : [""];
+                const defaultValues = attribute.values?.length ? attribute.values : [''];
 
                 assert(valueOrValues instanceof Array);
 
@@ -705,9 +705,9 @@ export class UserProfileFormService {
                     break server_side_error;
                 }
             } else {
-                const defaultValue = attribute.value ?? "";
+                const defaultValue = attribute.value ?? '';
 
-                assert(typeof valueOrValues === "string");
+                assert(typeof valueOrValues === 'string');
 
                 const value = valueOrValues;
 
@@ -738,7 +738,7 @@ export class UserProfileFormService {
                     ),
                     fieldIndex: undefined,
                     source: {
-                        type: "server"
+                        type: 'server'
                     }
                 }
             ];
@@ -784,8 +784,8 @@ export class UserProfileFormService {
                     return specificValueErrors
                         .filter(error => {
                             if (
-                                error.source.type === "other" &&
-                                error.source.rule === "requiredField"
+                                error.source.type === 'other' &&
+                                error.source.rule === 'requiredField'
                             ) {
                                 return false;
                             }
@@ -806,11 +806,11 @@ export class UserProfileFormService {
                     break required_field;
                 }
 
-                if (values.every(value => value !== "")) {
+                if (values.every(value => value !== '')) {
                     break required_field;
                 }
 
-                const msgArgs = ["error-user-attribute-required"] as const;
+                const msgArgs = ['error-user-attribute-required'] as const;
 
                 errors.push({
                     errorMessage: this.sanitizer.bypassSecurityTrustHtml(
@@ -819,8 +819,8 @@ export class UserProfileFormService {
                     errorMessageStr: msgStr(...msgArgs),
                     fieldIndex: undefined,
                     source: {
-                        type: "other",
-                        rule: "requiredField"
+                        type: 'other',
+                        rule: 'requiredField'
                     }
                 });
             }
@@ -837,7 +837,7 @@ export class UserProfileFormService {
                 break handle_multi_valued_single_field;
             }
 
-            const validatorName = "multivalued";
+            const validatorName = 'multivalued';
 
             const validator = attribute.validators[validatorName];
 
@@ -866,7 +866,7 @@ export class UserProfileFormService {
             }
 
             const msgArgs = [
-                "error-invalid-multivalued-size",
+                'error-invalid-multivalued-size',
                 `${min}`,
                 `${max}`
             ] as const;
@@ -879,21 +879,21 @@ export class UserProfileFormService {
                     errorMessageStr: msgStr(...msgArgs),
                     fieldIndex: undefined,
                     source: {
-                        type: "validator",
+                        type: 'validator',
                         name: validatorName
                     }
                 }
             ];
         }
 
-        assert(typeof valueOrValues === "string");
+        assert(typeof valueOrValues === 'string');
 
         const value = valueOrValues;
 
         const errors: FormFieldError[] = [];
 
         check_password_policies: {
-            if (attributeName !== "password") {
+            if (attributeName !== 'password') {
                 break check_password_policies;
             }
 
@@ -902,7 +902,7 @@ export class UserProfileFormService {
             }
 
             check_password_policy_x: {
-                const policyName = "length";
+                const policyName = 'length';
 
                 const policy = passwordPolicies[policyName];
 
@@ -917,7 +917,7 @@ export class UserProfileFormService {
                 }
 
                 const msgArgs = [
-                    "invalidPasswordMinLengthMessage",
+                    'invalidPasswordMinLengthMessage',
                     `${minLength}`
                 ] as const;
 
@@ -928,14 +928,14 @@ export class UserProfileFormService {
                     errorMessageStr: msgStr(...msgArgs),
                     fieldIndex: undefined,
                     source: {
-                        type: "passwordPolicy",
+                        type: 'passwordPolicy',
                         name: policyName
                     }
                 });
             }
 
             check_password_policy_x: {
-                const policyName = "digits";
+                const policyName = 'digits';
 
                 const policy = passwordPolicies[policyName];
 
@@ -946,14 +946,14 @@ export class UserProfileFormService {
                 const minNumberOfDigits = policy;
 
                 if (
-                    value.split("").filter(char => !isNaN(parseInt(char))).length >=
+                    value.split('').filter(char => !isNaN(parseInt(char))).length >=
                     minNumberOfDigits
                 ) {
                     break check_password_policy_x;
                 }
 
                 const msgArgs = [
-                    "invalidPasswordMinDigitsMessage",
+                    'invalidPasswordMinDigitsMessage',
                     `${minNumberOfDigits}`
                 ] as const;
 
@@ -964,14 +964,14 @@ export class UserProfileFormService {
                     errorMessageStr: msgStr(...msgArgs),
                     fieldIndex: undefined,
                     source: {
-                        type: "passwordPolicy",
+                        type: 'passwordPolicy',
                         name: policyName
                     }
                 });
             }
 
             check_password_policy_x: {
-                const policyName = "lowerCase";
+                const policyName = 'lowerCase';
 
                 const policy = passwordPolicies[policyName];
 
@@ -983,7 +983,7 @@ export class UserProfileFormService {
 
                 if (
                     value
-                        .split("")
+                        .split('')
                         .filter(
                             char =>
                                 char === char.toLowerCase() && char !== char.toUpperCase()
@@ -993,7 +993,7 @@ export class UserProfileFormService {
                 }
 
                 const msgArgs = [
-                    "invalidPasswordMinLowerCaseCharsMessage",
+                    'invalidPasswordMinLowerCaseCharsMessage',
                     `${minNumberOfLowerCaseChar}`
                 ] as const;
 
@@ -1004,14 +1004,14 @@ export class UserProfileFormService {
                     errorMessageStr: msgStr(...msgArgs),
                     fieldIndex: undefined,
                     source: {
-                        type: "passwordPolicy",
+                        type: 'passwordPolicy',
                         name: policyName
                     }
                 });
             }
 
             check_password_policy_x: {
-                const policyName = "upperCase";
+                const policyName = 'upperCase';
 
                 const policy = passwordPolicies[policyName];
 
@@ -1023,7 +1023,7 @@ export class UserProfileFormService {
 
                 if (
                     value
-                        .split("")
+                        .split('')
                         .filter(
                             char =>
                                 char === char.toUpperCase() && char !== char.toLowerCase()
@@ -1033,7 +1033,7 @@ export class UserProfileFormService {
                 }
 
                 const msgArgs = [
-                    "invalidPasswordMinUpperCaseCharsMessage",
+                    'invalidPasswordMinUpperCaseCharsMessage',
                     `${minNumberOfUpperCaseChar}`
                 ] as const;
 
@@ -1044,14 +1044,14 @@ export class UserProfileFormService {
                     errorMessageStr: msgStr(...msgArgs),
                     fieldIndex: undefined,
                     source: {
-                        type: "passwordPolicy",
+                        type: 'passwordPolicy',
                         name: policyName
                     }
                 });
             }
 
             check_password_policy_x: {
-                const policyName = "specialChars";
+                const policyName = 'specialChars';
 
                 const policy = passwordPolicies[policyName];
 
@@ -1062,14 +1062,14 @@ export class UserProfileFormService {
                 const minNumberOfSpecialChar = policy;
 
                 if (
-                    value.split("").filter(char => !char.match(/[a-zA-Z0-9]/)).length >=
+                    value.split('').filter(char => !char.match(/[a-zA-Z0-9]/)).length >=
                     minNumberOfSpecialChar
                 ) {
                     break check_password_policy_x;
                 }
 
                 const msgArgs = [
-                    "invalidPasswordMinSpecialCharsMessage",
+                    'invalidPasswordMinSpecialCharsMessage',
                     `${minNumberOfSpecialChar}`
                 ] as const;
 
@@ -1080,14 +1080,14 @@ export class UserProfileFormService {
                     errorMessageStr: msgStr(...msgArgs),
                     fieldIndex: undefined,
                     source: {
-                        type: "passwordPolicy",
+                        type: 'passwordPolicy',
                         name: policyName
                     }
                 });
             }
 
             check_password_policy_x: {
-                const policyName = "notUsername";
+                const policyName = 'notUsername';
 
                 const notUsername = passwordPolicies[policyName];
 
@@ -1096,7 +1096,7 @@ export class UserProfileFormService {
                 }
 
                 const usernameFormFieldState = formFieldStates.find(
-                    formFieldState => formFieldState.attribute.name === "username"
+                    formFieldState => formFieldState.attribute.name === 'username'
                 );
 
                 if (!usernameFormFieldState) {
@@ -1106,7 +1106,7 @@ export class UserProfileFormService {
                 const usernameValue = (() => {
                     let { valueOrValues } = usernameFormFieldState;
 
-                    assert(typeof valueOrValues === "string");
+                    assert(typeof valueOrValues === 'string');
 
                     unFormat_number: {
                         const { kcNumberUnFormat } = attribute.html5DataAnnotations ?? {};
@@ -1121,7 +1121,7 @@ export class UserProfileFormService {
                     return valueOrValues;
                 })();
 
-                if (usernameValue === "") {
+                if (usernameValue === '') {
                     break check_password_policy_x;
                 }
 
@@ -1129,7 +1129,7 @@ export class UserProfileFormService {
                     break check_password_policy_x;
                 }
 
-                const msgArgs = ["invalidPasswordNotUsernameMessage"] as const;
+                const msgArgs = ['invalidPasswordNotUsernameMessage'] as const;
 
                 errors.push({
                     errorMessage: this.sanitizer.bypassSecurityTrustHtml(
@@ -1138,14 +1138,14 @@ export class UserProfileFormService {
                     errorMessageStr: msgStr(...msgArgs),
                     fieldIndex: undefined,
                     source: {
-                        type: "passwordPolicy",
+                        type: 'passwordPolicy',
                         name: policyName
                     }
                 });
             }
 
             check_password_policy_x: {
-                const policyName = "notEmail";
+                const policyName = 'notEmail';
 
                 const notEmail = passwordPolicies[policyName];
 
@@ -1154,19 +1154,19 @@ export class UserProfileFormService {
                 }
 
                 const emailFormFieldState = formFieldStates.find(
-                    formFieldState => formFieldState.attribute.name === "email"
+                    formFieldState => formFieldState.attribute.name === 'email'
                 );
 
                 if (!emailFormFieldState) {
                     break check_password_policy_x;
                 }
 
-                assert(typeof emailFormFieldState.valueOrValues === "string");
+                assert(typeof emailFormFieldState.valueOrValues === 'string');
 
                 {
                     const emailValue = emailFormFieldState.valueOrValues;
 
-                    if (emailValue === "") {
+                    if (emailValue === '') {
                         break check_password_policy_x;
                     }
 
@@ -1175,7 +1175,7 @@ export class UserProfileFormService {
                     }
                 }
 
-                const msgArgs = ["invalidPasswordNotEmailMessage"] as const;
+                const msgArgs = ['invalidPasswordNotEmailMessage'] as const;
 
                 errors.push({
                     errorMessage: this.sanitizer.bypassSecurityTrustHtml(
@@ -1184,7 +1184,7 @@ export class UserProfileFormService {
                     errorMessageStr: msgStr(...msgArgs),
                     fieldIndex: undefined,
                     source: {
-                        type: "passwordPolicy",
+                        type: 'passwordPolicy',
                         name: policyName
                     }
                 });
@@ -1192,17 +1192,17 @@ export class UserProfileFormService {
         }
 
         password_confirm_matches_password: {
-            if (attributeName !== "password-confirm") {
+            if (attributeName !== 'password-confirm') {
                 break password_confirm_matches_password;
             }
 
             const passwordFormFieldState = formFieldStates.find(
-                formFieldState => formFieldState.attribute.name === "password"
+                formFieldState => formFieldState.attribute.name === 'password'
             );
 
             assert(passwordFormFieldState !== undefined);
 
-            assert(typeof passwordFormFieldState.valueOrValues === "string");
+            assert(typeof passwordFormFieldState.valueOrValues === 'string');
 
             {
                 const passwordValue = passwordFormFieldState.valueOrValues;
@@ -1212,7 +1212,7 @@ export class UserProfileFormService {
                 }
             }
 
-            const msgArgs = ["invalidPasswordConfirmMessage"] as const;
+            const msgArgs = ['invalidPasswordConfirmMessage'] as const;
 
             errors.push({
                 errorMessage: this.sanitizer.bypassSecurityTrustHtml(
@@ -1221,8 +1221,8 @@ export class UserProfileFormService {
                 errorMessageStr: msgStr(...msgArgs),
                 fieldIndex: undefined,
                 source: {
-                    type: "other",
-                    rule: "passwordConfirmMatchesPassword"
+                    type: 'other',
+                    rule: 'passwordConfirmMatchesPassword'
                 }
             });
         }
@@ -1234,11 +1234,11 @@ export class UserProfileFormService {
                 break required_field;
             }
 
-            if (value !== "") {
+            if (value !== '') {
                 break required_field;
             }
 
-            const msgArgs = ["error-user-attribute-required"] as const;
+            const msgArgs = ['error-user-attribute-required'] as const;
 
             errors.push({
                 errorMessage: this.sanitizer.bypassSecurityTrustHtml(
@@ -1247,14 +1247,14 @@ export class UserProfileFormService {
                 errorMessageStr: msgStr(...msgArgs),
                 fieldIndex: undefined,
                 source: {
-                    type: "other",
-                    rule: "requiredField"
+                    type: 'other',
+                    rule: 'requiredField'
                 }
             });
         }
 
         validator_x: {
-            const validatorName = "length";
+            const validatorName = 'length';
 
             const validator = validators[validatorName];
 
@@ -1263,22 +1263,22 @@ export class UserProfileFormService {
             }
 
             const {
-                "ignore.empty.value": ignoreEmptyValue = false,
+                'ignore.empty.value': ignoreEmptyValue = false,
                 max,
                 min
             } = validator;
 
-            if (ignoreEmptyValue && value === "") {
+            if (ignoreEmptyValue && value === '') {
                 break validator_x;
             }
 
             const source: FormFieldError.Source = {
-                type: "validator",
+                type: 'validator',
                 name: validatorName
             };
 
             if (max && value.length > parseInt(`${max}`)) {
-                const msgArgs = ["error-invalid-length-too-long", `${max}`] as const;
+                const msgArgs = ['error-invalid-length-too-long', `${max}`] as const;
 
                 errors.push({
                     errorMessage: this.sanitizer.bypassSecurityTrustHtml(
@@ -1291,7 +1291,7 @@ export class UserProfileFormService {
             }
 
             if (min && value.length < parseInt(`${min}`)) {
-                const msgArgs = ["error-invalid-length-too-short", `${min}`] as const;
+                const msgArgs = ['error-invalid-length-too-short', `${min}`] as const;
 
                 errors.push({
                     errorMessage: this.sanitizer.bypassSecurityTrustHtml(
@@ -1305,7 +1305,7 @@ export class UserProfileFormService {
         }
 
         validator_x: {
-            const validatorName = "pattern";
+            const validatorName = 'pattern';
 
             const validator = validators[validatorName];
 
@@ -1314,12 +1314,12 @@ export class UserProfileFormService {
             }
 
             const {
-                "ignore.empty.value": ignoreEmptyValue = false,
+                'ignore.empty.value': ignoreEmptyValue = false,
                 pattern,
-                "error-message": errorMessageKey
+                'error-message': errorMessageKey
             } = validator;
 
-            if (ignoreEmptyValue && value === "") {
+            if (ignoreEmptyValue && value === '') {
                 break validator_x;
             }
 
@@ -1328,7 +1328,7 @@ export class UserProfileFormService {
             }
 
             const msgArgs = [
-                errorMessageKey ?? id<MessageKey_defaultSet>("shouldMatchPattern"),
+                errorMessageKey ?? id<MessageKey_defaultSet>('shouldMatchPattern'),
                 pattern
             ] as const;
 
@@ -1339,7 +1339,7 @@ export class UserProfileFormService {
                 errorMessageStr: advancedMsgStr(...msgArgs),
                 fieldIndex: undefined,
                 source: {
-                    type: "validator",
+                    type: 'validator',
                     name: validatorName
                 }
             });
@@ -1350,14 +1350,14 @@ export class UserProfileFormService {
                 const lastError = errors[errors.length - 1];
                 if (
                     lastError !== undefined &&
-                    lastError.source.type === "validator" &&
-                    lastError.source.name === "pattern"
+                    lastError.source.type === 'validator' &&
+                    lastError.source.name === 'pattern'
                 ) {
                     break validator_x;
                 }
             }
 
-            const validatorName = "email";
+            const validatorName = 'email';
 
             const validator = validators[validatorName];
 
@@ -1365,9 +1365,9 @@ export class UserProfileFormService {
                 break validator_x;
             }
 
-            const { "ignore.empty.value": ignoreEmptyValue = false } = validator;
+            const { 'ignore.empty.value': ignoreEmptyValue = false } = validator;
 
-            if (ignoreEmptyValue && value === "") {
+            if (ignoreEmptyValue && value === '') {
                 break validator_x;
             }
 
@@ -1375,7 +1375,7 @@ export class UserProfileFormService {
                 break validator_x;
             }
 
-            const msgArgs = [id<MessageKey_defaultSet>("invalidEmailMessage")] as const;
+            const msgArgs = [id<MessageKey_defaultSet>('invalidEmailMessage')] as const;
 
             errors.push({
                 errorMessage: this.sanitizer.bypassSecurityTrustHtml(
@@ -1384,14 +1384,14 @@ export class UserProfileFormService {
                 errorMessageStr: msgStr(...msgArgs),
                 fieldIndex: undefined,
                 source: {
-                    type: "validator",
+                    type: 'validator',
                     name: validatorName
                 }
             });
         }
 
         validator_x: {
-            const validatorName = "integer";
+            const validatorName = 'integer';
 
             const validator = validators[validatorName];
 
@@ -1400,24 +1400,24 @@ export class UserProfileFormService {
             }
 
             const {
-                "ignore.empty.value": ignoreEmptyValue = false,
+                'ignore.empty.value': ignoreEmptyValue = false,
                 max,
                 min
             } = validator;
 
-            if (ignoreEmptyValue && value === "") {
+            if (ignoreEmptyValue && value === '') {
                 break validator_x;
             }
 
             const intValue = parseInt(value);
 
             const source: FormFieldError.Source = {
-                type: "validator",
+                type: 'validator',
                 name: validatorName
             };
 
             if (isNaN(intValue)) {
-                const msgArgs = ["mustBeAnInteger"] as const;
+                const msgArgs = ['mustBeAnInteger'] as const;
 
                 errors.push({
                     errorMessage: this.sanitizer.bypassSecurityTrustHtml(
@@ -1432,7 +1432,7 @@ export class UserProfileFormService {
             }
 
             if (max && intValue > parseInt(`${max}`)) {
-                const msgArgs = ["error-number-out-of-range-too-big", `${max}`] as const;
+                const msgArgs = ['error-number-out-of-range-too-big', `${max}`] as const;
 
                 errors.push({
                     errorMessage: this.sanitizer.bypassSecurityTrustHtml(
@@ -1448,7 +1448,7 @@ export class UserProfileFormService {
 
             if (min && intValue < parseInt(`${min}`)) {
                 const msgArgs = [
-                    "error-number-out-of-range-too-small",
+                    'error-number-out-of-range-too-small',
                     `${min}`
                 ] as const;
 
@@ -1466,7 +1466,7 @@ export class UserProfileFormService {
         }
 
         validator_x: {
-            const validatorName = "options";
+            const validatorName = 'options';
 
             const validator = validators[validatorName];
 
@@ -1474,7 +1474,7 @@ export class UserProfileFormService {
                 break validator_x;
             }
 
-            if (value === "") {
+            if (value === '') {
                 break validator_x;
             }
 
@@ -1482,7 +1482,7 @@ export class UserProfileFormService {
                 break validator_x;
             }
 
-            const msgArgs = [id<MessageKey_defaultSet>("notAValidOption")] as const;
+            const msgArgs = [id<MessageKey_defaultSet>('notAValidOption')] as const;
 
             errors.push({
                 errorMessage: this.sanitizer.bypassSecurityTrustHtml(
@@ -1491,7 +1491,7 @@ export class UserProfileFormService {
                 errorMessageStr: msgStr(...msgArgs),
                 fieldIndex: undefined,
                 source: {
-                    type: "validator",
+                    type: 'validator',
                     name: validatorName
                 }
             });

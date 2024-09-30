@@ -1,9 +1,9 @@
-import { inject, Injectable, Renderer2, RendererFactory2 } from "@angular/core";
-import { Observable } from "rxjs";
-import { Script } from "../models/script.model";
+import { inject, Injectable, Renderer2, RendererFactory2 } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Script } from '../models/script.model';
 
 @Injectable({
-    providedIn: "root"
+    providedIn: 'root'
 })
 export class ResourceInjectorService {
     private renderer: Renderer2 = inject(RendererFactory2).createRenderer(null, null);
@@ -17,8 +17,8 @@ export class ResourceInjectorService {
                 console.debug(`stylesheet: ${url} already loaded`);
                 return;
             }
-            const link = document.createElement("link");
-            link.rel = "stylesheet";
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
             link.href = url;
 
             link.onload = () => {
@@ -39,7 +39,7 @@ export class ResourceInjectorService {
             console.debug(`script: ${src} already injected`);
             return;
         }
-        const script = document.createElement("script");
+        const script = document.createElement('script');
         script.type = type;
         if (src) script.src = src;
         if (textContent) script.textContent = textContent;

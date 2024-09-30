@@ -1,15 +1,15 @@
-import { execSync } from "child_process";
-import { join as pathJoin, relative as pathRelative } from "path";
-import { getThisCodebaseRootDirPath } from "./tools/getThisCodebaseRootDirPath";
-import * as fs from "fs";
-import * as os from "os";
+import { execSync } from 'child_process';
+import { join as pathJoin, relative as pathRelative } from 'path';
+import { getThisCodebaseRootDirPath } from './tools/getThisCodebaseRootDirPath';
+import * as fs from 'fs';
+import * as os from 'os';
 
-const singletonDependencies: string[] = ["keycloakify", "rxjs", "zone.js"];
+const singletonDependencies: string[] = ['keycloakify', 'rxjs', 'zone.js'];
 
 // For example [ "@emotion" ] it's more convenient than
 // having to list every sub emotion packages (@emotion/css @emotion/utils ...)
 // in singletonDependencies
-const namespaceSingletonDependencies: string[] = ["@angular"];
+const namespaceSingletonDependencies: string[] = ['@angular'];
 
 const rootDirPath = getThisCodebaseRootDirPath();
 
@@ -17,7 +17,7 @@ const commonThirdPartyDeps = [
     ...namespaceSingletonDependencies
         .map(namespaceModuleName =>
             fs
-                .readdirSync(pathJoin(rootDirPath, "node_modules", namespaceModuleName))
+                .readdirSync(pathJoin(rootDirPath, 'node_modules', namespaceModuleName))
                 .map(submoduleName => `${namespaceModuleName}/${submoduleName}`)
         )
         .reduce((prev, curr) => [...prev, ...curr], []),
@@ -27,8 +27,8 @@ const commonThirdPartyDeps = [
 //NOTE: This is only required because of: https://github.com/garronej/ts-ci/blob/c0e207b9677523d4ec97fe672ddd72ccbb3c1cc4/README.md?plain=1#L54-L58
 {
     let modifiedPackageJsonContent = fs
-        .readFileSync(pathJoin(rootDirPath, "package.json"))
-        .toString("utf8");
+        .readFileSync(pathJoin(rootDirPath, 'package.json'))
+        .toString('utf8');
 
     modifiedPackageJsonContent = (() => {
         const o = JSON.parse(modifiedPackageJsonContent);
@@ -45,18 +45,18 @@ const commonThirdPartyDeps = [
         .replace(/"!\.\/dist\//g, '"!./');
 
     modifiedPackageJsonContent = JSON.stringify(
-        { ...JSON.parse(modifiedPackageJsonContent), version: "0.0.0" },
+        { ...JSON.parse(modifiedPackageJsonContent), version: '0.0.0' },
         null,
         4
     );
 
     fs.writeFileSync(
-        pathJoin(rootDirPath, "dist", "package.json"),
-        Buffer.from(modifiedPackageJsonContent, "utf8")
+        pathJoin(rootDirPath, 'dist', 'package.json'),
+        Buffer.from(modifiedPackageJsonContent, 'utf8')
     );
 }
 
-const yarnGlobalDirPath = pathJoin(rootDirPath, ".yarn_home");
+const yarnGlobalDirPath = pathJoin(rootDirPath, '.yarn_home');
 
 fs.rmSync(yarnGlobalDirPath, { recursive: true, force: true });
 fs.mkdirSync(yarnGlobalDirPath);
@@ -65,18 +65,18 @@ const execYarnLink = (params: { targetModuleName?: string; cwd: string }) => {
     const { targetModuleName, cwd } = params;
 
     const cmd = [
-        "yarn",
-        "link",
-        ...(targetModuleName !== undefined ? [targetModuleName] : ["--no-bin-links"])
-    ].join(" ");
+        'yarn',
+        'link',
+        ...(targetModuleName !== undefined ? [targetModuleName] : ['--no-bin-links'])
+    ].join(' ');
 
-    console.log(`$ cd ${pathRelative(rootDirPath, cwd) || "."} && ${cmd}`);
+    console.log(`$ cd ${pathRelative(rootDirPath, cwd) || '.'} && ${cmd}`);
 
     execSync(cmd, {
         cwd,
         env: {
             ...process.env,
-            ...(os.platform() === "win32"
+            ...(os.platform() === 'win32'
                 ? { USERPROFILE: yarnGlobalDirPath }
                 : { HOME: yarnGlobalDirPath })
         }
@@ -88,7 +88,7 @@ const testAppPaths = (() => {
 
     return testAppNames
         .map(testAppName => {
-            const testAppPath = pathJoin(rootDirPath, "..", testAppName);
+            const testAppPath = pathJoin(rootDirPath, '..', testAppName);
 
             if (fs.existsSync(testAppPath)) {
                 return testAppPath;
@@ -104,13 +104,13 @@ const testAppPaths = (() => {
 })();
 
 if (testAppPaths.length === 0) {
-    console.error("No test app to link into!");
+    console.error('No test app to link into!');
     process.exit(-1);
 }
 
-testAppPaths.forEach(testAppPath => execSync("yarn install", { cwd: testAppPath }));
+testAppPaths.forEach(testAppPath => execSync('yarn install', { cwd: testAppPath }));
 
-console.log("=== Linking common dependencies ===");
+console.log('=== Linking common dependencies ===');
 
 const total = commonThirdPartyDeps.length;
 let current = 0;
@@ -123,9 +123,9 @@ commonThirdPartyDeps.forEach(commonThirdPartyDep => {
     const localInstallPath = pathJoin(
         ...[
             rootDirPath,
-            "node_modules",
-            ...(commonThirdPartyDep.startsWith("@")
-                ? commonThirdPartyDep.split("/")
+            'node_modules',
+            ...(commonThirdPartyDep.startsWith('@')
+                ? commonThirdPartyDep.split('/')
                 : [commonThirdPartyDep])
         ]
     );
@@ -142,16 +142,16 @@ commonThirdPartyDeps.forEach(commonThirdPartyDep =>
     )
 );
 
-console.log("=== Linking in house dependencies ===");
+console.log('=== Linking in house dependencies ===');
 
-execYarnLink({ cwd: pathJoin(rootDirPath, "dist") });
+execYarnLink({ cwd: pathJoin(rootDirPath, 'dist') });
 
 testAppPaths.forEach(testAppPath =>
     execYarnLink({
         cwd: testAppPath,
         targetModuleName: JSON.parse(
-            fs.readFileSync(pathJoin(rootDirPath, "package.json")).toString("utf8")
-        )["name"]
+            fs.readFileSync(pathJoin(rootDirPath, 'package.json')).toString('utf8')
+        )['name']
     })
 );
 

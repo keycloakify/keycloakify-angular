@@ -4,13 +4,13 @@ import {
     forwardRef,
     inject,
     input
-} from "@angular/core";
-import { CLASSES, USE_DEFAULT_CSS } from "@keycloakify/angular/lib/public-api";
-import { Attribute } from "keycloakify/login/KcContext";
-import { ClassKey } from "keycloakify/login/lib/kcClsx";
-import { ComponentReference } from "@keycloakify/angular/login/classes/component-reference.class";
-import { KcClassDirective } from "@keycloakify/angular/login/directives/kc-class.directive";
-import { FormFieldError } from "@keycloakify/angular/login/services/user-profile-form.service";
+} from '@angular/core';
+import { CLASSES, USE_DEFAULT_CSS } from '@keycloakify/angular/lib/public-api';
+import { Attribute } from 'keycloakify/login/KcContext';
+import { ClassKey } from 'keycloakify/login/lib/kcClsx';
+import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
+import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class.directive';
+import { FormFieldError } from '@keycloakify/angular/login/services/user-profile-form.service';
 
 @Component({
     standalone: true,
@@ -22,8 +22,8 @@ import { FormFieldError } from "@keycloakify/angular/login/services/user-profile
         `
     ],
     imports: [KcClassDirective],
-    selector: "kc-field-errors",
-    templateUrl: "field-errors.component.html",
+    selector: 'kc-field-errors',
+    templateUrl: 'field-errors.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         {

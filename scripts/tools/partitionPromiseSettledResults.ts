@@ -6,7 +6,7 @@ export function partitionPromiseSettledResults<T>() {
             [successes, failures]: PromiseSettledAndPartitioned<T>,
             item: PromiseSettledResult<T>
         ) =>
-            item.status === "rejected"
+            item.status === 'rejected'
                 ? ([
                       successes,
                       [item.reason, ...failures]

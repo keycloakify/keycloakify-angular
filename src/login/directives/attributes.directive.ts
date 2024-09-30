@@ -1,6 +1,6 @@
-import { Directive, effect, ElementRef, inject, input, Renderer2 } from "@angular/core";
+import { Directive, effect, ElementRef, inject, input, Renderer2 } from '@angular/core';
 
-@Directive({ selector: "[kcAttributes]", standalone: true })
+@Directive({ selector: '[kcAttributes]', standalone: true })
 export class AttributesDirective {
     kcAttributes = input<Record<string, string>>();
     readonly #el = inject<ElementRef<HTMLElement>>(ElementRef);

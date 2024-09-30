@@ -1,11 +1,11 @@
-import * as fs from "fs";
-import { join } from "path";
-import { startRebuildOnSrcChange } from "./shared/startRebuildOnSrcChange";
-import { crawl } from "../src/bin/tools/crawl";
-import { run } from "./shared/run";
+import * as fs from 'fs';
+import { join } from 'path';
+import { startRebuildOnSrcChange } from './shared/startRebuildOnSrcChange';
+import { crawl } from '../src/bin/tools/crawl';
+import { run } from './shared/run';
 
 {
-    const dirPath = "node_modules";
+    const dirPath = 'node_modules';
 
     try {
         fs.rmSync(dirPath, { recursive: true, force: true });
@@ -15,12 +15,12 @@ import { run } from "./shared/run";
 
         crawl({
             dirPath,
-            returnedPathsType: "absolute"
+            returnedPathsType: 'absolute'
         }).forEach(filePath => {
             try {
                 fs.rmSync(filePath, { force: true });
             } catch (error) {
-                if (filePath.endsWith(".exe")) {
+                if (filePath.endsWith('.exe')) {
                     return;
                 }
                 throw error;
@@ -29,21 +29,21 @@ import { run } from "./shared/run";
     }
 }
 
-fs.rmSync("dist", { recursive: true, force: true });
-fs.rmSync(".yarn_home", { recursive: true, force: true });
+fs.rmSync('dist', { recursive: true, force: true });
+fs.rmSync('.yarn_home', { recursive: true, force: true });
 
-run("yarn install");
-run("yarn build");
+run('yarn install');
+run('yarn build');
 
-const starterName = "keycloakify-starter";
+const starterName = 'keycloakify-starter';
 
-fs.rmSync(join("..", starterName, "node_modules"), {
+fs.rmSync(join('..', starterName, 'node_modules'), {
     recursive: true,
     force: true
 });
 
-run("yarn install", { cwd: join("..", starterName) });
+run('yarn install', { cwd: join('..', starterName) });
 
-run(`npx tsx ${join("scripts", "link-in-app.ts")} ${starterName}`);
+run(`npx tsx ${join('scripts', 'link-in-app.ts')} ${starterName}`);
 
 startRebuildOnSrcChange();

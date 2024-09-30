@@ -1,4 +1,4 @@
-import { AsyncPipe } from "@angular/common";
+import { AsyncPipe } from '@angular/common';
 import {
     ChangeDetectionStrategy,
     Component,
@@ -8,15 +8,15 @@ import {
     Renderer2,
     signal,
     WritableSignal
-} from "@angular/core";
-import { CLASSES, USE_DEFAULT_CSS } from "@keycloakify/angular/lib/public-api";
-import { ClassKey } from "keycloakify/login/lib/kcClsx";
-import { ComponentReference } from "@keycloakify/angular/login/classes/component-reference.class";
-import { KcClassDirective } from "@keycloakify/angular/login/directives/kc-class.directive";
-import { MsgStrPipe } from "@keycloakify/angular/login/pipes/msg-str.pipe";
+} from '@angular/core';
+import { CLASSES, USE_DEFAULT_CSS } from '@keycloakify/angular/lib/public-api';
+import { ClassKey } from 'keycloakify/login/lib/kcClsx';
+import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
+import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class.directive';
+import { MsgStrPipe } from '@keycloakify/angular/login/pipes/msg-str.pipe';
 
 @Component({
-    selector: "kc-password-wrapper",
+    selector: 'kc-password-wrapper',
     styles: [
         `
             :host {
@@ -27,7 +27,7 @@ import { MsgStrPipe } from "@keycloakify/angular/login/pipes/msg-str.pipe";
     standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [KcClassDirective, AsyncPipe, MsgStrPipe],
-    templateUrl: "./password-wrapper.component.html",
+    templateUrl: './password-wrapper.component.html',
     providers: [
         {
             provide: ComponentReference,
@@ -53,8 +53,8 @@ export class PasswordWrapperComponent extends ComponentReference {
         if (input) {
             this.renderer.setProperty(
                 input,
-                "type",
-                this.isPasswordRevealed() ? "text" : "password"
+                'type',
+                this.isPasswordRevealed() ? 'text' : 'password'
             );
         }
     }

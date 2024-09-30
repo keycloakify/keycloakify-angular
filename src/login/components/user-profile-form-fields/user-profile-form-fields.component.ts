@@ -1,4 +1,4 @@
-import { NgTemplateOutlet } from "@angular/common";
+import { NgTemplateOutlet } from '@angular/common';
 import {
     ChangeDetectionStrategy,
     Component,
@@ -8,25 +8,25 @@ import {
     inject,
     output,
     TemplateRef
-} from "@angular/core";
+} from '@angular/core';
 import {
     DO_MAKE_USER_CONFIRM_PASSWORD,
     KC_CONTEXT,
     CLASSES,
     USE_DEFAULT_CSS
-} from "@keycloakify/angular/lib/public-api";
-import { ClassKey } from "keycloakify/login/lib/kcClsx";
-import { KcContext } from "keycloakify/login/KcContext";
-import { ComponentReference } from "@keycloakify/angular/login/classes/component-reference.class";
-import { KcClassDirective } from "@keycloakify/angular/login/directives/kc-class.directive";
-import { AdvancedMsgStrPipe } from "@keycloakify/angular/login/pipes/advanced-msg-str.pipe";
+} from '@keycloakify/angular/lib/public-api';
+import { ClassKey } from 'keycloakify/login/lib/kcClsx';
+import { KcContext } from 'keycloakify/login/KcContext';
+import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
+import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class.directive';
+import { AdvancedMsgStrPipe } from '@keycloakify/angular/login/pipes/advanced-msg-str.pipe';
 import {
     FormAction,
     UserProfileFormService
-} from "@keycloakify/angular/login/services/user-profile-form.service";
-import { FieldErrorsComponent } from "@keycloakify/angular/login/components/field-errors/field-errors.component";
-import { GroupLabelComponent } from "@keycloakify/angular/login/components/group-label/group-label.component";
-import { InputFieldByTypeComponent } from "@keycloakify/angular/login/components/input-field-by-type/input-field-by-type.component";
+} from '@keycloakify/angular/login/services/user-profile-form.service';
+import { FieldErrorsComponent } from '@keycloakify/angular/login/components/field-errors/field-errors.component';
+import { GroupLabelComponent } from '@keycloakify/angular/login/components/group-label/group-label.component';
+import { InputFieldByTypeComponent } from '@keycloakify/angular/login/components/input-field-by-type/input-field-by-type.component';
 
 @Component({
     standalone: true,
@@ -45,8 +45,8 @@ import { InputFieldByTypeComponent } from "@keycloakify/angular/login/components
         NgTemplateOutlet,
         AdvancedMsgStrPipe
     ],
-    selector: "kc-user-profile-form-fields",
-    templateUrl: "user-profile-form-fields.component.html",
+    selector: 'kc-user-profile-form-fields',
+    templateUrl: 'user-profile-form-fields.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         UserProfileFormService,
@@ -67,8 +67,8 @@ export class UserProfileFormFieldsComponent extends ComponentReference {
 
     formState = this.userProfileFormService.formState;
 
-    @ContentChild("beforField") beforeField: TemplateRef<unknown> | undefined;
-    @ContentChild("afterField") afterField: TemplateRef<unknown> | undefined;
+    @ContentChild('beforField') beforeField: TemplateRef<unknown> | undefined;
+    @ContentChild('afterField') afterField: TemplateRef<unknown> | undefined;
 
     constructor() {
         super();

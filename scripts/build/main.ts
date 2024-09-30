@@ -17,14 +17,20 @@ import { crawl } from '../tools/crawl';
     {
         const angularWorkspaceDirPath = pathJoin(distDirPath, 'workspace');
 
+        console.log('a');
+
         if (fs.existsSync(distDirPath)) {
             fs.rmSync(distDirPath, { recursive: true, force: true });
         }
+
+        console.log('b');
 
         transformCodebase({
             srcDirPath: pathJoin(__dirname, 'workspace'),
             destDirPath: angularWorkspaceDirPath
         });
+
+        console.log('c');
 
         const srcDirPath_workspace = pathJoin(
             angularWorkspaceDirPath,
@@ -33,10 +39,14 @@ import { crawl } from '../tools/crawl';
             'src'
         );
 
+        console.log('e');
+
         transformCodebase({
             srcDirPath: pathJoin(getThisCodebaseRootDirPath(), 'src'),
             destDirPath: srcDirPath_workspace
         });
+
+        console.log('f');
 
         {
             const typescriptFilesRelativeFilePaths = crawl({
@@ -57,13 +67,19 @@ import { crawl } from '../tools/crawl';
             );
         }
 
+        console.log('g');
+
         run(`npx ng build`, { cwd: angularWorkspaceDirPath });
+
+        console.log('h');
 
         const angularDistDirPath = pathJoin(
             angularWorkspaceDirPath,
             'dist',
             'keycloakify-angular'
         );
+
+        console.log('i');
 
         transformCodebase({
             srcDirPath: pathJoin(angularDistDirPath, 'esm2022'),
@@ -80,6 +96,8 @@ import { crawl } from '../tools/crawl';
                 return { modifiedSourceCode: sourceCode };
             }
         });
+
+        console.log('j');
 
         transformCodebase({
             srcDirPath: angularDistDirPath,
@@ -109,10 +127,16 @@ import { crawl } from '../tools/crawl';
             }
         });
 
+        console.log('k');
+
         fs.rmSync(angularWorkspaceDirPath, { recursive: true, force: true });
     }
 
+    console.log('l');
+
     run(`npx tsc-alias -p ${pathJoin('src', 'tsconfig.json')}`);
+
+    console.log('m');
 
     {
         const dirBasename = 'src';
@@ -123,6 +147,8 @@ import { crawl } from '../tools/crawl';
 
         fs.cpSync(dirBasename, destDirPath, { recursive: true });
     }
+
+    console.log('n');
 
     transformCodebase({
         srcDirPath: pathJoin(getThisCodebaseRootDirPath(), 'stories'),
@@ -135,6 +161,8 @@ import { crawl } from '../tools/crawl';
             return { modifiedSourceCode: sourceCode };
         }
     });
+
+    console.log('o');
 
     console.log(
         chalk.green(`✓ built in ${((Date.now() - startTime) / 1000).toFixed(2)}s`)

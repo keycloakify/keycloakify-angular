@@ -4,6 +4,7 @@ import { transformCodebase } from "../tools/transformCodebase";
 import chalk from "chalk";
 import { run } from "../shared/run";
 import { getThisCodebaseRootDirPath } from "../tools/getThisCodebaseRootDirPath";
+import { crawl } from "../tools/crawl";
 
 (async () => {
     console.log(chalk.cyan("Building Keycloakify..."));
@@ -25,17 +26,41 @@ import { getThisCodebaseRootDirPath } from "../tools/getThisCodebaseRootDirPath"
             destDirPath: angularWorkspaceDirPath
         });
 
+        const srcDirPath_workspace = pathJoin(
+            angularWorkspaceDirPath,
+            "projects",
+            "keycloakify-angular",
+            "src"
+        );
+
         transformCodebase({
             srcDirPath: pathJoin(getThisCodebaseRootDirPath(), "src"),
-            destDirPath: pathJoin(
-                angularWorkspaceDirPath,
-                "projects",
-                "keycloakify-angular",
-                "src"
-            )
+            destDirPath: srcDirPath_workspace
         });
 
-        //run(`yarn`, { cwd: angularWorkspaceDirPath });
+        {
+            const typescriptFilesRelativeFilePaths = crawl({
+                dirPath: pathJoin(getThisCodebaseRootDirPath(), "src"),
+                returnedPathsType: "relative to dirPath"
+            }).filter(relativePath => relativePath.endsWith(".ts"));
+
+            fs.writeFileSync(
+                pathJoin(srcDirPath_workspace, "public-api.ts"),
+                Buffer.from(
+                    typescriptFilesRelativeFilePaths
+                        .map(
+                            (relativeFilePath, i) =>
+                                `export * as e${i} from "./${relativeFilePath.replace(/\.ts$/, "")}";`
+                        )
+                        .join("\n")
+                )
+            );
+
+            if (Date.now() > 0) {
+                process.exit(0);
+            }
+        }
+
         run(`yarn build`, { cwd: angularWorkspaceDirPath });
 
         const angularDistDirPath = pathJoin(
@@ -77,10 +102,6 @@ import { getThisCodebaseRootDirPath } from "../tools/getThisCodebaseRootDirPath"
         });
 
         fs.rmSync(angularWorkspaceDirPath, { recursive: true, force: true });
-
-        if (Date.now() > 0) {
-            process.exit(0);
-        }
     }
 
     /*

@@ -13,13 +13,13 @@ import { crawl } from '../tools/crawl';
 
     const distDirPath = pathJoin(getThisCodebaseRootDirPath(), 'dist');
 
-    if (fs.existsSync(distDirPath)) {
-        fs.rmSync(distDirPath, { recursive: true, force: true });
-    }
-
     // tsc + angular JIT
     {
         const angularWorkspaceDirPath = pathJoin(distDirPath, 'workspace');
+
+        if (fs.existsSync(distDirPath)) {
+            fs.rmSync(distDirPath, { recursive: true, force: true });
+        }
 
         transformCodebase({
             srcDirPath: pathJoin(__dirname, 'workspace'),

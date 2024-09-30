@@ -8,14 +8,13 @@ import { DO_MAKE_USER_CONFIRM_PASSWORD } from '@keycloakify/angular/login/tokens
 import { KcContextLike } from 'keycloakify/login/i18n/noJsx';
 import { ClassKey } from 'keycloakify/login/lib/kcClsx';
 import { KcContext } from '../KcContext';
+import { I18nService } from '@keycloakify/angular/login/services/i18n.service';
 
 export type KeycloakifyAngularLoginConfig = {
     doMakeUserConfirmPassword?: boolean;
     doUseDefaultCss?: boolean;
     classes?: { [key in ClassKey]?: string };
-    getI18n: (params: {
-        kcContext: KcContextLike;
-    }) => {
+    getI18n: (params: { kcContext: KcContextLike }) => {
         i18n: unknown;
         prI18n_currentLanguage: Promise<unknown> | undefined;
     };
@@ -42,7 +41,7 @@ export const provideKeycloakifyAngularLogin = (config: KeycloakifyAngularLoginCo
         {
             provide: APP_INITIALIZER,
             multi: true,
-            useFactory: (_i18n: unknown, kcContext: KcContext) => async () => {
+            useFactory: (i18nService: I18nService, kcContext: KcContext) => async () => {
                 const getI18n = config.getI18n;
 
                 const { i18n, prI18n_currentLanguage } = getI18n({
@@ -53,11 +52,16 @@ export const provideKeycloakifyAngularLogin = (config: KeycloakifyAngularLoginCo
                     i18nPromise = prI18n_currentLanguage;
                 }
                 return i18nPromise.then(i18n => {
-                    _i18n = i18n;
+                    i18nService.i18n = i18n;
                     return true;
                 });
             },
-            deps: [LOGIN_I18N, KC_LOGIN_CONTEXT]
+            deps: [I18nService, KC_LOGIN_CONTEXT]
+        },
+        {
+            provide: LOGIN_I18N,
+            useFactory: (i18nService: I18nService) => i18nService.i18n,
+            deps: [I18nService]
         },
         { provide: USE_DEFAULT_CSS, useValue: config?.doUseDefaultCss ?? true },
         { provide: LOGIN_CLASSES, useValue: config?.classes ?? {} }

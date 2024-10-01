@@ -5,6 +5,7 @@ import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes.token';
 import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n.token';
 import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context.token';
 import { DO_MAKE_USER_CONFIRM_PASSWORD } from '@keycloakify/angular/login/tokens/make-user-confirm-password.token';
+import { USER_PROFILE_FORM_FIELDS_EJECTED_PATH } from '@keycloakify/angular/login/tokens/user-profile-form-fields-ejected-path.token';
 import { type KcContextLike } from 'keycloakify/login/i18n/noJsx';
 import { type ClassKey } from 'keycloakify/login/lib/kcClsx';
 import { type KcContext } from '../KcContext';
@@ -14,6 +15,7 @@ export type KeycloakifyAngularLoginConfig = {
     doMakeUserConfirmPassword?: boolean;
     doUseDefaultCss?: boolean;
     classes?: { [key in ClassKey]?: string };
+    userProfileFormFieldsEjectedPath?: string;
     getI18n: (params: { kcContext: KcContextLike }) => {
         i18n: unknown;
         prI18n_currentLanguage: Promise<unknown> | undefined;
@@ -64,5 +66,9 @@ export const provideKeycloakifyAngularLogin = (config: KeycloakifyAngularLoginCo
             deps: [I18nService]
         },
         { provide: USE_DEFAULT_CSS, useValue: config?.doUseDefaultCss ?? true },
-        { provide: LOGIN_CLASSES, useValue: config?.classes ?? {} }
+        { provide: LOGIN_CLASSES, useValue: config?.classes ?? {} },
+        {
+            provide: USER_PROFILE_FORM_FIELDS_EJECTED_PATH,
+            useValue: config.userProfileFormFieldsEjectedPath
+        }
     ]);

@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, forwardRef, inject, input, output }
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css.token';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class.directive';
-import { ToNumberPipe } from '@keycloakify/angular/login/pipes/to-number.pipe';
+import { ToNumberPipe } from '@keycloakify/angular/lib/pipes/to-number.pipe';
 import { type FormAction, type FormFieldError } from '@keycloakify/angular/login/services/user-profile-form.service';
 import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes.token';
 import { type Attribute } from 'keycloakify/login/KcContext';

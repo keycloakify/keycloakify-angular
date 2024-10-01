@@ -1,0 +1,44 @@
+@let log = kcContext.log;
+
+<kc-account-template [active]="'log'">
+    <ng-container content>
+        <div [kcClass]="'kcContentWrapperClass'">
+            <div class="col-md-10">
+                <h2>{{ i18n.msgStr('accountLogHtmlTitle') }}</h2>
+            </div>
+
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <td>{{ i18n.msgStr('date') }}</td>
+                        <td>{{ i18n.msgStr('event') }}</td>
+                        <td>{{ i18n.msgStr('ip') }}</td>
+                        <td>{{ i18n.msgStr('client') }}</td>
+                        <td>{{ i18n.msgStr('details') }}</td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @for (event of log.events; track event) {
+                        <tr>
+                            <td>{{ event.date ? (event.date | date) : '' }}</td>
+                            <td>{{ event.event }}</td>
+                            <td>{{ event.ipAddress }}</td>
+                            <td>{{ event.client || '' }}</td>
+                            <td>
+                                @for (detail of event.details; track detail; let last = $last) {
+                                    <span>
+                                        {{ detail.key }} = {{ detail.value }}
+                                        @if (!last) {
+                                            ,&nbsp;
+                                        }
+                                    </span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </ng-container>
+</kc-account-template>

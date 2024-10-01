@@ -4,7 +4,7 @@ import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes.token';
 import { type Attribute } from 'keycloakify/login/KcContext';
 import { type ClassKey } from 'keycloakify/login/lib/kcClsx';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
-import { ToArrayPipe } from '@keycloakify/angular/login/pipes/to-array.pipe';
+import { ToArrayPipe } from '@keycloakify/angular/lib/pipes/to-array.pipe';
 import { FormAction, FormFieldError } from '@keycloakify/angular/login/services/user-profile-form.service';
 import { InputTagSelectsComponent } from '@keycloakify/angular/login/components/input-tag-selects/input-tag-selects.component';
 import { InputTagComponent } from '@keycloakify/angular/login/components/input-tag/input-tag.component';

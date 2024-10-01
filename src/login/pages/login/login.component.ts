@@ -5,7 +5,7 @@ import { ComponentReference } from '@keycloakify/angular/login/classes/component
 import { PasswordWrapperComponent } from '@keycloakify/angular/login/components/password-wrapper/password-wrapper.component';
 import { TemplateComponent } from '@keycloakify/angular/login/containers/template.component';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class.directive';
-import { KcSanitizePipe } from '@keycloakify/angular/login/pipes/kc-sanitize.pipe';
+import { KcSanitizePipe } from '@keycloakify/angular/lib/pipes/kc-sanitize.pipe';
 import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes.token';
 import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n.token';
 import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context.token';

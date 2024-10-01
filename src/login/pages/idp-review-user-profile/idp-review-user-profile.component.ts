@@ -48,7 +48,7 @@ export class IdpReviewUserProfileComponent extends ComponentReference implements
         this.userProfileFormFieldsComponent = from(
             import(/* @vite-ignore */
                 this.userProfileFormFieldsEjectedPath ??
-                    '../../components/user-profile-form-fields/user-profile-form-fields.component'
+                    '@keycloakify/angular/login/components/user-profile-form-fields/user-profile-form-fields.component'
             ).then(c => c.UserProfileFormFieldsComponent)
         );
     }

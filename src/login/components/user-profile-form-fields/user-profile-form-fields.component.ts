@@ -14,6 +14,7 @@ import { DO_MAKE_USER_CONFIRM_PASSWORD } from '@keycloakify/angular/login/tokens
 import { type ClassKey } from 'keycloakify/login/lib/kcClsx';
 import { type I18n } from '../../i18n';
 import { type KcContext } from '../../KcContext';
+import { SubmitService } from '@keycloakify/angular/login/services/submit.service';
 
 @Component({
     standalone: true,
@@ -40,6 +41,7 @@ export class UserProfileFormFieldsComponent extends ComponentReference {
     i18n = inject<I18n>(LOGIN_I18N);
     kcContext = inject<KcContext>(KC_LOGIN_CONTEXT);
     userProfileFormService = inject(UserProfileFormService);
+    #submitService = inject(SubmitService);
     doMakeUserConfirmPassword = inject(DO_MAKE_USER_CONFIRM_PASSWORD);
     override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
     override classes = inject<Partial<Record<ClassKey, string>>>(LOGIN_CLASSES);
@@ -53,10 +55,13 @@ export class UserProfileFormFieldsComponent extends ComponentReference {
 
     constructor() {
         super();
-        effect(() => {
-            const isFormSubmittable = this.formState().isFormSubmittable;
-            this.onIsFormSubmittable.emit(isFormSubmittable);
-        });
+        effect(
+            () => {
+                const isFormSubmittable = this.formState().isFormSubmittable;
+                this.#submitService.setIsSubmittable(isFormSubmittable);
+            },
+            { allowSignalWrites: true }
+        );
     }
 
     onDispatch(formAction: FormAction) {

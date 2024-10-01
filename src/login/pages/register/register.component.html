@@ -24,7 +24,7 @@
             [action]="url.registrationAction"
             method="post"
         >
-            <kc-user-profile-form-fields (onIsFormSubmittable)="isFormSubmittable.set($event)"></kc-user-profile-form-fields>
+            <ng-container [ngComponentOutlet]="userProfileFormFields() ?? null"></ng-container>
             @if (termsAcceptanceRequired) {
                 <div className="form-group">
                     <div [kcClass]="'kcInputWrapperClass'">
@@ -113,7 +113,7 @@
                         [kcClass]="'kcFormButtonsClass'"
                     >
                         <input
-                            [disabled]="!isFormSubmittable || (termsAcceptanceRequired && !areTermsAccepted)"
+                            [disabled]="!isFormSubmittable() || (termsAcceptanceRequired && !areTermsAccepted())"
                             [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                             type="submit"
                             [value]="i18n.msgStr('doRegister')"

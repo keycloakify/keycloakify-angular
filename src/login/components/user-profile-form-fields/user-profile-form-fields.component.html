@@ -1,9 +1,6 @@
 @let formFieldStates = formState().formFieldStates;
 
 @for (fieldState of formFieldStates; track fieldState.attribute) {
-    <!-- [groupNameRef]="groupNameRef"
-  TODO: verify this logic
-  -->
     <kc-group-label [attribute]="fieldState.attribute"> </kc-group-label>
 
     @if (beforeField) {

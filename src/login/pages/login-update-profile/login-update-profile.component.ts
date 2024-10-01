@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component, forwardRef, inject, input, signal } from '@angular/core';
+import { NgComponentOutlet } from '@angular/common';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input, signal, Type } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css.token';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
 import { UserProfileFormFieldsComponent } from '@keycloakify/angular/login/components/user-profile-form-fields/user-profile-form-fields.component';
@@ -10,10 +12,11 @@ import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context.t
 import { type ClassKey } from 'keycloakify/login/lib/kcClsx';
 import { type I18n } from '../../i18n';
 import { type KcContext } from '../../KcContext';
+import { SubmitService } from '@keycloakify/angular/login/services/submit.service';
 
 @Component({
     standalone: true,
-    imports: [TemplateComponent, KcClassDirective, UserProfileFormFieldsComponent],
+    imports: [TemplateComponent, KcClassDirective, NgComponentOutlet],
     selector: 'kc-root',
     templateUrl: 'login-update-profile.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -25,6 +28,7 @@ import { type KcContext } from '../../KcContext';
     ]
 })
 export class LoginUpdateProfileComponent extends ComponentReference {
+    #submitService = inject(SubmitService);
     kcContext = inject<Extract<KcContext, { pageId: 'login-update-profile.ftl' }>>(KC_LOGIN_CONTEXT);
     i18n = inject<I18n>(LOGIN_I18N);
     override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
@@ -36,4 +40,12 @@ export class LoginUpdateProfileComponent extends ComponentReference {
     displayMessage: boolean = this.kcContext.messagesPerField.exists('global');
 
     isFormSubmittable = signal(false);
+
+    userProfileFormFields = input<Type<UserProfileFormFieldsComponent>>();
+    constructor() {
+        super();
+        this.#submitService.isSubmittable.pipe(takeUntilDestroyed()).subscribe(submittable => {
+            this.isFormSubmittable.set(submittable);
+        });
+    }
 }

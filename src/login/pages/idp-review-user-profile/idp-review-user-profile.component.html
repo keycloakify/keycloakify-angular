@@ -16,7 +16,7 @@
             [action]="url.loginAction"
             method="post"
         >
-            <ng-container *ngComponentOutlet="userProfileFormFieldsComponent | async"></ng-container>
+            <ng-container [ngComponentOutlet]="userProfileFormFields() ?? null"></ng-container>
             <div [kcClass]="'kcFormGroupClass'">
                 <div
                     id="kc-form-options"
@@ -32,7 +32,7 @@
                         [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                         type="submit"
                         [value]="i18n.msgStr('doSubmit')"
-                        [disabled]="!isFormSubmittable"
+                        [disabled]="!isFormSubmittable()"
                     />
                 </div>
             </div>

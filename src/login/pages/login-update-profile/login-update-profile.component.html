@@ -17,8 +17,7 @@
             [action]="url.loginAction"
             method="post"
         >
-            <kc-user-profile-form-fields (onIsFormSubmittable)="isFormSubmittable.set($event)"></kc-user-profile-form-fields>
-
+            <ng-container [ngComponentOutlet]="userProfileFormFields() ?? null"></ng-container>
             <div [kcClass]="'kcFormGroupClass'">
                 <div
                     id="kc-form-options"
@@ -31,7 +30,7 @@
                     [kcClass]="'kcFormButtonsClass'"
                 >
                     <input
-                        [disabled]="!isFormSubmittable"
+                        [disabled]="!isFormSubmittable()"
                         [kcClass]="{
                             kcButtonClass: true,
                             kcButtonPrimaryClass: true,

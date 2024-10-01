@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import { join as pathJoin, basename as pathBasename } from 'path';
+import { join as pathJoin, basename as pathBasename, sep as pathSep } from 'path';
 import { transformCodebase } from '../tools/transformCodebase';
 import chalk from 'chalk';
 import { run } from '../shared/run';
@@ -63,7 +63,7 @@ import { crawl } from '../tools/crawl';
                     typescriptFilesRelativeFilePaths
                         .map(
                             (relativeFilePath, i) =>
-                                `export * as e${i} from "./${relativeFilePath.replace(/\.ts$/, '')}";`
+                                `export * as e${i} from "./${relativeFilePath.split(pathSep).join('/').replace(/\.ts$/, '')}";`
                         )
                         .join('\n')
                 )

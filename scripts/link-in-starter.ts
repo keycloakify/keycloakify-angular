@@ -6,6 +6,7 @@ import { run } from './shared/run';
 import cliSelect from 'cli-select';
 import { getThisCodebaseRootDirPath } from './tools/getThisCodebaseRootDirPath';
 import chalk from 'chalk';
+import { removeNodeModules } from './tools/removeNodeModules';
 
 (async () => {
     const parentDirPath = pathJoin(getThisCodebaseRootDirPath(), '..');
@@ -48,30 +49,9 @@ import chalk from 'chalk';
 
     console.log(chalk.cyan(`\n\nLinking in ..${pathSep}${starterName}...`));
 
-    {
-        const dirPath = 'node_modules';
-
-        try {
-            fs.rmSync(dirPath, { recursive: true, force: true });
-        } catch {
-            // NOTE: This is a workaround for windows
-            // we can't remove locked executables.
-
-            crawl({
-                dirPath,
-                returnedPathsType: 'absolute'
-            }).forEach(filePath => {
-                try {
-                    fs.rmSync(filePath, { force: true });
-                } catch (error) {
-                    if (filePath.endsWith('.exe')) {
-                        return;
-                    }
-                    throw error;
-                }
-            });
-        }
-    }
+    removeNodeModules({
+        nodeModulesDirPath: pathJoin(getThisCodebaseRootDirPath(), 'node_modules')
+    });
 
     fs.rmSync('dist', { recursive: true, force: true });
     fs.rmSync('.yarn_home', { recursive: true, force: true });
@@ -81,9 +61,8 @@ import chalk from 'chalk';
 
     const starterDirPath = pathJoin(parentDirPath, starterName);
 
-    fs.rmSync(pathJoin(starterDirPath, 'node_modules'), {
-        recursive: true,
-        force: true
+    removeNodeModules({
+        nodeModulesDirPath: pathJoin(starterDirPath, 'node_modules')
     });
 
     run('yarn install', { cwd: pathJoin('..', starterName) });

@@ -8,6 +8,7 @@ const DefaultPage = async (
   classes: { [key in ClassKey]?: string } = {},
 ): Promise<{
   ComponentBootstrap: Type<unknown>;
+  doMakeUserConfirmPassword: boolean;
   doUseDefaultCss: boolean;
   classes: { [key in ClassKey]?: string };
 }> => {
@@ -41,6 +42,7 @@ const DefaultPage = async (
   }
   return ComponentBootstrapPromise?.then((ComponentBootstrap) => ({
     ComponentBootstrap,
+    doMakeUserConfirmPassword: false,
     doUseDefaultCss,
     classes,
   }));

@@ -43,6 +43,10 @@ import { getThisCodebaseRootDirPath } from './tools/getThisCodebaseRootDirPath';
                 return undefined;
             }
 
+            if (fileRelativePath.endsWith('/index.ts')) {
+                return undefined;
+            }
+
             return { modifiedSourceCode: sourceCode };
         }
     });
@@ -115,12 +119,12 @@ import { getThisCodebaseRootDirPath } from './tools/getThisCodebaseRootDirPath';
 
                 modifiedSourceCode_str = modifiedSourceCode_str.replaceAll(
                     `@keycloakify/angular/${themeType}/i18n`,
-                    getRelativeTo('i18n')
+                    getRelativeTo('i18n') === 'i18n' ? './i18n' : getRelativeTo('i18n')
                 );
 
                 modifiedSourceCode_str = modifiedSourceCode_str.replaceAll(
                     `@keycloakify/angular/${themeType}/KcContext`,
-                    getRelativeTo('KcContext')
+                    getRelativeTo('KcContext') === 'KcContext' ? './KcContext' : getRelativeTo('KcContext')
                 );
 
                 return {

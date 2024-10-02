@@ -1,6 +1,6 @@
 {
     "name": "@keycloakify/angular",
-    "version": "0.0.1-rc.12",
+    "version": "0.0.1-rc.13",
     "description": "Angular components for Keycloakify",
     "repository": {
         "type": "git",

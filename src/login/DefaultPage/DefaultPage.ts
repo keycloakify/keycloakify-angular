@@ -1,6 +1,6 @@
 import { Type } from '@angular/core';
-import { type ClassKey } from 'keycloakify/login/lib/kcClsx';
-import { type KcContext } from '@keycloakify/angular/login/KcContext';
+import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
+import type { KcContext } from '@keycloakify/angular/login/KcContext';
 
 const DefaultPage = async (
     pageId: KcContext['pageId'],

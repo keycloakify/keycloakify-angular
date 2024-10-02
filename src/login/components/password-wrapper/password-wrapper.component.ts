@@ -5,8 +5,8 @@ import { ComponentReference } from '@keycloakify/angular/login/classes/component
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class';
 import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes';
 import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n';
-import { type ClassKey } from 'keycloakify/login/lib/kcClsx';
-import { type I18n } from '@keycloakify/angular/login/i18n';
+import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
+import type { I18n } from '@keycloakify/angular/login/i18n';
 
 @Component({
     selector: 'kc-password-wrapper',

@@ -7,8 +7,8 @@ import { type FormAction, type FormFieldError } from '@keycloakify/angular/login
 import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes';
 import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n';
 import { type Attribute } from 'keycloakify/login/KcContext';
-import { type ClassKey } from 'keycloakify/login/lib/kcClsx';
-import { type I18n } from '@keycloakify/angular/login/i18n';
+import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
+import type { I18n } from '@keycloakify/angular/login/i18n';
 
 @Component({
     standalone: true,

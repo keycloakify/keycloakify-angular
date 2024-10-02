@@ -89,12 +89,7 @@ jobs:
         registry-url: https://registry.npmjs.org/
     - uses: bahmutov/npm-install@v1
     - run: npm run build
-    - run: npx -y -p denoify@1.6.12 enable_short_npm_import_path
-      env:
-        DRY_RUN: "0"
-    - uses: garronej/ts-ci@v2.1.2
-      with: 
-        action_name: remove_dark_mode_specific_images_from_readme
+    - run: cd dist
     - name: Publishing on NPM
       run: |
         if [ "$(npm show . version)" = "$VERSION" ]; then

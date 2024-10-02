@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
 import { ResourceInjectorService } from '@keycloakify/angular/lib/services/resource-injector';
-import { type KcContext } from '@keycloakify/angular/login/KcContext';
+import type { KcContext } from '@keycloakify/angular/login/KcContext';
 import { catchError, forkJoin, of, switchMap } from 'rxjs';
 import { type Script } from '@keycloakify/angular/lib/models/script';
 

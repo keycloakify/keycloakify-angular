@@ -11,8 +11,8 @@ import { KcSanitizePipe } from '@keycloakify/angular/lib/pipes/kc-sanitize';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { ClassKey, getKcClsx } from 'keycloakify/account/lib/kcClsx';
 import { Observable } from 'rxjs';
-import { type I18n } from '@keycloakify/angular/account/i18n';
-import { type KcContext } from '@keycloakify/angular/account/KcContext';
+import type { I18n } from '@keycloakify/angular/account/i18n';
+import type { KcContext } from '@keycloakify/angular/account/KcContext';
 
 @Component({
     selector: 'kc-account-template',

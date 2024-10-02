@@ -10,7 +10,7 @@ import {
     WritableSignal
 } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { type KcContext } from '@keycloakify/angular/login/KcContext';
+import type { KcContext } from '@keycloakify/angular/login/KcContext';
 import type { I18n } from '@keycloakify/angular/login/i18n';
 import { LoginResourceInjectorService } from '@keycloakify/angular/login/services/login-resource-injector';
 import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n';

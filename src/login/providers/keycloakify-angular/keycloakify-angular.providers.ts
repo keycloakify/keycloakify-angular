@@ -1,14 +1,14 @@
 import { DOCUMENT } from '@angular/common';
 import { APP_INITIALIZER, LOCALE_ID, makeEnvironmentProviders } from '@angular/core';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
-import { type KcContext } from '@keycloakify/angular/login/KcContext';
+import type { KcContext } from '@keycloakify/angular/login/KcContext';
 import { I18nService } from '@keycloakify/angular/login/services/i18n';
 import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes';
 import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n';
 import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
 import { DO_MAKE_USER_CONFIRM_PASSWORD } from '@keycloakify/angular/login/tokens/make-user-confirm-password';
 import { type KcContextLike } from 'keycloakify/login/i18n/noJsx';
-import { type ClassKey } from 'keycloakify/login/lib/kcClsx';
+import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
 
 export type KeycloakifyAngularLoginConfig = {
     doMakeUserConfirmPassword?: boolean;

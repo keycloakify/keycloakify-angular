@@ -8,12 +8,12 @@ import { ComponentReference } from '@keycloakify/angular/login/classes/component
 import { AddRemoveButtonsMultiValuedAttributeComponent } from '@keycloakify/angular/login/components/add-remove-buttons-multi-valued-attribute';
 import { FieldErrorsComponent } from '@keycloakify/angular/login/components/field-errors';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class';
-import { type I18n } from '@keycloakify/angular/login/i18n';
+import type { I18n } from '@keycloakify/angular/login/i18n';
 import { FormAction, FormFieldError } from '@keycloakify/angular/login/services/user-profile-form';
 import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes';
 import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n';
 import { type Attribute } from 'keycloakify/login/KcContext';
-import { type ClassKey } from 'keycloakify/login/lib/kcClsx';
+import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
 
 @Component({
     standalone: true,

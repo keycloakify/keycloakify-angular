@@ -7,9 +7,9 @@ import { KcSanitizePipe } from '@keycloakify/angular/lib/pipes/kc-sanitize';
 import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes';
 import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n';
 import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
-import { type ClassKey } from 'keycloakify/login/lib/kcClsx';
-import { type I18n } from '@keycloakify/angular/login/i18n';
-import { type KcContext } from '@keycloakify/angular/login/KcContext';
+import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
+import type { I18n } from '@keycloakify/angular/login/i18n';
+import type { KcContext } from '@keycloakify/angular/login/KcContext';
 
 @Component({
     standalone: true,

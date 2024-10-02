@@ -6,15 +6,15 @@ import { FieldErrorsComponent } from '@keycloakify/angular/login/components/fiel
 import { GroupLabelComponent } from '@keycloakify/angular/login/components/group-label';
 import { InputFieldByTypeComponent } from '@keycloakify/angular/login/components/input-field-by-type';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class';
-import { type I18n } from '@keycloakify/angular/login/i18n';
-import { type KcContext } from '@keycloakify/angular/login/KcContext';
+import type { I18n } from '@keycloakify/angular/login/i18n';
+import type { KcContext } from '@keycloakify/angular/login/KcContext';
 import { SubmitService } from '@keycloakify/angular/login/services/submit';
 import { type FormAction, UserProfileFormService } from '@keycloakify/angular/login/services/user-profile-form';
 import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes';
 import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n';
 import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
 import { DO_MAKE_USER_CONFIRM_PASSWORD } from '@keycloakify/angular/login/tokens/make-user-confirm-password';
-import { type ClassKey } from 'keycloakify/login/lib/kcClsx';
+import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
 
 @Component({
     standalone: true,

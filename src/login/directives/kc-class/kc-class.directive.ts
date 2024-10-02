@@ -10,7 +10,7 @@ import {
     Renderer2,
     ɵstringify as stringify
 } from '@angular/core';
-import { type ClassKey } from 'keycloakify/login/lib/kcClsx';
+import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
 import { getKcClsx } from 'keycloakify/login/lib/kcClsx';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
 

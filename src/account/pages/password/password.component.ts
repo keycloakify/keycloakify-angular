@@ -7,9 +7,9 @@ import { ACCOUNT_CLASSES } from '@keycloakify/angular/account/tokens/classes';
 import { ACCOUNT_I18N } from '@keycloakify/angular/account/tokens/i18n';
 import { KC_ACCOUNT_CONTEXT } from '@keycloakify/angular/account/tokens/kc-context';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
-import { type ClassKey } from 'keycloakify/account';
-import { type I18n } from '@keycloakify/angular/account/i18n';
-import { type KcContext } from '@keycloakify/angular/account/KcContext';
+import type { ClassKey } from 'keycloakify/account';
+import type { I18n } from '@keycloakify/angular/account/i18n';
+import type { KcContext } from '@keycloakify/angular/account/KcContext';
 
 @Component({
     standalone: true,

@@ -21,12 +21,8 @@
             "pre-commit": "lint-staged -v"
         }
     },
-    "author": "u/garronej",
+    "author": "u/kathari00 u/luca-peruzzo u/garronej",
     "license": "MIT",
-    "files": [
-        "dist/",
-        "!dist/tsconfig.tsbuildinfo"
-    ],
     "keywords": [
         "keycloak",
         "angular",

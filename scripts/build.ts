@@ -155,7 +155,17 @@ import { getThisCodebaseRootDirPath } from './tools/getThisCodebaseRootDirPath';
             fs.readFileSync(packageJsonFilePath_dist).toString('utf8')
         );
 
-        packageJsonParsed_dist.version = packageJsonParsed.version;
+        for (const propertyName of [
+            'version',
+            'description',
+            'keywords',
+            'author',
+            'license',
+            'repository',
+            'homepage'
+        ]) {
+            packageJsonParsed_dist[propertyName] = packageJsonParsed[propertyName];
+        }
 
         fs.writeFileSync(
             packageJsonFilePath_dist,

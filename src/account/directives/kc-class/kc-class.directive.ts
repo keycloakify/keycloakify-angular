@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 import { ClassKey } from 'keycloakify/account';
 import { getKcClsx } from 'keycloakify/account/lib/kcClsx';
-import { ComponentReference } from '../classes/component-reference.class';
+import { ComponentReference } from '@keycloakify/angular/account/classes/component-reference';
 
 interface CssClassState {
   // PERF: could use a bit mask to represent state as all fields are boolean flags

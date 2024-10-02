@@ -7,7 +7,7 @@ import { KC_ACCOUNT_CONTEXT } from '@keycloakify/angular/account/tokens/kc-conte
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { type KcContextLike } from 'keycloakify/account/i18n/noJsx';
 import { type ClassKey } from 'keycloakify/account/lib/kcClsx';
-import { type KcContext } from '../KcContext';
+import { type KcContext } from '@keycloakify/angular/account/KcContext';
 
 export type KeycloakifyAngularAccountConfig = {
     doUseDefaultCss?: boolean;

@@ -1,18 +1,18 @@
 import { AsyncPipe, NgClass, NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, forwardRef, inject, input, OnInit, Renderer2 } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { ComponentReference } from '@keycloakify/angular/account/classes/component-reference.class';
-import { KcClassDirective } from '@keycloakify/angular/account/directives/kc-class.directive';
-import { AccountResourceInjectorService } from '@keycloakify/angular/account/services/resource-injector';
+import { ComponentReference } from '@keycloakify/angular/account/classes/component-reference';
+import { KcClassDirective } from '@keycloakify/angular/account/directives/kc-class';
+import { AccountResourceInjectorService } from '@keycloakify/angular/account/services/account-resource-injector';
 import { ACCOUNT_CLASSES } from '@keycloakify/angular/account/tokens/classes';
 import { ACCOUNT_I18N } from '@keycloakify/angular/account/tokens/i18n';
 import { KC_ACCOUNT_CONTEXT } from '@keycloakify/angular/account/tokens/kc-context';
-import { KcSanitizePipe } from '@keycloakify/angular/lib/pipes/kc-sanitize.pipe';
+import { KcSanitizePipe } from '@keycloakify/angular/lib/pipes/kc-sanitize';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { ClassKey, getKcClsx } from 'keycloakify/account/lib/kcClsx';
 import { Observable } from 'rxjs';
-import { I18n } from '../i18n';
-import { type KcContext } from '../KcContext';
+import { type I18n } from '@keycloakify/angular/account/i18n';
+import { type KcContext } from '@keycloakify/angular/account/KcContext';
 
 @Component({
     selector: 'kc-account-template',

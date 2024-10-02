@@ -89,9 +89,10 @@ jobs:
         registry-url: https://registry.npmjs.org/
     - uses: bahmutov/npm-install@v1
     - run: npm run build
-    - run: cd dist
     - name: Publishing on NPM
       run: |
+        cd dist
+
         if [ "$(npm show . version)" = "$VERSION" ]; then
           echo "This version is already published"
           exit 0

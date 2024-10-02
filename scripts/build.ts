@@ -39,6 +39,18 @@ import { getThisCodebaseRootDirPath } from './tools/getThisCodebaseRootDirPath';
                 return undefined;
             }
 
+            if (fileRelativePath.endsWith('package.json')) {
+                return undefined;
+            }
+
+            if (fileRelativePath.endsWith('tsconfig.lib.json')) {
+                return undefined;
+            }
+
+            if (fileRelativePath.endsWith('tsconfig.lib.prod.json')) {
+                return undefined;
+            }
+
             if (fileRelativePath.endsWith('public-api.ts')) {
                 return undefined;
             }

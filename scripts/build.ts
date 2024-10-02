@@ -8,16 +8,24 @@ import {
 } from 'path';
 import { transformCodebase } from './tools/transformCodebase';
 import chalk from 'chalk';
-import { run } from './shared/run';
+import * as child_process from 'child_process';
 import { getThisCodebaseRootDirPath } from './tools/getThisCodebaseRootDirPath';
-import { crawl } from './tools/crawl';
 
 (async () => {
     console.log(chalk.cyan('Building @keycloakify/angular...'));
 
     const startTime = Date.now();
 
-    run(`npx ng build`, { cwd: getThisCodebaseRootDirPath() });
+    {
+        const command = `npx ng build`;
+
+        console.log(chalk.grey(`$ ${command}`));
+
+        child_process.execSync(command, {
+            stdio: 'inherit',
+            cwd: getThisCodebaseRootDirPath()
+        });
+    }
 
     const distDirPath = pathJoin(getThisCodebaseRootDirPath(), 'dist');
 
@@ -127,10 +135,12 @@ import { crawl } from './tools/crawl';
         destDirPath: pathJoin(distDirPath, 'stories')
     });
 
-    fs.cpSync(
-        pathJoin(getThisCodebaseRootDirPath(), 'README.md'),
-        pathJoin(distDirPath, 'README.md')
-    );
+    for (const basename of ['README.md', 'LICENSE']) {
+        fs.cpSync(
+            pathJoin(getThisCodebaseRootDirPath(), basename),
+            pathJoin(distDirPath, basename)
+        );
+    }
 
     {
         const packageJsonParsed = JSON.parse(

@@ -7,7 +7,7 @@
         "url": "git://github.com/keycloakify/keycloakify-angular.git"
     },
     "scripts": {
-        "build": "tsx scripts/build/main.ts",
+        "build": "ng build",
         "link-in-starter": "tsx scripts/link-in-starter.ts",
         "_format": "prettier '**/*.{ts,html,json,md}'",
         "format": "yarn _format --write",

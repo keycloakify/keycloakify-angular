@@ -1,13 +1,13 @@
 import { ChangeDetectionStrategy, Component, computed, forwardRef, inject, input, output, Signal } from '@angular/core';
-import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css.token';
-import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
-import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class.directive';
-import { type FormAction, type FormFieldError } from '@keycloakify/angular/login/services/user-profile-form.service';
-import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes.token';
-import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n.token';
+import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
+import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
+import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class';
+import { type FormAction, type FormFieldError } from '@keycloakify/angular/login/services/user-profile-form';
+import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes';
+import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n';
 import { type Attribute } from 'keycloakify/login/KcContext';
 import { type ClassKey } from 'keycloakify/login/lib/kcClsx';
-import { type I18n } from '../../i18n';
+import { type I18n } from '@keycloakify/angular/login/i18n';
 
 @Component({
     standalone: true,

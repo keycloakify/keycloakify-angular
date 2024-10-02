@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
-import { type FormAction } from '@keycloakify/angular/login/services/user-profile-form.service';
-import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n.token';
+import { type FormAction } from '@keycloakify/angular/login/services/user-profile-form';
+import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n';
 import { type Attribute } from 'keycloakify/login/KcContext';
-import { type I18n } from '../../i18n';
+import { type I18n } from '@keycloakify/angular/login/i18n';
 
 @Component({
     standalone: true,

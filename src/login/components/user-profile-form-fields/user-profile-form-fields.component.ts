@@ -1,20 +1,20 @@
 import { NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, ContentChild, effect, forwardRef, inject, output, TemplateRef } from '@angular/core';
-import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css.token';
-import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
-import { FieldErrorsComponent } from '@keycloakify/angular/login/components/field-errors/field-errors.component';
-import { GroupLabelComponent } from '@keycloakify/angular/login/components/group-label/group-label.component';
-import { InputFieldByTypeComponent } from '@keycloakify/angular/login/components/input-field-by-type/input-field-by-type.component';
-import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class.directive';
-import { type FormAction, UserProfileFormService } from '@keycloakify/angular/login/services/user-profile-form.service';
-import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes.token';
-import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n.token';
-import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context.token';
-import { DO_MAKE_USER_CONFIRM_PASSWORD } from '@keycloakify/angular/login/tokens/make-user-confirm-password.token';
+import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
+import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
+import { FieldErrorsComponent } from '@keycloakify/angular/login/components/field-errors';
+import { GroupLabelComponent } from '@keycloakify/angular/login/components/group-label';
+import { InputFieldByTypeComponent } from '@keycloakify/angular/login/components/input-field-by-type';
+import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class';
+import { type I18n } from '@keycloakify/angular/login/i18n';
+import { type KcContext } from '@keycloakify/angular/login/KcContext';
+import { SubmitService } from '@keycloakify/angular/login/services/submit';
+import { type FormAction, UserProfileFormService } from '@keycloakify/angular/login/services/user-profile-form';
+import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes';
+import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n';
+import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
+import { DO_MAKE_USER_CONFIRM_PASSWORD } from '@keycloakify/angular/login/tokens/make-user-confirm-password';
 import { type ClassKey } from 'keycloakify/login/lib/kcClsx';
-import { type I18n } from '../../i18n';
-import { type KcContext } from '../../KcContext';
-import { SubmitService } from '@keycloakify/angular/login/services/submit.service';
 
 @Component({
     standalone: true,

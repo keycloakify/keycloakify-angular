@@ -1,14 +1,14 @@
 import { ChangeDetectionStrategy, Component, forwardRef, inject } from '@angular/core';
-import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css.token';
-import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
-import { TemplateComponent } from '@keycloakify/angular/login/containers/template.component';
-import { KcSanitizePipe } from '@keycloakify/angular/lib/pipes/kc-sanitize.pipe';
-import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n.token';
-import { type I18n } from '../../i18n';
-import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes.token';
-import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context.token';
+import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
+import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
+import { TemplateComponent } from '@keycloakify/angular/login/containers/template';
+import { KcSanitizePipe } from '@keycloakify/angular/lib/pipes/kc-sanitize';
+import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n';
+import { type I18n } from '@keycloakify/angular/login/i18n';
+import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes';
+import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
 import { type ClassKey } from 'keycloakify/login/lib/kcClsx';
-import { type KcContext } from '../../KcContext';
+import { type KcContext } from '@keycloakify/angular/login/KcContext';
 
 @Component({
     standalone: true,

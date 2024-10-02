@@ -1,10 +1,10 @@
 import { DOCUMENT } from '@angular/common';
 import { APP_INITIALIZER, LOCALE_ID, makeEnvironmentProviders } from '@angular/core';
-import { I18nService } from '@keycloakify/angular/account/services/i18n.service';
-import { ACCOUNT_CLASSES } from '@keycloakify/angular/account/tokens/classes.token';
-import { ACCOUNT_I18N } from '@keycloakify/angular/account/tokens/i18n.token';
-import { KC_ACCOUNT_CONTEXT } from '@keycloakify/angular/account/tokens/kc-context.token';
-import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css.token';
+import { I18nService } from '@keycloakify/angular/account/services/i18n';
+import { ACCOUNT_CLASSES } from '@keycloakify/angular/account/tokens/classes';
+import { ACCOUNT_I18N } from '@keycloakify/angular/account/tokens/i18n';
+import { KC_ACCOUNT_CONTEXT } from '@keycloakify/angular/account/tokens/kc-context';
+import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { type KcContextLike } from 'keycloakify/account/i18n/noJsx';
 import { type ClassKey } from 'keycloakify/account/lib/kcClsx';
 import { type KcContext } from '../KcContext';

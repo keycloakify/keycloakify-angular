@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, forwardRef, inject } from '@angular/core';
-import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css.token';
-import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference.class';
-import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class.directive';
-import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes.token';
-import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n.token';
+import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
+import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
+import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class';
+import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes';
+import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n';
 import { type ClassKey } from 'keycloakify/login/lib/kcClsx';
-import { type I18n } from '../../i18n';
+import { type I18n } from '@keycloakify/angular/login/i18n';
 
 @Component({
     selector: 'kc-logout-other-sessions',

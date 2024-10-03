@@ -1,6 +1,6 @@
 {
     "name": "@keycloakify/angular",
-    "version": "0.0.1-rc.17",
+    "version": "0.0.1-rc.18",
     "type": "module",
     "description": "Angular components for Keycloakify",
     "repository": {

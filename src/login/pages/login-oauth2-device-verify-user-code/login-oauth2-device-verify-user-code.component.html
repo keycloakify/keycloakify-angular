@@ -12,9 +12,9 @@
     <ng-container content>
         <form
             id="kc-user-verify-device-user-code-form"
+            method="post"
             [kcClass]="'kcFormClass'"
             [action]="url.oauth2DeviceVerificationAction"
-            method="post"
         >
             <div [kcClass]="'kcFormGroupClass'">
                 <div [kcClass]="'kcLabelWrapperClass'">
@@ -32,8 +32,8 @@
                         name="device_user_code"
                         autoComplete="off"
                         type="text"
-                        [kcClass]="'kcInputClass'"
                         autofocus
+                        [kcClass]="'kcInputClass'"
                     />
                 </div>
             </div>
@@ -51,8 +51,8 @@
                 >
                     <div [kcClass]="'kcFormButtonsWrapperClass'">
                         <input
-                            [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                             type="submit"
+                            [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                             [value]="i18n.msgStr('doSubmit')"
                         />
                     </div>

@@ -8,7 +8,7 @@
                 [value]="$any(valueOrValues())"
                 [displayableErrors]="displayableErrors()"
                 (dispatchFormAction)="dispatchFormAction.emit($event)"
-            ></kc-textarea-tag>
+            />
         }
         @case (type === 'select' || type === 'multiselect' ? type : '') {
             <kc-select-tag
@@ -16,7 +16,7 @@
                 [valueOrValues]="valueOrValues()"
                 [displayableErrors]="displayableErrors()"
                 (dispatchFormAction)="dispatchFormAction.emit($event)"
-            ></kc-select-tag>
+            />
         }
         @case (type === 'select-radiobuttons' || type === 'multiselect-checkboxes' ? type : '') {
             <kc-input-tag-selects
@@ -24,7 +24,7 @@
                 [valueOrValues]="valueOrValues()"
                 [displayableErrors]="displayableErrors()"
                 (dispatchFormAction)="dispatchFormAction.emit($event)"
-            ></kc-input-tag-selects>
+            />
         }
         @default {
             @let values = valueOrValues();
@@ -37,7 +37,7 @@
                         [fieldIndex]="i"
                         [displayableErrors]="displayableErrors()"
                         (dispatchFormAction)="dispatchFormAction.emit($event)"
-                    ></kc-input-tag>
+                    />
                 }
             } @else {
                 @if (attr.name === 'password' || attr.name === 'password-confirm') {
@@ -47,7 +47,7 @@
                             [valueOrValues]="valueOrValues()"
                             [displayableErrors]="displayableErrors()"
                             (dispatchFormAction)="dispatchFormAction.emit($event)"
-                        ></kc-input-tag>
+                        />
                     </kc-password-wrapper>
                 } @else {
                     <kc-input-tag
@@ -55,7 +55,7 @@
                         [valueOrValues]="valueOrValues()"
                         [displayableErrors]="displayableErrors()"
                         (dispatchFormAction)="dispatchFormAction.emit($event)"
-                    ></kc-input-tag>
+                    />
                 }
             }
         }

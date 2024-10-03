@@ -29,8 +29,8 @@
     <ng-container content>
         <form
             id="webauth"
-            [action]="url.loginAction"
             method="post"
+            [action]="url.loginAction"
         >
             <input
                 type="hidden"
@@ -64,9 +64,9 @@
             />
         </form>
         <div
-            [kcClass]="'kcFormGroupClass'"
             no-bottom-margin="true"
             style="margin-bottom: 0"
+            [kcClass]="'kcFormGroupClass'"
         >
             @if (authenticators !== undefined && authenticators.authenticators.length !== 0) {
                 <form
@@ -97,9 +97,9 @@
                                 [kcClass]="'kcSelectAuthListItemClass'"
                             >
                                 <i
+                                    aria-hidden="true"
                                     [ngClass]="selectAuthListItemIconClass(authenticator.transports.iconClass)"
                                     [kcClass]="'kcCommonLogoIdP'"
-                                    aria-hidden="true"
                                 ></i>
                                 <div [kcClass]="'kcSelectAuthListItemBodyClass'">
                                     <div
@@ -150,9 +150,9 @@
                 @if (realm.password) {
                     <form
                         id="kc-form-passkey"
-                        [action]="url.loginAction"
                         method="post"
                         style="display: none"
+                        [action]="url.loginAction"
                     >
                         @if (!usernameHidden) {
                             <div [kcClass]="'kcFormGroupClass'">
@@ -165,19 +165,19 @@
                                 <input
                                     tabIndex="1"
                                     id="username"
-                                    [attr.aria-invalid]="messagesPerField.existsError('username')"
-                                    [kcClass]="'kcInputClass'"
                                     name="username"
-                                    [value]="login.username ?? ''"
                                     type="text"
                                     autoFocus
                                     autoComplete="off"
+                                    [attr.aria-invalid]="messagesPerField.existsError('username')"
+                                    [kcClass]="'kcInputClass'"
+                                    [value]="login.username ?? ''"
                                 />
                                 @if (messagesPerField.existsError('username')) {
                                     <span
                                         id="input-error-username"
-                                        [kcClass]="'kcInputErrorMessageClass'"
                                         aria-live="polite"
+                                        [kcClass]="'kcInputErrorMessageClass'"
                                     >
                                         {{ messagesPerField.get('username') }}
                                     </span>
@@ -187,8 +187,8 @@
                     </form>
                     <div
                         id="kc-form-passkey-button"
-                        [kcClass]="'kcFormButtonsClass'"
                         style="display: none"
+                        [kcClass]="'kcFormButtonsClass'"
                     >
                         <input
                             id="authButtonId"

@@ -16,8 +16,8 @@
                 <li>
                     {{ client.name }}
                     <iframe
-                        [src]="'client.frontChannelLogoutUrl' | kcSanitize: 'resourceUrl'"
                         style="display: none"
+                        [src]="'client.frontChannelLogoutUrl' | kcSanitize: 'resourceUrl'"
                     ></iframe>
                 </li>
             }

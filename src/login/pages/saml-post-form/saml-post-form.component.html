@@ -12,10 +12,10 @@
     <ng-container content>
         <p>{{ i18n.msgStr('saml.post-form.message') }}</p>
         <form
+            #setHtmlFormElement
             name="saml-post-binding"
             method="post"
             [action]="samlPost.url"
-            #setHtmlFormElement
         >
             @if (!!samlPost.SAMLRequest) {
                 <input

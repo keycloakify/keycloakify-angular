@@ -15,8 +15,8 @@
                     <div class="row margin-bottom">
                         <div class="col-sm-2 col-md-2">
                             <label
-                                [for]="identity.providerId"
                                 class="control-label"
+                                [for]="identity.providerId"
                             >
                                 {{ identity.displayName }}
                             </label>
@@ -32,9 +32,9 @@
                             @if (identity.connected) {
                                 @if (federatedIdentity.removeLinkPossible) {
                                     <form
-                                        [action]="url.socialUrl"
                                         method="post"
                                         class="form-inline"
+                                        [action]="url.socialUrl"
                                     >
                                         <input
                                             type="hidden"
@@ -52,8 +52,8 @@
                                             [value]="identity.providerId"
                                         />
                                         <button
-                                            [id]="'remove-link-' + identity.providerId"
                                             class="btn btn-default"
+                                            [id]="'remove-link-' + identity.providerId"
                                         >
                                             {{ i18n.msgStr('doRemove') }}
                                         </button>
@@ -61,9 +61,9 @@
                                 }
                             } @else {
                                 <form
-                                    [action]="url.socialUrl"
                                     method="post"
                                     class="form-inline"
+                                    [action]="url.socialUrl"
                                 >
                                     <input
                                         type="hidden"
@@ -81,8 +81,8 @@
                                         [value]="identity.providerId"
                                     />
                                     <button
-                                        [id]="'add-link-' + identity.providerId"
                                         class="btn btn-default"
+                                        [id]="'add-link-' + identity.providerId"
                                     >
                                         {{ i18n.msgStr('doAdd') }}
                                     </button>

@@ -13,25 +13,25 @@
     <ng-container content>
         <form
             id="kc-register-form"
-            [action]="url.loginAction"
             method="post"
+            [action]="url.loginAction"
         >
             <div [kcClass]="'kcFormGroupClass'">
                 <button
                     type="submit"
-                    [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                     name="submitAction"
                     id="updateProfile"
                     value="updateProfile"
+                    [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                 >
                     {{ i18n.msgStr('confirmLinkIdpReviewProfile') }}
                 </button>
                 <button
                     type="submit"
-                    [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                     name="submitAction"
                     id="linkAccount"
                     value="linkAccount"
+                    [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                 >
                     {{ i18n.msgStr('confirmLinkIdpContinue', idpAlias) }}
                 </button>

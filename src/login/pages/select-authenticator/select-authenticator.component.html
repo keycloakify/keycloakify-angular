@@ -13,16 +13,16 @@
     <ng-container content>
         <form
             id="kc-select-credential-form"
+            method="post"
             [kcClass]="'kcFormClass'"
             [action]="url.loginAction"
-            method="post"
         >
             <div [kcClass]="'kcSelectAuthListClass'">
                 @for (authenticationSelection of auth.authenticationSelections; track authenticationSelection; let i = $index) {
                     <button
-                        [kcClass]="'kcSelectAuthListItemClass'"
                         type="submit"
                         name="authenticationExecution"
+                        [kcClass]="'kcSelectAuthListItemClass'"
                         [value]="authenticationSelection.authExecId"
                     >
                         <div [kcClass]="'kcSelectAuthListItemIconClass'">

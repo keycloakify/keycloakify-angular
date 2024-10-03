@@ -40,9 +40,9 @@
                             <td class="provider">{{ credential.userLabel || '' }}</td>
                             <td class="action">
                                 <form
-                                    [action]="url.totpUrl"
                                     method="post"
                                     class="form-inline"
+                                    [action]="url.totpUrl"
                                 >
                                     <input
                                         type="hidden"
@@ -63,8 +63,8 @@
                                         [value]="credential.id"
                                     />
                                     <button
-                                        [id]="'remove-mobile-' + index"
                                         class="btn btn-default"
+                                        [id]="'remove-mobile-' + index"
                                     >
                                         <i class="pficon pficon-delete"></i>
                                     </button>
@@ -95,8 +95,8 @@
                             </p>
                             <p>
                                 <a
-                                    [href]="totp.qrUrl"
                                     id="mode-barcode"
+                                    [href]="totp.qrUrl"
                                 >
                                     {{ i18n.msgStr('totpScanBarcode') }}
                                 </a>
@@ -121,14 +121,14 @@
                             <p>
                                 <img
                                     id="kc-totp-secret-qr-code"
-                                    [src]="'data:image/png;base64, ' + totp.totpSecretQrCode"
                                     alt="Figure: Barcode"
+                                    [src]="'data:image/png;base64, ' + totp.totpSecretQrCode"
                                 />
                             </p>
                             <p>
                                 <a
-                                    [href]="totp.manualUrl"
                                     id="mode-manual"
+                                    [href]="totp.manualUrl"
                                 >
                                     {{ i18n.msgStr('totpUnableToScan') }}
                                 </a>
@@ -142,10 +142,10 @@
                 </ol>
                 <hr />
                 <form
-                    [action]="url.totpUrl"
-                    [kcClass]="'kcFormClass'"
                     id="kc-totp-settings-form"
                     method="post"
+                    [action]="url.totpUrl"
+                    [kcClass]="'kcFormClass'"
                 >
                     <input
                         type="hidden"
@@ -175,8 +175,8 @@
                             @if (messagesPerField.existsError('totp')) {
                                 <span
                                     id="input-error-otp-code"
-                                    [kcClass]="'kcInputErrorMessageClass'"
                                     aria-live="polite"
+                                    [kcClass]="'kcInputErrorMessageClass'"
                                     [innerHTML]="messagesPerField.get('totp') | kcSanitize: 'html'"
                                 ></span>
                             }
@@ -220,8 +220,8 @@
                             @if (messagesPerField.existsError('userLabel')) {
                                 <span
                                     id="input-error-otp-label"
-                                    [kcClass]="'kcInputErrorMessageClass'"
                                     aria-live="polite"
+                                    [kcClass]="'kcInputErrorMessageClass'"
                                     [innerHTML]="messagesPerField.get('userLabel') | kcSanitize: 'html'"
                                 ></span>
                             }
@@ -236,16 +236,16 @@
                         <div [kcClass]="'kcInputWrapperClass'">
                             <input
                                 type="submit"
-                                [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                                 id="saveTOTPBtn"
+                                [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                                 [value]="i18n.msgStr('doSave')"
                             />
                             <button
                                 type="submit"
-                                [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
                                 id="cancelTOTPBtn"
                                 name="submitAction"
                                 value="Cancel"
+                                [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
                             >
                                 {{ i18n.msgStr('doCancel') }}
                             </button>

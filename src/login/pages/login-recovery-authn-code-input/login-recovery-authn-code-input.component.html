@@ -16,9 +16,9 @@
     <ng-container content>
         <form
             id="kc-recovery-code-login-form"
+            method="post"
             [kcClass]="'kcFormClass'"
             [action]="url.loginAction"
-            method="post"
         >
             <div [kcClass]="'kcFormGroupClass'">
                 <div [kcClass]="'kcLabelWrapperClass'">
@@ -34,17 +34,17 @@
                         tabIndex="1"
                         id="recoveryCodeInput"
                         name="recoveryCodeInput"
-                        [attr.aria-invalid]="messagesPerField.existsError('recoveryCodeInput')"
                         autoComplete="off"
                         type="text"
-                        [kcClass]="'kcInputClass'"
                         autoFocus
+                        [attr.aria-invalid]="messagesPerField.existsError('recoveryCodeInput')"
+                        [kcClass]="'kcInputClass'"
                     />
                     @if (messagesPerField.existsError('recoveryCodeInput')) {
                         <span
                             id="input-error"
-                            [kcClass]="'kcInputErrorMessageClass'"
                             aria-live="polite"
+                            [kcClass]="'kcInputErrorMessageClass'"
                             [innerHTML]="messagesPerField.get('recoveryCodeInput') | kcSanitize: 'html'"
                         ></span>
                     }
@@ -63,10 +63,10 @@
                     [kcClass]="'kcFormButtonsClass'"
                 >
                     <input
-                        [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                         name="login"
                         id="kc-login"
                         type="submit"
+                        [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                         [value]="i18n.msgStr('doLogIn')"
                     />
                 </div>

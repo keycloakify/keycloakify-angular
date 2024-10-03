@@ -3,7 +3,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class SubmitService {
-    #submittableSubj: BehaviorSubject<boolean> = new BehaviorSubject(false);
+    #submittableSubj = new BehaviorSubject<boolean>(false);
     isSubmittable: Observable<boolean> = this.#submittableSubj.asObservable();
 
     setIsSubmittable(submittable: boolean) {

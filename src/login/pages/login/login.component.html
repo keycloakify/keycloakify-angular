@@ -48,19 +48,19 @@
                     @for (provider of social?.providers; track provider.alias; let idx = $index) {
                         <li>
                             <a
+                                type="button"
                                 [id]="provider.alias"
                                 [kcClass]="{
                                     kcFormSocialAccountListButtonClass: true,
                                     kcFormSocialAccountGridItem: (social?.providers?.length ?? 0) > 3
                                 }"
-                                type="button"
                                 [href]="provider.loginUrl"
                             >
                                 @if (provider.iconClasses) {
                                     <i
+                                        aria-hidden="true"
                                         [ngClass]="provider.iconClasses"
                                         [kcClass]="'kcCommonLogoIdP'"
-                                        aria-hidden="true"
                                     ></i>
                                 }
                                 <span
@@ -84,9 +84,9 @@
                 @if (realm?.password) {
                     <form
                         id="kc-form-login"
-                        (onSubmit)="isLoginButtonDisabled.set(true)"
-                        [action]="url?.loginAction"
                         method="post"
+                        [action]="url?.loginAction"
+                        (onSubmit)="isLoginButtonDisabled.set(true)"
                     >
                         @if (!usernameHidden) {
                             <div [kcClass]="'kcFormGroupClass'">
@@ -105,18 +105,18 @@
                                 <input
                                     tabindex="2"
                                     id="username"
-                                    [kcClass]="'kcInputClass'"
                                     name="username"
                                     type="text"
                                     autofocus
+                                    [kcClass]="'kcInputClass'"
                                     [defaultValue]="login?.username || ''"
                                     [attr.aria-invalid]="messagesPerField?.existsError('username', 'password')"
                                 />
                                 @if (messagesPerField?.existsError('username', 'password')) {
                                     <span
                                         id="input-error"
-                                        [kcClass]="'kcInputErrorMessageClass'"
                                         aria-live="polite"
+                                        [kcClass]="'kcInputErrorMessageClass'"
                                         [innerHTML]="messagesPerField.getFirstError('username', 'password') | kcSanitize: 'html'"
                                     >
                                     </span>
@@ -136,18 +136,18 @@
                                 <input
                                     tabindex="3"
                                     id="password"
-                                    [kcClass]="'kcInputClass'"
                                     name="password"
                                     type="password"
                                     autocomplete="off"
+                                    [kcClass]="'kcInputClass'"
                                     [attr.aria-invalid]="messagesPerField.existsError('username', 'password')"
                                 />
                             </kc-password-wrapper>
                             @if (usernameHidden && messagesPerField?.existsError('username', 'password')) {
                                 <span
                                     id="input-error"
-                                    [kcClass]="'kcInputErrorMessageClass'"
                                     aria-live="polite"
+                                    [kcClass]="'kcInputErrorMessageClass'"
                                     [innerHTML]="messagesPerField.getFirstError('username', 'password') | kcSanitize: 'html'"
                                 >
                                 </span>
@@ -196,10 +196,10 @@
                             />
                             <input
                                 tabindex="7"
-                                [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                                 name="login"
                                 id="kc-login"
                                 type="submit"
+                                [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                                 [value]="i18n.msgStr('doLogIn')"
                                 [disabled]="isLoginButtonDisabled()"
                             />

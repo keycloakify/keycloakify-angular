@@ -1,8 +1,8 @@
 @let index = fieldIndex();
 <span
+    aria-live="polite"
     [id]="'input-error-' + attribute.name + (index === undefined ? '' : '-' + index)"
     [kcClass]="'kcInputErrorMessageClass'"
-    aria-live="polite"
 >
     @for (error of displayableErrors(); track error; let i = $index) {
         @if (error.fieldIndex === index) {

@@ -6,9 +6,9 @@
     </ng-container>
     <ng-container content>
         <form
-            [action]="url.loginAction"
             method="post"
             class="form-actions"
+            [action]="url.loginAction"
         >
             <div
                 class="alert alert-warning"
@@ -27,17 +27,17 @@
             </p>
             <div id="kc-form-buttons">
                 <input
-                    [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                     type="submit"
+                    [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                     [value]="i18n.msgStr('doConfirmDelete')"
                 />
                 @if (triggered_from_aia) {
                     <button
-                        [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
                         style="margin-left: calc(100% - 220px)"
                         type="submit"
                         name="cancel-aia"
                         value="true"
+                        [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
                     >
                         {{ i18n.msgStr('doCancel') }}
                     </button>

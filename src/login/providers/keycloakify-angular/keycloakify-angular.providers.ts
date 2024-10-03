@@ -24,6 +24,7 @@ export const provideKeycloakifyAngularLogin = (config: KeycloakifyAngularLoginCo
     makeEnvironmentProviders([
         {
             provide: KC_LOGIN_CONTEXT,
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             useValue: window.kcContext
         },

@@ -34,12 +34,12 @@
             [attribute]="attr"
             [displayableErrors]="displayableErrors()"
             [fieldIndex]="index"
-        ></kc-field-errors>
+        />
         <kc-add-remove-buttons-multi-valued-attribute
             [attribute]="attr"
             [values]="values"
             [fieldIndex]="index"
             (dispatchFormAction)="dispatchFormAction.emit($event)"
-        ></kc-add-remove-buttons-multi-valued-attribute>
+        />
     }
 }

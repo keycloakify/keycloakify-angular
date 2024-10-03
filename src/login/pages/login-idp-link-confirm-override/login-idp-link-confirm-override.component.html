@@ -14,8 +14,8 @@
     <ng-container content>
         <form
             id="kc-register-form"
-            [action]="url.loginAction"
             method="post"
+            [action]="url.loginAction"
         >
             {{ i18n.msgStr('pageExpiredMsg1') }}
             <a
@@ -28,10 +28,10 @@
             <br />
             <button
                 type="submit"
-                [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                 name="submitAction"
                 id="confirmOverride"
                 value="confirmOverride"
+                [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
             >
                 {{ i18n.msgStr('confirmOverrideIdpContinue', idpDisplayName) }}
             </button>

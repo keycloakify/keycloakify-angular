@@ -13,11 +13,11 @@
     <ng-container content>
         <form
             id="kc-update-email-form"
+            method="post"
             [kcClass]="'kcFormClass'"
             [action]="url.loginAction"
-            method="post"
         >
-            <ng-container [ngComponentOutlet]="userProfileFormFields() ?? null"></ng-container>
+            <ng-container [ngComponentOutlet]="userProfileFormFields() ?? null" />
             <div [kcClass]="'kcFormGroupClass'">
                 <div
                     id="kc-form-options"
@@ -25,12 +25,13 @@
                 >
                     <div [kcClass]="'kcFormOptionsWrapperClass'"></div>
                 </div>
-                <kc-logout-other-sessions></kc-logout-other-sessions>
+                <kc-logout-other-sessions />
                 <div
                     id="kc-form-buttons"
                     [kcClass]="'kcFormButtonsClass'"
                 >
                     <input
+                        type="submit"
                         [disabled]="!isFormSubmittable()"
                         [kcClass]="{
                             kcButtonClass: true,
@@ -38,15 +39,14 @@
                             kcButtonBlockClass: isAppInitiatedAction,
                             kcButtonLargeClass: true
                         }"
-                        type="submit"
                         [value]="i18n.msgStr('doSubmit')"
                     />
                     @if (isAppInitiatedAction) {
                         <button
-                            [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
                             type="submit"
                             name="cancel-aia"
                             value="true"
+                            [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
                         >
                             {{ i18n.msgStr('doCancel') }}
                         </button>

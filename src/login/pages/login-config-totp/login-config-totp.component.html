@@ -31,8 +31,8 @@
                     </p>
                     <p>
                         <a
-                            [href]="totp.qrUrl"
                             id="mode-barcode"
+                            [href]="totp.qrUrl"
                         >
                             {{ i18n.msgStr('loginTotpScanBarcode') }}
                         </a>
@@ -69,14 +69,14 @@
                     <p>{{ i18n.msgStr('loginTotpStep2') }}</p>
                     <img
                         id="kc-totp-secret-qr-code"
-                        [src]="'data:image/png;base64, ' + totp.totpSecretQrCode"
                         alt="Figure: Barcode"
+                        [src]="'data:image/png;base64, ' + totp.totpSecretQrCode"
                     />
                     <br />
                     <p>
                         <a
-                            [href]="totp.manualUrl"
                             id="mode-manual"
+                            [href]="totp.manualUrl"
                         >
                             {{ i18n.msgStr('loginTotpUnableToScan') }}
                         </a>
@@ -89,10 +89,10 @@
             </li>
         </ol>
         <form
-            [action]="url.loginAction"
-            [kcClass]="'kcFormClass'"
             id="kc-totp-settings-form"
             method="post"
+            [action]="url.loginAction"
+            [kcClass]="'kcFormClass'"
         >
             <div [kcClass]="'kcFormGroupClass'">
                 <div [kcClass]="'kcInputWrapperClass'">
@@ -116,8 +116,8 @@
                     @if (messagesPerField.existsError('totp')) {
                         <span
                             id="input-error-otp-code"
-                            [kcClass]="'kcInputErrorMessageClass'"
                             aria-live="polite"
+                            [kcClass]="'kcInputErrorMessageClass'"
                             [innerHTML]="messagesPerField.get('totp') | kcSanitize: 'html'"
                         ></span>
                     }
@@ -160,8 +160,8 @@
                     @if (messagesPerField.existsError('userLabel')) {
                         <span
                             id="input-error-otp-label"
-                            [kcClass]="'kcInputErrorMessageClass'"
                             aria-live="polite"
+                            [kcClass]="'kcInputErrorMessageClass'"
                             [innerHTML]="messagesPerField.get('userLabel') | kcSanitize: 'html'"
                         ></span>
                     }
@@ -174,15 +174,15 @@
             @if (isAppInitiatedAction) {
                 <input
                     type="submit"
-                    [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                     id="saveTOTPBtn"
+                    [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                     [value]="i18n.msgStr('doSubmit')"
                 />
                 <button
                     type="submit"
-                    [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass', 'kcButtonLargeClass']"
                     id="cancelTOTPBtn"
                     name="cancel-aia"
+                    [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass', 'kcButtonLargeClass']"
                     [value]="true"
                 >
                     {{ i18n.msgStr('doCancel') }}
@@ -190,8 +190,8 @@
             } @else {
                 <input
                     type="submit"
-                    [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                     id="saveTOTPBtn"
+                    [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                     [value]="i18n.msgStr('doSubmit')"
                 />
             }

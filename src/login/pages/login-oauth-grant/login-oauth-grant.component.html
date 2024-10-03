@@ -11,8 +11,8 @@
     <ng-container headerNode>
         @if (client.attributes['logoUri']) {
             <img
-                [src]="client.attributes['logoUri']"
                 alt=""
+                [src]="client.attributes['logoUri']"
             />
         }
         <p>
@@ -49,8 +49,8 @@
                     @if (client.attributes['policyUri']) {
                         {{ i18n.msgStr('oauthGrantReview') }}
                         <a
-                            [href]="client.attributes['policyUri']"
                             target="_blank"
+                            [href]="client.attributes['policyUri']"
                         >
                             {{ i18n.msgStr('oauthGrantPolicy') }}
                         </a>
@@ -59,8 +59,8 @@
             }
             <form
                 class="form-actions"
-                [action]="url.oauthAction"
                 method="post"
+                [action]="url.oauthAction"
             >
                 <input
                     type="hidden"
@@ -75,13 +75,13 @@
                     <div id="kc-form-buttons">
                         <div [kcClass]="'kcFormButtonsWrapperClass'">
                             <input
-                                [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                                 type="submit"
+                                [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                                 [value]="i18n.msgStr('doYes')"
                             />
                             <input
-                                [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
                                 type="submit"
+                                [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
                                 [value]="i18n.msgStr('doNo')"
                             />
                         </div>

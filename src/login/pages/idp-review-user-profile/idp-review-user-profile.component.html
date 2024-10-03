@@ -12,11 +12,11 @@
     <ng-container content>
         <form
             id="kc-idp-review-profile-form"
+            method="post"
             [kcClass]="'kcFormClass'"
             [action]="url.loginAction"
-            method="post"
         >
-            <ng-container [ngComponentOutlet]="userProfileFormFields() ?? null"></ng-container>
+            <ng-container [ngComponentOutlet]="userProfileFormFields() ?? null" />
             <div [kcClass]="'kcFormGroupClass'">
                 <div
                     id="kc-form-options"
@@ -29,8 +29,8 @@
                     [kcClass]="'kcFormButtonsClass'"
                 >
                     <input
-                        [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                         type="submit"
+                        [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                         [value]="i18n.msgStr('doSubmit')"
                         [disabled]="!isFormSubmittable()"
                     />

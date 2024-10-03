@@ -13,9 +13,9 @@
 
     <ng-container content>
         <div
-            [kcClass]="'kcRecoveryCodesWarning'"
             class="pf-c-alert pf-m-warning pf-m-inline"
             aria-label="Warning alert"
+            [kcClass]="'kcRecoveryCodesWarning'"
         >
             <div class="pf-c-alert__icon">
                 <i
@@ -83,15 +83,15 @@
         <!-- confirmation checkbox -->
 
         <div
-            [kcClass]="'kcFormOptionsClass'"
             class="checkbox"
+            [kcClass]="'kcFormOptionsClass'"
         >
             <label for="kcRecoveryCodesConfirmationCheck">
                 <input
-                    [kcClass]="'kcCheckInputClass'"
                     type="checkbox"
                     id="kcRecoveryCodesConfirmationCheck"
                     name="kcRecoveryCodesConfirmationCheck"
+                    [kcClass]="'kcCheckInputClass'"
                     [checked]="toggleRecoveryCodesConfirmation()"
                     (change)="toggleRecoveryCodesConfirmation.set($any($event.target).checked)"
                 />
@@ -100,10 +100,10 @@
         </div>
 
         <form
-            [action]="kcContext.url.loginAction"
-            [kcClass]="'kcFormGroupClass'"
             id="kc-recovery-codes-settings-form"
             method="post"
+            [action]="kcContext.url.loginAction"
+            [kcClass]="'kcFormGroupClass'"
         >
             <input
                 type="hidden"
@@ -122,30 +122,30 @@
                 [value]="i18n.msgStr('recovery-codes-label-default')"
             />
 
-            <kc-logout-other-sessions></kc-logout-other-sessions>
+            <kc-logout-other-sessions />
 
             @if (isAppInitiatedAction) {
                 <input
                     type="submit"
-                    [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                     id="saveRecoveryAuthnCodesBtn"
+                    [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                     [value]="i18n.msgStr('recovery-codes-action-complete')"
                     [disabled]="!toggleRecoveryCodesConfirmation()"
                 />
                 <button
                     type="submit"
-                    [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
                     id="cancelRecoveryAuthnCodesBtn"
                     name="cancel-aia"
                     value="true"
+                    [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
                 >
                     {{ i18n.msgStr('recovery-codes-action-cancel') }}
                 </button>
             } @else {
                 <input
                     type="submit"
-                    [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                     id="saveRecoveryAuthnCodesBtn"
+                    [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                     [value]="i18n.msgStr('recovery-codes-action-complete')"
                     [disabled]="!toggleRecoveryCodesConfirmation()"
                 />

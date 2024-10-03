@@ -20,8 +20,8 @@
             <p class="instruction">{{ i18n.msgStr('logoutConfirmHeader') }}</p>
             <form
                 class="form-actions"
-                [action]="url.logoutConfirmAction"
                 method="POST"
+                [action]="url.logoutConfirmAction"
             >
                 <input
                     type="hidden"
@@ -38,10 +38,10 @@
                     >
                         <input
                             tabIndex="4"
-                            [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                             name="confirmLogout"
                             id="kc-logout"
                             type="submit"
+                            [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                             [value]="i18n.msgStr('doLogout')"
                         />
                     </div>

@@ -32,8 +32,8 @@
         >
             <form
                 id="webauth"
-                [action]="url.loginAction"
                 method="post"
+                [action]="url.loginAction"
             >
                 <input
                     type="hidden"
@@ -141,16 +141,15 @@
                 }
 
                 <div
-                    [kcClass]="'kcFormButtonsClass'"
                     id="kc-form-buttons"
+                    [kcClass]="'kcFormButtonsClass'"
                 >
                     <input
-                        [id]="authButtonId"
                         type="button"
                         autofocus
-                        [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
-                        id="cancelWebAuthnAIA"
                         name="cancel-aia"
+                        [id]="authButtonId"
+                        [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                         [value]="i18n.msgStr('webauthn-doAuthenticate')"
                     />
                 </div>

@@ -42,6 +42,7 @@ export class PasswordComponent extends ComponentReference {
 
     constructor() {
         super();
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         window.kcContext = {
             ...this.kcContext,

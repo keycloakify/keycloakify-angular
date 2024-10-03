@@ -1,7 +1,7 @@
 @let formFieldStates = formState().formFieldStates;
 
 @for (fieldState of formFieldStates; track fieldState.attribute) {
-    <kc-group-label [attribute]="fieldState.attribute"> </kc-group-label>
+    <kc-group-label [attribute]="fieldState.attribute" />
 
     @if (beforeField) {
         <ng-container
@@ -11,8 +11,7 @@
                 valueOrValues: fieldState.valueOrValues,
                 displayableErrors: fieldState.displayableErrors
             }"
-        >
-        </ng-container>
+        />
     }
 
     <div
@@ -34,9 +33,9 @@
         <div [kcClass]="'kcInputWrapperClass'">
             @if (fieldState.attribute.annotations.inputHelperTextBefore) {
                 <div
+                    aria-live="polite"
                     [kcClass]="'kcInputHelperTextBeforeClass'"
                     [id]="'form-help-text-before-' + fieldState.attribute.name"
-                    aria-live="polite"
                 >
                     {{ i18n.advancedMsgStr(fieldState.attribute.annotations.inputHelperTextBefore) }}
                 </div>
@@ -47,19 +46,17 @@
                 [valueOrValues]="fieldState.valueOrValues"
                 [displayableErrors]="fieldState.displayableErrors"
                 (dispatchFormAction)="onDispatch($event)"
-            >
-            </kc-input-field-by-type>
+            />
 
             <kc-field-errors
                 [attribute]="fieldState.attribute"
                 [displayableErrors]="fieldState.displayableErrors"
-            >
-            </kc-field-errors>
+            />
             @if (fieldState.attribute.annotations.inputHelperTextAfter) {
                 <div
+                    aria-live="polite"
                     [kcClass]="'kcInputHelperTextAfterClass'"
                     [id]="'form-help-text-after-' + fieldState.attribute.name"
-                    aria-live="polite"
                 >
                     {{ i18n.advancedMsgStr(fieldState.attribute.annotations.inputHelperTextAfter) }}
                 </div>
@@ -73,8 +70,7 @@
                         valueOrValues: fieldState.valueOrValues,
                         displayableErrors: fieldState.displayableErrors
                     }"
-                >
-                </ng-container>
+                />
             }
             <!-- NOTE: Downloading of html5DataAnnotations scripts is done in the useUserProfileForm hook -->
         </div>

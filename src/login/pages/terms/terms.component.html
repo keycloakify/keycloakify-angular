@@ -13,21 +13,21 @@
         <div id="kc-terms-text">{{ i18n.msgStr('termsText') }}</div>
         <form
             class="form-actions"
-            [action]="url.loginAction"
             method="POST"
+            [action]="url.loginAction"
         >
             <input
-                [kcClass]="['kcButtonClass', 'kcButtonClass', 'kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                 name="accept"
                 id="kc-accept"
                 type="submit"
+                [kcClass]="['kcButtonClass', 'kcButtonClass', 'kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                 [value]="i18n.msgStr('doAccept')"
             />
             <input
-                [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
                 name="cancel"
                 id="kc-decline"
                 type="submit"
+                [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
                 [value]="i18n.msgStr('doDecline')"
             />
         </form>

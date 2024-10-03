@@ -13,9 +13,9 @@
     <ng-container content>
         <form
             id="kc-x509-login-info"
+            method="post"
             [kcClass]="'kcFormClass'"
             [action]="url.loginAction"
-            method="post"
         >
             <div [kcClass]="'kcFormGroupClass'">
                 <div [kcClass]="'kcLabelWrapperClass'">
@@ -79,18 +79,18 @@
                 >
                     <div [kcClass]="'kcFormButtonsWrapperClass'">
                         <input
-                            [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                             name="login"
                             id="kc-login"
                             type="submit"
+                            [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                             [value]="i18n.msgStr('doContinue')"
                         />
                         @if (x509.formData.isUserEnabled) {
                             <input
-                                [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
                                 name="cancel"
                                 id="kc-cancel"
                                 type="submit"
+                                [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
                                 [value]="i18n.msgStr('doIgnore')"
                             />
                         }

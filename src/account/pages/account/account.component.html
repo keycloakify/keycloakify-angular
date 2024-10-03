@@ -16,9 +16,9 @@
             </div>
         </div>
         <form
-            [action]="url.accountUrl"
             class="form-horizontal"
             method="post"
+            [action]="url.accountUrl"
         >
             <input
                 type="hidden"
@@ -143,17 +143,17 @@
                         }
                         <button
                             type="submit"
-                            [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                             name="submitAction"
                             value="Save"
+                            [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                         >
                             {{ i18n.msgStr('doSave') }}
                         </button>
                         <button
                             type="submit"
-                            [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                             name="submitAction"
                             value="Cancel"
+                            [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                         >
                             {{ i18n.msgStr('doCancel') }}
                         </button>

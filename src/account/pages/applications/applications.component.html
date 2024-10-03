@@ -10,8 +10,8 @@
             </div>
 
             <form
-                [action]="url.applicationsUrl"
                 method="post"
+                [action]="url.applicationsUrl"
             >
                 <input
                     type="hidden"
@@ -137,9 +137,9 @@
                                     ) {
                                         <button
                                             type="submit"
+                                            name="clientId"
                                             [kcClass]="['kcButtonPrimaryClass', 'kcButtonClass']"
                                             [id]="'revoke-' + application.client.clientId"
-                                            name="clientId"
                                             [value]="application.client.id"
                                         >
                                             {{ i18n.msgStr('revoke') }}

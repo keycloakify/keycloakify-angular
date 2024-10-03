@@ -49,8 +49,8 @@
                         }
                         @if (!!referrer?.url) {
                             <a
-                                [href]="referrer?.url"
                                 id="referrer"
+                                [href]="referrer?.url"
                             >
                                 {{ i18n.msgStr('backTo', referrer?.name) }}
                             </a>
@@ -119,7 +119,7 @@
                     ></span>
                 </div>
             }
-            <ng-content select="[content]"></ng-content>
+            <ng-content select="[content]" />
         </div>
     </div>
 }

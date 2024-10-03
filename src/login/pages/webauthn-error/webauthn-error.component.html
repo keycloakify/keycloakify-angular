@@ -14,9 +14,9 @@
     <ng-container content>
         <form
             id="kc-error-credential-form"
+            method="post"
             [kcClass]="'kcFormClass'"
             [action]="url.loginAction"
-            method="post"
         >
             <input
                 type="hidden"
@@ -31,26 +31,26 @@
         </form>
         <input
             tabIndex="4"
-            (click)="onClick()"
             type="button"
-            [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
             name="try-again"
             id="kc-try-again"
+            [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
             [value]="i18n.msgStr('doTryAgain')"
+            (click)="onClick()"
         />
         @if (isAppInitiatedAction) {
             <form
-                [action]="url.loginAction"
-                [kcClass]="'kcFormClass'"
                 id="kc-webauthn-settings-form"
                 method="post"
+                [action]="url.loginAction"
+                [kcClass]="'kcFormClass'"
             >
                 <button
                     type="submit"
-                    [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                     id="cancelWebAuthnAIA"
                     name="cancel-aia"
                     value="true"
+                    [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                 >
                     {{ i18n.msgStr('doCancel') }}
                 </button>

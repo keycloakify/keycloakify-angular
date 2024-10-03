@@ -14,9 +14,9 @@
     <ng-container content>
         <form
             id="kc-otp-login-form"
+            method="post"
             [kcClass]="['kcFormClass']"
             [action]="url.loginAction"
-            method="post"
         >
             @if (otpLogin.userOtpCredentials.length > 1) {
                 <div [kcClass]="'kcFormGroupClass'">
@@ -24,10 +24,10 @@
                         @for (otpCredential of otpLogin.userOtpCredentials; track otpCredential; let i = $index) {
                             <ng-container>
                                 <input
-                                    [id]="'kc-otp-credential-' + i"
-                                    [kcClass]="'kcLoginOTPListClass'"
                                     type="radio"
                                     name="selectedCredentialId"
+                                    [id]="'kc-otp-credential-' + i"
+                                    [kcClass]="'kcLoginOTPListClass'"
                                     [value]="otpCredential.id"
                                     [checked]="otpCredential.id === otpLogin.selectedCredentialId"
                                 />
@@ -39,8 +39,8 @@
                                     <span [kcClass]="'kcLoginOTPListItemHeaderClass'">
                                         <span [kcClass]="'kcLoginOTPListItemIconBodyClass'">
                                             <i
-                                                [kcClass]="'kcLoginOTPListItemIconClass'"
                                                 aria-hidden="true"
+                                                [kcClass]="'kcLoginOTPListItemIconClass'"
                                             ></i>
                                         </span>
                                         <span [kcClass]="'kcLoginOTPListItemTitleClass'">{{ otpCredential.userLabel }}</span>
@@ -66,15 +66,15 @@
                         name="otp"
                         autoComplete="off"
                         type="text"
-                        [kcClass]="'kcInputClass'"
                         autoFocus
+                        [kcClass]="'kcInputClass'"
                         [attr.aria-invalid]="messagesPerField.existsError('totp')"
                     />
                     @if (messagesPerField.existsError('totp')) {
                         <span
                             id="input-error-otp-code"
-                            [kcClass]="['kcInputErrorMessageClass']"
                             aria-live="polite"
+                            [kcClass]="['kcInputErrorMessageClass']"
                             [innerHTML]="messagesPerField.get('totp') | kcSanitize: 'html'"
                         ></span>
                     }
@@ -90,10 +90,10 @@
                     [kcClass]="'kcFormButtonsClass'"
                 >
                     <input
-                        [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                         name="login"
                         id="kc-login"
                         type="submit"
+                        [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                         [value]="i18n.msgStr('doLogIn')"
                     />
                 </div>

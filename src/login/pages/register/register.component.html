@@ -20,11 +20,11 @@
     <ng-container content>
         <form
             id="kc-register-form"
+            method="post"
             [kcClass]="'kcFormClass'"
             [action]="url.registrationAction"
-            method="post"
         >
-            <ng-container [ngComponentOutlet]="userProfileFormFields() ?? null"></ng-container>
+            <ng-container [ngComponentOutlet]="userProfileFormFields() ?? null" />
             @if (termsAcceptanceRequired) {
                 <div className="form-group">
                     <div [kcClass]="'kcInputWrapperClass'">
@@ -42,8 +42,8 @@
                             name="termsAccepted"
                             [kcClass]="'kcCheckboxInputClass'"
                             [checked]="areTermsAccepted()"
-                            (change)="areTermsAccepted.set($any($event.target).checked)"
                             [attr.aria-invalid]="messagesPerField.existsError('termsAccepted')"
+                            (change)="areTermsAccepted.set($any($event.target).checked)"
                         />
                         <label
                             for="termsAccepted"
@@ -56,8 +56,8 @@
                         <div [kcClass]="'kcLabelWrapperClass'">
                             <span
                                 id="input-error-terms-accepted"
-                                [kcClass]="'kcInputErrorMessageClass'"
                                 aria-live="polite"
+                                [kcClass]="'kcInputErrorMessageClass'"
                                 [innerHtml]="messagesPerField.get('termsAccepted') | kcSanitize: 'html'"
                             ></span>
                         </div>
@@ -97,12 +97,12 @@
                         [kcClass]="'kcFormButtonsClass'"
                     >
                         <button
-                            [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                             class="g-recaptcha"
+                            type="submit"
+                            [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                             [attr.data-sitekey]="recaptchaSiteKey"
                             [attr.data-callback]="onCallback"
                             [attr.data-action]="recaptchaAction"
-                            type="submit"
                         >
                             {{ i18n.msgStr('doRegister') }}
                         </button>
@@ -113,9 +113,9 @@
                         [kcClass]="'kcFormButtonsClass'"
                     >
                         <input
+                            type="submit"
                             [disabled]="!isFormSubmittable() || (termsAcceptanceRequired && !areTermsAccepted())"
                             [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
-                            type="submit"
                             [value]="i18n.msgStr('doRegister')"
                         />
                     </div>

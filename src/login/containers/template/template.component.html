@@ -33,16 +33,16 @@
                         >
                             <div
                                 id="kc-locale-dropdown"
-                                [kcClass]="'kcLocaleDropDownClass'"
                                 class="menu-button-links"
+                                [kcClass]="'kcLocaleDropDownClass'"
                             >
                                 <button
                                     tabindex="1"
                                     id="kc-current-locale-link"
-                                    [attr.aria-label]="i18n.msgStr('languages')"
                                     aria-haspopup="true"
                                     aria-expanded="false"
                                     aria-controls="language-switch1"
+                                    [attr.aria-label]="i18n.msgStr('languages')"
                                 >
                                     {{ i18n.currentLanguage.label }}
                                 </button>
@@ -56,8 +56,8 @@
                                 >
                                     @for (entry of i18n.enabledLanguages; track entry; let idx = $index) {
                                         <li
-                                            [kcClass]="'kcLocaleListItemClass'"
                                             role="none"
+                                            [kcClass]="'kcLocaleListItemClass'"
                                         >
                                             <a
                                                 role="menuitem"
@@ -80,7 +80,7 @@
                 <ng-template #node>
                     @if (auth && !auth.showUsername && !auth.showResetCredentials) {
                         <h1 id="kc-page-title">
-                            <ng-content select="[headerNode]"></ng-content>
+                            <ng-content select="[headerNode]" />
                         </h1>
                     } @else {
                         <div
@@ -107,8 +107,8 @@
                 @if (displayRequiredFields()) {
                     <div [kcClass]="'kcContentWrapperClass'">
                         <div
-                            [kcClass]="'kcLabelWrapperClass'"
                             class="subtitle"
+                            [kcClass]="'kcLabelWrapperClass'"
                         >
                             <span class="subtitle">
                                 <span class="required">*</span>
@@ -116,11 +116,11 @@
                             </span>
                         </div>
                         <div class="col-md-10">
-                            <ng-container [ngTemplateOutlet]="node"></ng-container>
+                            <ng-container [ngTemplateOutlet]="node" />
                         </div>
                     </div>
                 } @else {
-                    <ng-container [ngTemplateOutlet]="node"></ng-container>
+                    <ng-container [ngTemplateOutlet]="node" />
                 }
             </header>
 
@@ -156,12 +156,12 @@
                         </div>
                     }
                     <!-- Content -->
-                    <ng-content select="[content]"></ng-content>
+                    <ng-content select="[content]" />
                     @if (!!auth && auth?.showTryAnotherWayLink) {
                         <form
                             id="kc-select-try-another-way-form"
-                            [action]="url?.loginAction"
                             method="post"
+                            [action]="url?.loginAction"
                         >
                             <div [kcClass]="'kcFormGroupClass'">
                                 <div [kcClass]="'kcFormGroupClass'">
@@ -181,7 +181,7 @@
                         </form>
                     }
 
-                    <ng-content select="[socialProvidersNode]"></ng-content>
+                    <ng-content select="[socialProvidersNode]" />
                     <!-- Info display -->
                     @if (displayInfo()) {
                         <div
@@ -192,7 +192,7 @@
                                 id="kc-info-wrapper"
                                 [kcClass]="'kcInfoAreaWrapperClass'"
                             >
-                                <ng-content select="[infoNode]"></ng-content>
+                                <ng-content select="[infoNode]" />
                             </div>
                         </div>
                     }

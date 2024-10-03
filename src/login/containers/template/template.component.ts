@@ -1,6 +1,7 @@
 import { AsyncPipe, NgTemplateOutlet } from '@angular/common';
 import {
     ChangeDetectionStrategy,
+    ChangeDetectorRef,
     Component,
     effect,
     forwardRef,
@@ -11,7 +12,6 @@ import {
     Renderer2,
     TemplateRef,
     Type,
-    ViewChild,
     ViewContainerRef
 } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
@@ -19,14 +19,14 @@ import { KcSanitizePipe } from '@keycloakify/angular/lib/pipes/kc-sanitize';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class';
+import type { I18n } from '@keycloakify/angular/login/i18n';
+import { KcContext } from '@keycloakify/angular/login/KcContext';
 import { LoginResourceInjectorService } from '@keycloakify/angular/login/services/login-resource-injector';
 import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes';
 import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n';
 import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
 import { type ClassKey, getKcClsx } from 'keycloakify/login/lib/kcClsx';
 import { Observable } from 'rxjs';
-import type { I18n } from '@keycloakify/angular/login/i18n';
-import { KcContext } from '@keycloakify/angular/login/KcContext';
 
 @Component({
     selector: 'kc-dynamic-page-injector',
@@ -35,14 +35,19 @@ import { KcContext } from '@keycloakify/angular/login/KcContext';
 })
 export class DynamicPageInjectorComponent {
     page = input<Type<unknown>>();
+    userProfileFormFields = input<Type<unknown>>();
     componentCreated = output<object>();
-    vcr = inject<ViewContainerRef>(ViewContainerRef);
+    #vcr = inject<ViewContainerRef>(ViewContainerRef);
     constructor() {
         effect(
             () => {
                 const page = this.page();
+                const userProfileFormFields = this.userProfileFormFields();
                 if (!page) return;
-                const compRef = this.vcr.createComponent(page);
+                const compRef = this.#vcr.createComponent(page);
+                if ('userProfileFormFields' in compRef && userProfileFormFields) {
+                    compRef.setInput('userProfileFormFields', userProfileFormFields);
+                }
                 this.componentCreated.emit(compRef.instance as object);
             },
             { allowSignalWrites: true }
@@ -66,6 +71,7 @@ export class DynamicPageInjectorComponent {
 export class TemplateComponent extends ComponentReference implements OnInit {
     i18n = inject<I18n>(LOGIN_I18N);
     renderer = inject(Renderer2);
+    #cdr = inject(ChangeDetectorRef);
     meta = inject(Meta);
     title = inject(Title);
     kcContext = inject<KcContext>(KC_LOGIN_CONTEXT);
@@ -82,12 +88,13 @@ export class TemplateComponent extends ComponentReference implements OnInit {
     _displayInfo = false;
     _displayMessage = true;
     _displayRequiredFields = false;
-    _documentTitle = '';
-    _bodyClassName = '';
+    _documentTitle: string | undefined;
+    _bodyClassName: string | undefined;
 
     isReadyToRender$: Observable<boolean>;
 
     page = input<Type<unknown>>();
+    userProfileFormFields = input<Type<unknown>>();
     headerNode: TemplateRef<HTMLElement> | undefined;
     infoNode: TemplateRef<HTMLElement> | undefined;
     socialProvidersNode: TemplateRef<HTMLElement> | undefined;
@@ -149,5 +156,6 @@ export class TemplateComponent extends ComponentReference implements OnInit {
         if ('socialProvidersNode' in compRef) {
             this.socialProvidersNode = compRef.socialProvidersNode as TemplateRef<HTMLElement>;
         }
+        this.#cdr.markForCheck();
     }
 }

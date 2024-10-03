@@ -1,5 +1,19 @@
 import { AsyncPipe, NgTemplateOutlet } from '@angular/common';
-import { ChangeDetectionStrategy, Component, forwardRef, inject, input, OnInit, Renderer2 } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    effect,
+    forwardRef,
+    inject,
+    input,
+    OnInit,
+    output,
+    Renderer2,
+    TemplateRef,
+    Type,
+    ViewChild,
+    ViewContainerRef
+} from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { KcSanitizePipe } from '@keycloakify/angular/lib/pipes/kc-sanitize';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
@@ -15,10 +29,32 @@ import type { I18n } from '@keycloakify/angular/login/i18n';
 import { KcContext } from '@keycloakify/angular/login/KcContext';
 
 @Component({
+    selector: 'kc-dynamic-page-injector',
+    standalone: true,
+    template: ``
+})
+export class DynamicPageInjectorComponent {
+    page = input<Type<unknown>>();
+    componentCreated = output<object>();
+    vcr = inject<ViewContainerRef>(ViewContainerRef);
+    constructor() {
+        effect(
+            () => {
+                const page = this.page();
+                if (!page) return;
+                const compRef = this.vcr.createComponent(page);
+                this.componentCreated.emit(compRef.instance as object);
+            },
+            { allowSignalWrites: true }
+        );
+    }
+}
+
+@Component({
     selector: 'kc-login-template',
     templateUrl: './template.component.html',
     standalone: true,
-    imports: [AsyncPipe, KcSanitizePipe, NgTemplateOutlet, KcClassDirective],
+    imports: [AsyncPipe, KcSanitizePipe, NgTemplateOutlet, KcClassDirective, DynamicPageInjectorComponent],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         {
@@ -43,11 +79,23 @@ export class TemplateComponent extends ComponentReference implements OnInit {
     documentTitle = input<string>();
     bodyClassName = input<string>();
 
+    _displayInfo = false;
+    _displayMessage = true;
+    _displayRequiredFields = false;
+    _documentTitle = '';
+    _bodyClassName = '';
+
     isReadyToRender$: Observable<boolean>;
+
+    page = input<Type<unknown>>();
+    headerNode: TemplateRef<HTMLElement> | undefined;
+    infoNode: TemplateRef<HTMLElement> | undefined;
+    socialProvidersNode: TemplateRef<HTMLElement> | undefined;
 
     constructor() {
         super();
-        this.title.setTitle(this.documentTitle() ?? this.i18n.msgStr('loginTitle', this.kcContext.realm.displayName));
+
+        this.title.setTitle(this._documentTitle ?? this.i18n.msgStr('loginTitle', this.kcContext.realm.displayName));
         this.isReadyToRender$ = this.loginResourceInjectorService.injectResource(this.doUseDefaultCss);
     }
 
@@ -60,7 +108,7 @@ export class TemplateComponent extends ComponentReference implements OnInit {
             doUseDefaultCss: this.doUseDefaultCss,
             classes: this.classes
         }).kcClsx;
-        const kcBodyClass = this.bodyClassName() ?? kcClsx('kcBodyClass');
+        const kcBodyClass = this._bodyClassName ?? kcClsx('kcBodyClass');
         const kcHtmlClass = kcClsx('kcHtmlClass');
         const kcBodyClasses = kcBodyClass.split(/\s+/);
         const kcHtmlClasses = kcHtmlClass.split(/\s+/);
@@ -74,5 +122,32 @@ export class TemplateComponent extends ComponentReference implements OnInit {
 
     tryAnotherWay() {
         document.forms['kc-select-try-another-way-form' as never].submit();
+    }
+
+    onComponentCreated(compRef: object) {
+        if ('_displayInfo' in compRef) {
+            this._displayInfo = compRef._displayInfo as boolean;
+        }
+        if ('_displayMessage' in compRef) {
+            this._displayMessage = compRef._displayMessage as boolean;
+        }
+        if ('_displayRequiredFields' in compRef) {
+            this._displayRequiredFields = compRef._displayRequiredFields as boolean;
+        }
+        if ('_documentTitle' in compRef) {
+            this._documentTitle = compRef._documentTitle as string;
+        }
+        if ('_bodyClassName' in compRef) {
+            this._bodyClassName = compRef._bodyClassName as string;
+        }
+        if ('headerNode' in compRef) {
+            this.headerNode = compRef.headerNode as TemplateRef<HTMLElement>;
+        }
+        if ('infoNode' in compRef) {
+            this.infoNode = compRef.infoNode as TemplateRef<HTMLElement>;
+        }
+        if ('socialProvidersNode' in compRef) {
+            this.socialProvidersNode = compRef.socialProvidersNode as TemplateRef<HTMLElement>;
+        }
     }
 }

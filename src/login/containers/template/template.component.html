@@ -80,7 +80,9 @@
                 <ng-template #node>
                     @if (auth && !auth.showUsername && !auth.showResetCredentials) {
                         <h1 id="kc-page-title">
-                            <ng-content select="[headerNode]" />
+                            @if (headerNode) {
+                                <ng-container [ngTemplateOutlet]="headerNode" />
+                            }
                         </h1>
                     } @else {
                         <div
@@ -104,7 +106,7 @@
                     }
                 </ng-template>
 
-                @if (displayRequiredFields()) {
+                @if (_displayRequiredFields) {
                     <div [kcClass]="'kcContentWrapperClass'">
                         <div
                             class="subtitle"
@@ -127,7 +129,7 @@
             <div id="kc-content">
                 <div id="kc-content-wrapper">
                     <!-- Message display -->
-                    @if (displayMessage() && message && (message.type !== 'warning' || !isAppInitiatedAction)) {
+                    @if (_displayMessage && message && (message.type !== 'warning' || !isAppInitiatedAction)) {
                         <div
                             [kcClass]="'kcAlertClass'"
                             [ngClass]="message.type === 'error' ? 'pf-m-danger' : 'pf-m-' + message.type"
@@ -156,7 +158,13 @@
                         </div>
                     }
                     <!-- Content -->
-                    <ng-content select="[content]" />
+                    @let pageRef = page();
+                    @if (!!pageRef) {
+                        <kc-dynamic-page-injector
+                            [page]="pageRef"
+                            (componentCreated)="onComponentCreated($event)"
+                        />
+                    }
                     @if (!!auth && auth?.showTryAnotherWayLink) {
                         <form
                             id="kc-select-try-another-way-form"
@@ -180,10 +188,11 @@
                             </div>
                         </form>
                     }
-
-                    <ng-content select="[socialProvidersNode]" />
+                    @if (socialProvidersNode) {
+                        <ng-container [ngTemplateOutlet]="socialProvidersNode" />
+                    }
                     <!-- Info display -->
-                    @if (displayInfo()) {
+                    @if (_displayInfo) {
                         <div
                             id="kc-info"
                             [kcClass]="'kcSignUpClass'"
@@ -192,7 +201,9 @@
                                 id="kc-info-wrapper"
                                 [kcClass]="'kcInfoAreaWrapperClass'"
                             >
-                                <ng-content select="[infoNode]" />
+                                @if (infoNode) {
+                                    <ng-container [ngTemplateOutlet]="infoNode" />
+                                }
                             </div>
                         </div>
                     }

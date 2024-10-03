@@ -1,5 +1,5 @@
-import { AsyncPipe, NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, forwardRef, inject, input, signal } from '@angular/core';
+import { AsyncPipe, CommonModule, NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input, signal, TemplateRef, ViewChild } from '@angular/core';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
 import { PasswordWrapperComponent } from '@keycloakify/angular/login/components/password-wrapper';
@@ -18,7 +18,7 @@ import type { KcContext } from '@keycloakify/angular/login/KcContext';
     templateUrl: './login.component.html',
     standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [KcClassDirective, AsyncPipe, KcSanitizePipe, PasswordWrapperComponent, NgClass, TemplateComponent],
+    imports: [KcClassDirective, AsyncPipe, KcSanitizePipe, PasswordWrapperComponent, NgClass, TemplateComponent, CommonModule],
     providers: [
         {
             provide: ComponentReference,
@@ -28,13 +28,18 @@ import type { KcContext } from '@keycloakify/angular/login/KcContext';
 })
 export class LoginComponent extends ComponentReference {
     kcContext = inject<Extract<KcContext, { pageId: 'login.ftl' }>>(KC_LOGIN_CONTEXT);
-    displayRequiredFields = input(false);
-    documentTitle = input<string>();
-    bodyClassName = input<string>();
+    _displayRequiredFields = false;
+    _documentTitle = '';
+    _bodyClassName = '';
     i18n = inject<I18n>(LOGIN_I18N);
     override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
     override classes = inject<Partial<Record<ClassKey, string>>>(LOGIN_CLASSES);
     isLoginButtonDisabled = signal(false);
-    displayInfo: boolean = !!this.kcContext?.realm?.password && !!this.kcContext?.realm?.registrationAllowed && !this.kcContext?.registrationDisabled;
-    displayMessage: boolean = !this.kcContext?.messagesPerField?.existsError('username', 'password');
+    _displayInfo: boolean =
+        !!this.kcContext?.realm?.password && !!this.kcContext?.realm?.registrationAllowed && !this.kcContext?.registrationDisabled;
+    _displayMessage: boolean = !this.kcContext?.messagesPerField?.existsError('username', 'password');
+
+    @ViewChild('headerNode', { static: true, read: TemplateRef }) headerNode?: TemplateRef<HTMLElement>;
+    @ViewChild('infoNode', { static: true, read: TemplateRef }) infoNode?: TemplateRef<HTMLElement>;
+    @ViewChild('socialProvidersNode', { static: true, read: TemplateRef }) socialProvidersNode?: TemplateRef<HTMLElement>;
 }

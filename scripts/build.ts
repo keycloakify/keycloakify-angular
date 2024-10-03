@@ -136,7 +136,9 @@ import { getThisCodebaseRootDirPath } from './tools/getThisCodebaseRootDirPath';
 
                 modifiedSourceCode_str = modifiedSourceCode_str.replaceAll(
                     `@keycloakify/angular/${themeType}/KcContext`,
-                    getRelativeTo('KcContext') === 'KcContext' ? './KcContext' : getRelativeTo('KcContext')
+                    getRelativeTo('KcContext') === 'KcContext'
+                        ? './KcContext'
+                        : getRelativeTo('KcContext')
                 );
 
                 return {

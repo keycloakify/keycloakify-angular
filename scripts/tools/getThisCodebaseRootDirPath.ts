@@ -15,5 +15,5 @@ export function getThisCodebaseRootDirPath(): string {
         return result;
     }
 
-    return (result = getThisCodebaseRootDirPath_rec(__dirname));
+    return (result = getThisCodebaseRootDirPath_rec(import.meta.dirname));
 }

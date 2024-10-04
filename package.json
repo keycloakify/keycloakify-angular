@@ -65,5 +65,8 @@
         "typescript-eslint": "^8.7.0",
         "zone.js": "^0.14.0",
         "chokidar": "^4.0.1"
+    },
+    "engines": {
+        "node": ">=21.0.0"
     }
 }

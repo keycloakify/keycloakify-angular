@@ -150,5 +150,6 @@ export class TemplateComponent extends ComponentReference implements OnInit {
         if ('socialProvidersNode' in compRef) {
             this.socialProvidersNode = compRef.socialProvidersNode as TemplateRef<HTMLElement>;
         }
+        this.#cdr.markForCheck();
     }
 }

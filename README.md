@@ -28,8 +28,15 @@
         <a href="https://storybook.keycloakify.dev">Storybook</a>
         -
         <a href="https://github.com/keycloakify/keycloakify-starter-angular">Starter project</a>
+        -
+        <a href="https://github.com/keycloakify/keycloakify-starter-angular-vite">Starter project (Vite)</a>
     </p>
 </p>
+
+```bash
+npm install keycloakify @keycloakify/angular
+```
+or using yarn:
 
 ```bash
 yarn add keycloakify @keycloakify/angular

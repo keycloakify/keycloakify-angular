@@ -80,8 +80,9 @@
                 <ng-template #node>
                     @if (auth && !auth.showUsername && !auth.showResetCredentials) {
                         <h1 id="kc-page-title">
-                            @if (headerNode) {
-                                <ng-container [ngTemplateOutlet]="headerNode" />
+                            @let header = headerNode && headerNode();
+                            @if (header) {
+                                <ng-container [ngTemplateOutlet]="header" />
                             }
                         </h1>
                     } @else {
@@ -188,8 +189,9 @@
                             </div>
                         </form>
                     }
-                    @if (socialProvidersNode) {
-                        <ng-container [ngTemplateOutlet]="socialProvidersNode" />
+                    @let socialProviders = socialProvidersNode && socialProvidersNode();
+                    @if (socialProviders) {
+                        <ng-container [ngTemplateOutlet]="socialProviders" />
                     }
                     <!-- Info display -->
                     @if (displayInfo) {
@@ -201,8 +203,9 @@
                                 id="kc-info-wrapper"
                                 [kcClass]="'kcInfoAreaWrapperClass'"
                             >
-                                @if (infoNode) {
-                                    <ng-container [ngTemplateOutlet]="infoNode" />
+                                @let info = infoNode && infoNode();
+                                @if (info) {
+                                    <ng-container [ngTemplateOutlet]="info" />
                                 }
                             </div>
                         </div>

@@ -1,0 +1,32 @@
+@let url = kcContext.url;
+
+<ng-template #headerNode>
+    {{ i18n.msgStr('loginIdpReviewProfileTitle') }}
+</ng-template>
+<form
+    id="kc-idp-review-profile-form"
+    method="post"
+    [kcClass]="'kcFormClass'"
+    [action]="url.loginAction"
+>
+    <ng-container [ngComponentOutlet]="userProfileFormFields() ?? null" />
+    <div [kcClass]="'kcFormGroupClass'">
+        <div
+            id="kc-form-options"
+            [kcClass]="'kcFormOptionsClass'"
+        >
+            <div [kcClass]="'kcFormOptionsWrapperClass'"></div>
+        </div>
+        <div
+            id="kc-form-buttons"
+            [kcClass]="'kcFormButtonsClass'"
+        >
+            <input
+                type="submit"
+                [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
+                [value]="i18n.msgStr('doSubmit')"
+                [disabled]="!isFormSubmittable()"
+            />
+        </div>
+    </div>
+</form>

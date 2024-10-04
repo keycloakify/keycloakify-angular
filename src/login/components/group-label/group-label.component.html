@@ -1,0 +1,30 @@
+@let attr = attribute();
+@let groupName = groupNameRef();
+@if (attr && groupName !== '') {
+    <div
+        [kcClass]="'kcFormGroupClass'"
+        [kcAttributes]="attr.group?.html5DataAnnotations"
+    >
+        @let groupDisplayHeader = attr.group?.displayHeader ?? '';
+        @let groupHeaderText = groupDisplayHeader !== '' ? groupDisplayHeader : (attr.group?.name ?? '');
+        <div [kcClass]="'kcContentWrapperClass'">
+            <label
+                [id]="'header-' + attr.group?.name"
+                [kcClass]="'kcFormGroupHeader'"
+            >
+                {{ i18n.advancedMsgStr(groupHeaderText) }}
+            </label>
+        </div>
+        @let groupDisplayDescription = attr.group?.displayDescription ?? '';
+        @if (groupDisplayDescription !== '') {
+            <div [kcClass]="'kcLabelWrapperClass'">
+                <label
+                    [id]="'description-' + attr.group?.name"
+                    [kcClass]="'kcLabelClass'"
+                >
+                    {{ i18n.advancedMsgStr(groupDisplayDescription) }}
+                </label>
+            </div>
+        }
+    </div>
+}

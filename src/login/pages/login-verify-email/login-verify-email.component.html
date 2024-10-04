@@ -1,0 +1,19 @@
+@let url = kcContext.url;
+@let user = kcContext.user;
+
+<ng-template #headerNode>
+    {{ i18n.msgStr('emailVerifyTitle') }}
+</ng-template>
+<ng-template #infoNode>
+    <p class="instruction">
+        {{ i18n.msgStr('emailVerifyInstruction2') }}
+        <br />
+        <a [href]="url.loginAction">{{ i18n.msgStr('doClickHere') }}</a>
+        &nbsp;
+        {{ i18n.msgStr('emailVerifyInstruction3') }}
+    </p>
+</ng-template>
+
+<p class="instruction">
+    {{ i18n.msgStr('emailVerifyInstruction1', user?.email ?? '') }}
+</p>

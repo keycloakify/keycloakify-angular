@@ -1,0 +1,94 @@
+@let url = kcContext.url;
+@let otpLogin = kcContext.otpLogin;
+@let messagesPerField = kcContext.messagesPerField;
+
+<ng-template #headerNode>
+    {{ i18n.msgStr('doLogIn') }}
+</ng-template>
+<form
+    id="kc-otp-login-form"
+    method="post"
+    [kcClass]="['kcFormClass']"
+    [action]="url.loginAction"
+>
+    @if (otpLogin.userOtpCredentials.length > 1) {
+        <div [kcClass]="'kcFormGroupClass'">
+            <div [kcClass]="'kcInputWrapperClass'">
+                @for (otpCredential of otpLogin.userOtpCredentials; track otpCredential; let i = $index) {
+                    <ng-container>
+                        <input
+                            type="radio"
+                            name="selectedCredentialId"
+                            [id]="'kc-otp-credential-' + i"
+                            [kcClass]="'kcLoginOTPListClass'"
+                            [value]="otpCredential.id"
+                            [checked]="otpCredential.id === otpLogin.selectedCredentialId"
+                        />
+                        <label
+                            [for]="'kc-otp-credential-' + i"
+                            [kcClass]="'kcLoginOTPListClass'"
+                            [tabIndex]="i"
+                        >
+                            <span [kcClass]="'kcLoginOTPListItemHeaderClass'">
+                                <span [kcClass]="'kcLoginOTPListItemIconBodyClass'">
+                                    <i
+                                        aria-hidden="true"
+                                        [kcClass]="'kcLoginOTPListItemIconClass'"
+                                    ></i>
+                                </span>
+                                <span [kcClass]="'kcLoginOTPListItemTitleClass'">{{ otpCredential.userLabel }}</span>
+                            </span>
+                        </label>
+                    </ng-container>
+                }
+            </div>
+        </div>
+    }
+    <div [kcClass]="'kcFormGroupClass'">
+        <div [kcClass]="'kcLabelWrapperClass'">
+            <label
+                for="otp"
+                [kcClass]="'kcLabelClass'"
+            >
+                {{ i18n.msgStr('loginOtpOneTime') }}
+            </label>
+        </div>
+        <div [kcClass]="'kcInputWrapperClass'">
+            <input
+                id="otp"
+                name="otp"
+                autoComplete="off"
+                type="text"
+                autoFocus
+                [kcClass]="'kcInputClass'"
+                [attr.aria-invalid]="messagesPerField.existsError('totp')"
+            />
+            @if (messagesPerField.existsError('totp')) {
+                <span
+                    id="input-error-otp-code"
+                    aria-live="polite"
+                    [kcClass]="['kcInputErrorMessageClass']"
+                    [innerHTML]="messagesPerField.get('totp') | kcSanitize: 'html'"
+                ></span>
+            }
+        </div>
+    </div>
+    <div [kcClass]="'kcFormGroupClass'">
+        <div
+            id="kc-form-options"
+            [kcClass]="'kcFormOptionsClass'"
+        ></div>
+        <div
+            id="kc-form-buttons"
+            [kcClass]="'kcFormButtonsClass'"
+        >
+            <input
+                name="login"
+                id="kc-login"
+                type="submit"
+                [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
+                [value]="i18n.msgStr('doLogIn')"
+            />
+        </div>
+    </div>
+</form>

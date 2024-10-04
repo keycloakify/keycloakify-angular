@@ -1,0 +1,93 @@
+@let url = kcContext.url;
+@let federatedIdentity = kcContext.federatedIdentity;
+@let stateChecker = kcContext.stateChecker;
+
+<div class="main-layout social">
+    <div class="row">
+        <div class="col-md-10">
+            <h2>{{ i18n.msgStr('federatedIdentitiesHtmlTitle') }}</h2>
+        </div>
+    </div>
+    <div id="federated-identities">
+        @for (identity of federatedIdentity.identities; track identity) {
+            <div class="row margin-bottom">
+                <div class="col-sm-2 col-md-2">
+                    <label
+                        class="control-label"
+                        [for]="identity.providerId"
+                    >
+                        {{ identity.displayName }}
+                    </label>
+                </div>
+                <div class="col-sm-5 col-md-5">
+                    <input
+                        disabled
+                        class="form-control"
+                        [value]="identity.userName"
+                    />
+                </div>
+                <div class="col-sm-5 col-md-5">
+                    @if (identity.connected) {
+                        @if (federatedIdentity.removeLinkPossible) {
+                            <form
+                                method="post"
+                                class="form-inline"
+                                [action]="url.socialUrl"
+                            >
+                                <input
+                                    type="hidden"
+                                    name="stateChecker"
+                                    [value]="stateChecker"
+                                />
+                                <input
+                                    type="hidden"
+                                    name="action"
+                                    value="remove"
+                                />
+                                <input
+                                    type="hidden"
+                                    name="providerId"
+                                    [value]="identity.providerId"
+                                />
+                                <button
+                                    class="btn btn-default"
+                                    [id]="'remove-link-' + identity.providerId"
+                                >
+                                    {{ i18n.msgStr('doRemove') }}
+                                </button>
+                            </form>
+                        }
+                    } @else {
+                        <form
+                            method="post"
+                            class="form-inline"
+                            [action]="url.socialUrl"
+                        >
+                            <input
+                                type="hidden"
+                                name="stateChecker"
+                                [value]="stateChecker"
+                            />
+                            <input
+                                type="hidden"
+                                name="action"
+                                value="add"
+                            />
+                            <input
+                                type="hidden"
+                                name="providerId"
+                                [value]="identity.providerId"
+                            />
+                            <button
+                                class="btn btn-default"
+                                [id]="'add-link-' + identity.providerId"
+                            >
+                                {{ i18n.msgStr('doAdd') }}
+                            </button>
+                        </form>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>

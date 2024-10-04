@@ -1,0 +1,29 @@
+@let idpAlias = kcContext.idpAlias;
+@let brokerContext = kcContext.brokerContext;
+@let realm = kcContext.realm;
+@let url = kcContext.url;
+<ng-template #headerNode>
+    {{ i18n.msgStr('emailLinkIdpTitle', idpAlias) }}
+</ng-template>
+<p
+    id="instruction1"
+    class="instruction"
+>
+    {{ i18n.msgStr('emailLinkIdp1', idpAlias, brokerContext.username, realm.displayName) }}
+</p>
+<p
+    id="instruction2"
+    class="instruction"
+>
+    {{ i18n.msgStr('emailLinkIdp2') }}
+    <a [href]="url.loginAction">{{ i18n.msgStr('doClickHere') }}</a>
+    {{ i18n.msgStr('emailLinkIdp3') }}
+</p>
+<p
+    id="instruction3"
+    class="instruction"
+>
+    {{ i18n.msgStr('emailLinkIdp4') }}
+    <a [href]="url.loginAction">{{ i18n.msgStr('doClickHere') }}</a>
+    {{ i18n.msgStr('emailLinkIdp5') }}
+</p>

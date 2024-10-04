@@ -1,0 +1,54 @@
+@let url = kcContext.url;
+
+<ng-template #headerNode>
+    {{ i18n.msgStr('oauth2DeviceVerificationTitle') }}
+</ng-template>
+<form
+    id="kc-user-verify-device-user-code-form"
+    method="post"
+    [kcClass]="'kcFormClass'"
+    [action]="url.oauth2DeviceVerificationAction"
+>
+    <div [kcClass]="'kcFormGroupClass'">
+        <div [kcClass]="'kcLabelWrapperClass'">
+            <label
+                for="device-user-code"
+                [kcClass]="'kcLabelClass'"
+            >
+                {{ i18n.msgStr('verifyOAuth2DeviceUserCode') }}
+            </label>
+        </div>
+
+        <div [kcClass]="'kcInputWrapperClass'">
+            <input
+                id="device-user-code"
+                name="device_user_code"
+                autoComplete="off"
+                type="text"
+                autofocus
+                [kcClass]="'kcInputClass'"
+            />
+        </div>
+    </div>
+    <div [kcClass]="'kcFormGroupClass'">
+        <div
+            id="kc-form-options"
+            [kcClass]="'kcFormOptionsClass'"
+        >
+            <div [kcClass]="'kcFormOptionsWrapperClass'"></div>
+        </div>
+
+        <div
+            id="kc-form-buttons"
+            [kcClass]="'kcFormButtonsClass'"
+        >
+            <div [kcClass]="'kcFormButtonsWrapperClass'">
+                <input
+                    type="submit"
+                    [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
+                    [value]="i18n.msgStr('doSubmit')"
+                />
+            </div>
+        </div>
+    </div>
+</form>

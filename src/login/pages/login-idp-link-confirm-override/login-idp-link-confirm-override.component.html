@@ -1,0 +1,30 @@
+@let url = kcContext.url;
+@let idpDisplayName = kcContext.idpDisplayName;
+
+<ng-template #headerNode>
+    {{ i18n.msgStr('confirmOverrideIdpTitle') }}
+</ng-template>
+<form
+    id="kc-register-form"
+    method="post"
+    [action]="url.loginAction"
+>
+    {{ i18n.msgStr('pageExpiredMsg1') }}
+    <a
+        id="loginRestartLink"
+        [href]="url.loginRestartFlowUrl"
+    >
+        {{ i18n.msgStr('doClickHere') }}
+    </a>
+    <br />
+    <br />
+    <button
+        type="submit"
+        name="submitAction"
+        id="confirmOverride"
+        value="confirmOverride"
+        [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
+    >
+        {{ i18n.msgStr('confirmOverrideIdpContinue', idpDisplayName) }}
+    </button>
+</form>

@@ -1,0 +1,28 @@
+@let url = kcContext.url;
+
+<ng-container #headerNode>
+    {{ i18n.msgStr('pageExpiredTitle') }}
+</ng-container>
+<ng-container content>
+    <p
+        id="instruction1"
+        class="instruction"
+    >
+        {{ i18n.msgStr('pageExpiredMsg1') }}
+        <a
+            id="loginRestartLink"
+            [href]="url.loginRestartFlowUrl"
+        >
+            {{ i18n.msgStr('doClickHere') }}
+        </a>
+        .<br />
+        {{ i18n.msgStr('pageExpiredMsg2') }}
+        <a
+            id="loginContinueLink"
+            [href]="url.loginAction"
+        >
+            {{ i18n.msgStr('doClickHere') }}
+        </a>
+        .
+    </p>
+</ng-container>

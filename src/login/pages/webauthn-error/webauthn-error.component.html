@@ -1,0 +1,50 @@
+@let url = kcContext.url;
+@let isAppInitiatedAction = kcContext.isAppInitiatedAction;
+
+<ng-template #headerNode>
+    {{ i18n.msgStr('webauthn-error-title') }}
+</ng-template>
+<form
+    id="kc-error-credential-form"
+    method="post"
+    [kcClass]="'kcFormClass'"
+    [action]="url.loginAction"
+>
+    <input
+        type="hidden"
+        id="executionValue"
+        name="authenticationExecution"
+    />
+    <input
+        type="hidden"
+        id="isSetRetry"
+        name="isSetRetry"
+    />
+</form>
+<input
+    tabIndex="4"
+    type="button"
+    name="try-again"
+    id="kc-try-again"
+    [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
+    [value]="i18n.msgStr('doTryAgain')"
+    (click)="onClick()"
+/>
+@if (isAppInitiatedAction) {
+    <form
+        id="kc-webauthn-settings-form"
+        method="post"
+        [action]="url.loginAction"
+        [kcClass]="'kcFormClass'"
+    >
+        <button
+            type="submit"
+            id="cancelWebAuthnAIA"
+            name="cancel-aia"
+            value="true"
+            [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
+        >
+            {{ i18n.msgStr('doCancel') }}
+        </button>
+    </form>
+}

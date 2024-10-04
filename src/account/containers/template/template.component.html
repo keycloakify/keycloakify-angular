@@ -1,0 +1,130 @@
+@let enabledLanguages = i18n.enabledLanguages;
+@let currentLanguage = i18n.currentLanguage;
+@let url = kcContext.url;
+@let features = kcContext.features;
+@let realm = kcContext.realm;
+@let message = kcContext.message;
+@let referrer = kcContext.referrer;
+@let isReadyToRender = isReadyToRender$ | async;
+
+@if (isReadyToRender) {
+    <header class="navbar navbar-default navbar-pf navbar-main header">
+        <nav
+            class="navbar"
+            role="navigation"
+        >
+            <div class="navbar-header">
+                <div class="container">
+                    <h1 class="navbar-title">Keycloak</h1>
+                </div>
+            </div>
+            <div class="navbar-collapse navbar-collapse-1">
+                <div class="container">
+                    <ul class="nav navbar-nav navbar-utility">
+                        @if (enabledLanguages.length > 1) {
+                            <li>
+                                <div
+                                    class="kc-dropdown"
+                                    id="kc-locale-dropdown"
+                                >
+                                    <a
+                                        href="#"
+                                        id="kc-current-locale-link"
+                                    >
+                                        {{ currentLanguage.label }}
+                                    </a>
+                                    <ul>
+                                        @for (enabledLanguage of enabledLanguages; track enabledLanguage.languageTag) {
+                                            @let label = enabledLanguage.label;
+                                            @let href = enabledLanguage.href;
+
+                                            <li class="kc-dropdown-item">
+                                                <a [href]="href">{{ label }}</a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            </li>
+                        }
+                        @if (!!referrer?.url) {
+                            <a
+                                id="referrer"
+                                [href]="referrer?.url"
+                            >
+                                {{ i18n.msgStr('backTo', referrer?.name) }}
+                            </a>
+                        }
+                        <li>
+                            <a [href]="url.getLogoutUrl()">{{ i18n.msgStr('doSignOut') }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="bs-sidebar col-sm-3">
+            <ul>
+                <li [ngClass]="{ active: active === 'account' }">
+                    <a [href]="url.accountUrl">{{ i18n.msgStr('account') }}</a>
+                </li>
+                @if (features.passwordUpdateSupported) {
+                    <li [ngClass]="{ active: active === 'password' }">
+                        <a [href]="url.passwordUrl">{{ i18n.msgStr('password') }}</a>
+                    </li>
+                }
+                <li [ngClass]="{ active: active === 'totp' }">
+                    <a [href]="url.totpUrl">{{ i18n.msgStr('authenticator') }}</a>
+                </li>
+                @if (features.identityFederation) {
+                    <li [ngClass]="{ active: active === 'social' }">
+                        <a [href]="url.socialUrl">{{ i18n.msgStr('federatedIdentity') }}</a>
+                    </li>
+                }
+                <li [ngClass]="{ active: active === 'sessions' }">
+                    <a [href]="url.sessionsUrl">{{ i18n.msgStr('sessions') }}</a>
+                </li>
+                <li [ngClass]="{ active: active === 'applications' }">
+                    <a [href]="url.applicationsUrl">{{ i18n.msgStr('applications') }}</a>
+                </li>
+                @if (features.log) {
+                    <li [ngClass]="{ active: active === 'log' }">
+                        <a [href]="url.logUrl">{{ i18n.msgStr('log') }}</a>
+                    </li>
+                }
+                @if (realm.userManagedAccessAllowed && features.authorization) {
+                    <li [ngClass]="{ active: active === 'authorization' }">
+                        <a [href]="url.resourceUrl">{{ i18n.msgStr('myResources') }}</a>
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <div class="col-sm-9 content-area">
+            @if (message) {
+                <div [ngClass]="['alert', 'alert-' + message.type]">
+                    @switch (message.type) {
+                        @case ('success') {
+                            <span class="pficon pficon-ok"></span>
+                        }
+                        @case ('error') {
+                            <span class="pficon pficon-error-circle-o"></span>
+                        }
+                    }
+                    <span
+                        class="kc-feedback-text"
+                        [innerHTML]="message.summary | kcSanitize: 'html'"
+                    ></span>
+                </div>
+            }
+            @let pageRef = page();
+            @if (!!pageRef) {
+                <kc-dynamic-page-injector
+                    [page]="pageRef"
+                    (componentCreated)="onComponentCreated($event)"
+                />
+            }
+        </div>
+    </div>
+}

@@ -1,0 +1,31 @@
+@let url = kcContext.url;
+@let idpAlias = kcContext.idpAlias;
+<ng-template #headerNode>
+    {{ i18n.msgStr('confirmLinkIdpTitle') }}
+</ng-template>
+<form
+    id="kc-register-form"
+    method="post"
+    [action]="url.loginAction"
+>
+    <div [kcClass]="'kcFormGroupClass'">
+        <button
+            type="submit"
+            name="submitAction"
+            id="updateProfile"
+            value="updateProfile"
+            [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
+        >
+            {{ i18n.msgStr('confirmLinkIdpReviewProfile') }}
+        </button>
+        <button
+            type="submit"
+            name="submitAction"
+            id="linkAccount"
+            value="linkAccount"
+            [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
+        >
+            {{ i18n.msgStr('confirmLinkIdpContinue', idpAlias) }}
+        </button>
+    </div>
+</form>

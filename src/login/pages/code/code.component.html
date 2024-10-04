@@ -1,0 +1,22 @@
+@let code = kcContext.code;
+
+<ng-template #headerNode>
+    @if (code.success) {
+        {{ i18n.msgStr('codeSuccessTitle') }}
+    } @else {
+        {{ i18n.msgStr('codeErrorTitle', code.error) }}
+    }
+</ng-template>
+
+<div id="kc-code">
+    @if (code.success) {
+        <p>{{ i18n.msgStr('copyCodeInstruction') }}</p>
+        <input
+            id="code"
+            [kcClass]="'kcTextareaClass'"
+            [defaultValue]="code.code"
+        />
+    } @else {
+        <p id="error">{{ code.error }}</p>
+    }
+</div>

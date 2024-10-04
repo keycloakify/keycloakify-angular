@@ -1,0 +1,44 @@
+@let url = kcContext.url;
+@let triggered_from_aia = kcContext.triggered_from_aia;
+<ng-template #headerNode>
+    {{ i18n.msgStr('deleteAccountConfirm') }}
+</ng-template>
+<form
+    method="post"
+    class="form-actions"
+    [action]="url.loginAction"
+>
+    <div
+        class="alert alert-warning"
+        style="margin-top: 0; margin-bottom: 30px"
+    >
+        <span class="pficon pficon-warning-triangle-o"></span>
+        {{ i18n.msgStr('irreversibleAction') }}
+    </div>
+    <p>{{ i18n.msgStr('deletingImplies') }}</p>
+    <ul style="color: #72767b; list-style: disc; list-style-position: inside">
+        <li>{{ i18n.msgStr('loggingOutImmediately') }}</li>
+        <li>{{ i18n.msgStr('errasingData') }}</li>
+    </ul>
+    <p class="delete-account-text">
+        {{ i18n.msgStr('finalDeletionConfirmation') }}
+    </p>
+    <div id="kc-form-buttons">
+        <input
+            type="submit"
+            [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
+            [value]="i18n.msgStr('doConfirmDelete')"
+        />
+        @if (triggered_from_aia) {
+            <button
+                style="margin-left: calc(100% - 220px)"
+                type="submit"
+                name="cancel-aia"
+                value="true"
+                [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
+            >
+                {{ i18n.msgStr('doCancel') }}
+            </button>
+        }
+    </div>
+</form>

@@ -1,5 +1,15 @@
 node_modules/
 /dist/
-/dist_keycloak/
-/public/keycloak-resources/
+/CHANGELOG.md
+/.yarn_home/
+/src/test/apps/
+/src/tools/types/
+/build_keycloak/
 /.vscode/
+/src/login/i18n/messages_defaultSet/
+/src/account/i18n/messages_defaultSet/
+/dist_test
+/sample_react_project/
+/sample_custom_react_project/
+/keycloakify_starter_test/
+/.storybook/static/keycloak-resources/

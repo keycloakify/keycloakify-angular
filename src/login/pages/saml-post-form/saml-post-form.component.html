@@ -1,0 +1,41 @@
+@let samlPost = kcContext.samlPost;
+
+<ng-template #headerNode>
+    {{ i18n.msgStr('saml.post-form.title') }}
+</ng-template>
+<p>{{ i18n.msgStr('saml.post-form.message') }}</p>
+<form
+    #setHtmlFormElement
+    name="saml-post-binding"
+    method="post"
+    [action]="samlPost.url"
+>
+    @if (!!samlPost.SAMLRequest) {
+        <input
+            type="hidden"
+            name="SAMLRequest"
+            [value]="samlPost.SAMLRequest"
+        />
+    }
+    @if (!!samlPost.SAMLResponse) {
+        <input
+            type="hidden"
+            name="SAMLResponse"
+            [value]="samlPost.SAMLResponse"
+        />
+    }
+    @if (!!samlPost.relayState) {
+        <input
+            type="hidden"
+            name="RelayState"
+            [value]="samlPost.relayState"
+        />
+    }
+    <noscript>
+        <p>{{ i18n.msgStr('saml.post-form.js-disabled') }}</p>
+        <input
+            type="submit"
+            [value]="i18n.msgStr('doContinue')"
+        />
+    </noscript>
+</form>

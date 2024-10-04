@@ -1,0 +1,26 @@
+@let logout = kcContext.logout;
+
+<ng-template #headerNode>
+    {{ i18n.msgStr('frontchannel-logout.title') }}
+</ng-template>
+<p>{{ i18n.msgStr('frontchannel-logout.message') }}</p>
+<ul>
+    @for (client of logout.clients; track client.name; let idx = $index) {
+        <li>
+            {{ client.name }}
+            <iframe
+                style="display: none"
+                [src]="'client.frontChannelLogoutUrl' | kcSanitize: 'resourceUrl'"
+            ></iframe>
+        </li>
+    }
+</ul>
+@if (logout.logoutRedirectUri) {
+    <a
+        id="continue"
+        class="btn btn-primary"
+        [href]="logout.logoutRedirectUri"
+    >
+        {{ i18n.msgStr('doContinue') }}
+    </a>
+}

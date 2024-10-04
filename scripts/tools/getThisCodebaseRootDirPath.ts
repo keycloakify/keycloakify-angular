@@ -1,8 +1,5 @@
-import * as fs from 'node:fs';
-import * as path from 'node:path';
-import * as url from 'node:url';
-
-const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
+import * as fs from 'fs';
+import * as path from 'path';
 
 function getThisCodebaseRootDirPath_rec(dirPath: string): string {
     if (fs.existsSync(path.join(dirPath, 'package.json'))) {
@@ -18,5 +15,5 @@ export function getThisCodebaseRootDirPath(): string {
         return result;
     }
 
-    return (result = getThisCodebaseRootDirPath_rec(__dirname));
+    return (result = getThisCodebaseRootDirPath_rec(import.meta.dirname));
 }

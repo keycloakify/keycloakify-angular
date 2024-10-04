@@ -3,6 +3,7 @@ import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
+    computed,
     effect,
     forwardRef,
     inject,
@@ -10,6 +11,7 @@ import {
     OnInit,
     output,
     Renderer2,
+    Signal,
     TemplateRef,
     Type,
     ViewContainerRef
@@ -89,9 +91,9 @@ export class TemplateComponent extends ComponentReference implements OnInit {
 
     page = input<Type<unknown>>();
     userProfileFormFields = input<Type<unknown>>();
-    headerNode: TemplateRef<HTMLElement> | undefined;
-    infoNode: TemplateRef<HTMLElement> | undefined;
-    socialProvidersNode: TemplateRef<HTMLElement> | undefined;
+    headerNode: Signal<TemplateRef<HTMLElement>> | undefined;
+    infoNode: Signal<TemplateRef<HTMLElement>> | undefined;
+    socialProvidersNode: Signal<TemplateRef<HTMLElement>> | undefined;
 
     constructor() {
         super();
@@ -126,29 +128,38 @@ export class TemplateComponent extends ComponentReference implements OnInit {
     }
 
     onComponentCreated(compRef: object) {
-        if ('displayInfo' in compRef) {
+        if ('displayInfo' in compRef && compRef.displayInfo) {
             this.displayInfo = compRef.displayInfo as boolean;
         }
-        if ('displayMessage' in compRef) {
+        if ('displayMessage' in compRef && compRef.displayMessage) {
             this.displayMessage = compRef.displayMessage as boolean;
         }
-        if ('displayRequiredFields' in compRef) {
+        if ('displayRequiredFields' in compRef && compRef.displayRequiredFields) {
             this.displayRequiredFields = compRef.displayRequiredFields as boolean;
         }
-        if ('documentTitle' in compRef) {
+        if ('documentTitle' in compRef && compRef.documentTitle) {
             this.documentTitle = compRef.documentTitle as string;
         }
-        if ('bodyClassName' in compRef) {
+        if ('bodyClassName' in compRef && compRef.bodyClassName) {
             this.bodyClassName = compRef.bodyClassName as string;
         }
-        if ('headerNode' in compRef) {
-            this.headerNode = compRef.headerNode as TemplateRef<HTMLElement>;
+        if ('headerNode' in compRef && compRef.headerNode) {
+            this.headerNode = computed(() => {
+                const headerNode = (compRef.headerNode as Signal<TemplateRef<HTMLElement>>)();
+                return headerNode;
+            });
         }
-        if ('infoNode' in compRef) {
-            this.infoNode = compRef.infoNode as TemplateRef<HTMLElement>;
+        if ('infoNode' in compRef && compRef.infoNode) {
+            this.infoNode = computed(() => {
+                const infoNode = (compRef.infoNode as Signal<TemplateRef<HTMLElement>>)();
+                return infoNode;
+            });
         }
-        if ('socialProvidersNode' in compRef) {
-            this.socialProvidersNode = compRef.socialProvidersNode as TemplateRef<HTMLElement>;
+        if ('socialProvidersNode' in compRef && compRef.socialProvidersNode) {
+            this.socialProvidersNode = computed(() => {
+                const socialProvidersNode = (compRef.socialProvidersNode as Signal<TemplateRef<HTMLElement>>)();
+                return socialProvidersNode;
+            });
         }
         this.#cdr.markForCheck();
     }

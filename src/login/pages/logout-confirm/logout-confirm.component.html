@@ -2,58 +2,48 @@
 @let logoutConfirm = kcContext.logoutConfirm;
 @let client = kcContext.client;
 
-<kc-login-template
-    [displayInfo]="displayInfo"
-    [bodyClassName]="bodyClassName()"
-    [displayMessage]="displayMessage"
-    [displayRequiredFields]="displayRequiredFields()"
-    [documentTitle]="documentTitle()"
+<ng-template #headerNode>
+    {{ i18n.msgStr('logoutConfirmTitle') }}
+</ng-template>
+<div
+    id="kc-logout-confirm"
+    class="content-area"
 >
-    <ng-container headerNode>
-        {{ i18n.msgStr('logoutConfirmTitle') }}
-    </ng-container>
-    <ng-container content>
-        <div
-            id="kc-logout-confirm"
-            class="content-area"
-        >
-            <p class="instruction">{{ i18n.msgStr('logoutConfirmHeader') }}</p>
-            <form
-                class="form-actions"
-                method="POST"
-                [action]="url.logoutConfirmAction"
+    <p class="instruction">{{ i18n.msgStr('logoutConfirmHeader') }}</p>
+    <form
+        class="form-actions"
+        method="POST"
+        [action]="url.logoutConfirmAction"
+    >
+        <input
+            type="hidden"
+            name="session_code"
+            [value]="logoutConfirm.code"
+        />
+        <div [kcClass]="'kcFormGroupClass'">
+            <div id="kc-form-options">
+                <div [kcClass]="'kcFormOptionsWrapperClass'"></div>
+            </div>
+            <div
+                id="kc-form-buttons"
+                class="kcFormGroupClass"
             >
                 <input
-                    type="hidden"
-                    name="session_code"
-                    [value]="logoutConfirm.code"
+                    tabIndex="4"
+                    name="confirmLogout"
+                    id="kc-logout"
+                    type="submit"
+                    [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
+                    [value]="i18n.msgStr('doLogout')"
                 />
-                <div [kcClass]="'kcFormGroupClass'">
-                    <div id="kc-form-options">
-                        <div [kcClass]="'kcFormOptionsWrapperClass'"></div>
-                    </div>
-                    <div
-                        id="kc-form-buttons"
-                        class="kcFormGroupClass"
-                    >
-                        <input
-                            tabIndex="4"
-                            name="confirmLogout"
-                            id="kc-logout"
-                            type="submit"
-                            [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
-                            [value]="i18n.msgStr('doLogout')"
-                        />
-                    </div>
-                </div>
-            </form>
-            <div id="kc-info-message">
-                @if (!logoutConfirm.skipLink && client.baseUrl) {
-                    <p>
-                        <a [href]="client.baseUrl">{{ i18n.msgStr('backToApplication') }}</a>
-                    </p>
-                }
             </div>
         </div>
-    </ng-container>
-</kc-login-template>
+    </form>
+    <div id="kc-info-message">
+        @if (!logoutConfirm.skipLink && client.baseUrl) {
+            <p>
+                <a [href]="client.baseUrl">{{ i18n.msgStr('backToApplication') }}</a>
+            </p>
+        }
+    </div>
+</div>

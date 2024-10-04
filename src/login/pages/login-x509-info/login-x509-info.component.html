@@ -1,102 +1,93 @@
 @let url = kcContext.url;
 @let x509 = kcContext.x509;
-<kc-login-template
-    [displayInfo]="displayInfo"
-    [bodyClassName]="bodyClassName()"
-    [displayMessage]="displayMessage"
-    [displayRequiredFields]="displayRequiredFields()"
-    [documentTitle]="documentTitle()"
+
+<ng-template #headerNode>
+    {{ i18n.msgStr('doLogIn') }}
+</ng-template>
+<form
+    id="kc-x509-login-info"
+    method="post"
+    [kcClass]="'kcFormClass'"
+    [action]="url.loginAction"
 >
-    <ng-container headerNode>
-        {{ i18n.msgStr('doLogIn') }}
-    </ng-container>
-    <ng-container content>
-        <form
-            id="kc-x509-login-info"
-            method="post"
-            [kcClass]="'kcFormClass'"
-            [action]="url.loginAction"
+    <div [kcClass]="'kcFormGroupClass'">
+        <div [kcClass]="'kcLabelWrapperClass'">
+            <label
+                for="certificate_subjectDN"
+                [kcClass]="'kcLabelClass'"
+            >
+                {{ i18n.msgStr('clientCertificate') }}
+            </label>
+        </div>
+        @if (x509.formData.subjectDN) {
+            <div [kcClass]="'kcLabelWrapperClass'">
+                <label
+                    id="certificate_subjectDN"
+                    [kcClass]="'kcLabelClass'"
+                >
+                    {{ x509.formData.subjectDN }}
+                </label>
+            </div>
+        } @else {
+            <div [kcClass]="'kcLabelWrapperClass'">
+                <label
+                    id="certificate_subjectDN"
+                    [kcClass]="'kcLabelClass'"
+                >
+                    {{ i18n.msgStr('noCertificate') }}
+                </label>
+            </div>
+        }
+    </div>
+    <div [kcClass]="'kcFormGroupClass'">
+        @if (x509.formData.isUserEnabled) {
+            <div [kcClass]="'kcLabelWrapperClass'">
+                <label
+                    for="username"
+                    [kcClass]="'kcLabelClass'"
+                >
+                    {{ i18n.msgStr('doX509Login') }}
+                </label>
+            </div>
+            <div [kcClass]="'kcLabelWrapperClass'">
+                <label
+                    id="username"
+                    [kcClass]="'kcLabelClass'"
+                >
+                    {{ x509.formData.username }}
+                </label>
+            </div>
+        }
+    </div>
+    <div [kcClass]="'kcFormGroupClass'">
+        <div
+            id="kc-form-options"
+            [kcClass]="'kcFormOptionsClass'"
         >
-            <div [kcClass]="'kcFormGroupClass'">
-                <div [kcClass]="'kcLabelWrapperClass'">
-                    <label
-                        for="certificate_subjectDN"
-                        [kcClass]="'kcLabelClass'"
-                    >
-                        {{ i18n.msgStr('clientCertificate') }}
-                    </label>
-                </div>
-                @if (x509.formData.subjectDN) {
-                    <div [kcClass]="'kcLabelWrapperClass'">
-                        <label
-                            id="certificate_subjectDN"
-                            [kcClass]="'kcLabelClass'"
-                        >
-                            {{ x509.formData.subjectDN }}
-                        </label>
-                    </div>
-                } @else {
-                    <div [kcClass]="'kcLabelWrapperClass'">
-                        <label
-                            id="certificate_subjectDN"
-                            [kcClass]="'kcLabelClass'"
-                        >
-                            {{ i18n.msgStr('noCertificate') }}
-                        </label>
-                    </div>
-                }
-            </div>
-            <div [kcClass]="'kcFormGroupClass'">
+            <div [kcClass]="'kcFormOptionsWrapperClass'"></div>
+        </div>
+        <div
+            id="kc-form-buttons"
+            [kcClass]="'kcFormButtonsClass'"
+        >
+            <div [kcClass]="'kcFormButtonsWrapperClass'">
+                <input
+                    name="login"
+                    id="kc-login"
+                    type="submit"
+                    [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
+                    [value]="i18n.msgStr('doContinue')"
+                />
                 @if (x509.formData.isUserEnabled) {
-                    <div [kcClass]="'kcLabelWrapperClass'">
-                        <label
-                            for="username"
-                            [kcClass]="'kcLabelClass'"
-                        >
-                            {{ i18n.msgStr('doX509Login') }}
-                        </label>
-                    </div>
-                    <div [kcClass]="'kcLabelWrapperClass'">
-                        <label
-                            id="username"
-                            [kcClass]="'kcLabelClass'"
-                        >
-                            {{ x509.formData.username }}
-                        </label>
-                    </div>
+                    <input
+                        name="cancel"
+                        id="kc-cancel"
+                        type="submit"
+                        [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
+                        [value]="i18n.msgStr('doIgnore')"
+                    />
                 }
             </div>
-            <div [kcClass]="'kcFormGroupClass'">
-                <div
-                    id="kc-form-options"
-                    [kcClass]="'kcFormOptionsClass'"
-                >
-                    <div [kcClass]="'kcFormOptionsWrapperClass'"></div>
-                </div>
-                <div
-                    id="kc-form-buttons"
-                    [kcClass]="'kcFormButtonsClass'"
-                >
-                    <div [kcClass]="'kcFormButtonsWrapperClass'">
-                        <input
-                            name="login"
-                            id="kc-login"
-                            type="submit"
-                            [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
-                            [value]="i18n.msgStr('doContinue')"
-                        />
-                        @if (x509.formData.isUserEnabled) {
-                            <input
-                                name="cancel"
-                                id="kc-cancel"
-                                type="submit"
-                                [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
-                                [value]="i18n.msgStr('doIgnore')"
-                            />
-                        }
-                    </div>
-                </div>
-            </div>
-        </form>
-    </ng-container>
-</kc-login-template>
+        </div>
+    </div>
+</form>

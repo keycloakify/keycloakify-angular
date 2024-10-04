@@ -106,7 +106,7 @@
                     }
                 </ng-template>
 
-                @if (_displayRequiredFields) {
+                @if (displayRequiredFields) {
                     <div [kcClass]="'kcContentWrapperClass'">
                         <div
                             class="subtitle"
@@ -129,7 +129,7 @@
             <div id="kc-content">
                 <div id="kc-content-wrapper">
                     <!-- Message display -->
-                    @if (_displayMessage && message && (message.type !== 'warning' || !isAppInitiatedAction)) {
+                    @if (displayMessage && message && (message.type !== 'warning' || !isAppInitiatedAction)) {
                         <div
                             [kcClass]="'kcAlertClass'"
                             [ngClass]="message.type === 'error' ? 'pf-m-danger' : 'pf-m-' + message.type"
@@ -192,7 +192,7 @@
                         <ng-container [ngTemplateOutlet]="socialProvidersNode" />
                     }
                     <!-- Info display -->
-                    @if (_displayInfo) {
+                    @if (displayInfo) {
                         <div
                             id="kc-info"
                             [kcClass]="'kcSignUpClass'"

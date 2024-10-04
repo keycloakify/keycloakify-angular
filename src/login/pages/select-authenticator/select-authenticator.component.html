@@ -1,48 +1,40 @@
 @let url = kcContext.url;
 @let auth = kcContext.auth;
-<kc-login-template
-    [displayInfo]="displayInfo"
-    [bodyClassName]="bodyClassName()"
-    [displayMessage]="displayMessage"
-    [displayRequiredFields]="displayRequiredFields()"
-    [documentTitle]="documentTitle()"
->
-    <ng-container headerNode>
-        {{ i18n.msgStr('loginChooseAuthenticator') }}
-    </ng-container>
-    <ng-container content>
-        <form
-            id="kc-select-credential-form"
-            method="post"
-            [kcClass]="'kcFormClass'"
-            [action]="url.loginAction"
-        >
-            <div [kcClass]="'kcSelectAuthListClass'">
-                @for (authenticationSelection of auth.authenticationSelections; track authenticationSelection; let i = $index) {
-                    <button
-                        type="submit"
-                        name="authenticationExecution"
-                        [kcClass]="'kcSelectAuthListItemClass'"
-                        [value]="authenticationSelection.authExecId"
-                    >
-                        <div [kcClass]="'kcSelectAuthListItemIconClass'">
-                            <i [kcClass]="['kcSelectAuthListItemIconPropertyClass', $any(authenticationSelection.iconCssClass)]"></i>
+
+<ng-template #headerNode>
+    {{ i18n.msgStr('loginChooseAuthenticator') }}
+</ng-template>
+<ng-container content>
+    <form
+        id="kc-select-credential-form"
+        method="post"
+        [kcClass]="'kcFormClass'"
+        [action]="url.loginAction"
+    >
+        <div [kcClass]="'kcSelectAuthListClass'">
+            @for (authenticationSelection of auth.authenticationSelections; track authenticationSelection; let i = $index) {
+                <button
+                    type="submit"
+                    name="authenticationExecution"
+                    [kcClass]="'kcSelectAuthListItemClass'"
+                    [value]="authenticationSelection.authExecId"
+                >
+                    <div [kcClass]="'kcSelectAuthListItemIconClass'">
+                        <i [kcClass]="['kcSelectAuthListItemIconPropertyClass', $any(authenticationSelection.iconCssClass)]"></i>
+                    </div>
+                    <div [kcClass]="'kcSelectAuthListItemBodyClass'">
+                        <div [kcClass]="'kcSelectAuthListItemHeadingClass'">
+                            {{ i18n.advancedMsgStr(authenticationSelection.displayName) }}
                         </div>
-                        <div [kcClass]="'kcSelectAuthListItemBodyClass'">
-                            <div [kcClass]="'kcSelectAuthListItemHeadingClass'">
-                                {{ i18n.advancedMsgStr(authenticationSelection.displayName) }}
-                            </div>
-                            <div [kcClass]="'kcSelectAuthListItemDescriptionClass'">
-                                {{ i18n.advancedMsgStr(authenticationSelection.helpText) }}
-                            </div>
+                        <div [kcClass]="'kcSelectAuthListItemDescriptionClass'">
+                            {{ i18n.advancedMsgStr(authenticationSelection.helpText) }}
                         </div>
-                        <div [kcClass]="'kcSelectAuthListItemFillClass'"></div>
-                        <div [kcClass]="'kcSelectAuthListItemArrowClass'">
-                            <i [kcClass]="'kcSelectAuthListItemArrowIconClass'"></i>
-                        </div>
-                    </button>
-                }
-            </div>
-        </form>
-    </ng-container>
-</kc-login-template>
+                    </div>
+                    <div [kcClass]="'kcSelectAuthListItemFillClass'"></div>
+                    <div [kcClass]="'kcSelectAuthListItemArrowClass'">
+                        <i [kcClass]="'kcSelectAuthListItemArrowIconClass'"></i>
+                    </div>
+                </button>
+            }
+        </div></form
+></ng-container>

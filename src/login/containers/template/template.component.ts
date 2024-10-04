@@ -56,7 +56,7 @@ export class DynamicPageInjectorComponent {
 }
 
 @Component({
-    selector: 'kc-login-template',
+    selector: 'kc-root',
     templateUrl: './template.component.html',
     standalone: true,
     imports: [AsyncPipe, KcSanitizePipe, NgTemplateOutlet, KcClassDirective, DynamicPageInjectorComponent],
@@ -79,17 +79,11 @@ export class TemplateComponent extends ComponentReference implements OnInit {
     override classes = inject<Partial<Record<ClassKey, string>>>(LOGIN_CLASSES);
     loginResourceInjectorService = inject(LoginResourceInjectorService);
 
-    displayInfo = input(false);
-    displayMessage = input(true);
-    displayRequiredFields = input(false);
-    documentTitle = input<string>();
-    bodyClassName = input<string>();
-
-    _displayInfo = false;
-    _displayMessage = true;
-    _displayRequiredFields = false;
-    _documentTitle: string | undefined;
-    _bodyClassName: string | undefined;
+    displayInfo = false;
+    displayMessage = true;
+    displayRequiredFields = false;
+    documentTitle: string | undefined;
+    bodyClassName: string | undefined;
 
     isReadyToRender$: Observable<boolean>;
 
@@ -102,7 +96,7 @@ export class TemplateComponent extends ComponentReference implements OnInit {
     constructor() {
         super();
 
-        this.title.setTitle(this._documentTitle ?? this.i18n.msgStr('loginTitle', this.kcContext.realm.displayName));
+        this.title.setTitle(this.documentTitle ?? this.i18n.msgStr('loginTitle', this.kcContext.realm.displayName));
         this.isReadyToRender$ = this.loginResourceInjectorService.injectResource(this.doUseDefaultCss);
     }
 
@@ -115,7 +109,7 @@ export class TemplateComponent extends ComponentReference implements OnInit {
             doUseDefaultCss: this.doUseDefaultCss,
             classes: this.classes
         }).kcClsx;
-        const kcBodyClass = this._bodyClassName ?? kcClsx('kcBodyClass');
+        const kcBodyClass = this.bodyClassName ?? kcClsx('kcBodyClass');
         const kcHtmlClass = kcClsx('kcHtmlClass');
         const kcBodyClasses = kcBodyClass.split(/\s+/);
         const kcHtmlClasses = kcHtmlClass.split(/\s+/);
@@ -132,20 +126,20 @@ export class TemplateComponent extends ComponentReference implements OnInit {
     }
 
     onComponentCreated(compRef: object) {
-        if ('_displayInfo' in compRef) {
-            this._displayInfo = compRef._displayInfo as boolean;
+        if ('displayInfo' in compRef) {
+            this.displayInfo = compRef.displayInfo as boolean;
         }
-        if ('_displayMessage' in compRef) {
-            this._displayMessage = compRef._displayMessage as boolean;
+        if ('displayMessage' in compRef) {
+            this.displayMessage = compRef.displayMessage as boolean;
         }
-        if ('_displayRequiredFields' in compRef) {
-            this._displayRequiredFields = compRef._displayRequiredFields as boolean;
+        if ('displayRequiredFields' in compRef) {
+            this.displayRequiredFields = compRef.displayRequiredFields as boolean;
         }
-        if ('_documentTitle' in compRef) {
-            this._documentTitle = compRef._documentTitle as string;
+        if ('documentTitle' in compRef) {
+            this.documentTitle = compRef.documentTitle as string;
         }
-        if ('_bodyClassName' in compRef) {
-            this._bodyClassName = compRef._bodyClassName as string;
+        if ('bodyClassName' in compRef) {
+            this.bodyClassName = compRef.bodyClassName as string;
         }
         if ('headerNode' in compRef) {
             this.headerNode = compRef.headerNode as TemplateRef<HTMLElement>;
@@ -156,6 +150,5 @@ export class TemplateComponent extends ComponentReference implements OnInit {
         if ('socialProvidersNode' in compRef) {
             this.socialProvidersNode = compRef.socialProvidersNode as TemplateRef<HTMLElement>;
         }
-        this.#cdr.markForCheck();
     }
 }

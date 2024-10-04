@@ -1,58 +1,49 @@
 @let url = kcContext.url;
 @let isAppInitiatedAction = kcContext.isAppInitiatedAction;
-<kc-login-template
-    [displayInfo]="displayInfo"
-    [bodyClassName]="bodyClassName()"
-    [displayMessage]="displayMessage"
-    [displayRequiredFields]="displayRequiredFields()"
-    [documentTitle]="documentTitle()"
+
+<ng-template #headerNode>
+    {{ i18n.msgStr('loginProfileTitle') }}
+</ng-template>
+<form
+    id="kc-update-profile-form"
+    method="post"
+    [kcClass]="'kcFormClass'"
+    [action]="url.loginAction"
 >
-    <ng-container headerNode>
-        {{ i18n.msgStr('loginProfileTitle') }}
-    </ng-container>
-    <ng-container content>
-        <form
-            id="kc-update-profile-form"
-            method="post"
-            [kcClass]="'kcFormClass'"
-            [action]="url.loginAction"
+    <ng-container [ngComponentOutlet]="userProfileFormFields() ?? null" />
+    <div [kcClass]="'kcFormGroupClass'">
+        <div
+            id="kc-form-options"
+            [kcClass]="'kcFormOptionsClass'"
         >
-            <ng-container [ngComponentOutlet]="userProfileFormFields() ?? null" />
-            <div [kcClass]="'kcFormGroupClass'">
-                <div
-                    id="kc-form-options"
-                    [kcClass]="'kcFormOptionsClass'"
+            <div [kcClass]="'kcFormOptionsWrapperClass'"></div>
+        </div>
+        <div
+            id="kc-form-buttons"
+            [kcClass]="'kcFormButtonsClass'"
+        >
+            <input
+                type="submit"
+                [disabled]="!isFormSubmittable()"
+                [kcClass]="{
+                    kcButtonClass: true,
+                    kcButtonPrimaryClass: true,
+                    kcButtonBlockClass: !isAppInitiatedAction,
+                    kcButtonLargeClass: true
+                }"
+                [value]="i18n.msgStr('doSubmit')"
+            />
+            @if (isAppInitiatedAction) {
+                <button
+                    type="submit"
+                    name="cancel-aia"
+                    value="true"
+                    formNoValidate
+                    [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
                 >
-                    <div [kcClass]="'kcFormOptionsWrapperClass'"></div>
-                </div>
-                <div
-                    id="kc-form-buttons"
-                    [kcClass]="'kcFormButtonsClass'"
-                >
-                    <input
-                        type="submit"
-                        [disabled]="!isFormSubmittable()"
-                        [kcClass]="{
-                            kcButtonClass: true,
-                            kcButtonPrimaryClass: true,
-                            kcButtonBlockClass: !isAppInitiatedAction,
-                            kcButtonLargeClass: true
-                        }"
-                        [value]="i18n.msgStr('doSubmit')"
-                    />
-                    @if (isAppInitiatedAction) {
-                        <button
-                            type="submit"
-                            name="cancel-aia"
-                            value="true"
-                            formNoValidate
-                            [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
-                        >
-                            {{ i18n.msgStr('doCancel') }}
-                        </button>
-                    }
-                </div>
-            </div>
-        </form>
-    </ng-container>
-</kc-login-template>
+                    {{ i18n.msgStr('doCancel') }}
+                </button>
+            }
+        </div>
+    </div>
+</form>

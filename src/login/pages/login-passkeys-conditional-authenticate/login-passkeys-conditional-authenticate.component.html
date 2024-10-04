@@ -6,200 +6,193 @@
 @let messagesPerField = kcContext.messagesPerField;
 @let usernameHidden = kcContext.usernameHidden;
 @let registrationDisabled = kcContext.registrationDisabled;
-<kc-login-template [displayInfo]="displayInfo">
-    <ng-container headerNode>
-        {{ i18n.msgStr('passkey-login-title') }}
-    </ng-container>
-    <ng-container infoNode>
-        @if (realm.registrationAllowed && !registrationDisabled) {
-            <div id="kc-registration">
-                <span>
-                    {{ i18n.msgStr('noAccount') }}
-                    <a
-                        tabIndex="6"
-                        [href]="url.registrationUrl"
-                    >
-                        {{ i18n.msgStr('doRegister') }}
-                    </a>
-                </span>
-            </div>
-        }
-    </ng-container>
-
-    <ng-container content>
-        <form
-            id="webauth"
-            method="post"
-            [action]="url.loginAction"
-        >
-            <input
-                type="hidden"
-                id="clientDataJSON"
-                name="clientDataJSON"
-            />
-            <input
-                type="hidden"
-                id="authenticatorData"
-                name="authenticatorData"
-            />
-            <input
-                type="hidden"
-                id="signature"
-                name="signature"
-            />
-            <input
-                type="hidden"
-                id="credentialId"
-                name="credentialId"
-            />
-            <input
-                type="hidden"
-                id="userHandle"
-                name="userHandle"
-            />
-            <input
-                type="hidden"
-                id="error"
-                name="error"
-            />
-        </form>
-        <div
-            no-bottom-margin="true"
-            style="margin-bottom: 0"
-            [kcClass]="'kcFormGroupClass'"
-        >
-            @if (authenticators !== undefined && authenticators.authenticators.length !== 0) {
-                <form
-                    id="authn_select"
-                    [kcClass]="'kcFormClass'"
+<ng-template #headerNode>
+    {{ i18n.msgStr('passkey-login-title') }}
+</ng-template>
+<ng-container infoNode>
+    @if (realm.registrationAllowed && !registrationDisabled) {
+        <div id="kc-registration">
+            <span>
+                {{ i18n.msgStr('noAccount') }}
+                <a
+                    tabIndex="6"
+                    [href]="url.registrationUrl"
                 >
-                    @for (authenticator of authenticators.authenticators; track authenticator; let i = $index) {
-                        <input
-                            type="hidden"
-                            name="authn_use_chk"
-                            readOnly
-                            [value]="authenticator.credentialId"
-                        />
-                    }
-                </form>
+                    {{ i18n.msgStr('doRegister') }}
+                </a>
+            </span>
+        </div>
+    }
+</ng-container>
 
-                @if (shouldDisplayAuthenticators) {
-                    @if (authenticators.authenticators.length > 1) {
-                        <p [kcClass]="'kcSelectAuthListItemTitle'">
-                            {{ i18n.msgStr('passkey-available-authenticators') }}
-                        </p>
-                    }
-
-                    <div [kcClass]="'kcFormClass'">
-                        @for (authenticator of authenticators.authenticators; track authenticator; let i = $index) {
-                            <div
-                                id="'kc-webauthn-authenticator-item-' + i"
-                                [kcClass]="'kcSelectAuthListItemClass'"
-                            >
-                                <i
-                                    aria-hidden="true"
-                                    [ngClass]="selectAuthListItemIconClass(authenticator.transports.iconClass)"
-                                    [kcClass]="'kcCommonLogoIdP'"
-                                ></i>
-                                <div [kcClass]="'kcSelectAuthListItemBodyClass'">
-                                    <div
-                                        [id]="'kc-webauthn-authenticator-label-' + i"
-                                        [kcClass]="'kcSelectAuthListItemHeadingClass'"
-                                    >
-                                        {{ i18n.advancedMsgStr(authenticator.label) }}
-                                    </div>
-                                    @if (
-                                        authenticator.transports !== undefined &&
-                                        authenticator.transports.displayNameProperties !== undefined &&
-                                        authenticator.transports.displayNameProperties.length !== 0
-                                    ) {
-                                        <div
-                                            [id]="'kc-webauthn-authenticator-transport-' + i"
-                                            [kcClass]="'kcSelectAuthListItemDescriptionClass'"
-                                        >
-                                            @for (
-                                                nameProperty of authenticator.transports.displayNameProperties;
-                                                track nameProperty;
-                                                let i = $index
-                                            ) {
-                                                <span>
-                                                    {{ i18n.advancedMsgStr(nameProperty) }}
-                                                </span>
-                                                @if (i !== authenticator.transports.displayNameProperties.length - 1) {
-                                                    <span>, </span>
-                                                }
-                                            }
-                                        </div>
-                                        <div [kcClass]="'kcSelectAuthListItemDescriptionClass'">
-                                            <span [id]="'kc-webauthn-authenticator-createdlabel-' + i">
-                                                {{ i18n.msgStr('passkey-createdAt-label') }}
-                                            </span>
-                                            <span [id]="'kc-webauthn-authenticator-created-' + i">
-                                                {{ authenticator.createdAt }}
-                                            </span>
-                                        </div>
-                                        <div [kcClass]="'kcSelectAuthListItemFillClass'"></div>
-                                    }
-                                </div>
-                            </div>
-                        }
-                    </div>
+<ng-container content>
+    <form
+        id="webauth"
+        method="post"
+        [action]="url.loginAction"
+    >
+        <input
+            type="hidden"
+            id="clientDataJSON"
+            name="clientDataJSON"
+        />
+        <input
+            type="hidden"
+            id="authenticatorData"
+            name="authenticatorData"
+        />
+        <input
+            type="hidden"
+            id="signature"
+            name="signature"
+        />
+        <input
+            type="hidden"
+            id="credentialId"
+            name="credentialId"
+        />
+        <input
+            type="hidden"
+            id="userHandle"
+            name="userHandle"
+        />
+        <input
+            type="hidden"
+            id="error"
+            name="error"
+        />
+    </form>
+    <div
+        no-bottom-margin="true"
+        style="margin-bottom: 0"
+        [kcClass]="'kcFormGroupClass'"
+    >
+        @if (authenticators !== undefined && authenticators.authenticators.length !== 0) {
+            <form
+                id="authn_select"
+                [kcClass]="'kcFormClass'"
+            >
+                @for (authenticator of authenticators.authenticators; track authenticator; let i = $index) {
+                    <input
+                        type="hidden"
+                        name="authn_use_chk"
+                        readOnly
+                        [value]="authenticator.credentialId"
+                    />
                 }
-            }
-            <div id="kc-form-wrapper">
-                @if (realm.password) {
-                    <form
-                        id="kc-form-passkey"
-                        method="post"
-                        style="display: none"
-                        [action]="url.loginAction"
-                    >
-                        @if (!usernameHidden) {
-                            <div [kcClass]="'kcFormGroupClass'">
-                                <label
-                                    for="username"
-                                    [kcClass]="'kcLabelClass'"
+            </form>
+
+            @if (shouldDisplayAuthenticators) {
+                @if (authenticators.authenticators.length > 1) {
+                    <p [kcClass]="'kcSelectAuthListItemTitle'">
+                        {{ i18n.msgStr('passkey-available-authenticators') }}
+                    </p>
+                }
+
+                <div [kcClass]="'kcFormClass'">
+                    @for (authenticator of authenticators.authenticators; track authenticator; let i = $index) {
+                        <div
+                            id="'kc-webauthn-authenticator-item-' + i"
+                            [kcClass]="'kcSelectAuthListItemClass'"
+                        >
+                            <i
+                                aria-hidden="true"
+                                [ngClass]="selectAuthListItemIconClass(authenticator.transports.iconClass)"
+                                [kcClass]="'kcCommonLogoIdP'"
+                            ></i>
+                            <div [kcClass]="'kcSelectAuthListItemBodyClass'">
+                                <div
+                                    [id]="'kc-webauthn-authenticator-label-' + i"
+                                    [kcClass]="'kcSelectAuthListItemHeadingClass'"
                                 >
-                                    {{ i18n.msgStr('passkey-autofill-select') }}
-                                </label>
-                                <input
-                                    tabIndex="1"
-                                    id="username"
-                                    name="username"
-                                    type="text"
-                                    autoFocus
-                                    autoComplete="off"
-                                    [attr.aria-invalid]="messagesPerField.existsError('username')"
-                                    [kcClass]="'kcInputClass'"
-                                    [value]="login.username ?? ''"
-                                />
-                                @if (messagesPerField.existsError('username')) {
-                                    <span
-                                        id="input-error-username"
-                                        aria-live="polite"
-                                        [kcClass]="'kcInputErrorMessageClass'"
+                                    {{ i18n.advancedMsgStr(authenticator.label) }}
+                                </div>
+                                @if (
+                                    authenticator.transports !== undefined &&
+                                    authenticator.transports.displayNameProperties !== undefined &&
+                                    authenticator.transports.displayNameProperties.length !== 0
+                                ) {
+                                    <div
+                                        [id]="'kc-webauthn-authenticator-transport-' + i"
+                                        [kcClass]="'kcSelectAuthListItemDescriptionClass'"
                                     >
-                                        {{ messagesPerField.get('username') }}
-                                    </span>
+                                        @for (nameProperty of authenticator.transports.displayNameProperties; track nameProperty; let i = $index) {
+                                            <span>
+                                                {{ i18n.advancedMsgStr(nameProperty) }}
+                                            </span>
+                                            @if (i !== authenticator.transports.displayNameProperties.length - 1) {
+                                                <span>, </span>
+                                            }
+                                        }
+                                    </div>
+                                    <div [kcClass]="'kcSelectAuthListItemDescriptionClass'">
+                                        <span [id]="'kc-webauthn-authenticator-createdlabel-' + i">
+                                            {{ i18n.msgStr('passkey-createdAt-label') }}
+                                        </span>
+                                        <span [id]="'kc-webauthn-authenticator-created-' + i">
+                                            {{ authenticator.createdAt }}
+                                        </span>
+                                    </div>
+                                    <div [kcClass]="'kcSelectAuthListItemFillClass'"></div>
                                 }
                             </div>
-                        }
-                    </form>
-                    <div
-                        id="kc-form-passkey-button"
-                        style="display: none"
-                        [kcClass]="'kcFormButtonsClass'"
-                    >
-                        <input
-                            id="authButtonId"
-                            type="button"
-                            autoFocus
-                            [value]="i18n.msgStr('passkey-doAuthenticate')"
-                            [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
-                        />
-                    </div>
-                }
-            </div>
-        </div>
-    </ng-container>
-</kc-login-template>
+                        </div>
+                    }
+                </div>
+            }
+        }
+        <div id="kc-form-wrapper">
+            @if (realm.password) {
+                <form
+                    id="kc-form-passkey"
+                    method="post"
+                    style="display: none"
+                    [action]="url.loginAction"
+                >
+                    @if (!usernameHidden) {
+                        <div [kcClass]="'kcFormGroupClass'">
+                            <label
+                                for="username"
+                                [kcClass]="'kcLabelClass'"
+                            >
+                                {{ i18n.msgStr('passkey-autofill-select') }}
+                            </label>
+                            <input
+                                tabIndex="1"
+                                id="username"
+                                name="username"
+                                type="text"
+                                autoFocus
+                                autoComplete="off"
+                                [attr.aria-invalid]="messagesPerField.existsError('username')"
+                                [kcClass]="'kcInputClass'"
+                                [value]="login.username ?? ''"
+                            />
+                            @if (messagesPerField.existsError('username')) {
+                                <span
+                                    id="input-error-username"
+                                    aria-live="polite"
+                                    [kcClass]="'kcInputErrorMessageClass'"
+                                >
+                                    {{ messagesPerField.get('username') }}
+                                </span>
+                            }
+                        </div>
+                    }
+                </form>
+                <div
+                    id="kc-form-passkey-button"
+                    style="display: none"
+                    [kcClass]="'kcFormButtonsClass'"
+                >
+                    <input
+                        id="authButtonId"
+                        type="button"
+                        autoFocus
+                        [value]="i18n.msgStr('passkey-doAuthenticate')"
+                        [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
+                    />
+                </div>
+            }
+        </div></div
+></ng-container>

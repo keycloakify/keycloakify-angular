@@ -4,51 +4,42 @@
 @let client = kcContext.client;
 @let messageHeader = kcContext.messageHeader;
 @let message = kcContext.message;
-<kc-login-template
-    [displayInfo]="displayInfo"
-    [bodyClassName]="bodyClassName()"
-    [displayMessage]="displayMessage"
-    [displayRequiredFields]="displayRequiredFields()"
-    [documentTitle]="documentTitle()"
->
-    <ng-container headerNode>
-        <span [innerHTML]="messageHeader ?? i18n.advancedMsgStr(message.summary) | kcSanitize: 'html'"> </span>
-    </ng-container>
-    <ng-container content>
-        <div id="kc-info-message">
-            <p
-                class="instruction"
-                [innerHTML]="infoMessage | kcSanitize: 'html'"
-            ></p>
-            @if (!skipLink) {
-                @if (pageRedirectUri) {
-                    <p>
-                        <a
-                            [href]="pageRedirectUri"
-                            [innerHTML]="i18n.msgStr('backToApplication') | kcSanitize: 'html'"
-                        >
-                        </a>
-                    </p>
-                }
-                @if (actionUri) {
-                    <p>
-                        <a
-                            [href]="actionUri"
-                            [innerHTML]="i18n.msgStr('proceedWithAction') | kcSanitize: 'html'"
-                        >
-                        </a>
-                    </p>
-                }
-                @if (client.baseUrl) {
-                    <p>
-                        <a
-                            [href]="client.baseUrl"
-                            [innerHTML]="i18n.msgStr('backToApplication') | kcSanitize: 'html'"
-                        >
-                        </a>
-                    </p>
-                }
-            }
-        </div>
-    </ng-container>
-</kc-login-template>
+
+<ng-template #headerNode>
+    <span [innerHTML]="messageHeader ?? i18n.advancedMsgStr(message.summary) | kcSanitize: 'html'"> </span>
+</ng-template>
+<div id="kc-info-message">
+    <p
+        class="instruction"
+        [innerHTML]="infoMessage | kcSanitize: 'html'"
+    ></p>
+    @if (!skipLink) {
+        @if (pageRedirectUri) {
+            <p>
+                <a
+                    [href]="pageRedirectUri"
+                    [innerHTML]="i18n.msgStr('backToApplication') | kcSanitize: 'html'"
+                >
+                </a>
+            </p>
+        }
+        @if (actionUri) {
+            <p>
+                <a
+                    [href]="actionUri"
+                    [innerHTML]="i18n.msgStr('proceedWithAction') | kcSanitize: 'html'"
+                >
+                </a>
+            </p>
+        }
+        @if (client.baseUrl) {
+            <p>
+                <a
+                    [href]="client.baseUrl"
+                    [innerHTML]="i18n.msgStr('backToApplication') | kcSanitize: 'html'"
+                >
+                </a>
+            </p>
+        }
+    }
+</div>

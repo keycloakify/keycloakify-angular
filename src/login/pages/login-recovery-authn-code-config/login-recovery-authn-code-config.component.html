@@ -1,155 +1,146 @@
 @let recoveryAuthnCodesConfigBean = kcContext.recoveryAuthnCodesConfigBean;
 @let isAppInitiatedAction = kcContext.isAppInitiatedAction;
-<kc-login-template
-    [displayInfo]="displayInfo"
-    [bodyClassName]="bodyClassName()"
-    [displayMessage]="displayMessage"
-    [displayRequiredFields]="displayRequiredFields()"
-    [documentTitle]="documentTitle()"
+
+<ng-template #headerNode>
+    {{ i18n.msgStr('recovery-code-config-header') }}
+</ng-template>
+
+<div
+    class="pf-c-alert pf-m-warning pf-m-inline"
+    aria-label="Warning alert"
+    [kcClass]="'kcRecoveryCodesWarning'"
 >
-    <ng-container headerNode>
-        {{ i18n.msgStr('recovery-code-config-header') }}
-    </ng-container>
+    <div class="pf-c-alert__icon">
+        <i
+            class="pficon-warning-triangle-o"
+            aria-hidden="true"
+        ></i>
+    </div>
+    <h4 class="pf-c-alert__title">
+        <span class="pf-screen-reader">Warning alert:</span>
+        {{ i18n.msgStr('recovery-code-config-warning-title') }}
+    </h4>
+    <div class="pf-c-alert__description">
+        <p>{{ i18n.msgStr('recovery-code-config-warning-message') }}</p>
+    </div>
+</div>
 
-    <ng-container content>
-        <div
-            class="pf-c-alert pf-m-warning pf-m-inline"
-            aria-label="Warning alert"
-            [kcClass]="'kcRecoveryCodesWarning'"
+<ol
+    [id]="olRecoveryCodesListId"
+    [kcClass]="'kcRecoveryCodesList'"
+>
+    @for (code of recoveryAuthnCodesConfigBean.generatedRecoveryAuthnCodesList; track code; let i = $index) {
+        <li>
+            <span>{{ i + 1 }}:</span> {{ code.slice(0, 4) }}-{{ code.slice(4, 8) }}-{{ code.slice(8) }}
+        </li>
+    }
+</ol>
+
+<!-- actions -->
+<div [kcClass]="'kcRecoveryCodesActions'">
+    <button
+        id="printRecoveryCodes"
+        class="pf-c-button pf-m-link"
+        type="button"
+    >
+        <i
+            class="pficon-print"
+            aria-hidden="true"
+        ></i>
+        {{ i18n.msgStr('recovery-codes-print') }}
+    </button>
+    <button
+        id="downloadRecoveryCodes"
+        class="pf-c-button pf-m-link"
+        type="button"
+    >
+        <i
+            class="pficon-save"
+            aria-hidden="true"
+        ></i>
+        {{ i18n.msgStr('recovery-codes-download') }}
+    </button>
+    <button
+        id="copyRecoveryCodes"
+        class="pf-c-button pf-m-link"
+        type="button"
+    >
+        <i
+            class="pficon-blueprint"
+            aria-hidden="true"
+        ></i>
+        {{ i18n.msgStr('recovery-codes-copy') }}
+    </button>
+</div>
+
+<!-- confirmation checkbox -->
+
+<div
+    class="checkbox"
+    [kcClass]="'kcFormOptionsClass'"
+>
+    <label for="kcRecoveryCodesConfirmationCheck">
+        <input
+            type="checkbox"
+            id="kcRecoveryCodesConfirmationCheck"
+            name="kcRecoveryCodesConfirmationCheck"
+            [kcClass]="'kcCheckInputClass'"
+            [checked]="toggleRecoveryCodesConfirmation()"
+            (change)="toggleRecoveryCodesConfirmation.set($any($event.target).checked)"
+        />
+        {{ i18n.msgStr('recovery-codes-confirmation-message') }}
+    </label>
+</div>
+
+<form
+    id="kc-recovery-codes-settings-form"
+    method="post"
+    [action]="kcContext.url.loginAction"
+    [kcClass]="'kcFormGroupClass'"
+>
+    <input
+        type="hidden"
+        name="generatedRecoveryAuthnCodes"
+        [value]="recoveryAuthnCodesConfigBean.generatedRecoveryAuthnCodesAsString"
+    />
+    <input
+        type="hidden"
+        name="generatedAt"
+        [value]="recoveryAuthnCodesConfigBean.generatedAt"
+    />
+    <input
+        type="hidden"
+        id="userLabel"
+        name="userLabel"
+        [value]="i18n.msgStr('recovery-codes-label-default')"
+    />
+
+    <kc-logout-other-sessions />
+
+    @if (isAppInitiatedAction) {
+        <input
+            type="submit"
+            id="saveRecoveryAuthnCodesBtn"
+            [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
+            [value]="i18n.msgStr('recovery-codes-action-complete')"
+            [disabled]="!toggleRecoveryCodesConfirmation()"
+        />
+        <button
+            type="submit"
+            id="cancelRecoveryAuthnCodesBtn"
+            name="cancel-aia"
+            value="true"
+            [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
         >
-            <div class="pf-c-alert__icon">
-                <i
-                    class="pficon-warning-triangle-o"
-                    aria-hidden="true"
-                ></i>
-            </div>
-            <h4 class="pf-c-alert__title">
-                <span class="pf-screen-reader">Warning alert:</span>
-                {{ i18n.msgStr('recovery-code-config-warning-title') }}
-            </h4>
-            <div class="pf-c-alert__description">
-                <p>{{ i18n.msgStr('recovery-code-config-warning-message') }}</p>
-            </div>
-        </div>
-
-        <ol
-            [id]="olRecoveryCodesListId"
-            [kcClass]="'kcRecoveryCodesList'"
-        >
-            @for (code of recoveryAuthnCodesConfigBean.generatedRecoveryAuthnCodesList; track code; let i = $index) {
-                <li>
-                    <span>{{ i + 1 }}:</span> {{ code.slice(0, 4) }}-{{ code.slice(4, 8) }}-{{ code.slice(8) }}
-                </li>
-            }
-        </ol>
-
-        <!-- actions -->
-        <div [kcClass]="'kcRecoveryCodesActions'">
-            <button
-                id="printRecoveryCodes"
-                class="pf-c-button pf-m-link"
-                type="button"
-            >
-                <i
-                    class="pficon-print"
-                    aria-hidden="true"
-                ></i>
-                {{ i18n.msgStr('recovery-codes-print') }}
-            </button>
-            <button
-                id="downloadRecoveryCodes"
-                class="pf-c-button pf-m-link"
-                type="button"
-            >
-                <i
-                    class="pficon-save"
-                    aria-hidden="true"
-                ></i>
-                {{ i18n.msgStr('recovery-codes-download') }}
-            </button>
-            <button
-                id="copyRecoveryCodes"
-                class="pf-c-button pf-m-link"
-                type="button"
-            >
-                <i
-                    class="pficon-blueprint"
-                    aria-hidden="true"
-                ></i>
-                {{ i18n.msgStr('recovery-codes-copy') }}
-            </button>
-        </div>
-
-        <!-- confirmation checkbox -->
-
-        <div
-            class="checkbox"
-            [kcClass]="'kcFormOptionsClass'"
-        >
-            <label for="kcRecoveryCodesConfirmationCheck">
-                <input
-                    type="checkbox"
-                    id="kcRecoveryCodesConfirmationCheck"
-                    name="kcRecoveryCodesConfirmationCheck"
-                    [kcClass]="'kcCheckInputClass'"
-                    [checked]="toggleRecoveryCodesConfirmation()"
-                    (change)="toggleRecoveryCodesConfirmation.set($any($event.target).checked)"
-                />
-                {{ i18n.msgStr('recovery-codes-confirmation-message') }}
-            </label>
-        </div>
-
-        <form
-            id="kc-recovery-codes-settings-form"
-            method="post"
-            [action]="kcContext.url.loginAction"
-            [kcClass]="'kcFormGroupClass'"
-        >
-            <input
-                type="hidden"
-                name="generatedRecoveryAuthnCodes"
-                [value]="recoveryAuthnCodesConfigBean.generatedRecoveryAuthnCodesAsString"
-            />
-            <input
-                type="hidden"
-                name="generatedAt"
-                [value]="recoveryAuthnCodesConfigBean.generatedAt"
-            />
-            <input
-                type="hidden"
-                id="userLabel"
-                name="userLabel"
-                [value]="i18n.msgStr('recovery-codes-label-default')"
-            />
-
-            <kc-logout-other-sessions />
-
-            @if (isAppInitiatedAction) {
-                <input
-                    type="submit"
-                    id="saveRecoveryAuthnCodesBtn"
-                    [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
-                    [value]="i18n.msgStr('recovery-codes-action-complete')"
-                    [disabled]="!toggleRecoveryCodesConfirmation()"
-                />
-                <button
-                    type="submit"
-                    id="cancelRecoveryAuthnCodesBtn"
-                    name="cancel-aia"
-                    value="true"
-                    [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
-                >
-                    {{ i18n.msgStr('recovery-codes-action-cancel') }}
-                </button>
-            } @else {
-                <input
-                    type="submit"
-                    id="saveRecoveryAuthnCodesBtn"
-                    [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
-                    [value]="i18n.msgStr('recovery-codes-action-complete')"
-                    [disabled]="!toggleRecoveryCodesConfirmation()"
-                />
-            }
-        </form>
-    </ng-container>
-</kc-login-template>
+            {{ i18n.msgStr('recovery-codes-action-cancel') }}
+        </button>
+    } @else {
+        <input
+            type="submit"
+            id="saveRecoveryAuthnCodesBtn"
+            [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
+            [value]="i18n.msgStr('recovery-codes-action-complete')"
+            [disabled]="!toggleRecoveryCodesConfirmation()"
+        />
+    }
+</form>

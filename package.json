@@ -2,13 +2,14 @@
     "name": "@keycloakify/angular",
     "version": "0.0.1-rc.18",
     "type": "module",
-    "description": "Angular components for Keycloakify",
+    "description": "Angular Components for Keycloakify!",
     "repository": {
         "type": "git",
         "url": "git://github.com/keycloakify/keycloakify-angular.git"
     },
     "scripts": {
         "build": "tsx scripts/build.ts",
+        "watch": "tsx scripts/watch.ts",
         "_format": "prettier '**/*.{ts,html,json,md}'",
         "format": "yarn _format --write",
         "lint": "ng lint --fix"
@@ -62,6 +63,7 @@
         "tsx": "^4.15.5",
         "typescript": "~5.4.0",
         "typescript-eslint": "^8.7.0",
-        "zone.js": "^0.14.0"
+        "zone.js": "^0.14.0",
+        "chokidar": "^4.0.1"
     }
 }

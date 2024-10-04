@@ -14,6 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
+      with:
+        node-version: 22
     - uses: bahmutov/npm-install@v1
     - name: If this step fails run 'npm run format' then commit again.
       run: npm run _format --list-different
@@ -24,6 +26,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
+      with:
+        node-version: 22
     - uses: bahmutov/npm-install@v1
     - run: npm run build
     #- run: npm run test
@@ -87,6 +91,7 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         registry-url: https://registry.npmjs.org/
+        node-version: 22
     - uses: bahmutov/npm-install@v1
     - run: npm run build
     - name: Publishing on NPM

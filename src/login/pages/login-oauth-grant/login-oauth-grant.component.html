@@ -1,94 +1,85 @@
 @let client = kcContext.client;
 @let oauth = kcContext.oauth;
 @let url = kcContext.url;
-<kc-login-template
-    [displayInfo]="displayInfo"
-    [bodyClassName]="bodyClassName()"
-    [displayMessage]="displayMessage"
-    [displayRequiredFields]="displayRequiredFields()"
-    [documentTitle]="documentTitle()"
+
+<ng-template #headerNode>
+    @if (client.attributes['logoUri']) {
+        <img
+            alt=""
+            [src]="client.attributes['logoUri']"
+        />
+    }
+    <p>
+        {{ i18n.msgStr('oauthGrantTitle', client.name ? i18n.advancedMsgStr(client.name) : client.clientId) }}
+    </p>
+</ng-template>
+
+<div
+    id="kc-oauth"
+    class="content-area"
 >
-    <ng-container headerNode>
-        @if (client.attributes['logoUri']) {
-            <img
-                alt=""
-                [src]="client.attributes['logoUri']"
-            />
+    <h3>{{ i18n.msgStr('oauthGrantRequest') }}</h3>
+    <ul>
+        @for (clientScope of oauth.clientScopesRequested; track clientScope) {
+            <li>
+                <span>
+                    {{ i18n.advancedMsgStr(clientScope.consentScreenText) }}
+                    @if (clientScope.dynamicScopeParameter) {
+                        : <b>{{ clientScope.dynamicScopeParameter }}</b>
+                    }
+                </span>
+            </li>
         }
-        <p>
-            {{ i18n.msgStr('oauthGrantTitle', client.name ? i18n.advancedMsgStr(client.name) : client.clientId) }}
-        </p>
-    </ng-container>
+    </ul>
 
-    <ng-container content>
-        <div
-            id="kc-oauth"
-            class="content-area"
-        >
-            <h3>{{ i18n.msgStr('oauthGrantRequest') }}</h3>
-            <ul>
-                @for (clientScope of oauth.clientScopesRequested; track clientScope) {
-                    <li>
-                        <span>
-                            {{ i18n.advancedMsgStr(clientScope.consentScreenText) }}
-                            @if (clientScope.dynamicScopeParameter) {
-                                : <b>{{ clientScope.dynamicScopeParameter }}</b>
-                            }
-                        </span>
-                    </li>
-                }
-            </ul>
-
-            @if (client.attributes['policyUri'] || client.attributes['tosUri']) {
-                <h3>
-                    @if (client.name) {
-                        {{ i18n.msgStr('oauthGrantInformation', i18n.advancedMsgStr(client.name)) }}
-                    } @else {
-                        {{ i18n.msgStr('oauthGrantInformation', client.clientId) }}
-                    }
-                    @if (client.attributes['policyUri']) {
-                        {{ i18n.msgStr('oauthGrantReview') }}
-                        <a
-                            target="_blank"
-                            [href]="client.attributes['policyUri']"
-                        >
-                            {{ i18n.msgStr('oauthGrantPolicy') }}
-                        </a>
-                    }
-                </h3>
+    @if (client.attributes['policyUri'] || client.attributes['tosUri']) {
+        <h3>
+            @if (client.name) {
+                {{ i18n.msgStr('oauthGrantInformation', i18n.advancedMsgStr(client.name)) }}
+            } @else {
+                {{ i18n.msgStr('oauthGrantInformation', client.clientId) }}
             }
-            <form
-                class="form-actions"
-                method="post"
-                [action]="url.oauthAction"
-            >
-                <input
-                    type="hidden"
-                    name="code"
-                    [value]="oauth.code"
-                />
-                <div [kcClass]="'kcFormGroupClass'">
-                    <div id="kc-form-options">
-                        <div [kcClass]="'kcFormOptionsWrapperClass'"></div>
-                    </div>
+            @if (client.attributes['policyUri']) {
+                {{ i18n.msgStr('oauthGrantReview') }}
+                <a
+                    target="_blank"
+                    [href]="client.attributes['policyUri']"
+                >
+                    {{ i18n.msgStr('oauthGrantPolicy') }}
+                </a>
+            }
+        </h3>
+    }
+    <form
+        class="form-actions"
+        method="post"
+        [action]="url.oauthAction"
+    >
+        <input
+            type="hidden"
+            name="code"
+            [value]="oauth.code"
+        />
+        <div [kcClass]="'kcFormGroupClass'">
+            <div id="kc-form-options">
+                <div [kcClass]="'kcFormOptionsWrapperClass'"></div>
+            </div>
 
-                    <div id="kc-form-buttons">
-                        <div [kcClass]="'kcFormButtonsWrapperClass'">
-                            <input
-                                type="submit"
-                                [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
-                                [value]="i18n.msgStr('doYes')"
-                            />
-                            <input
-                                type="submit"
-                                [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
-                                [value]="i18n.msgStr('doNo')"
-                            />
-                        </div>
-                    </div>
+            <div id="kc-form-buttons">
+                <div [kcClass]="'kcFormButtonsWrapperClass'">
+                    <input
+                        type="submit"
+                        [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
+                        [value]="i18n.msgStr('doYes')"
+                    />
+                    <input
+                        type="submit"
+                        [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
+                        [value]="i18n.msgStr('doNo')"
+                    />
                 </div>
-            </form>
-            <div className="clearfix"></div>
+            </div>
         </div>
-    </ng-container>
-</kc-login-template>
+    </form>
+    <div className="clearfix"></div>
+</div>

@@ -5,161 +5,157 @@
 @let account = kcContext.account;
 @let referrer = kcContext.referrer;
 
-<kc-account-template [active]="'account'">
-    <ng-container content>
-        <div class="row">
-            <div class="col-md-10">
-                <h2>{{ i18n.msgStr('editAccountHtmlTitle') }}</h2>
+<div class="row">
+    <div class="col-md-10">
+        <h2>{{ i18n.msgStr('editAccountHtmlTitle') }}</h2>
+    </div>
+    <div class="col-md-2 subtitle">
+        <span class="subtitle"> <span class="required">*</span> {{ i18n.msgStr('requiredFields') }} </span>
+    </div>
+</div>
+<form
+    class="form-horizontal"
+    method="post"
+    [action]="url.accountUrl"
+>
+    <input
+        type="hidden"
+        id="stateChecker"
+        name="stateChecker"
+        [value]="stateChecker"
+    />
+    @if (!realm.registrationEmailAsUsername) {
+        <div
+            class="form-group"
+            [ngClass]="{ 'has-error': messagesPerField.existsError('username') }"
+        >
+            <div class="col-sm-2 col-md-2">
+                <label
+                    for="username"
+                    class="control-label"
+                >
+                    {{ i18n.msgStr('username') }}
+                </label>
+                @if (realm.editUsernameAllowed) {
+                    <span class="required">*</span>
+                }
             </div>
-            <div class="col-md-2 subtitle">
-                <span class="subtitle"> <span class="required">*</span> {{ i18n.msgStr('requiredFields') }} </span>
+
+            <div class="col-sm-10 col-md-10">
+                <input
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    name="username"
+                    [disabled]="!realm.editUsernameAllowed"
+                    [defaultValue]="account.username ?? ''"
+                />
             </div>
         </div>
-        <form
-            class="form-horizontal"
-            method="post"
-            [action]="url.accountUrl"
-        >
+    }
+
+    <div
+        class="form-group"
+        [ngClass]="{ 'has-error': messagesPerField.existsError('email') }"
+    >
+        <div class="col-sm-2 col-md-2">
+            <label
+                for="email"
+                class="control-label"
+            >
+                {{ i18n.msgStr('email') }}
+            </label>
+            <span class="required">*</span>
+        </div>
+
+        <div class="col-sm-10 col-md-10">
             <input
-                type="hidden"
-                id="stateChecker"
-                name="stateChecker"
-                [value]="stateChecker"
+                type="text"
+                class="form-control"
+                id="email"
+                name="email"
+                autoFocus
+                [defaultValue]="account.email ?? ''"
             />
-            @if (!realm.registrationEmailAsUsername) {
-                <div
-                    class="form-group"
-                    [ngClass]="{ 'has-error': messagesPerField.existsError('username') }"
+        </div>
+    </div>
+
+    <div
+        class="form-group"
+        [ngClass]="{ 'has-error': messagesPerField.existsError('firstName') }"
+    >
+        <div class="col-sm-2 col-md-2">
+            <label
+                for="firstName"
+                class="control-label"
+            >
+                {{ i18n.msgStr('firstName') }}
+            </label>
+            <span class="required">*</span>
+        </div>
+
+        <div class="col-sm-10 col-md-10">
+            <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                name="firstName"
+                [defaultValue]="account.firstName"
+            />
+        </div>
+    </div>
+
+    <div
+        class="form-group"
+        [ngClass]="{ 'has-error': messagesPerField.existsError('lastName') }"
+    >
+        <div class="col-sm-2 col-md-2">
+            <label
+                for="lastName"
+                class="control-label"
+            >
+                {{ i18n.msgStr('lastName') }}
+            </label>
+            <span class="required">*</span>
+        </div>
+
+        <div class="col-sm-10 col-md-10">
+            <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                name="lastName"
+                [defaultValue]="account.lastName ?? ''"
+            />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div
+            id="kc-form-buttons"
+            class="col-md-offset-2 col-md-10 submit"
+        >
+            <div>
+                @if (referrer) {
+                    <a [href]="referrer?.url">{{ i18n.msgStr('backToApplication') }}</a>
+                }
+                <button
+                    type="submit"
+                    name="submitAction"
+                    value="Save"
+                    [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                 >
-                    <div class="col-sm-2 col-md-2">
-                        <label
-                            for="username"
-                            class="control-label"
-                        >
-                            {{ i18n.msgStr('username') }}
-                        </label>
-                        @if (realm.editUsernameAllowed) {
-                            <span class="required">*</span>
-                        }
-                    </div>
-
-                    <div class="col-sm-10 col-md-10">
-                        <input
-                            type="text"
-                            class="form-control"
-                            id="username"
-                            name="username"
-                            [disabled]="!realm.editUsernameAllowed"
-                            [defaultValue]="account.username ?? ''"
-                        />
-                    </div>
-                </div>
-            }
-
-            <div
-                class="form-group"
-                [ngClass]="{ 'has-error': messagesPerField.existsError('email') }"
-            >
-                <div class="col-sm-2 col-md-2">
-                    <label
-                        for="email"
-                        class="control-label"
-                    >
-                        {{ i18n.msgStr('email') }}
-                    </label>
-                    <span class="required">*</span>
-                </div>
-
-                <div class="col-sm-10 col-md-10">
-                    <input
-                        type="text"
-                        class="form-control"
-                        id="email"
-                        name="email"
-                        autoFocus
-                        [defaultValue]="account.email ?? ''"
-                    />
-                </div>
-            </div>
-
-            <div
-                class="form-group"
-                [ngClass]="{ 'has-error': messagesPerField.existsError('firstName') }"
-            >
-                <div class="col-sm-2 col-md-2">
-                    <label
-                        for="firstName"
-                        class="control-label"
-                    >
-                        {{ i18n.msgStr('firstName') }}
-                    </label>
-                    <span class="required">*</span>
-                </div>
-
-                <div class="col-sm-10 col-md-10">
-                    <input
-                        type="text"
-                        class="form-control"
-                        id="firstName"
-                        name="firstName"
-                        [defaultValue]="account.firstName"
-                    />
-                </div>
-            </div>
-
-            <div
-                class="form-group"
-                [ngClass]="{ 'has-error': messagesPerField.existsError('lastName') }"
-            >
-                <div class="col-sm-2 col-md-2">
-                    <label
-                        for="lastName"
-                        class="control-label"
-                    >
-                        {{ i18n.msgStr('lastName') }}
-                    </label>
-                    <span class="required">*</span>
-                </div>
-
-                <div class="col-sm-10 col-md-10">
-                    <input
-                        type="text"
-                        class="form-control"
-                        id="lastName"
-                        name="lastName"
-                        [defaultValue]="account.lastName ?? ''"
-                    />
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div
-                    id="kc-form-buttons"
-                    class="col-md-offset-2 col-md-10 submit"
+                    {{ i18n.msgStr('doSave') }}
+                </button>
+                <button
+                    type="submit"
+                    name="submitAction"
+                    value="Cancel"
+                    [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
                 >
-                    <div>
-                        @if (referrer) {
-                            <a [href]="referrer?.url">{{ i18n.msgStr('backToApplication') }}</a>
-                        }
-                        <button
-                            type="submit"
-                            name="submitAction"
-                            value="Save"
-                            [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
-                        >
-                            {{ i18n.msgStr('doSave') }}
-                        </button>
-                        <button
-                            type="submit"
-                            name="submitAction"
-                            value="Cancel"
-                            [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
-                        >
-                            {{ i18n.msgStr('doCancel') }}
-                        </button>
-                    </div>
-                </div>
+                    {{ i18n.msgStr('doCancel') }}
+                </button>
             </div>
-        </form>
-    </ng-container>
-</kc-account-template>
+        </div>
+    </div>
+</form>

@@ -1,36 +1,27 @@
 @let url = kcContext.url;
-<kc-login-template
-    [displayInfo]="displayInfo"
-    [bodyClassName]="bodyClassName()"
-    [displayMessage]="displayMessage"
-    [displayRequiredFields]="displayRequiredFields()"
-    [documentTitle]="documentTitle()"
+
+<ng-template #headerNode>
+    {{ i18n.msgStr('termsTitle') }}
+</ng-template>
+<div id="kc-terms-text">{{ i18n.msgStr('termsText') }}</div>
+<form
+    class="form-actions"
+    method="POST"
+    [action]="url.loginAction"
 >
-    <ng-container headerNode>
-        {{ i18n.msgStr('termsTitle') }}
-    </ng-container>
-    <ng-container content>
-        <div id="kc-terms-text">{{ i18n.msgStr('termsText') }}</div>
-        <form
-            class="form-actions"
-            method="POST"
-            [action]="url.loginAction"
-        >
-            <input
-                name="accept"
-                id="kc-accept"
-                type="submit"
-                [kcClass]="['kcButtonClass', 'kcButtonClass', 'kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
-                [value]="i18n.msgStr('doAccept')"
-            />
-            <input
-                name="cancel"
-                id="kc-decline"
-                type="submit"
-                [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
-                [value]="i18n.msgStr('doDecline')"
-            />
-        </form>
-        <div className="clearfix"></div>
-    </ng-container>
-</kc-login-template>
+    <input
+        name="accept"
+        id="kc-accept"
+        type="submit"
+        [kcClass]="['kcButtonClass', 'kcButtonClass', 'kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonLargeClass']"
+        [value]="i18n.msgStr('doAccept')"
+    />
+    <input
+        name="cancel"
+        id="kc-decline"
+        type="submit"
+        [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonLargeClass']"
+        [value]="i18n.msgStr('doDecline')"
+    />
+</form>
+<div className="clearfix"></div>

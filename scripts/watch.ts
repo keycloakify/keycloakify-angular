@@ -33,7 +33,7 @@ import { cleanup } from './shared/cleanup';
 
     chokidar
         .watch(
-            ['src', 'package.json'].map(relativePath =>
+            ['src', 'bin', 'package.json'].map(relativePath =>
                 pathJoin(getThisCodebaseRootDirPath(), relativePath)
             ),
             { ignoreInitial: true }

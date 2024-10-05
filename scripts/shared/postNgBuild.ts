@@ -8,10 +8,85 @@ import {
 } from 'path';
 import { transformCodebase } from '../tools/transformCodebase';
 import { getThisCodebaseRootDirPath } from '../tools/getThisCodebaseRootDirPath';
+import { run } from './run';
+
+const distDirPath = pathJoin(getThisCodebaseRootDirPath(), 'dist');
 
 export function postNgBuild() {
-    const distDirPath = pathJoin(getThisCodebaseRootDirPath(), 'dist');
+    copyTransformSrcDirToDist();
 
+    transformCodebase({
+        srcDirPath: pathJoin(getThisCodebaseRootDirPath(), 'stories'),
+        destDirPath: pathJoin(distDirPath, 'stories')
+    });
+
+    for (const basename of ['README.md', 'LICENSE']) {
+        fs.cpSync(
+            pathJoin(getThisCodebaseRootDirPath(), basename),
+            pathJoin(distDirPath, basename)
+        );
+    }
+
+    const { packageJsonBinProperty } = buildBin();
+
+    preparePackageJson({ packageJsonBinProperty });
+}
+
+function buildBin() {
+    const binDirPath = pathJoin(getThisCodebaseRootDirPath(), 'bin');
+    const distDirPath_bin = pathJoin(distDirPath, 'bin');
+
+    run(`npx tsc -p ${binDirPath} --outDir ${distDirPath_bin}`);
+
+    const nccOutDirPath = pathJoin(distDirPath_bin, 'ncc_out');
+
+    const entrypointFilePath = pathJoin(distDirPath_bin, 'main.js');
+
+    run(`npx ncc build ${entrypointFilePath} -o ${nccOutDirPath}`);
+
+    transformCodebase({
+        srcDirPath: distDirPath_bin,
+        destDirPath: distDirPath_bin,
+        transformSourceCode: ({ filePath, sourceCode }) => {
+            if (filePath.startsWith(nccOutDirPath)) {
+                return { modifiedSourceCode: sourceCode };
+            }
+
+            return undefined;
+        }
+    });
+
+    fs.readdirSync(nccOutDirPath).forEach(basename => {
+        const destFilePath =
+            basename === 'index.js'
+                ? entrypointFilePath
+                : pathJoin(pathDirname(entrypointFilePath), basename);
+        const srcFilePath = pathJoin(nccOutDirPath, basename);
+
+        fs.cpSync(srcFilePath, destFilePath);
+    });
+
+    fs.rmSync(nccOutDirPath, { recursive: true });
+
+    fs.chmodSync(
+        entrypointFilePath,
+        fs.statSync(entrypointFilePath).mode |
+            fs.constants.S_IXUSR |
+            fs.constants.S_IXGRP |
+            fs.constants.S_IXOTH
+    );
+
+    return {
+        packageJsonBinProperty: {
+            'keycloakify-angular': pathRelative(
+                distDirPath,
+                entrypointFilePath
+            ).replaceAll(pathSep, '/')
+        }
+    };
+}
+
+function copyTransformSrcDirToDist() {
     const srcDirPath_dist = pathJoin(distDirPath, 'src');
 
     transformCodebase({
@@ -130,47 +205,39 @@ export function postNgBuild() {
             }
         });
     }
+}
 
-    transformCodebase({
-        srcDirPath: pathJoin(getThisCodebaseRootDirPath(), 'stories'),
-        destDirPath: pathJoin(distDirPath, 'stories')
-    });
+function preparePackageJson(params: { packageJsonBinProperty: Record<string, string> }) {
+    const { packageJsonBinProperty } = params;
 
-    for (const basename of ['README.md', 'LICENSE']) {
-        fs.cpSync(
-            pathJoin(getThisCodebaseRootDirPath(), basename),
-            pathJoin(distDirPath, basename)
-        );
+    const packageJsonParsed = JSON.parse(
+        fs
+            .readFileSync(pathJoin(getThisCodebaseRootDirPath(), 'package.json'))
+            .toString('utf8')
+    );
+
+    const packageJsonFilePath_dist = pathJoin(distDirPath, 'package.json');
+
+    const packageJsonParsed_dist = JSON.parse(
+        fs.readFileSync(packageJsonFilePath_dist).toString('utf8')
+    );
+
+    for (const propertyName of [
+        'version',
+        'description',
+        'keywords',
+        'author',
+        'license',
+        'repository',
+        'homepage'
+    ]) {
+        packageJsonParsed_dist[propertyName] = packageJsonParsed[propertyName];
     }
 
-    {
-        const packageJsonParsed = JSON.parse(
-            fs
-                .readFileSync(pathJoin(getThisCodebaseRootDirPath(), 'package.json'))
-                .toString('utf8')
-        );
+    packageJsonParsed_dist.bin = packageJsonBinProperty;
 
-        const packageJsonFilePath_dist = pathJoin(distDirPath, 'package.json');
-
-        const packageJsonParsed_dist = JSON.parse(
-            fs.readFileSync(packageJsonFilePath_dist).toString('utf8')
-        );
-
-        for (const propertyName of [
-            'version',
-            'description',
-            'keywords',
-            'author',
-            'license',
-            'repository',
-            'homepage'
-        ]) {
-            packageJsonParsed_dist[propertyName] = packageJsonParsed[propertyName];
-        }
-
-        fs.writeFileSync(
-            packageJsonFilePath_dist,
-            JSON.stringify(packageJsonParsed_dist, null, 2)
-        );
-    }
+    fs.writeFileSync(
+        packageJsonFilePath_dist,
+        JSON.stringify(packageJsonParsed_dist, null, 2)
+    );
 }

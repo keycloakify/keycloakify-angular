@@ -33,6 +33,8 @@
     </p>
 </p>
 
+
+## Using the library
 ```bash
 npm install keycloakify @keycloakify/angular
 ```
@@ -41,3 +43,29 @@ or using yarn:
 ```bash
 yarn add keycloakify @keycloakify/angular
 ```
+
+## Developing the library
+If you want to make changes to the library make sure to follow these steps to setup your local environment.
+### In the library:
+1. Run `ng build` (preferably in watch mode)
+2. `cd dist`
+3. `npm link`
+
+### In the starter:
+1. You need to make configurations in `angular.json`:
+    - **Firstly**, make sure that `preserveSymlinks` is set to `true`:
+      ```json
+      "preserveSymlinks": true
+      ```
+    - **Secondly**, disable caching under `cli`:
+      ```json
+      "cli": {
+        "cache": {
+          "enabled": false
+        }
+      }
+      ```
+2. Run `npm link @keycloakify/keycloakify-angular`
+3. `ng serve`
+
+You are good to go 🚀

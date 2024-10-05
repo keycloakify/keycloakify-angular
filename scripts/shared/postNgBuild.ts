@@ -9,8 +9,8 @@ import {
 import { transformCodebase } from '../tools/transformCodebase';
 import { getThisCodebaseRootDirPath } from '../tools/getThisCodebaseRootDirPath';
 
-export function postNgBuild(params: { distDirPath: string }) {
-    const { distDirPath } = params;
+export function postNgBuild() {
+    const distDirPath = pathJoin(getThisCodebaseRootDirPath(), 'dist');
 
     const srcDirPath_dist = pathJoin(distDirPath, 'src');
 

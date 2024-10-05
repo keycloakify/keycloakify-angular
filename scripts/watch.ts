@@ -43,6 +43,6 @@ import { cleanup } from './shared/cleanup';
 
             await waitForThrottle();
 
-            postNgBuild({ distDirPath });
+            postNgBuild();
         });
 })();

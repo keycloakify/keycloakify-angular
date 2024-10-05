@@ -25,6 +25,6 @@ cleanup({ distDirPath });
     });
 }
 
-postNgBuild({ distDirPath });
+postNgBuild();
 
 console.log(chalk.green(`✓ built in ${((Date.now() - startTime) / 1000).toFixed(2)}s`));

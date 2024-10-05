@@ -9,6 +9,7 @@ import {
 import { transformCodebase } from '../tools/transformCodebase';
 import { getThisCodebaseRootDirPath } from '../tools/getThisCodebaseRootDirPath';
 import { run } from './run';
+import { BIN_NAME } from 'keycloakify/bin/shared/customHandler';
 
 const distDirPath = pathJoin(getThisCodebaseRootDirPath(), 'dist');
 
@@ -78,10 +79,10 @@ function buildBin() {
 
     return {
         packageJsonBinProperty: {
-            'keycloakify-angular': pathRelative(
-                distDirPath,
-                entrypointFilePath
-            ).replaceAll(pathSep, '/')
+            [BIN_NAME]: pathRelative(distDirPath, entrypointFilePath).replaceAll(
+                pathSep,
+                '/'
+            )
         }
     };
 }

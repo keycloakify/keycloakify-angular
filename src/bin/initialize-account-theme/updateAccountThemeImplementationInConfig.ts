@@ -20,8 +20,6 @@ export function updateAccountThemeImplementationInConfig(params: {
 }) {
     const { buildContext, accountThemeType } = params;
 
-    console.log({ buildContext, accountThemeType });
-
     switch (buildContext.bundler) {
         case 'vite':
             {

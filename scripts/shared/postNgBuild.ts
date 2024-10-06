@@ -6,7 +6,7 @@ import {
     sep as pathSep,
     dirname as pathDirname
 } from 'path';
-import { transformCodebase } from '../tools/transformCodebase';
+import { transformCodebase } from '../../src/bin/tools/transformCodebase';
 import { getThisCodebaseRootDirPath } from '../tools/getThisCodebaseRootDirPath';
 import { run } from './run';
 import { BIN_NAME } from 'keycloakify/bin/shared/customHandler';

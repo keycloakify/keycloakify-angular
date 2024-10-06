@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import { crawl } from './crawl';
+import { crawl } from '../../src/bin/tools/crawl';
 
 export function removeNodeModules(params: { nodeModulesDirPath: string }) {
     const { nodeModulesDirPath } = params;

@@ -85,7 +85,6 @@ export class TemplateComponent extends ComponentReference implements OnInit {
     isReadyToRender$: Observable<boolean>;
 
     page = input<Type<unknown>>();
-    userProfileFormFields = input<Type<unknown>>();
     headerNode: Signal<TemplateRef<HTMLElement>> | undefined;
     infoNode: Signal<TemplateRef<HTMLElement>> | undefined;
     socialProvidersNode: Signal<TemplateRef<HTMLElement>> | undefined;

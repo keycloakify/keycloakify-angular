@@ -4,7 +4,6 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
 import { LogoutOtherSessionsComponent } from '@keycloakify/angular/login/components/logout-other-sessions';
 import { UserProfileFormFieldsComponent } from '@keycloakify/angular/login/components/user-profile-form-fields';
-import { TemplateComponent } from '@keycloakify/angular/login/containers/template';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class';
 import type { I18n } from '@keycloakify/angular/login/i18n';
 import type { KcContext } from '@keycloakify/angular/login/KcContext';
@@ -14,7 +13,7 @@ import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
 
 @Component({
     standalone: true,
-    imports: [TemplateComponent, KcClassDirective, NgComponentOutlet, LogoutOtherSessionsComponent],
+    imports: [KcClassDirective, NgComponentOutlet, LogoutOtherSessionsComponent],
     selector: 'kc-update-email',
     templateUrl: 'update-email.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,

@@ -2,7 +2,6 @@ import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, forwardRef, inject, TemplateRef, viewChild } from '@angular/core';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
-import { TemplateComponent } from '@keycloakify/angular/login/containers/template';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class';
 import type { I18n } from '@keycloakify/angular/login/i18n';
 import type { KcContext } from '@keycloakify/angular/login/KcContext';
@@ -13,7 +12,7 @@ import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
 
 @Component({
     standalone: true,
-    imports: [TemplateComponent, KcClassDirective, NgClass],
+    imports: [KcClassDirective, NgClass],
     selector: 'kc-select-authenticator',
     templateUrl: 'select-authenticator.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,

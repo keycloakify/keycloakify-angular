@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, forwardRef, inject, TemplateRef, viewChild } from '@angular/core';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
-import { TemplateComponent } from '@keycloakify/angular/login/containers/template';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class';
 import type { I18n } from '@keycloakify/angular/login/i18n';
 import type { KcContext } from '@keycloakify/angular/login/KcContext';
@@ -9,7 +8,7 @@ import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
 
 @Component({
     standalone: true,
-    imports: [KcClassDirective, TemplateComponent],
+    imports: [KcClassDirective],
     selector: 'kc-login-idp-link-confirm-override',
     templateUrl: 'login-idp-link-confirm-override.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,

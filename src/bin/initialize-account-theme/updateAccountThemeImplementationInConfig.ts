@@ -20,6 +20,8 @@ export function updateAccountThemeImplementationInConfig(params: {
 }) {
     const { buildContext, accountThemeType } = params;
 
+    console.log({ buildContext, accountThemeType });
+
     switch (buildContext.bundler) {
         case 'vite':
             {
@@ -42,13 +44,13 @@ export function updateAccountThemeImplementationInConfig(params: {
                     .toString('utf8');
 
                 const modifiedViteConfigContent = viteConfigContent.replace(
-                    /accountThemeImplementation\s*:\s*"none"/,
-                    `accountThemeImplementation: "${accountThemeType}"`
+                    /["']?accountThemeImplementation["']?\s*:\s*["']none["']/,
+                    `accountThemeImplementation: '${accountThemeType}'`
                 );
 
                 if (modifiedViteConfigContent === viteConfigContent) {
                     console.log(
-                        chalk.bold(
+                        chalk.yellow(
                             `You must manually set the accountThemeImplementation to "${accountThemeType}" in your vite.config.ts`
                         )
                     );

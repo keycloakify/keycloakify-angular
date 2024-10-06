@@ -73,7 +73,7 @@ import * as fs from 'fs';
     chokidar
         .watch(
             ['bin', 'stories'].map(relativePath =>
-                pathJoin(getThisCodebaseRootDirPath(), relativePath)
+                pathJoin(getThisCodebaseRootDirPath(), 'src', relativePath)
             ),
             { ignoreInitial: true }
         )

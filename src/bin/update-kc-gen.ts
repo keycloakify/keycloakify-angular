@@ -96,8 +96,8 @@ export function command(params: { buildContext: BuildContext }) {
                     `                    },`,
                     `                ] = await Promise.all([`,
                     `                    import('@keycloakify/angular/login/providers/keycloakify-angular'),`,
-                    `                    import('./login/i18n'),`,
-                    `                    import('./login/KcPage').then(({ getKcPage }) => getKcPage(kcContext.pageId)),`,
+                    `                    import('./${themeType}/i18n'),`,
+                    `                    import('./${themeType}/KcPage').then(({ getKcPage }) => getKcPage(kcContext.pageId)),`,
                     `                ] as const);`,
                     ``,
                     `                const appRef = await bootstrapApplication({`,
@@ -105,11 +105,9 @@ export function command(params: { buildContext: BuildContext }) {
                     `                    kcProvider: provideKeycloakifyAngular({`,
                     `                        classes,`,
                     `                        getI18n,`,
+                    `                        doUseDefaultCss,`,
                     ...(themeType === 'login'
-                        ? [
-                              `                        doMakeUserConfirmPassword,`,
-                              `                        doUseDefaultCss,`
-                          ]
+                        ? [`                        doMakeUserConfirmPassword,`]
                         : []),
                     `                    })`,
                     `                });`,

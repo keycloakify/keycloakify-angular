@@ -16,11 +16,6 @@ const distDirPath = pathJoin(getThisCodebaseRootDirPath(), 'dist');
 export function postNgBuild() {
     copyTransformSrcDirToDist();
 
-    transformCodebase({
-        srcDirPath: pathJoin(getThisCodebaseRootDirPath(), 'stories'),
-        destDirPath: pathJoin(distDirPath, 'stories')
-    });
-
     for (const basename of ['README.md', 'LICENSE']) {
         fs.cpSync(
             pathJoin(getThisCodebaseRootDirPath(), basename),
@@ -34,7 +29,7 @@ export function postNgBuild() {
 }
 
 function buildBin() {
-    const binDirPath = pathJoin(getThisCodebaseRootDirPath(), 'bin');
+    const binDirPath = pathJoin(getThisCodebaseRootDirPath(), 'src', 'bin');
     const distDirPath_bin = pathJoin(distDirPath, 'bin');
 
     run(`npx tsc -p ${binDirPath} --outDir ${distDirPath_bin}`);

@@ -30,5 +30,5 @@
         "strictInputAccessModifiers": true,
         "strictTemplates": true
     },
-    "exclude": ["./bin", "./stories"]
+    "exclude": ["./src/bin", "./src/stories"]
 }

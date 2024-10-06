@@ -47,7 +47,7 @@ export class DynamicPageInjectorComponent {
                 const userProfileFormFields = this.userProfileFormFields();
                 if (!page) return;
                 const compRef = this.#vcr.createComponent(page);
-                if ('userProfileFormFields' in compRef && userProfileFormFields) {
+                if ('userProfileFormFields' in (compRef.instance as object) && userProfileFormFields) {
                     compRef.setInput('userProfileFormFields', userProfileFormFields);
                 }
                 this.componentCreated.emit(compRef.instance as object);

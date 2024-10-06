@@ -166,44 +166,6 @@ function copyTransformSrcDirToDist() {
 
         fs.writeFileSync(filePath, content);
     });
-
-    for (const themeType of ['login', 'account']) {
-        const dirPath = pathJoin(srcDirPath_dist, themeType);
-
-        transformCodebase({
-            srcDirPath: dirPath,
-            destDirPath: dirPath,
-            transformSourceCode: ({ fileRelativePath, sourceCode }) => {
-                if (!fileRelativePath.endsWith('.ts')) {
-                    return { modifiedSourceCode: sourceCode };
-                }
-
-                let modifiedSourceCode_str = sourceCode.toString();
-
-                const getRelativeTo = (relativePath: string) =>
-                    pathRelative(pathDirname(fileRelativePath), relativePath).replaceAll(
-                        pathSep,
-                        '/'
-                    );
-
-                modifiedSourceCode_str = modifiedSourceCode_str.replaceAll(
-                    `@keycloakify/angular/${themeType}/i18n`,
-                    getRelativeTo('i18n') === 'i18n' ? './i18n' : getRelativeTo('i18n')
-                );
-
-                modifiedSourceCode_str = modifiedSourceCode_str.replaceAll(
-                    `@keycloakify/angular/${themeType}/KcContext`,
-                    getRelativeTo('KcContext') === 'KcContext'
-                        ? './KcContext'
-                        : getRelativeTo('KcContext')
-                );
-
-                return {
-                    modifiedSourceCode: Buffer.from(modifiedSourceCode_str, 'utf8')
-                };
-            }
-        });
-    }
 }
 
 function preparePackageJson(params: { packageJsonBinProperty: Record<string, string> }) {

@@ -8,14 +8,16 @@ const { buildContext, commandName } = readParams({ apiVersion: 'v1' });
     switch (commandName) {
         case 'add-story':
             {
-                console.log('Not yet supported by @keycloakify/angular');
+                console.log(
+                    "Not yet supported by @keycloakify/angular, we're working on it!"
+                );
                 process.exit(-1);
             }
             return;
         case 'eject-page':
             {
-                console.log('Not yet supported by @keycloakify/angular');
-                process.exit(-1);
+                const { command } = await import('./eject-page');
+                command({ buildContext });
             }
             return;
         case 'update-kc-gen':

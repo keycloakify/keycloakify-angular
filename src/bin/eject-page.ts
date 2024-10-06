@@ -12,11 +12,17 @@ import {
     type ThemeType
 } from './core';
 import * as fs from 'fs';
-import { join as pathJoin, relative as pathRelative, sep as pathSep } from 'path';
+import {
+    join as pathJoin,
+    relative as pathRelative,
+    sep as pathSep,
+    dirname as pathDirname
+} from 'path';
 import { assert, Equals } from 'tsafe/assert';
 import chalk from 'chalk';
 import { transformCodebase } from './tools/transformCodebase';
 import { kebabCaseToCamelCase } from './tools/kebabCaseToSnakeCase';
+import { replaceAll } from './tools/String.prototype.replaceAll';
 
 export async function command(params: { buildContext: BuildContext }) {
     const { buildContext } = params;
@@ -73,7 +79,7 @@ export async function command(params: { buildContext: BuildContext }) {
 
     console.log(`→ ${pageIdOrComponent}`);
 
-    const componentRelativeDirPath = (() => {
+    const componentDirRelativeToThemeTypePath = (() => {
         if (pageIdOrComponent === templateValue) {
             return pathJoin('containers', 'template');
         }
@@ -81,38 +87,129 @@ export async function command(params: { buildContext: BuildContext }) {
         return pathJoin('pages', pageIdOrComponent.replace(/\.ftl$/, ''));
     })();
 
-    const targetDirPath = pathJoin(
-        buildContext.themeSrcDirPath,
-        themeType,
-        componentRelativeDirPath
-    );
+    {
+        const componentDirRelativeToThemeTypePaths = [
+            componentDirRelativeToThemeTypePath
+        ];
 
-    if (fs.existsSync(targetDirPath)) {
-        console.log(
-            `${pageIdOrComponent} is already ejected, ${pathRelative(
-                process.cwd(),
-                targetDirPath
-            )} already exists`
-        );
+        while (componentDirRelativeToThemeTypePaths.length !== 0) {
+            const componentDirRelativeToThemeTypePath_i =
+                componentDirRelativeToThemeTypePaths.pop();
 
-        process.exit(-1);
+            assert(componentDirRelativeToThemeTypePath_i !== undefined);
+
+            const destDirPath = pathJoin(
+                buildContext.themeSrcDirPath,
+                themeType,
+                componentDirRelativeToThemeTypePath_i
+            );
+
+            if (fs.existsSync(destDirPath)) {
+                if (
+                    componentDirRelativeToThemeTypePath_i ===
+                    componentDirRelativeToThemeTypePath
+                ) {
+                    console.log(
+                        `${pageIdOrComponent} is already ejected, ${pathRelative(
+                            process.cwd(),
+                            destDirPath
+                        )} already exists`
+                    );
+                    process.exit(-1);
+                }
+                continue;
+            }
+
+            const localThemeTypeDirPath = pathJoin(
+                getThisCodebaseRootDirPath(),
+                'src',
+                themeType
+            );
+
+            transformCodebase({
+                srcDirPath: pathJoin(
+                    localThemeTypeDirPath,
+                    componentDirRelativeToThemeTypePath_i
+                ),
+                destDirPath,
+                transformSourceCode: ({ filePath, sourceCode }) => {
+                    if (!filePath.endsWith('.ts')) {
+                        return { modifiedSourceCode: sourceCode };
+                    }
+
+                    const fileRelativeToThemeTypePath = pathRelative(
+                        localThemeTypeDirPath,
+                        filePath
+                    );
+
+                    let modifiedSourceCode_str = sourceCode.toString();
+
+                    const getPosixPathRelativeToFile = (params: {
+                        pathRelativeToThemeType: string;
+                    }) => {
+                        const { pathRelativeToThemeType } = params;
+
+                        const path = pathRelative(
+                            pathDirname(fileRelativeToThemeTypePath),
+                            pathRelativeToThemeType
+                        )
+                            .split(pathSep)
+                            .join('/');
+
+                        return path.startsWith('.') ? path : `./${path}`;
+                    };
+
+                    modifiedSourceCode_str = replaceAll(
+                        modifiedSourceCode_str,
+                        `@keycloakify/angular/${themeType}/i18n`,
+                        getPosixPathRelativeToFile({
+                            pathRelativeToThemeType: 'i18n'
+                        })
+                    );
+
+                    modifiedSourceCode_str = replaceAll(
+                        modifiedSourceCode_str,
+                        `@keycloakify/angular/${themeType}/KcContext`,
+                        getPosixPathRelativeToFile({
+                            pathRelativeToThemeType: 'KcContext'
+                        })
+                    );
+
+                    modifiedSourceCode_str = modifiedSourceCode_str.replace(
+                        new RegExp(
+                            `@keycloakify/angular/${themeType}/components/(^['"]+)['"]`,
+                            'g'
+                        ),
+                        (...[, componentDirRelativeToComponentsPath]) => {
+                            const componentDirRelativeToThemeTypePath = pathJoin(
+                                'components',
+                                componentDirRelativeToComponentsPath
+                            );
+
+                            componentDirRelativeToThemeTypePaths.push(
+                                componentDirRelativeToThemeTypePath
+                            );
+
+                            return getPosixPathRelativeToFile({
+                                pathRelativeToThemeType:
+                                    componentDirRelativeToThemeTypePath
+                            });
+                        }
+                    );
+
+                    return {
+                        modifiedSourceCode: Buffer.from(modifiedSourceCode_str, 'utf8')
+                    };
+                }
+            });
+
+            console.log(
+                `${chalk.green('✓')} ${chalk.bold(
+                    `.${pathSep}` + pathRelative(process.cwd(), destDirPath)
+                )} moved from the @keycloakify/angular to your project`
+            );
+        }
     }
-
-    transformCodebase({
-        srcDirPath: pathJoin(
-            getThisCodebaseRootDirPath(),
-            'src',
-            themeType,
-            componentRelativeDirPath
-        ),
-        destDirPath: targetDirPath
-    });
-
-    console.log(
-        `${chalk.green('✓')} ${chalk.bold(
-            pathJoin('.', pathRelative(process.cwd(), targetDirPath))
-        )} copy pasted from the @keycloakify/angular sources code into your project`
-    );
 
     edit_KcPage: {
         if (pageIdOrComponent !== templateValue) {
@@ -127,8 +224,8 @@ export async function command(params: { buildContext: BuildContext }) {
 
         const kcAppTsCode = fs.readFileSync(kcAppTsFilePath).toString('utf8');
 
-        const modifiedKcAppTsxCode = (() => {
-            const componentRelativeDirPath_posix = componentRelativeDirPath
+        const modifiedKcAppTsCode = (() => {
+            const componentRelativeDirPath_posix = componentDirRelativeToThemeTypePath
                 .split(pathSep)
                 .join('/');
 
@@ -138,7 +235,7 @@ export async function command(params: { buildContext: BuildContext }) {
             );
         })();
 
-        if (modifiedKcAppTsxCode === kcAppTsCode) {
+        if (modifiedKcAppTsCode === kcAppTsCode) {
             console.log(
                 chalk.red(
                     'Unable to automatically update KcPage.tsx, please update it manually'
@@ -147,11 +244,11 @@ export async function command(params: { buildContext: BuildContext }) {
             return;
         }
 
-        fs.writeFileSync(kcAppTsCode, Buffer.from(modifiedKcAppTsxCode, 'utf8'));
+        fs.writeFileSync(kcAppTsCode, Buffer.from(modifiedKcAppTsCode, 'utf8'));
 
         console.log(
             `${chalk.green('✓')} ${chalk.bold(
-                pathJoin('.', pathRelative(process.cwd(), kcAppTsCode))
+                `.${pathSep}` + pathRelative(process.cwd(), kcAppTsFilePath)
             )} Updated`
         );
 
@@ -181,7 +278,7 @@ export async function command(params: { buildContext: BuildContext }) {
                 `   switch (pageId) {`,
                 `+    case '${pageId}':`,
                 `+      return {`,
-                `+        PageComponent: (await import('.${componentRelativeDirPath.split(pathSep).join('/')}')).${kebabCaseToCamelCase(pageId.replace(/\.ftl$/, ''))}Component,`,
+                `+        PageComponent: (await import('./${componentDirRelativeToThemeTypePath.split(pathSep).join('/')}')).${kebabCaseToCamelCase(pageId.replace(/\.ftl$/, ''))}Component,`,
                 `+        TemplateComponent,`,
                 ...(themeType === 'login' ? [`+        doMakeUserConfirmPassword,`] : []),
                 `+        doUseDefaultCss,`,

@@ -33,6 +33,8 @@
     </p>
 </p>
 
+> **Note:** This library is under active development, we do not recommend implementing it just yet.
+
 ## Using the library
 
 ```bash

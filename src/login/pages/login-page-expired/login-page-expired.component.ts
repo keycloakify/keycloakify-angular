@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, forwardRef, inject, TemplateRef, viewChild } from '@angular/core';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
-import { TemplateComponent } from '@keycloakify/angular/login/containers/template';
 import type { I18n } from '@keycloakify/angular/login/i18n';
 import type { KcContext } from '@keycloakify/angular/login/KcContext';
 import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes';
@@ -11,7 +10,7 @@ import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
 
 @Component({
     standalone: true,
-    imports: [TemplateComponent],
+    imports: [],
     selector: 'kc-login-page-expired',
     templateUrl: 'login-page-expired.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,

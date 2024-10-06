@@ -104,13 +104,13 @@ export async function command(params: { buildContext: BuildContext }) {
                 componentDirRelativeToThemeTypePath_i
             );
 
-            if (fs.existsSync(destDirPath)) {
+            if (fs.existsSync(destDirPath) && fs.readdirSync(destDirPath).length !== 0) {
                 if (
                     componentDirRelativeToThemeTypePath_i ===
                     componentDirRelativeToThemeTypePath
                 ) {
                     console.log(
-                        `${pageIdOrComponent} is already ejected, ${pathRelative(
+                        `${pageIdOrComponent.split('.ftl')[0]} is already ejected, ${pathRelative(
                             process.cwd(),
                             destDirPath
                         )} already exists`
@@ -177,7 +177,7 @@ export async function command(params: { buildContext: BuildContext }) {
 
                     modifiedSourceCode_str = modifiedSourceCode_str.replace(
                         new RegExp(
-                            `@keycloakify/angular/${themeType}/components/(^['"]+)['"]`,
+                            `@keycloakify/angular/${themeType}/components/([^'"]+)`,
                             'g'
                         ),
                         (...[, componentDirRelativeToComponentsPath]) => {
@@ -244,7 +244,7 @@ export async function command(params: { buildContext: BuildContext }) {
             return;
         }
 
-        fs.writeFileSync(kcAppTsCode, Buffer.from(modifiedKcAppTsCode, 'utf8'));
+        fs.writeFileSync(kcAppTsFilePath, Buffer.from(modifiedKcAppTsCode, 'utf8'));
 
         console.log(
             `${chalk.green('✓')} ${chalk.bold(

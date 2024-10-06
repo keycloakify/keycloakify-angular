@@ -10,6 +10,5 @@ export type KcPage = {
     TemplateComponent: Type<unknown>;
     doUseDefaultCss: boolean;
     classes: { [key in ClassKey]?: string };
-    UserProfileFormFieldsComponent: Type<unknown>;
     doMakeUserConfirmPassword: boolean;
 };

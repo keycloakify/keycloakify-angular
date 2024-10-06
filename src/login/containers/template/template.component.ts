@@ -37,19 +37,14 @@ import { Observable } from 'rxjs';
 })
 export class DynamicPageInjectorComponent {
     page = input<Type<unknown>>();
-    userProfileFormFields = input<Type<unknown>>();
     componentCreated = output<object>();
     #vcr = inject<ViewContainerRef>(ViewContainerRef);
     constructor() {
         effect(
             () => {
                 const page = this.page();
-                const userProfileFormFields = this.userProfileFormFields();
                 if (!page) return;
                 const compRef = this.#vcr.createComponent(page);
-                if ('userProfileFormFields' in (compRef.instance as object) && userProfileFormFields) {
-                    compRef.setInput('userProfileFormFields', userProfileFormFields);
-                }
                 this.componentCreated.emit(compRef.instance as object);
             },
             { allowSignalWrites: true }

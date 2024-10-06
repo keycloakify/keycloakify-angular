@@ -2,7 +2,7 @@
     "name": "@keycloakify/angular",
     "version": "0.0.1-rc.21",
     "type": "module",
-    "description": "Angular Components for Keycloakify!",
+    "description": "Angular Components for Keycloakify",
     "repository": {
         "type": "git",
         "url": "git://github.com/keycloakify/keycloakify-angular.git"
@@ -10,6 +10,7 @@
     "scripts": {
         "build": "tsx scripts/build.ts",
         "watch": "tsx scripts/watch.ts",
+        "link-in-starter": "tsx scripts/link-in-starter.ts",
         "_format": "prettier '**/*.{ts,html,json,md}'",
         "format": "yarn _format --write",
         "lint": "ng lint --fix"
@@ -51,6 +52,7 @@
         "angular-eslint": "^18.3.1",
         "chalk": "^5.3.0",
         "chokidar": "^4.0.1",
+        "cli-select": "^1.1.2",
         "eslint": "^9.11.1",
         "eslint-config-prettier": "^9.1.0",
         "eslint-plugin-prettier": "^5.2.1",

@@ -19,7 +19,6 @@ const { buildContext, commandName } = readParams({ apiVersion: 'v1' });
         case 'update-kc-gen':
             {
                 const { command } = await import('./update-kc-gen');
-
                 command({ buildContext });
             }
             break;

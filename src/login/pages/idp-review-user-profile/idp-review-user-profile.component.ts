@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, forwardRef, inject, input, signal, 
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
-import type { UserProfileFormFieldsComponent } from '@keycloakify/angular/login/components/user-profile-form-fields';
+import { UserProfileFormFieldsComponent } from '@keycloakify/angular/login/components/user-profile-form-fields';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class';
 import type { I18n } from '@keycloakify/angular/login/i18n';
 import type { KcContext } from '@keycloakify/angular/login/KcContext';
@@ -15,7 +15,7 @@ import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
 
 @Component({
     standalone: true,
-    imports: [KcClassDirective, NgComponentOutlet],
+    imports: [KcClassDirective, NgComponentOutlet, UserProfileFormFieldsComponent],
     selector: 'kc-idp-review-user-profile',
     templateUrl: 'idp-review-user-profile.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -45,7 +45,6 @@ export class IdpReviewUserProfileComponent extends ComponentReference {
     infoNode? = viewChild<TemplateRef<HTMLElement>>('infoNode');
     socialProvidersNode? = viewChild<TemplateRef<HTMLElement>>('socialProvidersNode');
 
-    userProfileFormFields = input<Type<UserProfileFormFieldsComponent>>();
     isFormSubmittable = signal(false);
 
     constructor() {

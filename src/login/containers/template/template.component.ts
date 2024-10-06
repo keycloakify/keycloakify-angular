@@ -37,19 +37,14 @@ import { Observable } from 'rxjs';
 })
 export class DynamicPageInjectorComponent {
     page = input<Type<unknown>>();
-    userProfileFormFields = input<Type<unknown>>();
     componentCreated = output<object>();
     #vcr = inject<ViewContainerRef>(ViewContainerRef);
     constructor() {
         effect(
             () => {
                 const page = this.page();
-                const userProfileFormFields = this.userProfileFormFields();
                 if (!page) return;
                 const compRef = this.#vcr.createComponent(page);
-                if ('userProfileFormFields' in (compRef.instance as object) && userProfileFormFields) {
-                    compRef.setInput('userProfileFormFields', userProfileFormFields);
-                }
                 this.componentCreated.emit(compRef.instance as object);
             },
             { allowSignalWrites: true }
@@ -90,7 +85,6 @@ export class TemplateComponent extends ComponentReference implements OnInit {
     isReadyToRender$: Observable<boolean>;
 
     page = input<Type<unknown>>();
-    userProfileFormFields = input<Type<unknown>>();
     headerNode: Signal<TemplateRef<HTMLElement>> | undefined;
     infoNode: Signal<TemplateRef<HTMLElement>> | undefined;
     socialProvidersNode: Signal<TemplateRef<HTMLElement>> | undefined;

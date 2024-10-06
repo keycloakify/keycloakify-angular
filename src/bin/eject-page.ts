@@ -23,6 +23,7 @@ import chalk from 'chalk';
 import { transformCodebase } from './tools/transformCodebase';
 import { kebabCaseToCamelCase } from './tools/kebabCaseToSnakeCase';
 import { replaceAll } from './tools/String.prototype.replaceAll';
+import { capitalize } from 'tsafe/capitalize';
 
 export async function command(params: { buildContext: BuildContext }) {
     const { buildContext } = params;
@@ -278,7 +279,7 @@ export async function command(params: { buildContext: BuildContext }) {
                 `   switch (pageId) {`,
                 `+    case '${pageId}':`,
                 `+      return {`,
-                `+        PageComponent: (await import('./${componentDirRelativeToThemeTypePath.split(pathSep).join('/')}')).${kebabCaseToCamelCase(pageId.replace(/\.ftl$/, ''))}Component,`,
+                `+        PageComponent: (await import('./${componentDirRelativeToThemeTypePath.split(pathSep).join('/')}')).${kebabCaseToCamelCase(capitalize(pageId).replace(/\.ftl$/, ''))}Component,`,
                 `+        TemplateComponent,`,
                 ...(themeType === 'login' ? [`+        doMakeUserConfirmPassword,`] : []),
                 `+        doUseDefaultCss,`,

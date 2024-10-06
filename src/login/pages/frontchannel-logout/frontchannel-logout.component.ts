@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, forwardRef, inject, OnInit, TemplateRef, viewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, OnInit, type TemplateRef, viewChild } from '@angular/core';
 import { KcSanitizePipe } from '@keycloakify/angular/lib/pipes/kc-sanitize';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';

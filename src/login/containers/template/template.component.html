@@ -163,6 +163,7 @@
                     @if (!!pageRef) {
                         <kc-dynamic-page-injector
                             [page]="pageRef"
+                            [userProfileFormFields]="userProfileFormFields()"
                             (componentCreated)="onComponentCreated($event)"
                         />
                     }

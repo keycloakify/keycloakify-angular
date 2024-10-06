@@ -18,9 +18,7 @@ export type KeycloakifyAngularAccountConfig = {
     };
 };
 
-export const provideKeycloakifyAngularAccount = (
-    config: KeycloakifyAngularAccountConfig
-) =>
+export const provideKeycloakifyAngular = (config: KeycloakifyAngularAccountConfig) =>
     makeEnvironmentProviders([
         {
             provide: KC_ACCOUNT_CONTEXT,

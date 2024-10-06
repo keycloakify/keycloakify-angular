@@ -1,7 +1,6 @@
 import type { BuildContext } from './core';
 import * as fs from 'fs';
 import { join as pathJoin } from 'path';
-import { capitalize } from 'tsafe/capitalize';
 
 export function command(params: { buildContext: BuildContext }) {
     const { buildContext } = params;
@@ -81,7 +80,7 @@ export function command(params: { buildContext: BuildContext }) {
                     `        case "${themeType}":`,
                     `            {`,
                     `const [`,
-                    `    { provideKeycloakifyAngular${capitalize(themeType)}: provideKeycloakifyAngular },`,
+                    `    { provideKeycloakifyAngular },`,
                     `    { getI18n },`,
                     `    {`,
                     `        PageComponent,`,

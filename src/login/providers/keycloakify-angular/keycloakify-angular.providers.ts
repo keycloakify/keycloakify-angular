@@ -20,7 +20,7 @@ export type KeycloakifyAngularLoginConfig = {
     };
 };
 
-export const provideKeycloakifyAngularLogin = (config: KeycloakifyAngularLoginConfig) =>
+export const provideKeycloakifyAngular = (config: KeycloakifyAngularLoginConfig) =>
     makeEnvironmentProviders([
         {
             provide: KC_LOGIN_CONTEXT,

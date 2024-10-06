@@ -1,7 +1,7 @@
 import type { Type } from '@angular/core';
-import type { ClassKey } from 'keycloakify/login';
+import type { ClassKey } from 'keycloakify/account';
 
-export { i18nBuilder } from 'keycloakify/login/i18n/noJsx';
+export { i18nBuilder } from 'keycloakify/account/i18n/noJsx';
 
 export { getDefaultPageComponent } from './defaultPage';
 
@@ -10,6 +10,4 @@ export type KcPage = {
     TemplateComponent: Type<unknown>;
     doUseDefaultCss: boolean;
     classes: { [key in ClassKey]?: string };
-    UserProfileFormFieldsComponent: Type<unknown>;
-    doMakeUserConfirmPassword: boolean;
 };

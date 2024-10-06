@@ -8,12 +8,14 @@ const { buildContext, commandName } = readParams({ apiVersion: 'v1' });
     switch (commandName) {
         case 'add-story':
             {
-                process.exit(NOT_IMPLEMENTED_EXIT_CODE);
+                console.log('Not yet supported by @keycloakify/angular');
+                process.exit(-1);
             }
             break;
         case 'eject-page':
             {
-                process.exit(NOT_IMPLEMENTED_EXIT_CODE);
+                console.log('Not yet supported by @keycloakify/angular');
+                process.exit(-1);
             }
             break;
         case 'update-kc-gen':

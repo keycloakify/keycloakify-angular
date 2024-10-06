@@ -15,5 +15,6 @@
         "lib": ["es2015", "ES2019.Object"],
         "moduleResolution": "node"
     },
-    "include": ["**/*.ts"]
+    "include": ["**/*.ts"],
+    "exclude": ["initialize-account-theme/boilerplate"]
 }

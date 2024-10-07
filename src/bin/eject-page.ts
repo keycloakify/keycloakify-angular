@@ -307,7 +307,7 @@ export async function command(params: { buildContext: BuildContext }) {
                 `       return {`,
                 `         PageComponent: await getDefaultPageComponent(pageId),`,
                 `         TemplateComponent,`,
-                ...(themeType === 'login' ? [`+        UserProfileFormFieldsComponent,`] : []),
+                ...(themeType === 'login' ? [`         UserProfileFormFieldsComponent,`] : []),
                 ...(themeType === 'login' ? [`         doMakeUserConfirmPassword,`] : []),
                 `         doUseDefaultCss,`,
                 `         classes,`,

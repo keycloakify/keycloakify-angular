@@ -6,6 +6,7 @@
     {{ i18n.msgStr('webauthn-login-title') }}
 </ng-template>
 <ng-template #infoNode>
+    @let url = kcContext.url;
     <div id="kc-registration">
         <span>
             {{ i18n.msgStr('noAccount') }}

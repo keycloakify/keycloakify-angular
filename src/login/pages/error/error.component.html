@@ -4,20 +4,19 @@
 <ng-template #headerNode>
     {{ i18n.msgStr('errorTitle') }}
 </ng-template>
-<ng-container content>
-    <div id="kc-error-message">
-        <p
-            class="instruction"
-            [innerHTML]="message.summary | kcSanitize: 'html'"
-        ></p>
-        @if (!skipLink && !!client?.baseUrl) {
-            <p>
-                <a
-                    id="backToApplication"
-                    [href]="client.baseUrl"
-                    [innerHTML]="i18n.msgStr('backToApplication') | kcSanitize: 'html'"
-                ></a>
-            </p>
-        }
-    </div>
-</ng-container>
+
+<div id="kc-error-message">
+    <p
+        class="instruction"
+        [innerHTML]="message.summary | kcSanitize: 'html'"
+    ></p>
+    @if (!skipLink && !!client?.baseUrl) {
+        <p>
+            <a
+                id="backToApplication"
+                [href]="client.baseUrl"
+                [innerHTML]="i18n.msgStr('backToApplication') | kcSanitize: 'html'"
+            ></a>
+        </p>
+    }
+</div>

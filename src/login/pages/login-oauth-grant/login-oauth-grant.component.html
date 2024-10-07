@@ -3,6 +3,7 @@
 @let url = kcContext.url;
 
 <ng-template #headerNode>
+    @let client = kcContext.client;
     @if (client.attributes['logoUri']) {
         <img
             alt=""

@@ -2,10 +2,10 @@
 @let actionUri = kcContext.actionUri;
 @let pageRedirectUri = kcContext.pageRedirectUri;
 @let client = kcContext.client;
-@let messageHeader = kcContext.messageHeader;
-@let message = kcContext.message;
 
 <ng-template #headerNode>
+    @let messageHeader = kcContext.messageHeader;
+    @let message = kcContext.message;
     <span [innerHTML]="messageHeader ?? i18n.advancedMsgStr(message.summary) | kcSanitize: 'html'"> </span>
 </ng-template>
 <div id="kc-info-message">

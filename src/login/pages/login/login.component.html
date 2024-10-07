@@ -1,5 +1,4 @@
 @let realm = kcContext.realm;
-@let social = kcContext.social;
 @let usernameHidden = kcContext.usernameHidden;
 @let auth = kcContext.auth;
 @let messagesPerField = kcContext.messagesPerField;
@@ -10,6 +9,7 @@
     {{ i18n.msgStr('loginAccountTitle') }}
 </ng-template>
 <ng-template #infoNode>
+    @let url = kcContext.url;
     <div id="kc-registration-container">
         <div id="kc-registration">
             <span>
@@ -25,6 +25,8 @@
     </div>
 </ng-template>
 <ng-template #socialProvidersNode>
+    @let realm = kcContext.realm;
+    @let social = kcContext.social;
     @if (!!realm?.password && !!social?.providers?.length) {
         <div
             id="kc-social-providers"

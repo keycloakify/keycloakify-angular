@@ -2,7 +2,9 @@
 @let brokerContext = kcContext.brokerContext;
 @let realm = kcContext.realm;
 @let url = kcContext.url;
+
 <ng-template #headerNode>
+    @let idpAlias = kcContext.idpAlias;
     {{ i18n.msgStr('emailLinkIdpTitle', idpAlias) }}
 </ng-template>
 <p

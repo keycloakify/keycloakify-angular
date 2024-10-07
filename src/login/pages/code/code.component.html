@@ -1,6 +1,7 @@
 @let code = kcContext.code;
 
 <ng-template #headerNode>
+    @let code = kcContext.code;
     @if (code.success) {
         {{ i18n.msgStr('codeSuccessTitle') }}
     } @else {

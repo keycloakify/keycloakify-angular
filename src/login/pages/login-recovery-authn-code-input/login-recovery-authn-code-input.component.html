@@ -6,63 +6,61 @@
     {{ i18n.msgStr('auth-recovery-code-header') }}
 </ng-template>
 
-<ng-container content>
-    <form
-        id="kc-recovery-code-login-form"
-        method="post"
-        [kcClass]="'kcFormClass'"
-        [action]="url.loginAction"
-    >
-        <div [kcClass]="'kcFormGroupClass'">
-            <div [kcClass]="'kcLabelWrapperClass'">
-                <label
-                    for="recoveryCodeInput"
-                    [kcClass]="'kcLabelClass'"
-                >
-                    {{ i18n.msgStr('auth-recovery-code-prompt', recoveryAuthnCodesInputBean.codeNumber.toString()) }}
-                </label>
-            </div>
-            <div [kcClass]="'kcInputWrapperClass'">
-                <input
-                    tabIndex="1"
-                    id="recoveryCodeInput"
-                    name="recoveryCodeInput"
-                    autoComplete="off"
-                    type="text"
-                    autoFocus
-                    [attr.aria-invalid]="messagesPerField.existsError('recoveryCodeInput')"
-                    [kcClass]="'kcInputClass'"
-                />
-                @if (messagesPerField.existsError('recoveryCodeInput')) {
-                    <span
-                        id="input-error"
-                        aria-live="polite"
-                        [kcClass]="'kcInputErrorMessageClass'"
-                        [innerHTML]="messagesPerField.get('recoveryCodeInput') | kcSanitize: 'html'"
-                    ></span>
-                }
-            </div>
+<form
+    id="kc-recovery-code-login-form"
+    method="post"
+    [kcClass]="'kcFormClass'"
+    [action]="url.loginAction"
+>
+    <div [kcClass]="'kcFormGroupClass'">
+        <div [kcClass]="'kcLabelWrapperClass'">
+            <label
+                for="recoveryCodeInput"
+                [kcClass]="'kcLabelClass'"
+            >
+                {{ i18n.msgStr('auth-recovery-code-prompt', recoveryAuthnCodesInputBean.codeNumber.toString()) }}
+            </label>
         </div>
+        <div [kcClass]="'kcInputWrapperClass'">
+            <input
+                tabIndex="1"
+                id="recoveryCodeInput"
+                name="recoveryCodeInput"
+                autoComplete="off"
+                type="text"
+                autoFocus
+                [attr.aria-invalid]="messagesPerField.existsError('recoveryCodeInput')"
+                [kcClass]="'kcInputClass'"
+            />
+            @if (messagesPerField.existsError('recoveryCodeInput')) {
+                <span
+                    id="input-error"
+                    aria-live="polite"
+                    [kcClass]="'kcInputErrorMessageClass'"
+                    [innerHTML]="messagesPerField.get('recoveryCodeInput') | kcSanitize: 'html'"
+                ></span>
+            }
+        </div>
+    </div>
 
-        <div [kcClass]="'kcFormGroupClass'">
-            <div
-                id="kc-form-options"
-                [kcClass]="'kcFormOptionsWrapperClass'"
-            >
-                <div [kcClass]="'kcFormOptionsWrapperClass'"></div>
-            </div>
-            <div
-                id="kc-form-buttons"
-                [kcClass]="'kcFormButtonsClass'"
-            >
-                <input
-                    name="login"
-                    id="kc-login"
-                    type="submit"
-                    [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
-                    [value]="i18n.msgStr('doLogIn')"
-                />
-            </div>
+    <div [kcClass]="'kcFormGroupClass'">
+        <div
+            id="kc-form-options"
+            [kcClass]="'kcFormOptionsWrapperClass'"
+        >
+            <div [kcClass]="'kcFormOptionsWrapperClass'"></div>
         </div>
-    </form>
-</ng-container>
+        <div
+            id="kc-form-buttons"
+            [kcClass]="'kcFormButtonsClass'"
+        >
+            <input
+                name="login"
+                id="kc-login"
+                type="submit"
+                [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
+                [value]="i18n.msgStr('doLogIn')"
+            />
+        </div>
+    </div>
+</form>

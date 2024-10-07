@@ -61,14 +61,23 @@ export async function command(params: { buildContext: BuildContext }) {
     console.log(chalk.cyan('Select the page you want to customize:'));
 
     const templateValue = 'template.ftl (Layout common to every page)';
+    const userProfileFormFieldsValue =
+        'user-profile-commons.ftl (Renders the form of the register.ftl, login-update-profile.ftl, update-email.ftl and idp-review-user-profile.ftl)';
 
     const { value: pageIdOrComponent } = await cliSelect<
-        LoginThemePageId | AccountThemePageId | typeof templateValue
+        | LoginThemePageId
+        | AccountThemePageId
+        | typeof templateValue
+        | typeof userProfileFormFieldsValue
     >({
         values: (() => {
             switch (themeType) {
                 case 'login':
-                    return [templateValue, ...LOGIN_THEME_PAGE_IDS];
+                    return [
+                        templateValue,
+                        userProfileFormFieldsValue,
+                        ...LOGIN_THEME_PAGE_IDS
+                    ];
                 case 'account':
                     return [templateValue, ...ACCOUNT_THEME_PAGE_IDS];
             }
@@ -83,6 +92,10 @@ export async function command(params: { buildContext: BuildContext }) {
     const componentDirRelativeToThemeTypePath = (() => {
         if (pageIdOrComponent === templateValue) {
             return pathJoin('containers', 'template');
+        }
+
+        if (pageIdOrComponent === userProfileFormFieldsValue) {
+            return pathJoin('components', 'user-profile-form-fields');
         }
 
         return pathJoin('pages', pageIdOrComponent.replace(/\.ftl$/, ''));
@@ -213,7 +226,10 @@ export async function command(params: { buildContext: BuildContext }) {
     }
 
     edit_KcPage: {
-        if (pageIdOrComponent !== templateValue) {
+        if (
+            pageIdOrComponent !== templateValue &&
+            pageIdOrComponent !== userProfileFormFieldsValue
+        ) {
             break edit_KcPage;
         }
 
@@ -281,6 +297,7 @@ export async function command(params: { buildContext: BuildContext }) {
                 `+      return {`,
                 `+        PageComponent: (await import('./${componentDirRelativeToThemeTypePath.split(pathSep).join('/')}')).${kebabCaseToCamelCase(capitalize(pageId).replace(/\.ftl$/, ''))}Component,`,
                 `+        TemplateComponent,`,
+                ...(themeType === 'login' ? [`+        UserProfileFormFieldsComponent,`] : []),
                 ...(themeType === 'login' ? [`+        doMakeUserConfirmPassword,`] : []),
                 `+        doUseDefaultCss,`,
                 `+        classes,`,
@@ -290,6 +307,7 @@ export async function command(params: { buildContext: BuildContext }) {
                 `       return {`,
                 `         PageComponent: await getDefaultPageComponent(pageId),`,
                 `         TemplateComponent,`,
+                ...(themeType === 'login' ? [`+        UserProfileFormFieldsComponent,`] : []),
                 ...(themeType === 'login' ? [`         doMakeUserConfirmPassword,`] : []),
                 `         doUseDefaultCss,`,
                 `         classes,`,

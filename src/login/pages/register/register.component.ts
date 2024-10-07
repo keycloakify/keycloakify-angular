@@ -19,7 +19,7 @@ import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
     templateUrl: './register.component.html',
     standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [KcClassDirective, AsyncPipe, KcSanitizePipe, NgClass, NgComponentOutlet, UserProfileFormFieldsComponent],
+    imports: [KcClassDirective, AsyncPipe, KcSanitizePipe, NgClass, NgComponentOutlet],
     providers: [
         {
             provide: ComponentReference,
@@ -48,6 +48,7 @@ export class RegisterComponent extends ComponentReference {
 
     isFormSubmittable = signal(false);
     areTermsAccepted = signal(false);
+    userProfileFormFields = input<Type<UserProfileFormFieldsComponent>>();
 
     constructor() {
         super();

@@ -88,7 +88,10 @@ export function command(params: { buildContext: BuildContext }) {
                     `                        doUseDefaultCss,`,
                     `                        classes,`,
                     ...(themeType === 'login'
-                        ? [`                        doMakeUserConfirmPassword,`]
+                        ? [
+                              `                        UserProfileFormFieldsComponent,`,
+                              `                        doMakeUserConfirmPassword,`
+                          ]
                         : []),
                     `                    },`,
                     `                ] = await Promise.all([`,
@@ -113,6 +116,16 @@ export function command(params: { buildContext: BuildContext }) {
                     `                    if ("page" in componentRef.instance) {`,
                     `                        componentRef.setInput("page", PageComponent);`,
                     `                    }`,
+                    ...(themeType === 'login'
+                        ? [
+                              `                    if ("userProfileFormFields" in componentRef.instance) {`,
+                              `                        componentRef.setInput(`,
+                              `                            "userProfileFormFields",`,
+                              `                            UserProfileFormFieldsComponent`,
+                              `                        );`,
+                              `                    }`
+                          ]
+                        : []),
                     `                });`,
                     `            }`,
                     `            break;`

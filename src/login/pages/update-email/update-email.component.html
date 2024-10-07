@@ -10,7 +10,7 @@
     [kcClass]="'kcFormClass'"
     [action]="url.loginAction"
 >
-    <kc-user-profile-form-fields />
+    <ng-container [ngComponentOutlet]="userProfileFormFields() ?? null" />
     <div [kcClass]="'kcFormGroupClass'">
         <div
             id="kc-form-options"

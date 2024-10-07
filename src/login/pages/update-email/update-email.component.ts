@@ -13,7 +13,7 @@ import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
 
 @Component({
     standalone: true,
-    imports: [KcClassDirective, NgComponentOutlet, LogoutOtherSessionsComponent, UserProfileFormFieldsComponent],
+    imports: [KcClassDirective, NgComponentOutlet, LogoutOtherSessionsComponent],
     selector: 'kc-update-email',
     templateUrl: 'update-email.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -40,6 +40,7 @@ export class UpdateEmailComponent extends ComponentReference {
     infoNode? = viewChild<TemplateRef<HTMLElement>>('infoNode');
     socialProvidersNode? = viewChild<TemplateRef<HTMLElement>>('socialProvidersNode');
 
+    userProfileFormFields = input<Type<UserProfileFormFieldsComponent>>();
     isFormSubmittable = signal(false);
 
     constructor() {

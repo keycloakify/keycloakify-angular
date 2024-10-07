@@ -16,7 +16,7 @@
     [kcClass]="'kcFormClass'"
     [action]="url.registrationAction"
 >
-    <kc-user-profile-form-fields />
+    <ng-container [ngComponentOutlet]="userProfileFormFields() ?? null" />
     @if (termsAcceptanceRequired) {
         <div className="form-group">
             <div [kcClass]="'kcInputWrapperClass'">

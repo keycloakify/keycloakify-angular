@@ -15,7 +15,7 @@ import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
 
 @Component({
     standalone: true,
-    imports: [KcClassDirective, NgComponentOutlet, UserProfileFormFieldsComponent],
+    imports: [KcClassDirective, NgComponentOutlet],
     selector: 'kc-login-update-profile',
     templateUrl: 'login-update-profile.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -46,6 +46,7 @@ export class LoginUpdateProfileComponent extends ComponentReference {
     socialProvidersNode? = viewChild<TemplateRef<HTMLElement>>('socialProvidersNode');
 
     isFormSubmittable = signal(false);
+    userProfileFormFields = input<Type<UserProfileFormFieldsComponent>>();
 
     constructor() {
         super();

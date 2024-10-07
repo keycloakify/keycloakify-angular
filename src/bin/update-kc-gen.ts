@@ -103,6 +103,7 @@ export function command(params: { buildContext: BuildContext }) {
                     `                const appRef = await bootstrapApplication({`,
                     `                    KcRootComponent: TemplateComponent,`,
                     `                    kcProvider: provideKeycloakifyAngular({`,
+                    `                        kcContext,`,
                     `                        classes,`,
                     `                        getI18n,`,
                     `                        doUseDefaultCss,`,

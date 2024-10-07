@@ -14,6 +14,7 @@ export type KeycloakifyAngularLoginConfig = {
     doMakeUserConfirmPassword?: boolean;
     doUseDefaultCss?: boolean;
     classes?: { [key in ClassKey]?: string };
+    kcContext: KcContext;
     getI18n: (params: { kcContext: KcContextLike }) => {
         i18n: unknown;
         prI18n_currentLanguage: Promise<unknown> | undefined;
@@ -24,9 +25,7 @@ export const provideKeycloakifyAngular = (config: KeycloakifyAngularLoginConfig)
     makeEnvironmentProviders([
         {
             provide: KC_LOGIN_CONTEXT,
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            useValue: window.kcContext
+            useValue: config.kcContext
         },
         {
             provide: DO_MAKE_USER_CONFIRM_PASSWORD,

@@ -1,10 +1,10 @@
-@let url = kcContext.url;
 @let user = kcContext.user;
 
 <ng-template #headerNode>
     {{ i18n.msgStr('emailVerifyTitle') }}
 </ng-template>
 <ng-template #infoNode>
+    @let url = kcContext.url;
     <p class="instruction">
         {{ i18n.msgStr('emailVerifyInstruction2') }}
         <br />

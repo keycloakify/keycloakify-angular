@@ -1,10 +1,9 @@
 import { NgComponentOutlet } from '@angular/common';
-import { ChangeDetectionStrategy, Component, forwardRef, inject, input, signal, TemplateRef, Type, viewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input, signal, type TemplateRef, Type, viewChild } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
-import { UserProfileFormFieldsComponent } from '@keycloakify/angular/login/components/user-profile-form-fields';
-import { TemplateComponent } from '@keycloakify/angular/login/containers/template';
+import type { UserProfileFormFieldsComponent } from '@keycloakify/angular/login/components/user-profile-form-fields';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class';
 import type { I18n } from '@keycloakify/angular/login/i18n';
 import type { KcContext } from '@keycloakify/angular/login/KcContext';
@@ -16,7 +15,7 @@ import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
 
 @Component({
     standalone: true,
-    imports: [TemplateComponent, KcClassDirective, NgComponentOutlet],
+    imports: [KcClassDirective, NgComponentOutlet],
     selector: 'kc-idp-review-user-profile',
     templateUrl: 'idp-review-user-profile.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,

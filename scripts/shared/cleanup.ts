@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import { transformCodebase } from '../tools/transformCodebase';
+import { transformCodebase } from '../../src/bin/tools/transformCodebase';
 
 export function cleanup(params: { distDirPath: string }) {
     const { distDirPath } = params;

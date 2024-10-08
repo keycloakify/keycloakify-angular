@@ -1,7 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component, forwardRef, inject } from '@angular/core';
 import { ComponentReference } from '@keycloakify/angular/account/classes/component-reference';
-import { TemplateComponent } from '@keycloakify/angular/account/containers/template';
 import { KcClassDirective } from '@keycloakify/angular/account/directives/kc-class';
 import type { I18n } from '@keycloakify/angular/account/i18n';
 import type { KcContext } from '@keycloakify/angular/account/KcContext';
@@ -13,7 +12,7 @@ import type { ClassKey } from 'keycloakify/account';
 
 @Component({
     standalone: true,
-    imports: [KcClassDirective, TemplateComponent, NgClass],
+    imports: [KcClassDirective, NgClass],
     selector: 'kc-sessions',
     templateUrl: 'sessions.component.html',
     providers: [

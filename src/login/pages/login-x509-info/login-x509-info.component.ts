@@ -1,7 +1,6 @@
-import { ChangeDetectionStrategy, Component, forwardRef, inject, TemplateRef, viewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, type TemplateRef, viewChild } from '@angular/core';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
-import { TemplateComponent } from '@keycloakify/angular/login/containers/template';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class';
 import type { I18n } from '@keycloakify/angular/login/i18n';
 import type { KcContext } from '@keycloakify/angular/login/KcContext';
@@ -12,7 +11,7 @@ import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
 
 @Component({
     standalone: true,
-    imports: [TemplateComponent, KcClassDirective],
+    imports: [KcClassDirective],
     selector: 'kc-login-x509-info',
     templateUrl: 'login-x509-info.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,

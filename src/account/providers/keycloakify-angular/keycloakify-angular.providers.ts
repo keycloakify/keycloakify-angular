@@ -12,21 +12,18 @@ import type { KcContext } from '@keycloakify/angular/account/KcContext';
 export type KeycloakifyAngularAccountConfig = {
     doUseDefaultCss?: boolean;
     classes?: { [key in ClassKey]?: string };
+    kcContext: KcContext;
     getI18n: (params: { kcContext: KcContextLike }) => {
         i18n: unknown;
         prI18n_currentLanguage: Promise<unknown> | undefined;
     };
 };
 
-export const provideKeycloakifyAngularAccount = (
-    config: KeycloakifyAngularAccountConfig
-) =>
+export const provideKeycloakifyAngular = (config: KeycloakifyAngularAccountConfig) =>
     makeEnvironmentProviders([
         {
             provide: KC_ACCOUNT_CONTEXT,
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            useValue: window.kcContext
+            useValue: config.kcContext
         },
         {
             provide: LOCALE_ID,

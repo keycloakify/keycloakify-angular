@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "sourceMap": false,
+        "newLine": "LF",
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "strict": true,
+        "downlevelIteration": true,
+        "noFallthroughCasesInSwitch": true,
+        "composite": true,
+        "rootDir": ".",
+        "module": "ES2020",
+        "target": "ES2017",
+        "esModuleInterop": true,
+        "lib": ["es2015", "ES2019.Object"],
+        "moduleResolution": "node"
+    },
+    "include": ["**/*.ts"],
+    "exclude": ["initialize-account-theme/boilerplate"]
+}

@@ -59,7 +59,7 @@ export class DynamicPageInjectorComponent {
 
 @Component({
     selector: 'kc-root',
-    templateUrl: './template.component.html',
+    templateUrl: 'template.component.html',
     standalone: true,
     imports: [AsyncPipe, KcSanitizePipe, NgTemplateOutlet, KcClassDirective, DynamicPageInjectorComponent],
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -128,14 +128,14 @@ export class TemplateComponent extends ComponentReference implements OnInit {
     }
 
     onComponentCreated(compRef: object) {
-        if ('displayInfo' in compRef && compRef.displayInfo) {
-            this.displayInfo = compRef.displayInfo as boolean;
+        if ('displayInfo' in compRef) {
+            this.displayInfo = !!compRef.displayInfo as boolean;
         }
-        if ('displayMessage' in compRef && compRef.displayMessage) {
-            this.displayMessage = compRef.displayMessage as boolean;
+        if ('displayMessage' in compRef) {
+            this.displayMessage = !!compRef.displayMessage as boolean;
         }
-        if ('displayRequiredFields' in compRef && compRef.displayRequiredFields) {
-            this.displayRequiredFields = compRef.displayRequiredFields as boolean;
+        if ('displayRequiredFields' in compRef) {
+            this.displayRequiredFields = !!compRef.displayRequiredFields as boolean;
         }
         if ('documentTitle' in compRef && compRef.documentTitle) {
             this.documentTitle = compRef.documentTitle as string;

@@ -14,7 +14,7 @@ import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
 
 @Component({
     selector: 'kc-login',
-    templateUrl: './login.component.html',
+    templateUrl: 'login.component.html',
     standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [KcClassDirective, AsyncPipe, KcSanitizePipe, PasswordWrapperComponent, NgClass, CommonModule],

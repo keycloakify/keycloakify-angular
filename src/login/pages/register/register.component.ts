@@ -16,7 +16,7 @@ import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
 
 @Component({
     selector: 'kc-register',
-    templateUrl: './register.component.html',
+    templateUrl: 'register.component.html',
     standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [KcClassDirective, AsyncPipe, KcSanitizePipe, NgClass, NgComponentOutlet],

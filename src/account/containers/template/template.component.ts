@@ -52,7 +52,7 @@ export class DynamicPageInjectorComponent {
 
 @Component({
     selector: 'kc-root',
-    templateUrl: './template.component.html',
+    templateUrl: 'template.component.html',
     standalone: true,
     imports: [AsyncPipe, KcSanitizePipe, NgTemplateOutlet, KcClassDirective, NgClass, DynamicPageInjectorComponent],
     changeDetection: ChangeDetectionStrategy.OnPush,

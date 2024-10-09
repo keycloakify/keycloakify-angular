@@ -20,7 +20,7 @@ import type { I18n } from '@keycloakify/angular/login/i18n';
     standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [KcClassDirective, AsyncPipe],
-    templateUrl: './password-wrapper.component.html',
+    templateUrl: 'password-wrapper.component.html',
     providers: [
         {
             provide: ComponentReference,

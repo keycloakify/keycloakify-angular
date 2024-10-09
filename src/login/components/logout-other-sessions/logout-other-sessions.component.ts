@@ -19,7 +19,7 @@ import type { I18n } from '@keycloakify/angular/login/i18n';
     standalone: true,
     imports: [KcClassDirective],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    templateUrl: './logout-other-sessions.component.html',
+    templateUrl: 'logout-other-sessions.component.html',
     providers: [
         {
             provide: ComponentReference,

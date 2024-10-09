@@ -13,7 +13,7 @@ import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
 
 @Component({
     selector: 'kc-login-username',
-    templateUrl: './login-username.component.html',
+    templateUrl: 'login-username.component.html',
     standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [KcClassDirective, AsyncPipe, KcSanitizePipe, NgClass],

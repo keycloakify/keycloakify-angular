@@ -29,10 +29,10 @@ export class FrontchannelLogoutComponent extends ComponentReference implements O
     override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
     override classes = inject<Partial<Record<ClassKey, string>>>(LOGIN_CLASSES);
 
-    documentTitle: string | undefined;
+    documentTitle: string | undefined = this.i18n.msgStr('frontchannel-logout.title');
     bodyClassName: string | undefined;
 
-    displayRequiredFields = this.i18n.msgStr('frontchannel-logout.title');
+    displayRequiredFields = false;
     displayInfo = false;
     displayMessage = false;
 

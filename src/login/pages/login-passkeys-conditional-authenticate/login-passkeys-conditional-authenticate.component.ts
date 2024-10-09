@@ -39,9 +39,9 @@ export class LoginPasskeysConditionalAuthenticateComponent extends ComponentRefe
     displayInfo = true;
     displayMessage = false;
 
-    headerNode? = viewChild<TemplateRef<HTMLElement>>('headerNode');
-    infoNode? = viewChild<TemplateRef<HTMLElement>>('infoNode');
-    socialProvidersNode? = viewChild<TemplateRef<HTMLElement>>('socialProvidersNode');
+    headerNode = viewChild<TemplateRef<HTMLElement>>('headerNode');
+    infoNode = viewChild<TemplateRef<HTMLElement>>('infoNode');
+    socialProvidersNode = viewChild<TemplateRef<HTMLElement>>('socialProvidersNode');
     authButtonId = 'authenticateWebAuthnButton';
 
     constructor() {

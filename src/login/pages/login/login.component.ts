@@ -39,9 +39,9 @@ export class LoginComponent extends ComponentReference {
     displayInfo = !!this.kcContext?.realm?.password && !!this.kcContext?.realm?.registrationAllowed && !this.kcContext?.registrationDisabled;
     displayMessage = !this.kcContext?.messagesPerField?.existsError('username', 'password');
 
-    headerNode? = viewChild<TemplateRef<HTMLElement>>('headerNode');
-    infoNode? = viewChild<TemplateRef<HTMLElement>>('infoNode');
-    socialProvidersNode? = viewChild<TemplateRef<HTMLElement>>('socialProvidersNode');
+    headerNode = viewChild<TemplateRef<HTMLElement>>('headerNode');
+    infoNode = viewChild<TemplateRef<HTMLElement>>('infoNode');
+    socialProvidersNode = viewChild<TemplateRef<HTMLElement>>('socialProvidersNode');
 
     isLoginButtonDisabled = signal(false);
 }

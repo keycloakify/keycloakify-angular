@@ -37,7 +37,7 @@ export class LoginConfigTotpComponent extends ComponentReference {
     displayInfo = false;
     displayMessage = !this.kcContext.messagesPerField.existsError('totp', 'userLabel');
 
-    headerNode? = viewChild<TemplateRef<HTMLElement>>('headerNode');
-    infoNode? = viewChild<TemplateRef<HTMLElement>>('infoNode');
-    socialProvidersNode? = viewChild<TemplateRef<HTMLElement>>('socialProvidersNode');
+    headerNode = viewChild<TemplateRef<HTMLElement>>('headerNode');
+    infoNode = viewChild<TemplateRef<HTMLElement>>('infoNode');
+    socialProvidersNode = viewChild<TemplateRef<HTMLElement>>('socialProvidersNode');
 }

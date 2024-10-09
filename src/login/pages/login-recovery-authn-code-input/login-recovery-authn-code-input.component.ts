@@ -37,7 +37,7 @@ export class LoginRecoveryAuthnCodeInputComponent extends ComponentReference {
     displayInfo = true;
     displayMessage: boolean = this.kcContext.messagesPerField.existsError('recoveryCodeInput');
 
-    headerNode? = viewChild<TemplateRef<HTMLElement>>('headerNode');
-    infoNode? = viewChild<TemplateRef<HTMLElement>>('infoNode');
-    socialProvidersNode? = viewChild<TemplateRef<HTMLElement>>('socialProvidersNode');
+    headerNode = viewChild<TemplateRef<HTMLElement>>('headerNode');
+    infoNode = viewChild<TemplateRef<HTMLElement>>('infoNode');
+    socialProvidersNode = viewChild<TemplateRef<HTMLElement>>('socialProvidersNode');
 }

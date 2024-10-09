@@ -41,9 +41,9 @@ export class IdpReviewUserProfileComponent extends ComponentReference {
     displayInfo = false;
     displayMessage = !this.kcContext?.messagesPerField?.existsError('global');
 
-    headerNode? = viewChild<TemplateRef<HTMLElement>>('headerNode');
-    infoNode? = viewChild<TemplateRef<HTMLElement>>('infoNode');
-    socialProvidersNode? = viewChild<TemplateRef<HTMLElement>>('socialProvidersNode');
+    headerNode = viewChild<TemplateRef<HTMLElement>>('headerNode');
+    infoNode = viewChild<TemplateRef<HTMLElement>>('infoNode');
+    socialProvidersNode = viewChild<TemplateRef<HTMLElement>>('socialProvidersNode');
 
     userProfileFormFields = input<Type<UserProfileFormFieldsComponent>>();
     isFormSubmittable = signal(false);

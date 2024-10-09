@@ -42,9 +42,9 @@ export class RegisterComponent extends ComponentReference {
     displayInfo = false;
     displayMessage: boolean = !this.kcContext?.messagesPerField?.existsError('global');
 
-    headerNode? = viewChild<TemplateRef<HTMLElement>>('headerNode');
-    infoNode? = viewChild<TemplateRef<HTMLElement>>('infoNode');
-    socialProvidersNode? = viewChild<TemplateRef<HTMLElement>>('socialProvidersNode');
+    headerNode = viewChild<TemplateRef<HTMLElement>>('headerNode');
+    infoNode = viewChild<TemplateRef<HTMLElement>>('infoNode');
+    socialProvidersNode = viewChild<TemplateRef<HTMLElement>>('socialProvidersNode');
 
     isFormSubmittable = signal(false);
     areTermsAccepted = signal(false);

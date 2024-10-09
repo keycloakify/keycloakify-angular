@@ -41,9 +41,9 @@ export class LoginUpdateProfileComponent extends ComponentReference {
     displayInfo = false;
     displayMessage: boolean = this.kcContext.messagesPerField.exists('global');
 
-    headerNode? = viewChild<TemplateRef<HTMLElement>>('headerNode');
-    infoNode? = viewChild<TemplateRef<HTMLElement>>('infoNode');
-    socialProvidersNode? = viewChild<TemplateRef<HTMLElement>>('socialProvidersNode');
+    headerNode = viewChild<TemplateRef<HTMLElement>>('headerNode');
+    infoNode = viewChild<TemplateRef<HTMLElement>>('infoNode');
+    socialProvidersNode = viewChild<TemplateRef<HTMLElement>>('socialProvidersNode');
 
     isFormSubmittable = signal(false);
     userProfileFormFields = input<Type<UserProfileFormFieldsComponent>>();

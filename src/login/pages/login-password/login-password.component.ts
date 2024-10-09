@@ -38,9 +38,9 @@ export class LoginPasswordComponent extends ComponentReference {
     displayInfo = true;
     displayMessage = this.kcContext.messagesPerField.existsError('password');
 
-    headerNode? = viewChild<TemplateRef<HTMLElement>>('headerNode');
-    infoNode? = viewChild<TemplateRef<HTMLElement>>('infoNode');
-    socialProvidersNode? = viewChild<TemplateRef<HTMLElement>>('socialProvidersNode');
+    headerNode = viewChild<TemplateRef<HTMLElement>>('headerNode');
+    infoNode = viewChild<TemplateRef<HTMLElement>>('infoNode');
+    socialProvidersNode = viewChild<TemplateRef<HTMLElement>>('socialProvidersNode');
     authButtonId = 'authenticateWebAuthnButton';
 
     isLoginButtonDisabled = signal(false);

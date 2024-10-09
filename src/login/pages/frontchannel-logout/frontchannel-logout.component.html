@@ -10,7 +10,7 @@
             {{ client.name }}
             <iframe
                 style="display: none"
-                [src]="'client.frontChannelLogoutUrl' | kcSanitize: 'resourceUrl'"
+                [src]="client.frontChannelLogoutUrl | kcSanitize: 'resourceUrl'"
             ></iframe>
         </li>
     }

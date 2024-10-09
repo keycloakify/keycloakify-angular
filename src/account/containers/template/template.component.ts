@@ -63,7 +63,7 @@ export class DynamicPageInjectorComponent {
         }
     ]
 })
-export class TemplateComponent extends ComponentReference implements OnInit {
+export class TemplateComponent extends ComponentReference {
     i18n = inject<I18n>(ACCOUNT_I18N);
     renderer = inject(Renderer2);
     #cdr = inject(ChangeDetectorRef);
@@ -82,12 +82,8 @@ export class TemplateComponent extends ComponentReference implements OnInit {
 
     constructor() {
         super();
-        this.title.setTitle(this.i18n.msgStr('accountManagementTitle'));
-        this.isReadyToRender$ = this.accountResourceInjectorService.injectResource(this.doUseDefaultCss);
-    }
 
-    ngOnInit() {
-        this.applyKcIndexClasses();
+        this.isReadyToRender$ = this.accountResourceInjectorService.injectResource(this.doUseDefaultCss);
     }
 
     private applyKcIndexClasses() {
@@ -113,6 +109,8 @@ export class TemplateComponent extends ComponentReference implements OnInit {
             this.active = compRef.active as ActiveType;
         }
 
+        this.title.setTitle(this.i18n.msgStr('accountManagementTitle'));
+        this.applyKcIndexClasses();
         this.#cdr.markForCheck();
     }
 }

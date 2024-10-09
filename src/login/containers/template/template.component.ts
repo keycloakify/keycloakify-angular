@@ -70,7 +70,7 @@ export class DynamicPageInjectorComponent {
         }
     ]
 })
-export class TemplateComponent extends ComponentReference implements OnInit {
+export class TemplateComponent extends ComponentReference {
     i18n = inject<I18n>(LOGIN_I18N);
     renderer = inject(Renderer2);
     #cdr = inject(ChangeDetectorRef);
@@ -98,12 +98,7 @@ export class TemplateComponent extends ComponentReference implements OnInit {
     constructor() {
         super();
 
-        this.title.setTitle(this.documentTitle ?? this.i18n.msgStr('loginTitle', this.kcContext.realm.displayName));
         this.isReadyToRender$ = this.loginResourceInjectorService.injectResource(this.doUseDefaultCss);
-    }
-
-    ngOnInit() {
-        this.applyKcIndexClasses();
     }
 
     private applyKcIndexClasses() {
@@ -161,6 +156,8 @@ export class TemplateComponent extends ComponentReference implements OnInit {
                 return socialProvidersNode;
             });
         }
+        this.title.setTitle(this.documentTitle ?? this.i18n.msgStr('loginTitle', this.kcContext.realm.displayName));
+        this.applyKcIndexClasses();
         this.#cdr.markForCheck();
     }
 }

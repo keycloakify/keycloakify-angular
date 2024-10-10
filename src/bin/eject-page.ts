@@ -255,7 +255,7 @@ export async function command(params: { buildContext: BuildContext }) {
         if (modifiedKcAppTsCode === kcAppTsCode) {
             console.log(
                 chalk.red(
-                    'Unable to automatically update KcPage.tsx, please update it manually'
+                    'Unable to automatically update KcPage.ts, please update it manually'
                 )
             );
             return;
@@ -297,7 +297,9 @@ export async function command(params: { buildContext: BuildContext }) {
                 `+      return {`,
                 `+        PageComponent: (await import('./${componentDirRelativeToThemeTypePath.split(pathSep).join('/')}')).${kebabCaseToCamelCase(capitalize(pageId).replace(/\.ftl$/, ''))}Component,`,
                 `+        TemplateComponent,`,
-                ...(themeType === 'login' ? [`+        UserProfileFormFieldsComponent,`] : []),
+                ...(themeType === 'login'
+                    ? [`+        UserProfileFormFieldsComponent,`]
+                    : []),
                 ...(themeType === 'login' ? [`+        doMakeUserConfirmPassword,`] : []),
                 `+        doUseDefaultCss,`,
                 `+        classes,`,
@@ -307,7 +309,9 @@ export async function command(params: { buildContext: BuildContext }) {
                 `       return {`,
                 `         PageComponent: await getDefaultPageComponent(pageId),`,
                 `         TemplateComponent,`,
-                ...(themeType === 'login' ? [`         UserProfileFormFieldsComponent,`] : []),
+                ...(themeType === 'login'
+                    ? [`         UserProfileFormFieldsComponent,`]
+                    : []),
                 ...(themeType === 'login' ? [`         doMakeUserConfirmPassword,`] : []),
                 `         doUseDefaultCss,`,
                 `         classes,`,

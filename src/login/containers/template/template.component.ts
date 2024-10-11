@@ -8,12 +8,11 @@ import {
     forwardRef,
     inject,
     input,
-    OnInit,
     output,
     Renderer2,
-    Signal,
-    TemplateRef,
-    Type,
+    type Signal,
+    type TemplateRef,
+    type Type,
     ViewContainerRef
 } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
@@ -28,7 +27,7 @@ import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes';
 import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n';
 import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
 import { type ClassKey, getKcClsx } from 'keycloakify/login/lib/kcClsx';
-import { Observable } from 'rxjs';
+import type { Observable } from 'rxjs';
 
 @Component({
     selector: 'kc-dynamic-page-injector',

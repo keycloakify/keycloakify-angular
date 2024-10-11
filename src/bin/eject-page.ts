@@ -16,7 +16,8 @@ import {
     join as pathJoin,
     relative as pathRelative,
     sep as pathSep,
-    dirname as pathDirname
+    dirname as pathDirname,
+    posix as pathPosix
 } from 'path';
 import { assert, Equals } from 'tsafe/assert';
 import chalk from 'chalk';
@@ -89,6 +90,13 @@ export async function command(params: { buildContext: BuildContext }) {
 
     console.log(`→ ${pageIdOrComponent}`);
 
+    const componentRelativeDirPath_posix_to_componentRelativeFilePath_posix = (params: {
+        componentRelativeDirPath_posix: string;
+    }) => {
+        const { componentRelativeDirPath_posix } = params;
+        return `${componentRelativeDirPath_posix}/${pathPosix.basename(componentRelativeDirPath_posix)}.component`;
+    };
+
     const componentDirRelativeToThemeTypePath = (() => {
         if (pageIdOrComponent === templateValue) {
             return pathJoin('containers', 'template');
@@ -151,6 +159,10 @@ export async function command(params: { buildContext: BuildContext }) {
                         return { modifiedSourceCode: sourceCode };
                     }
 
+                    if (filePath.endsWith('index.ts')) {
+                        return undefined;
+                    }
+
                     const fileRelativeToThemeTypePath = pathRelative(
                         localThemeTypeDirPath,
                         filePath
@@ -204,10 +216,15 @@ export async function command(params: { buildContext: BuildContext }) {
                                 componentDirRelativeToThemeTypePath
                             );
 
-                            return getPosixPathRelativeToFile({
-                                pathRelativeToThemeType:
-                                    componentDirRelativeToThemeTypePath
-                            });
+                            return componentRelativeDirPath_posix_to_componentRelativeFilePath_posix(
+                                {
+                                    componentRelativeDirPath_posix:
+                                        getPosixPathRelativeToFile({
+                                            pathRelativeToThemeType:
+                                                componentDirRelativeToThemeTypePath
+                                        })
+                                }
+                            );
                         }
                     );
 
@@ -248,7 +265,9 @@ export async function command(params: { buildContext: BuildContext }) {
 
             return kcAppTsCode.replace(
                 `@keycloakify/angular/${themeType}/${componentRelativeDirPath_posix}`,
-                `./${componentRelativeDirPath_posix}`
+                componentRelativeDirPath_posix_to_componentRelativeFilePath_posix({
+                    componentRelativeDirPath_posix: `./${componentRelativeDirPath_posix}`
+                })
             );
         })();
 
@@ -295,7 +314,11 @@ export async function command(params: { buildContext: BuildContext }) {
                 `   switch (pageId) {`,
                 `+    case '${pageId}':`,
                 `+      return {`,
-                `+        PageComponent: (await import('./${componentDirRelativeToThemeTypePath.split(pathSep).join('/')}')).${kebabCaseToCamelCase(capitalize(pageId).replace(/\.ftl$/, ''))}Component,`,
+                `+        PageComponent: (await import('${componentRelativeDirPath_posix_to_componentRelativeFilePath_posix(
+                    {
+                        componentRelativeDirPath_posix: `./${componentDirRelativeToThemeTypePath.split(pathSep).join('/')}`
+                    }
+                )}')).${kebabCaseToCamelCase(capitalize(pageId).replace(/\.ftl$/, ''))}Component,`,
                 `+        TemplateComponent,`,
                 ...(themeType === 'login'
                     ? [`+        UserProfileFormFieldsComponent,`]

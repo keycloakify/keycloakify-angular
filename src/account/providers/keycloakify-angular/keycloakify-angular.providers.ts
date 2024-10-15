@@ -1,5 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { APP_INITIALIZER, LOCALE_ID, makeEnvironmentProviders } from '@angular/core';
+import type { KcContext } from '@keycloakify/angular/account/KcContext';
 import { I18nService } from '@keycloakify/angular/account/services/i18n';
 import { ACCOUNT_CLASSES } from '@keycloakify/angular/account/tokens/classes';
 import { ACCOUNT_I18N } from '@keycloakify/angular/account/tokens/i18n';
@@ -7,12 +8,11 @@ import { KC_ACCOUNT_CONTEXT } from '@keycloakify/angular/account/tokens/kc-conte
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { type KcContextLike } from 'keycloakify/account/i18n/noJsx';
 import type { ClassKey } from 'keycloakify/account/lib/kcClsx';
-import type { KcContext } from '@keycloakify/angular/account/KcContext';
 
 export type KeycloakifyAngularAccountConfig = {
     doUseDefaultCss?: boolean;
     classes?: { [key in ClassKey]?: string };
-    kcContext: KcContext;
+    kcContext: unknown;
     getI18n: (params: { kcContext: KcContextLike }) => {
         i18n: unknown;
         prI18n_currentLanguage: Promise<unknown> | undefined;

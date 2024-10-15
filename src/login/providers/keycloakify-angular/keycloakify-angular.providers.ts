@@ -14,7 +14,7 @@ export type KeycloakifyAngularLoginConfig = {
     doMakeUserConfirmPassword?: boolean;
     doUseDefaultCss?: boolean;
     classes?: { [key in ClassKey]?: string };
-    kcContext: KcContext;
+    kcContext: unknown;
     getI18n: (params: { kcContext: KcContextLike }) => {
         i18n: unknown;
         prI18n_currentLanguage: Promise<unknown> | undefined;

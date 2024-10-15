@@ -18,7 +18,7 @@
 >
     <ng-container [ngComponentOutlet]="userProfileFormFields() ?? null" />
     @if (termsAcceptanceRequired) {
-        <div className="form-group">
+        <div class="form-group">
             <div [kcClass]="'kcInputWrapperClass'">
                 {{ i18n.msgStr('termsTitle') }}
                 <div id="kc-registration-terms-text">
@@ -26,7 +26,7 @@
                 </div>
             </div>
         </div>
-        <div className="form-group">
+        <div class="form-group">
             <div [kcClass]="'kcLabelWrapperClass'">
                 <input
                     type="checkbox"
@@ -57,7 +57,7 @@
         </div>
     }
     @if (recaptchaRequired && (recaptchaVisible || recaptchaAction === undefined)) {
-        <div className="form-group">
+        <div class="form-group">
             <div [kcClass]="'kcInputWrapperClass'">
                 <div
                     class="g-recaptcha"

@@ -30,7 +30,8 @@ export class ResourceInjectorService {
                 observer.error(new Error(`Failed to load stylesheet: ${url}`));
             };
 
-            this.renderer.appendChild(document.head, link);
+            const head = document.head;
+            head.insertBefore(link, head.firstChild);
         });
     }
     createScript({ type, id, src, textContent }: Script): void {

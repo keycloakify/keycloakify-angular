@@ -19,12 +19,13 @@ export class LoginResourceInjectorService {
             this.injectScripts();
             return of(true);
         }
+        //reversed order of stylesheets to accomodate prepending to head
         const stylesheets = [
-            `${this.kcContext.url.resourcesCommonPath}/node_modules/@patternfly/patternfly/patternfly.min.css`,
-            `${this.kcContext.url.resourcesCommonPath}/node_modules/patternfly/dist/css/patternfly.min.css`,
-            `${this.kcContext.url.resourcesCommonPath}/node_modules/patternfly/dist/css/patternfly-additions.min.css`,
+            `${this.kcContext.url.resourcesPath}/css/login.css`,
             `${this.kcContext.url.resourcesCommonPath}/lib/pficon/pficon.css`,
-            `${this.kcContext.url.resourcesPath}/css/login.css`
+            `${this.kcContext.url.resourcesCommonPath}/node_modules/patternfly/dist/css/patternfly-additions.min.css`,
+            `${this.kcContext.url.resourcesCommonPath}/node_modules/patternfly/dist/css/patternfly.min.css`,
+            `${this.kcContext.url.resourcesCommonPath}/node_modules/@patternfly/patternfly/patternfly.min.css`
         ];
 
         return forkJoin(

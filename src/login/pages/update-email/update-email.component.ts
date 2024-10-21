@@ -1,15 +1,16 @@
 import { NgComponentOutlet } from '@angular/common';
-import { ChangeDetectionStrategy, Component, forwardRef, inject, input, signal, type TemplateRef, Type, viewChild } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input, type TemplateRef, Type, viewChild } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
 import { LogoutOtherSessionsComponent } from '@keycloakify/angular/login/components/logout-other-sessions';
 import { UserProfileFormFieldsComponent } from '@keycloakify/angular/login/components/user-profile-form-fields';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class';
 import type { I18n } from '@keycloakify/angular/login/i18n';
 import type { KcContext } from '@keycloakify/angular/login/KcContext';
-import { SubmitService } from '@keycloakify/angular/login/services/submit';
+import { UserProfileFormService } from '@keycloakify/angular/login/services/user-profile-form';
 import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n';
 import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
+import { map } from 'rxjs';
 
 @Component({
     standalone: true,
@@ -25,7 +26,7 @@ import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
     ]
 })
 export class UpdateEmailComponent extends ComponentReference {
-    #submitService = inject(SubmitService);
+    #userProfileFormService = inject(UserProfileFormService);
     kcContext = inject<Extract<KcContext, { pageId: 'update-email.ftl' }>>(KC_LOGIN_CONTEXT);
     i18n = inject<I18n>(LOGIN_I18N);
 
@@ -41,12 +42,5 @@ export class UpdateEmailComponent extends ComponentReference {
     socialProvidersNode = viewChild<TemplateRef<HTMLElement>>('socialProvidersNode');
 
     userProfileFormFields = input<Type<UserProfileFormFieldsComponent>>();
-    isFormSubmittable = signal(false);
-
-    constructor() {
-        super();
-        this.#submitService.isSubmittable.pipe(takeUntilDestroyed()).subscribe(submittable => {
-            this.isFormSubmittable.set(submittable);
-        });
-    }
+    isFormSubmittable = toSignal(this.#userProfileFormService.formState$.pipe(map(s => s.isFormSubmittable)), { initialValue: false });
 }

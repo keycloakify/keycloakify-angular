@@ -1,78 +1,81 @@
-@let formFieldStates = formState().formFieldStates;
+@let formState = formState$ | async;
+@if (formState) {
+    @let formFieldStates = formState.formFieldStates;
 
-@for (fieldState of formFieldStates; track fieldState.attribute) {
-    <kc-group-label [attribute]="fieldState.attribute" />
+    @for (fieldState of formFieldStates; track fieldState.attribute) {
+        <kc-group-label [attribute]="fieldState.attribute" />
 
-    @if (beforeField) {
-        <ng-container
-            [ngTemplateOutlet]="beforeField"
-            [ngTemplateOutletContext]="{
-                attribute: fieldState.attribute,
-                valueOrValues: fieldState.valueOrValues,
-                displayableErrors: fieldState.displayableErrors
-            }"
-        />
-    }
+        @if (beforeField) {
+            <ng-container
+                [ngTemplateOutlet]="beforeField"
+                [ngTemplateOutletContext]="{
+                    attribute: fieldState.attribute,
+                    valueOrValues: fieldState.valueOrValues,
+                    displayableErrors: fieldState.displayableErrors
+                }"
+            />
+        }
 
-    <div
-        [kcClass]="'kcFormGroupClass'"
-        [style.display]="fieldState.attribute.name === 'password-confirm' && !doMakeUserConfirmPassword ? 'none' : 'block'"
-    >
-        <div [kcClass]="'kcLabelWrapperClass'">
-            <label
-                [for]="fieldState.attribute.name"
-                [kcClass]="'kcLabelClass'"
-            >
-                {{ i18n.advancedMsgStr(fieldState.attribute.displayName ?? '') }}
-                @if (fieldState.attribute.required) {
-                    *
+        <div
+            [kcClass]="'kcFormGroupClass'"
+            [style.display]="fieldState.attribute.name === 'password-confirm' && !doMakeUserConfirmPassword ? 'none' : 'block'"
+        >
+            <div [kcClass]="'kcLabelWrapperClass'">
+                <label
+                    [for]="fieldState.attribute.name"
+                    [kcClass]="'kcLabelClass'"
+                >
+                    {{ i18n.advancedMsgStr(fieldState.attribute.displayName ?? '') }}
+                    @if (fieldState.attribute.required) {
+                        *
+                    }
+                </label>
+            </div>
+
+            <div [kcClass]="'kcInputWrapperClass'">
+                @if (fieldState.attribute.annotations.inputHelperTextBefore) {
+                    <div
+                        aria-live="polite"
+                        [kcClass]="'kcInputHelperTextBeforeClass'"
+                        [id]="'form-help-text-before-' + fieldState.attribute.name"
+                    >
+                        {{ i18n.advancedMsgStr(fieldState.attribute.annotations.inputHelperTextBefore) }}
+                    </div>
                 }
-            </label>
-        </div>
 
-        <div [kcClass]="'kcInputWrapperClass'">
-            @if (fieldState.attribute.annotations.inputHelperTextBefore) {
-                <div
-                    aria-live="polite"
-                    [kcClass]="'kcInputHelperTextBeforeClass'"
-                    [id]="'form-help-text-before-' + fieldState.attribute.name"
-                >
-                    {{ i18n.advancedMsgStr(fieldState.attribute.annotations.inputHelperTextBefore) }}
-                </div>
-            }
-
-            <kc-input-field-by-type
-                [attribute]="fieldState.attribute"
-                [valueOrValues]="fieldState.valueOrValues"
-                [displayableErrors]="fieldState.displayableErrors"
-                (dispatchFormAction)="onDispatch($event)"
-            />
-
-            <kc-field-errors
-                [attribute]="fieldState.attribute"
-                [displayableErrors]="fieldState.displayableErrors"
-            />
-            @if (fieldState.attribute.annotations.inputHelperTextAfter) {
-                <div
-                    aria-live="polite"
-                    [kcClass]="'kcInputHelperTextAfterClass'"
-                    [id]="'form-help-text-after-' + fieldState.attribute.name"
-                >
-                    {{ i18n.advancedMsgStr(fieldState.attribute.annotations.inputHelperTextAfter) }}
-                </div>
-            }
-
-            @if (afterField) {
-                <ng-container
-                    [ngTemplateOutlet]="afterField"
-                    [ngTemplateOutletContext]="{
-                        attribute: fieldState.attribute,
-                        valueOrValues: fieldState.valueOrValues,
-                        displayableErrors: fieldState.displayableErrors
-                    }"
+                <kc-input-field-by-type
+                    [attribute]="fieldState.attribute"
+                    [valueOrValues]="fieldState.valueOrValues"
+                    [displayableErrors]="fieldState.displayableErrors"
+                    (dispatchFormAction)="onDispatch($event)"
                 />
-            }
-            <!-- NOTE: Downloading of html5DataAnnotations scripts is done in the useUserProfileForm hook -->
+
+                <kc-field-errors
+                    [attribute]="fieldState.attribute"
+                    [displayableErrors]="fieldState.displayableErrors"
+                />
+                @if (fieldState.attribute.annotations.inputHelperTextAfter) {
+                    <div
+                        aria-live="polite"
+                        [kcClass]="'kcInputHelperTextAfterClass'"
+                        [id]="'form-help-text-after-' + fieldState.attribute.name"
+                    >
+                        {{ i18n.advancedMsgStr(fieldState.attribute.annotations.inputHelperTextAfter) }}
+                    </div>
+                }
+
+                @if (afterField) {
+                    <ng-container
+                        [ngTemplateOutlet]="afterField"
+                        [ngTemplateOutletContext]="{
+                            attribute: fieldState.attribute,
+                            valueOrValues: fieldState.valueOrValues,
+                            displayableErrors: fieldState.displayableErrors
+                        }"
+                    />
+                }
+                <!-- NOTE: Downloading of html5DataAnnotations scripts is done in the useUserProfileForm hook -->
+            </div>
         </div>
-    </div>
+    }
 }

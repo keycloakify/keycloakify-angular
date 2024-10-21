@@ -53,9 +53,7 @@ If you want to make changes to the library make sure to follow these steps to se
 
 ### In the library:
 
-1. Run `ng build` (preferably in watch mode)
-2. `cd dist`
-3. `npm link`
+1. Run `yarn link-in-starter`
 
 ### In the starter:
 
@@ -72,7 +70,6 @@ If you want to make changes to the library make sure to follow these steps to se
           }
         }
         ```
-2. Run `npm link @keycloakify/keycloakify-angular`
-3. `ng serve`
+2. `ng serve`
 
 You are good to go 🚀

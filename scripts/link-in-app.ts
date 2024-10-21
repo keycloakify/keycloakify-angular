@@ -4,13 +4,7 @@ import { getThisCodebaseRootDirPath } from './tools/getThisCodebaseRootDirPath';
 import * as fs from 'fs';
 import * as os from 'os';
 
-const singletonDependencies: string[] = [
-    'keycloakify',
-    'rxjs',
-    'zone.js',
-    'tslib',
-    'typescript'
-];
+const singletonDependencies: string[] = ['keycloakify', 'rxjs', 'tslib', 'typescript'];
 
 // For example [ "@emotion" ] it's more convenient than
 // having to list every sub emotion packages (@emotion/css @emotion/utils ...)

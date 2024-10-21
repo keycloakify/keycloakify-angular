@@ -76,10 +76,7 @@
         >
             <div [kcClass]="'kcFormOptionsWrapperClass'">
                 <span>
-                    <a
-                        [href]="url.loginUrl"
-                        [innerHTML]="i18n.msgStr('backToLogin') | kcSanitize: 'html'"
-                    ></a>
+                    <a [href]="url.loginUrl">{{ i18n.msgStr('backToLogin') }}</a>
                 </span>
             </div>
         </div>

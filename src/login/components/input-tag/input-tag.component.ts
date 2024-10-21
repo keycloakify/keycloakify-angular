@@ -53,6 +53,9 @@ export class InputTagComponent extends ComponentReference {
     override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
     override classes = inject<Partial<Record<ClassKey, string>>>(LOGIN_CLASSES);
 
+    inputListenerTypes = ['text', 'search', 'url', 'tel', 'email', 'password'];
+    #inputTimeout: any | undefined;
+
     value = computed(() => {
         const valueOrValues = this.valueOrValues();
         const index = this.fieldIndex();
@@ -64,6 +67,34 @@ export class InputTagComponent extends ComponentReference {
         }
         return valueOrValues ?? null;
     });
+
+    onInput(event: Event) {
+        if (this.#inputTimeout) {
+            clearTimeout(this.#inputTimeout);
+        }
+        this.#inputTimeout = setTimeout(() => {
+            const valueOrValues = this.valueOrValues();
+            this.dispatchFormAction.emit({
+                action: 'update',
+                name: this.attribute()?.name ?? '',
+                valueOrValues: (() => {
+                    if (this.fieldIndex !== undefined) {
+                        if (valueOrValues instanceof Array) {
+                            return valueOrValues.map((value, i) => {
+                                if (i === this.fieldIndex()) {
+                                    return (event.target as HTMLInputElement)?.value;
+                                }
+
+                                return value;
+                            });
+                        }
+                    }
+
+                    return (event.target as HTMLInputElement)?.value;
+                })()
+            });
+        }, 300);
+    }
 
     onChange(event: Event) {
         const valueOrValues = this.valueOrValues();

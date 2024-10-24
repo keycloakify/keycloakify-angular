@@ -1,8 +1,9 @@
 @let attr = attribute();
 @let index = fieldIndex();
 @if (attr) {
+    @let type = attr.annotations.inputType | inputType;
     <input
-        [type]="attr.annotations.inputType | inputType"
+        [type]="type"
         [id]="attr.name"
         [name]="attr.name"
         [value]="value()"
@@ -26,6 +27,7 @@
         [attr.step]="attr.annotations.inputTypeStep"
         [kcAttributes]="attr.html5DataAnnotations"
         (change)="onChange($event)"
+        (input)="inputListenerTypes.includes(type) && onInput($event)"
         (blur)="onBlur()"
     />
     @if (index !== undefined) {

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, forwardRef, inject, signal, type TemplateRef, viewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, forwardRef, inject, signal, type TemplateRef, viewChild } from '@angular/core';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
 import { LogoutOtherSessionsComponent } from '@keycloakify/angular/login/components/logout-other-sessions';
@@ -24,7 +24,7 @@ import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
         }
     ]
 })
-export class LoginRecoveryAuthnCodeConfigComponent extends ComponentReference {
+export class LoginRecoveryAuthnCodeConfigComponent extends ComponentReference implements AfterViewInit {
     kcContext = inject<Extract<KcContext, { pageId: 'login-recovery-authn-code-config.ftl' }>>(KC_LOGIN_CONTEXT);
     i18n = inject<I18n>(LOGIN_I18N);
     loginResourceInjectorService = inject(LoginResourceInjectorService);
@@ -49,6 +49,9 @@ export class LoginRecoveryAuthnCodeConfigComponent extends ComponentReference {
 
     constructor() {
         super();
+    }
+
+    ngAfterViewInit() {
         this.loginResourceInjectorService.insertAdditionalScripts([
             {
                 type: 'text/javascript',

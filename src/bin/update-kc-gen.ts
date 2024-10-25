@@ -54,6 +54,7 @@ export function command(params: { buildContext: BuildContext }) {
             `}`,
             ``,
             `type ApplicationRefLike = {`,
+            `    // eslint-disable-next-line @typescript-eslint/no-explicit-any`,
             `    components: ComponentRef<any>[];`,
             `};`,
             ``,

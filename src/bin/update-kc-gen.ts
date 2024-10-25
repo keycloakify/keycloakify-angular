@@ -1,6 +1,7 @@
 import type { BuildContext } from './core';
 import * as fs from 'fs';
 import { join as pathJoin } from 'path';
+import { runFormat } from './tools/runFormat';
 
 export function command(params: { buildContext: BuildContext }) {
     const { buildContext } = params;
@@ -146,4 +147,6 @@ export function command(params: { buildContext: BuildContext }) {
     }
 
     fs.writeFileSync(filePath, newContent);
+
+    runFormat({ packageJsonFilePath: buildContext.packageJsonFilePath });
 }

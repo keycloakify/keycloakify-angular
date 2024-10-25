@@ -25,10 +25,7 @@ import { transformCodebase } from './tools/transformCodebase';
 import { kebabCaseToCamelCase } from './tools/kebabCaseToSnakeCase';
 import { replaceAll } from './tools/String.prototype.replaceAll';
 import { capitalize } from 'tsafe/capitalize';
-import { id } from 'tsafe/id';
-import { z } from 'zod';
-import { is } from 'tsafe/is';
-import * as child_process from 'child_process';
+import { runFormat } from './tools/runFormat';
 
 export async function command(params: { buildContext: BuildContext }) {
     const { buildContext } = params;
@@ -246,66 +243,9 @@ export async function command(params: { buildContext: BuildContext }) {
         }
     }
 
-    run_format: {
-        const parsedPackageJson = (() => {
-            type ParsedPackageJson = {
-                scripts?: Record<string, string>;
-            };
-
-            const zParsedPackageJson = (() => {
-                type TargetType = ParsedPackageJson;
-
-                const zTargetType = z.object({
-                    scripts: z.record(z.string()).optional()
-                });
-
-                assert<Equals<z.infer<typeof zTargetType>, TargetType>>();
-
-                return id<z.ZodType<TargetType>>(zTargetType);
-            })();
-
-            const parsedPackageJson = JSON.parse(
-                fs.readFileSync(buildContext.packageJsonFilePath).toString('utf8')
-            );
-
-            zParsedPackageJson.parse(parsedPackageJson);
-
-            assert(is<ParsedPackageJson>(parsedPackageJson));
-
-            return parsedPackageJson;
-        })();
-
-        const { scripts } = parsedPackageJson;
-
-        if (scripts === undefined) {
-            break run_format;
-        }
-
-        for (const scriptName of ['format', 'lint']) {
-            if (!(scriptName in scripts)) {
-                continue;
-            }
-
-            const command = `npm run ${scriptName}`;
-
-            console.log(chalk.grey(`$ ${command}`));
-
-            try {
-                child_process.execSync(`npm run ${scriptName}`, {
-                    stdio: 'inherit',
-                    cwd: pathDirname(buildContext.packageJsonFilePath)
-                });
-            } catch {
-                console.log(
-                    chalk.yellow(
-                        `\`${command}\` failed, please format your code manually, continuing...`
-                    )
-                );
-            }
-
-            break run_format;
-        }
-    }
+    runFormat({
+        packageJsonFilePath: buildContext.packageJsonFilePath
+    });
 
     edit_KcPage: {
         if (

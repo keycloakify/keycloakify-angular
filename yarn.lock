@@ -5244,10 +5244,10 @@ karma-source-map-support@1.4.0:
   dependencies:
     source-map-support "^0.5.5"
 
-keycloakify@^11.3.9:
-  version "11.3.9"
-  resolved "https://registry.yarnpkg.com/keycloakify/-/keycloakify-11.3.9.tgz#31149fdc764fa99ab7300d6dd4797c87c867454e"
-  integrity sha512-YYOwzuEuNfMm5pdSN9wyNttv5bdpKdA9b0bpd7yb7G6kjUbGywzcRJ7zKN8Tsgxx8/q/S+WX3NpP7Uj1SxAqjg==
+keycloakify@^11.3.10:
+  version "11.3.10"
+  resolved "https://registry.yarnpkg.com/keycloakify/-/keycloakify-11.3.10.tgz#95c0f4930cf9f220f1db091fa4ac12d7dcd1181e"
+  integrity sha512-7bXig339m/T1dMxCZAJ+yy3ZcYMJrl3B5pHYI93AWdtYVaWsmutUEmZYUehx4/R93LD8zQOCN3nkHFsjlDP39A==
   dependencies:
     tsafe "^1.7.5"
 

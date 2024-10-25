@@ -25,51 +25,29 @@
         -
         <a href="https://docs.keycloakify.dev">Documentation</a>
         -
-        <a href="https://storybook.keycloakify.dev">Storybook</a>
-        -
-        <a href="https://github.com/keycloakify/keycloakify-starter-angular">Starter project</a>
+        <a href="https://github.com/keycloakify/keycloakify-starter-angular-webpack">Starter project (Webpack)</a>
         -
         <a href="https://github.com/keycloakify/keycloakify-starter-angular-vite">Starter project (Vite)</a>
     </p>
 </p>
 
-> **Note:** This library is under active development, we do not recommend implementing it just yet.
-
 ## Using the library
 
+Don't it's not ready yet. Subscribe to alerts on the repo to get notified when it is.
+
+## Contributing
+
+> **Note:**: This is **not** for using the library, but for contributing to it.
+
 ```bash
-npm install keycloakify @keycloakify/angular
+git clone https://github.com/keycloakify/keycloakify-angular
+git clone https://github.com/keycloakify/keycloakify-angular-starter-vite
+git clone https://github.com/keycloakify/keycloakify-angular-starter-webpack
+
+cd keycloakify-angular
+yarn install
+yarn link-in-starter # When prompted select the starter you want to link into
+
+# At this point you can navigate to the starter you've picked.
+# The changes in the library will be reflected live in the starter.
 ```
-
-or using yarn:
-
-```bash
-yarn add keycloakify @keycloakify/angular
-```
-
-## Developing the library
-
-If you want to make changes to the library make sure to follow these steps to setup your local environment.
-
-### In the library:
-
-1. Run `yarn link-in-starter`
-
-### In the starter:
-
-1. You need to make configurations in `angular.json`:
-    - **Firstly**, make sure that `preserveSymlinks` is set to `true`:
-        ```json
-        "preserveSymlinks": true
-        ```
-    - **Secondly**, disable caching under `cli`:
-        ```json
-        "cli": {
-          "cache": {
-            "enabled": false
-          }
-        }
-        ```
-2. `ng serve`
-
-You are good to go 🚀

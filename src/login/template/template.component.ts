@@ -3,13 +3,11 @@ import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
-    ComponentRef,
     computed,
     effect,
     forwardRef,
     inject,
     input,
-    output,
     Renderer2,
     type Signal,
     type TemplateRef,
@@ -65,7 +63,6 @@ export class TemplateComponent extends ComponentReference {
 
     page = input<Type<unknown>>();
     pageRef = viewChild.required('pageRef', { read: ViewContainerRef });
-    componentRef!: ComponentRef<unknown>;
 
     userProfileFormFields = input<Type<unknown>>();
     headerNode: Signal<TemplateRef<HTMLElement>> | undefined;
@@ -79,9 +76,14 @@ export class TemplateComponent extends ComponentReference {
         effect(() => {
             const page = this.page();
             const pageRef = this.pageRef();
+            const userProfileFormFields = this.userProfileFormFields();
             if (!page || !pageRef) return;
-            this.componentRef = this.pageRef().createComponent(page);
-            this.onComponentCreated(this.componentRef.instance as object);
+
+            const compRef = pageRef.createComponent(page);
+            if ('userProfileFormFields' in (compRef.instance as object) && userProfileFormFields) {
+                compRef.setInput('userProfileFormFields', userProfileFormFields);
+            }
+            this.onComponentCreated(compRef.instance as object);
         });
     }
 

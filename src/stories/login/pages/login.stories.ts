@@ -28,7 +28,7 @@ export const WithInvalidCredential: Story = {
                     );
                 },
                 get: (fieldName: string) => {
-                    return ['username', 'password'].includes(fieldName)
+                    return fieldName === 'username' || fieldName === 'password'
                         ? 'Invalid username or password.'
                         : '';
                 }
@@ -121,25 +121,11 @@ export const WithSocialProviders: Story = {
                         iconClasses: 'fa fa-facebook'
                     },
                     {
-                        loginUrl: 'instagram',
-                        alias: 'instagram',
-                        providerId: 'instagram',
-                        displayName: 'Instagram',
-                        iconClasses: 'fa fa-instagram'
-                    },
-                    {
-                        loginUrl: 'twitter',
-                        alias: 'twitter',
-                        providerId: 'twitter',
-                        displayName: 'Twitter',
-                        iconClasses: 'fa fa-twitter'
-                    },
-                    {
-                        loginUrl: 'linkedin',
-                        alias: 'linkedin',
-                        providerId: 'linkedin',
-                        displayName: 'LinkedIn',
-                        iconClasses: 'fa fa-linkedin'
+                        loginUrl: 'github',
+                        alias: 'github',
+                        providerId: 'github',
+                        displayName: 'Github',
+                        iconClasses: 'fa fa-github'
                     }
                 ]
             }
@@ -207,17 +193,6 @@ export const WithTwoSocialProviders: Story = {
                         iconClasses: 'fa fa-windows'
                     }
                 ]
-            }
-        }
-    }
-};
-
-export const WithNoSocialProviders: Story = {
-    globals: {
-        overrides: {
-            social: {
-                displayInfo: true,
-                providers: []
             }
         }
     }

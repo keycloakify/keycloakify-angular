@@ -5,8 +5,7 @@ const meta: Meta<KcPageStory> = {
     title: 'login/login.ftl',
     component: KcPageStory,
     globals: {
-        pageId: 'login.ftl',
-        overrides: {}
+        pageId: 'login.ftl'
     }
 };
 
@@ -17,7 +16,6 @@ export const Default: Story = {};
 
 export const WithInvalidCredential: Story = {
     globals: {
-        pageId: 'login.ftl',
         overrides: {
             login: {
                 username: 'johndoe'
@@ -41,7 +39,6 @@ export const WithInvalidCredential: Story = {
 
 export const WithoutRegistration: Story = {
     globals: {
-        pageId: 'login.ftl',
         overrides: {
             realm: { registrationAllowed: false }
         }
@@ -50,7 +47,6 @@ export const WithoutRegistration: Story = {
 
 export const WithoutRememberMe: Story = {
     globals: {
-        pageId: 'login.ftl',
         overrides: {
             realm: { rememberMe: false }
         }
@@ -59,7 +55,6 @@ export const WithoutRememberMe: Story = {
 
 export const WithoutPasswordReset: Story = {
     globals: {
-        pageId: 'login.ftl',
         overrides: {
             realm: { resetPasswordAllowed: false }
         }
@@ -68,7 +63,6 @@ export const WithoutPasswordReset: Story = {
 
 export const WithEmailAsUsername: Story = {
     globals: {
-        pageId: 'login.ftl',
         overrides: {
             realm: { loginWithEmailAllowed: false }
         }
@@ -77,7 +71,6 @@ export const WithEmailAsUsername: Story = {
 
 export const WithPresetUsername: Story = {
     globals: {
-        pageId: 'login.ftl',
         overrides: {
             login: { username: 'max.mustermann@mail.com' }
         }
@@ -86,7 +79,6 @@ export const WithPresetUsername: Story = {
 
 export const WithImmutablePresetUsername: Story = {
     globals: {
-        pageId: 'login.ftl',
         overrides: {
             auth: {
                 attemptedUsername: 'max.mustermann@mail.com',
@@ -103,7 +95,6 @@ export const WithImmutablePresetUsername: Story = {
 
 export const WithSocialProviders: Story = {
     globals: {
-        pageId: 'login.ftl',
         overrides: {
             social: {
                 displayInfo: true,
@@ -158,7 +149,6 @@ export const WithSocialProviders: Story = {
 
 export const WithoutPasswordField: Story = {
     globals: {
-        pageId: 'login.ftl',
         overrides: {
             realm: { password: false }
         }
@@ -167,7 +157,6 @@ export const WithoutPasswordField: Story = {
 
 export const WithErrorMessage: Story = {
     globals: {
-        pageId: 'login.ftl',
         overrides: {
             message: {
                 summary:
@@ -180,7 +169,6 @@ export const WithErrorMessage: Story = {
 
 export const WithOneSocialProvider: Story = {
     globals: {
-        pageId: 'login.ftl',
         overrides: {
             social: {
                 displayInfo: true,
@@ -200,7 +188,6 @@ export const WithOneSocialProvider: Story = {
 
 export const WithTwoSocialProviders: Story = {
     globals: {
-        pageId: 'login.ftl',
         overrides: {
             social: {
                 displayInfo: true,
@@ -227,7 +214,6 @@ export const WithTwoSocialProviders: Story = {
 
 export const WithNoSocialProviders: Story = {
     globals: {
-        pageId: 'login.ftl',
         overrides: {
             social: {
                 displayInfo: true,
@@ -239,7 +225,6 @@ export const WithNoSocialProviders: Story = {
 
 export const WithMoreThanTwoSocialProviders: Story = {
     globals: {
-        pageId: 'login.ftl',
         overrides: {
             social: {
                 displayInfo: true,
@@ -280,7 +265,6 @@ export const WithMoreThanTwoSocialProviders: Story = {
 
 export const WithSocialProvidersAndWithoutRememberMe: Story = {
     globals: {
-        pageId: 'login.ftl',
         overrides: {
             social: {
                 displayInfo: true,

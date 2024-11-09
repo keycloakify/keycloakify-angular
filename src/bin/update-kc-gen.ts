@@ -109,6 +109,7 @@ export function command(params: { buildContext: BuildContext }) {
                 `                });`,
                 ``,
                 `                appRef.components.forEach(componentRef => {`,
+                `                    // page must be defined first          `,
                 `                    if ("page" in componentRef.instance) {`,
                 `                        componentRef.setInput("page", PageComponent);`,
                 `                    }`,

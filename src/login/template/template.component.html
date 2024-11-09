@@ -159,14 +159,8 @@
                         </div>
                     }
                     <!-- Content -->
-                    @let pageRef = page();
-                    @if (!!pageRef) {
-                        <kc-dynamic-page-injector
-                            [page]="pageRef"
-                            [userProfileFormFields]="userProfileFormFields()"
-                            (componentCreated)="onComponentCreated($event)"
-                        />
-                    }
+                    <ng-template #pageRef></ng-template>
+
                     @if (!!auth && auth?.showTryAnotherWayLink) {
                         <form
                             id="kc-select-try-another-way-form"

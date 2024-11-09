@@ -4,6 +4,7 @@ import {
     ChangeDetectorRef,
     Component,
     effect,
+    EffectRef,
     forwardRef,
     inject,
     input,
@@ -11,6 +12,7 @@ import {
     output,
     Renderer2,
     Type,
+    viewChild,
     ViewContainerRef
 } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
@@ -26,35 +28,14 @@ import { KcSanitizePipe } from '@keycloakify/angular/lib/pipes/kc-sanitize';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { ClassKey, getKcClsx } from 'keycloakify/account/lib/kcClsx';
 import { Observable } from 'rxjs';
-type ActiveType = 'account' | 'password' | 'totp' | 'social' | 'sessions' | 'applications' | 'log' | 'authorization' | undefined;
 
-@Component({
-    selector: 'kc-dynamic-page-injector',
-    standalone: true,
-    template: ``
-})
-export class DynamicPageInjectorComponent {
-    page = input<Type<unknown>>();
-    componentCreated = output<object>();
-    #vcr = inject<ViewContainerRef>(ViewContainerRef);
-    constructor() {
-        effect(
-            () => {
-                const page = this.page();
-                if (!page) return;
-                const compRef = this.#vcr.createComponent(page);
-                this.componentCreated.emit(compRef.instance as object);
-            },
-            { allowSignalWrites: true }
-        );
-    }
-}
+type ActiveType = 'account' | 'password' | 'totp' | 'social' | 'sessions' | 'applications' | 'log' | 'authorization' | undefined;
 
 @Component({
     selector: 'kc-root',
     templateUrl: 'template.component.html',
     standalone: true,
-    imports: [AsyncPipe, KcSanitizePipe, NgTemplateOutlet, KcClassDirective, NgClass, DynamicPageInjectorComponent],
+    imports: [AsyncPipe, KcSanitizePipe, KcClassDirective, NgClass],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         {
@@ -67,6 +48,7 @@ export class TemplateComponent extends ComponentReference {
     i18n = inject<I18n>(ACCOUNT_I18N);
     renderer = inject(Renderer2);
     #cdr = inject(ChangeDetectorRef);
+    #effectRef: EffectRef;
     meta = inject(Meta);
     title = inject(Title);
     kcContext = inject<KcContext>(KC_ACCOUNT_CONTEXT);
@@ -77,6 +59,7 @@ export class TemplateComponent extends ComponentReference {
     isReadyToRender$: Observable<boolean>;
 
     page = input<Type<unknown>>();
+    pageRef = viewChild.required('pageRef', { read: ViewContainerRef });
 
     active: ActiveType;
 
@@ -84,6 +67,18 @@ export class TemplateComponent extends ComponentReference {
         super();
 
         this.isReadyToRender$ = this.accountResourceInjectorService.injectResource(this.doUseDefaultCss);
+        this.#effectRef = effect(
+            () => {
+                const page = this.page();
+                if (!page) return;
+
+                const pageRef = this.pageRef(); // pageRef is always defined
+
+                const compRef = pageRef.createComponent(page);
+                this.onComponentCreated(compRef.instance as object);
+            },
+            { manualCleanup: true }
+        );
     }
 
     private applyKcIndexClasses() {
@@ -112,5 +107,6 @@ export class TemplateComponent extends ComponentReference {
         this.title.setTitle(this.i18n.msgStr('accountManagementTitle'));
         this.applyKcIndexClasses();
         this.#cdr.markForCheck();
+        this.#effectRef.destroy();
     }
 }

@@ -5,14 +5,15 @@ import {
     Component,
     computed,
     effect,
+    EffectRef,
     forwardRef,
     inject,
     input,
-    output,
     Renderer2,
     type Signal,
     type TemplateRef,
     type Type,
+    viewChild,
     ViewContainerRef
 } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
@@ -30,37 +31,10 @@ import { type ClassKey, getKcClsx } from 'keycloakify/login/lib/kcClsx';
 import type { Observable } from 'rxjs';
 
 @Component({
-    selector: 'kc-dynamic-page-injector',
-    standalone: true,
-    template: ``
-})
-export class DynamicPageInjectorComponent {
-    page = input<Type<unknown>>();
-    userProfileFormFields = input<Type<unknown>>();
-    componentCreated = output<object>();
-    #vcr = inject<ViewContainerRef>(ViewContainerRef);
-    constructor() {
-        effect(
-            () => {
-                const page = this.page();
-                const userProfileFormFields = this.userProfileFormFields();
-                if (!page) return;
-                const compRef = this.#vcr.createComponent(page);
-                if ('userProfileFormFields' in (compRef.instance as object) && userProfileFormFields) {
-                    compRef.setInput('userProfileFormFields', userProfileFormFields);
-                }
-                this.componentCreated.emit(compRef.instance as object);
-            },
-            { allowSignalWrites: true }
-        );
-    }
-}
-
-@Component({
     selector: 'kc-root',
     templateUrl: 'template.component.html',
     standalone: true,
-    imports: [AsyncPipe, KcSanitizePipe, NgTemplateOutlet, KcClassDirective, DynamicPageInjectorComponent],
+    imports: [AsyncPipe, KcSanitizePipe, NgTemplateOutlet, KcClassDirective],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         {
@@ -73,6 +47,7 @@ export class TemplateComponent extends ComponentReference {
     i18n = inject<I18n>(LOGIN_I18N);
     renderer = inject(Renderer2);
     #cdr = inject(ChangeDetectorRef);
+    #effectRef: EffectRef;
     meta = inject(Meta);
     title = inject(Title);
     kcContext = inject<KcContext>(KC_LOGIN_CONTEXT);
@@ -89,6 +64,8 @@ export class TemplateComponent extends ComponentReference {
     isReadyToRender$: Observable<boolean>;
 
     page = input<Type<unknown>>();
+    pageRef = viewChild.required('pageRef', { read: ViewContainerRef });
+
     userProfileFormFields = input<Type<unknown>>();
     headerNode: Signal<TemplateRef<HTMLElement>> | undefined;
     infoNode: Signal<TemplateRef<HTMLElement>> | undefined;
@@ -98,6 +75,22 @@ export class TemplateComponent extends ComponentReference {
         super();
 
         this.isReadyToRender$ = this.loginResourceInjectorService.injectResource(this.doUseDefaultCss);
+        this.#effectRef = effect(
+            () => {
+                const page = this.page();
+                if (!page) return;
+
+                const pageRef = this.pageRef(); // pageRef is always defined
+                const userProfileFormFields = this.userProfileFormFields();
+
+                const compRef = pageRef.createComponent(page);
+                if ('userProfileFormFields' in (compRef.instance as object) && userProfileFormFields) {
+                    compRef.setInput('userProfileFormFields', userProfileFormFields);
+                }
+                this.onComponentCreated(compRef.instance as object);
+            },
+            { manualCleanup: true }
+        );
     }
 
     private applyKcIndexClasses() {
@@ -158,5 +151,6 @@ export class TemplateComponent extends ComponentReference {
         this.title.setTitle(this.documentTitle ?? this.i18n.msgStr('loginTitle', this.kcContext.realm.displayName));
         this.applyKcIndexClasses();
         this.#cdr.markForCheck();
+        this.#effectRef.destroy();
     }
 }

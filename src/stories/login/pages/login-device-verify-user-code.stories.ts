@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/angular';
 import { KcPageStory } from '../KcPageStory';
 
 const meta: Meta<KcPageStory> = {
-    title: 'login-device-verify-user-code.ftl',
+    title: 'login/login-device-verify-user-code.ftl',
     component: KcPageStory
 };
 

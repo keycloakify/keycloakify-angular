@@ -67,17 +67,7 @@ export class TemplateComponent extends ComponentReference {
         super();
 
         this.isReadyToRender$ = this.accountResourceInjectorService.injectResource(this.doUseDefaultCss);
-        this.#effectRef = effect(
-            () => {
-                const page = this.page();
-                const pageRef = this.pageRef();
-                if (!page || !pageRef) return;
-
-                const compRef = pageRef.createComponent(page);
-                this.onComponentCreated(compRef.instance as object);
-            },
-            { manualCleanup: true }
-        );
+        this.#effectRef = effect(() => {}, { manualCleanup: true });
     }
 
     private applyKcIndexClasses() {

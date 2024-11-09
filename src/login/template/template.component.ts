@@ -75,22 +75,7 @@ export class TemplateComponent extends ComponentReference {
         super();
 
         this.isReadyToRender$ = this.loginResourceInjectorService.injectResource(this.doUseDefaultCss);
-        this.#effectRef = effect(
-            () => {
-                const page = this.page();
-                const pageRef = this.pageRef();
-                if (!page || !pageRef) return;
-
-                const userProfileFormFields = this.userProfileFormFields();
-
-                const compRef = pageRef.createComponent(page);
-                if ('userProfileFormFields' in (compRef.instance as object) && userProfileFormFields) {
-                    compRef.setInput('userProfileFormFields', userProfileFormFields);
-                }
-                this.onComponentCreated(compRef.instance as object);
-            },
-            { manualCleanup: true }
-        );
+        this.#effectRef = effect(() => {}, { manualCleanup: true });
     }
 
     private applyKcIndexClasses() {

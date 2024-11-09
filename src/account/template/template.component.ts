@@ -59,7 +59,7 @@ export class TemplateComponent extends ComponentReference {
     isReadyToRender$: Observable<boolean>;
 
     page = input<Type<unknown>>();
-    pageRef = viewChild.required('pageRef', { read: ViewContainerRef });
+    pageRef = viewChild('pageRef', { read: ViewContainerRef });
 
     active: ActiveType;
 
@@ -70,9 +70,8 @@ export class TemplateComponent extends ComponentReference {
         this.#effectRef = effect(
             () => {
                 const page = this.page();
-                if (!page) return;
-
-                const pageRef = this.pageRef(); // pageRef is always defined
+                const pageRef = this.pageRef();
+                if (!page || !pageRef) return;
 
                 const compRef = pageRef.createComponent(page);
                 this.onComponentCreated(compRef.instance as object);

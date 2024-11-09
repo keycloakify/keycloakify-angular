@@ -64,7 +64,7 @@ export class TemplateComponent extends ComponentReference {
     isReadyToRender$: Observable<boolean>;
 
     page = input<Type<unknown>>();
-    pageRef = viewChild.required('pageRef', { read: ViewContainerRef });
+    pageRef = viewChild('pageRef', { read: ViewContainerRef });
 
     userProfileFormFields = input<Type<unknown>>();
     headerNode: Signal<TemplateRef<HTMLElement>> | undefined;
@@ -78,9 +78,9 @@ export class TemplateComponent extends ComponentReference {
         this.#effectRef = effect(
             () => {
                 const page = this.page();
-                if (!page) return;
+                const pageRef = this.pageRef();
+                if (!page || !pageRef) return;
 
-                const pageRef = this.pageRef(); // pageRef is always defined
                 const userProfileFormFields = this.userProfileFormFields();
 
                 const compRef = pageRef.createComponent(page);

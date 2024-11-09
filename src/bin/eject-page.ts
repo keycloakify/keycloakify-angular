@@ -100,7 +100,7 @@ export async function command(params: { buildContext: BuildContext }) {
 
     const componentDirRelativeToThemeTypePath = (() => {
         if (pageIdOrComponent === templateValue) {
-            return pathJoin('containers', 'template');
+            return pathJoin('template');
         }
 
         if (pageIdOrComponent === userProfileFormFieldsValue) {

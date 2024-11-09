@@ -1,5 +1,5 @@
 import { getDefaultPageComponent, type KcPage } from '@keycloakify/angular/account';
-import { TemplateComponent } from '@keycloakify/angular/account/containers/template';
+import { TemplateComponent } from '@keycloakify/angular/account/template';
 import type { ClassKey } from 'keycloakify/account';
 import type { KcContext } from './KcContext';
 

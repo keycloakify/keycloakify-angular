@@ -1,1 +1,1 @@
-export * from './public-api';
+export * from './webauthn-register.component';

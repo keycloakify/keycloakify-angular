@@ -1,1 +1,1 @@
-export * from './public-api';
+export * from './is-array-with-empty-object.pipe';

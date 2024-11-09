@@ -106,10 +106,6 @@ function copyTransformSrcDirToDist() {
             }
 
             if (fileRelativePath.endsWith('index.ts')) {
-                return undefined;
-            }
-
-            if (fileRelativePath.endsWith('public-api.ts')) {
                 return {
                     newFileName: 'index.ts',
                     modifiedSourceCode: sourceCode

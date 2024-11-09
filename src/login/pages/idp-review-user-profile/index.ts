@@ -1,1 +1,1 @@
-export * from './public-api';
+export * from './idp-review-user-profile.component';

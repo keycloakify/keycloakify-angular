@@ -1,1 +1,1 @@
-export * from './public-api';
+export * from './make-user-confirm-password.token';

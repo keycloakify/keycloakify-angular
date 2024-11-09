@@ -1,1 +1,1 @@
-export * from './public-api';
+export * from './login-x509-info.component';

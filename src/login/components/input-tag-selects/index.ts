@@ -1,1 +1,1 @@
-export * from './public-api';
+export * from './input-tag-selects.component';

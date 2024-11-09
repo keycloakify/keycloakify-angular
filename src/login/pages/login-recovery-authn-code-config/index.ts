@@ -1,1 +1,1 @@
-export * from './public-api';
+export * from './login-recovery-authn-code-config.component';

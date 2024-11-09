@@ -1,1 +1,1 @@
-export * from './public-api';
+export * from './logout-other-sessions.component';

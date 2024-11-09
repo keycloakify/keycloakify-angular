@@ -1,1 +1,1 @@
-export * from './public-api';
+export * from './kc-context.token';

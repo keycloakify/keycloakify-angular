@@ -1,1 +1,1 @@
-export * from './public-api';
+export * from './login-idp-link-confirm.component';

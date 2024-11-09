@@ -1,1 +1,1 @@
-export * from './public-api';
+export * from './login-oauth-grant.component';

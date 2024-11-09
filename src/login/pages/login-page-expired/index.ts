@@ -1,1 +1,1 @@
-export * from './public-api';
+export * from './login-page-expired.component';

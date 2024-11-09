@@ -1,1 +1,1 @@
-export * from './public-api';
+export * from './input-field-by-type.component';

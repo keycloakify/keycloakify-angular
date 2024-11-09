@@ -1,1 +1,1 @@
-export * from './public-api';
+export * from './user-profile-form.service';

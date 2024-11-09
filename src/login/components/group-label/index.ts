@@ -1,1 +1,1 @@
-export * from './public-api';
+export * from './group-label.component';

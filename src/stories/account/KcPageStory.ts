@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, Type } from '@angular/core';
 import { KC_ACCOUNT_CONTEXT } from '../../account/tokens/kc-context';
 import { getKcPage } from './KcPage';
-import { TemplateComponent } from '../../account/containers/template';
+import { TemplateComponent } from '../../account/template';
 @Component({
     selector: 'kc-page-story',
     template: `@if (pageComponent) {

@@ -53,7 +53,7 @@ export class LoginResourceInjectorService {
                 id: `${this.kcContext.url.resourcesPath}/js/menu-button-links.js`,
                 src: `${this.kcContext.url.resourcesPath}/js/menu-button-links.js`
             },
-            ...this.kcContext.scripts.map(script => ({
+            ...(this.kcContext.scripts ?? []).map(script => ({
                 type: 'text/javascript',
                 src: script,
                 id: script

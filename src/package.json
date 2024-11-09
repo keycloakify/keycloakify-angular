@@ -2,13 +2,13 @@
     "name": "@keycloakify/angular",
     "version": "0.0.0",
     "peerDependencies": {
-        "keycloakify": "^11.3.12",
+        "keycloakify": "^11.3.16",
         "@angular/core": "^18.0.0",
         "@angular/common": "^18.0.0",
         "@angular/platform-browser": "^18.0.0"
     },
     "dependencies": {
-        "tsafe": "^1.7.5"
+        "tsafe": "^1.8.1"
     },
     "sideEffects": false,
     "publishConfig": {

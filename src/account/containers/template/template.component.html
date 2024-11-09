@@ -118,13 +118,8 @@
                     ></span>
                 </div>
             }
-            @let pageRef = page();
-            @if (!!pageRef) {
-                <kc-dynamic-page-injector
-                    [page]="pageRef"
-                    (componentCreated)="onComponentCreated($event)"
-                />
-            }
+            <!-- Content -->
+            <ng-template #pageRef></ng-template>
         </div>
     </div>
 }

@@ -5,6 +5,7 @@ import {
     Component,
     computed,
     effect,
+    EffectRef,
     forwardRef,
     inject,
     input,
@@ -46,6 +47,7 @@ export class TemplateComponent extends ComponentReference {
     i18n = inject<I18n>(LOGIN_I18N);
     renderer = inject(Renderer2);
     #cdr = inject(ChangeDetectorRef);
+    #effectRef: EffectRef;
     meta = inject(Meta);
     title = inject(Title);
     kcContext = inject<KcContext>(KC_LOGIN_CONTEXT);
@@ -73,18 +75,22 @@ export class TemplateComponent extends ComponentReference {
         super();
 
         this.isReadyToRender$ = this.loginResourceInjectorService.injectResource(this.doUseDefaultCss);
-        effect(() => {
-            const page = this.page();
-            const pageRef = this.pageRef();
-            const userProfileFormFields = this.userProfileFormFields();
-            if (!page || !pageRef) return;
+        this.#effectRef = effect(
+            () => {
+                const page = this.page();
+                if (!page) return;
 
-            const compRef = pageRef.createComponent(page);
-            if ('userProfileFormFields' in (compRef.instance as object) && userProfileFormFields) {
-                compRef.setInput('userProfileFormFields', userProfileFormFields);
-            }
-            this.onComponentCreated(compRef.instance as object);
-        });
+                const pageRef = this.pageRef(); // pageRef is always defined
+                const userProfileFormFields = this.userProfileFormFields();
+
+                const compRef = pageRef.createComponent(page);
+                if ('userProfileFormFields' in (compRef.instance as object) && userProfileFormFields) {
+                    compRef.setInput('userProfileFormFields', userProfileFormFields);
+                }
+                this.onComponentCreated(compRef.instance as object);
+            },
+            { manualCleanup: true }
+        );
     }
 
     private applyKcIndexClasses() {
@@ -145,5 +151,6 @@ export class TemplateComponent extends ComponentReference {
         this.title.setTitle(this.documentTitle ?? this.i18n.msgStr('loginTitle', this.kcContext.realm.displayName));
         this.applyKcIndexClasses();
         this.#cdr.markForCheck();
+        this.#effectRef.destroy();
     }
 }

@@ -352,47 +352,59 @@ export async function command(params: { buildContext: BuildContext }) {
             chalk.grey('```'),
             `// ...`,
             ``,
-            ...[
-                ` export async function getKcPage(pageId: KcContext['pageId']): Promise<KcPage> {`,
-                `   switch (pageId) {`,
-                `+    case '${pageId}':`,
-                `+      return {`,
-                `+        PageComponent: (await import('${componentRelativeDirPath_posix_to_componentRelativeFilePath_posix(
-                    {
-                        componentRelativeDirPath_posix: `./${componentDirRelativeToThemeTypePath.split(pathSep).join('/')}`
+            ...(() => {
+                let inGreenBlock = false;
+                return [
+                    ` export async function getKcPage(pageId: KcContext['pageId']): Promise<KcPage> {`,
+                    `   switch (pageId) {`,
+                    `+`,
+                    `    case '${pageId}':`,
+                    `      return {`,
+                    `        PageComponent: (await import('${componentRelativeDirPath_posix_to_componentRelativeFilePath_posix(
+                        {
+                            componentRelativeDirPath_posix: `./${componentDirRelativeToThemeTypePath.split(pathSep).join('/')}`
+                        }
+                    )}')).${kebabCaseToCamelCase(capitalize(pageId).replace(/\.ftl$/, ''))}Component,`,
+                    `        TemplateComponent,`,
+                    ...(themeType === 'login'
+                        ? [`        UserProfileFormFieldsComponent,`]
+                        : []),
+                    ...(themeType === 'login'
+                        ? [`        doMakeUserConfirmPassword,`]
+                        : []),
+                    `        doUseDefaultCss,`,
+                    `        classes,`,
+                    `      };`,
+                    `+`,
+                    `     //...`,
+                    `     default:`,
+                    `       return {`,
+                    `         PageComponent: await getDefaultPageComponent(pageId),`,
+                    `         TemplateComponent,`,
+                    ...(themeType === 'login'
+                        ? [`         UserProfileFormFieldsComponent,`]
+                        : []),
+                    ...(themeType === 'login'
+                        ? [`         doMakeUserConfirmPassword,`]
+                        : []),
+                    `         doUseDefaultCss,`,
+                    `         classes,`,
+                    `       };`,
+                    `   }`,
+                    ` }`
+                ].map(line => {
+                    if (line === `+`) {
+                        inGreenBlock = !inGreenBlock;
                     }
-                )}')).${kebabCaseToCamelCase(capitalize(pageId).replace(/\.ftl$/, ''))}Component,`,
-                `+        TemplateComponent,`,
-                ...(themeType === 'login'
-                    ? [`+        UserProfileFormFieldsComponent,`]
-                    : []),
-                ...(themeType === 'login' ? [`+        doMakeUserConfirmPassword,`] : []),
-                `+        doUseDefaultCss,`,
-                `+        classes,`,
-                `+      };`,
-                `     //...`,
-                `     default:`,
-                `       return {`,
-                `         PageComponent: await getDefaultPageComponent(pageId),`,
-                `         TemplateComponent,`,
-                ...(themeType === 'login'
-                    ? [`         UserProfileFormFieldsComponent,`]
-                    : []),
-                ...(themeType === 'login' ? [`         doMakeUserConfirmPassword,`] : []),
-                `         doUseDefaultCss,`,
-                `         classes,`,
-                `       };`,
-                `   }`,
-                ` }`
-            ].map(line => {
-                if (line.startsWith('+')) {
-                    return chalk.green(line);
-                }
-                if (line.startsWith('-')) {
-                    return chalk.red(line);
-                }
-                return chalk.grey(line);
-            }),
+                    if (inGreenBlock || line.startsWith('+')) {
+                        return chalk.green(line);
+                    }
+                    if (line.startsWith('-')) {
+                        return chalk.red(line);
+                    }
+                    return chalk.grey(line);
+                });
+            })(),
             chalk.grey('```')
         ].join('\n')
     );

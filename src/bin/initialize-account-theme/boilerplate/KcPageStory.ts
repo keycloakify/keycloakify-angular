@@ -1,11 +1,11 @@
 /* eslint-disable @angular-eslint/component-class-suffix */
 import { Component, inject, OnInit, Type } from '@angular/core';
-import { provideKeycloakifyAngular } from '@keycloakify/angular/login/providers/keycloakify-angular';
-import { TemplateComponent } from '@keycloakify/angular/login/template';
+import { provideKeycloakifyAngular } from '@keycloakify/angular/account/providers/keycloakify-angular';
+import { TemplateComponent } from '@keycloakify/angular/account/template';
 import { getKcPage } from './KcPage';
 import { getI18n } from './i18n';
-import { KC_ACCOUNT_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
-import { createGetKcContextMock } from 'keycloakify/login/KcContext';
+import { KC_ACCOUNT_CONTEXT } from '@keycloakify/angular/account/tokens/kc-context';
+import { createGetKcContextMock } from 'keycloakify/account/KcContext';
 import { kcEnvDefaults, themeNames } from '../kc.gen';
 import type { KcContextExtension, KcContextExtensionPerPage } from './KcContext';
 

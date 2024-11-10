@@ -8,10 +8,8 @@ const { buildContext, commandName } = readParams({ apiVersion: 'v1' });
     switch (commandName) {
         case 'add-story':
             {
-                console.log(
-                    "Not yet supported by @keycloakify/angular, we're working on it!"
-                );
-                process.exit(-1);
+                const { command } = await import('./add-story');
+                command({ buildContext });
             }
             return;
         case 'eject-page':

@@ -21,11 +21,11 @@ import {
 } from 'path';
 import { assert, Equals } from 'tsafe/assert';
 import chalk from 'chalk';
-import { transformCodebase } from './tools/transformCodebase';
+import { transformCodebase } from './tools/transformCodebase_async';
 import { kebabCaseToCamelCase } from './tools/kebabCaseToSnakeCase';
 import { replaceAll } from './tools/String.prototype.replaceAll';
 import { capitalize } from 'tsafe/capitalize';
-import { runFormat } from './tools/runFormat';
+import { getIsPrettierAvailable, runPrettier } from './tools/runPrettier';
 
 export async function command(params: { buildContext: BuildContext }) {
     const { buildContext } = params;
@@ -149,15 +149,33 @@ export async function command(params: { buildContext: BuildContext }) {
                 themeType
             );
 
-            transformCodebase({
+            await transformCodebase({
                 srcDirPath: pathJoin(
                     localThemeTypeDirPath,
                     componentDirRelativeToThemeTypePath_i
                 ),
                 destDirPath,
-                transformSourceCode: ({ filePath, sourceCode }) => {
+                transformSourceCode: async ({ filePath, sourceCode }) => {
                     if (!filePath.endsWith('.ts')) {
-                        return { modifiedSourceCode: sourceCode };
+                        let modifiedSourceCode_str = sourceCode.toString('utf8');
+
+                        run_prettier: {
+                            if (!(await getIsPrettierAvailable())) {
+                                break run_prettier;
+                            }
+
+                            modifiedSourceCode_str = await runPrettier({
+                                filePath,
+                                sourceCode: modifiedSourceCode_str
+                            });
+                        }
+
+                        return {
+                            modifiedSourceCode: Buffer.from(
+                                modifiedSourceCode_str,
+                                'utf8'
+                            )
+                        };
                     }
 
                     if (filePath.endsWith('index.ts')) {
@@ -229,6 +247,17 @@ export async function command(params: { buildContext: BuildContext }) {
                         }
                     );
 
+                    run_prettier: {
+                        if (!(await getIsPrettierAvailable())) {
+                            break run_prettier;
+                        }
+
+                        modifiedSourceCode_str = await runPrettier({
+                            filePath,
+                            sourceCode: modifiedSourceCode_str
+                        });
+                    }
+
                     return {
                         modifiedSourceCode: Buffer.from(modifiedSourceCode_str, 'utf8')
                     };
@@ -242,10 +271,6 @@ export async function command(params: { buildContext: BuildContext }) {
             );
         }
     }
-
-    runFormat({
-        packageJsonFilePath: buildContext.packageJsonFilePath
-    });
 
     edit_KcPage: {
         if (
@@ -263,17 +288,30 @@ export async function command(params: { buildContext: BuildContext }) {
 
         const kcAppTsCode = fs.readFileSync(kcAppTsFilePath).toString('utf8');
 
-        const modifiedKcAppTsCode = (() => {
+        const modifiedKcAppTsCode = await (async () => {
             const componentRelativeDirPath_posix = componentDirRelativeToThemeTypePath
                 .split(pathSep)
                 .join('/');
 
-            return kcAppTsCode.replace(
+            let sourceCode = kcAppTsCode.replace(
                 `@keycloakify/angular/${themeType}/${componentRelativeDirPath_posix}`,
                 componentRelativeDirPath_posix_to_componentRelativeFilePath_posix({
                     componentRelativeDirPath_posix: `./${componentRelativeDirPath_posix}`
                 })
             );
+
+            run_prettier: {
+                if (!(await getIsPrettierAvailable())) {
+                    break run_prettier;
+                }
+
+                sourceCode = await runPrettier({
+                    filePath: kcAppTsFilePath,
+                    sourceCode
+                });
+            }
+
+            return sourceCode;
         })();
 
         if (modifiedKcAppTsCode === kcAppTsCode) {

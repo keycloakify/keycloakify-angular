@@ -16,6 +16,18 @@ const distDirPath = pathJoin(getThisCodebaseRootDirPath(), 'dist');
 export function postNgBuild() {
     copyTransformSrcDirToDist();
 
+    transformCodebase({
+        srcDirPath: pathJoin(getThisCodebaseRootDirPath(), 'stories'),
+        destDirPath: pathJoin(distDirPath, 'stories'),
+        transformSourceCode: ({ filePath, sourceCode }) => {
+            if (!filePath.endsWith('stories.ts')) {
+                return undefined;
+            }
+
+            return { modifiedSourceCode: sourceCode };
+        }
+    });
+
     for (const basename of ['README.md', 'LICENSE']) {
         fs.cpSync(
             pathJoin(getThisCodebaseRootDirPath(), basename),
@@ -38,7 +50,7 @@ function buildBin() {
 
     const entrypointFilePath = pathJoin(distDirPath_bin, 'main.js');
 
-    run(`npx ncc build ${entrypointFilePath} -o ${nccOutDirPath}`);
+    run(`npx ncc build ${entrypointFilePath} --external prettier -o ${nccOutDirPath}`);
 
     transformCodebase({
         srcDirPath: distDirPath_bin,

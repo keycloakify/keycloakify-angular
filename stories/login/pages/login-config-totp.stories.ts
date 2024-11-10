@@ -17,7 +17,7 @@ export const Default: Story = {};
 
 export const WithManualSetUp: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             mode: 'manual'
         }
     }
@@ -25,7 +25,7 @@ export const WithManualSetUp: Story = {
 
 export const WithError: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             messagesPerField: {
                 get: (fieldName: string) =>
                     fieldName === 'totp' ? 'Invalid TOTP' : undefined,
@@ -40,7 +40,7 @@ export const WithError: Story = {
 
 export const WithAppInitiatedAction: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             isAppInitiatedAction: true
         }
     }
@@ -48,7 +48,7 @@ export const WithAppInitiatedAction: Story = {
 
 export const WithPreFilledUserLabel: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             totp: {
                 otpCredentials: [{ userLabel: 'MyDevice' }]
             }

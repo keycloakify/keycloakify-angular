@@ -18,7 +18,7 @@ export const Default: Story = {};
 
 export const WithPasswordError: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             realm: {
                 resetPasswordAllowed: true
             },
@@ -36,7 +36,7 @@ export const WithPasswordError: Story = {
 
 export const WithoutResetPasswordOption: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             realm: {
                 resetPasswordAllowed: false
             },

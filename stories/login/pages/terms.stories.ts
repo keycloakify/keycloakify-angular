@@ -16,7 +16,7 @@ type Story = StoryObj<KcPageStory>;
 
 export const Default: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             'x-keycloakify': {
                 messages: {
                     termsText: '<p>My terms in <strong>English</strong></p>'
@@ -28,7 +28,7 @@ export const Default: Story = {
 
 export const French: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             locale: {
                 currentLanguageTag: 'fr'
             },
@@ -43,7 +43,7 @@ export const French: Story = {
 
 export const Spanish: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             locale: {
                 currentLanguageTag: 'es'
             },
@@ -58,7 +58,7 @@ export const Spanish: Story = {
 
 export const LongMessage: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             'x-keycloakify': {
                 messages: {
                     termsText: `

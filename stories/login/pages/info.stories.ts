@@ -15,7 +15,7 @@ type Story = StoryObj<KcPageStory>;
 
 export const Default: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             message: {
                 summary: 'Server info message'
             }
@@ -25,7 +25,7 @@ export const Default: Story = {
 
 export const WithLinkBack: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             message: {
                 summary: 'Server message'
             },
@@ -36,7 +36,7 @@ export const WithLinkBack: Story = {
 
 export const WithRequiredActions: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             message: {
                 summary: 'Required actions: '
             },
@@ -57,7 +57,7 @@ export const WithRequiredActions: Story = {
 
 export const WithPageRedirect: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             message: { summary: 'You will be redirected shortly.' },
             pageRedirectUri: 'https://example.com'
         }
@@ -66,7 +66,7 @@ export const WithPageRedirect: Story = {
 
 export const WithoutClientBaseUrl: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             message: { summary: 'No client base URL defined.' },
             client: { baseUrl: undefined }
         }
@@ -75,7 +75,7 @@ export const WithoutClientBaseUrl: Story = {
 
 export const WithMessageHeader: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             messageHeader: 'Important Notice',
             message: { summary: 'This is an important message.' }
         }
@@ -84,7 +84,7 @@ export const WithMessageHeader: Story = {
 
 export const WithAdvancedMessage: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             message: {
                 summary:
                     'Please take note of this <strong>important</strong> information.'

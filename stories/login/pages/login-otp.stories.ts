@@ -17,7 +17,7 @@ export const Default: Story = {};
 
 export const MultipleOtpCredentials: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             otpLogin: {
                 userOtpCredentials: [
                     { id: 'credential1', userLabel: 'Device 1' },
@@ -41,7 +41,7 @@ export const MultipleOtpCredentials: Story = {
 
 export const WithOtpError: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             otpLogin: {
                 userOtpCredentials: []
             },
@@ -58,7 +58,7 @@ export const WithOtpError: Story = {
 
 export const NoOtpCredentials: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             otpLogin: {
                 userOtpCredentials: []
             },
@@ -74,7 +74,7 @@ export const NoOtpCredentials: Story = {
 
 export const WithErrorAndMultipleOtpCredentials: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             otpLogin: {
                 userOtpCredentials: [
                     { id: 'credential1', userLabel: 'Device 1' },

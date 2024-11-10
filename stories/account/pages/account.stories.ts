@@ -18,7 +18,7 @@ export const Default: Story = {};
 
 export const UsernameNotEditable: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             account: {
                 username: 'john_doe',
                 email: 'john.doe@gmail.com',
@@ -45,7 +45,7 @@ export const UsernameNotEditable: Story = {
 
 export const WithValidationErrors: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             account: {
                 username: 'john_doe',
                 email: '',
@@ -73,7 +73,7 @@ export const WithValidationErrors: Story = {
 
 export const EmailAsUsername: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             account: {
                 email: 'john.doe@gmail.com',
                 firstName: 'John',
@@ -98,7 +98,7 @@ export const EmailAsUsername: Story = {
 
 export const WithErrorCode: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             code: {
                 success: false,
                 error: 'Failed to generate code'
@@ -109,7 +109,7 @@ export const WithErrorCode: Story = {
 
 export const WithFrenchLanguage: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             locale: {
                 currentLanguageTag: 'fr'
             },
@@ -123,7 +123,7 @@ export const WithFrenchLanguage: Story = {
 
 export const WithHtmlErrorMessage: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             code: {
                 success: false,
                 error: "Something went wrong. <a href='https://example.com'>Try again</a>"

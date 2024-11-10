@@ -16,7 +16,7 @@ type Story = StoryObj<KcPageStory>;
 
 export const Default: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             message: {
                 summary: 'You need to verify your email to activate your account.',
                 type: 'warning'
@@ -36,7 +36,7 @@ export const Default: Story = {
  */
 export const WithSuccessMessage: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             message: {
                 summary: 'Your email has been successfully verified.',
                 type: 'success'
@@ -59,7 +59,7 @@ export const WithSuccessMessage: Story = {
  */
 export const WithErrorMessage: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             message: {
                 summary: 'There was an error verifying your email. Please try again.',
                 type: 'error'
@@ -82,7 +82,7 @@ export const WithErrorMessage: Story = {
  */
 export const WithInfoMessage: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             message: {
                 summary: 'Please verify your email to continue using our services.',
                 type: 'info'

@@ -17,7 +17,7 @@ export const Default: Story = {};
 
 export const WithoutRedirectUrl: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             logout: {
                 clients: []
             }

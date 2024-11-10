@@ -16,7 +16,7 @@ type Story = StoryObj<KcPageStory>;
 
 export const Default: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             log: {
                 events: [
                     {
@@ -48,7 +48,7 @@ export const Default: Story = {
 
 export const LogsMissingDetails: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             log: {
                 events: [
                     {
@@ -66,7 +66,7 @@ export const LogsMissingDetails: Story = {
 
 export const SingleLogEntry: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             log: {
                 events: [
                     {
@@ -87,7 +87,7 @@ export const SingleLogEntry: Story = {
 
 export const LogsWithLongDetails: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             log: {
                 events: [
                     {
@@ -117,7 +117,7 @@ export const LogsWithLongDetails: Story = {
 
 export const EmptyClientField: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             log: {
                 events: [
                     {
@@ -138,7 +138,7 @@ export const EmptyClientField: Story = {
 
 export const NoLogsAvailable: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             log: {
                 events: [] // No log events
             }

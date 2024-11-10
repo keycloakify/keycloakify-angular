@@ -24,7 +24,7 @@ export const Default: Story = {};
  */
 export const WithoutUserEnabled: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             url: {
                 loginAction: '/mock-login-action'
             },

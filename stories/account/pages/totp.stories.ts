@@ -16,7 +16,7 @@ type Story = StoryObj<KcPageStory>;
 
 export const Default: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             totp: {
                 enabled: false,
                 totpSecretEncoded: 'HE4W MSTC OBKU CY2M ONXF OV3Q NYYU I3SH',
@@ -51,7 +51,7 @@ export const Default: Story = {
 
 export const WithTotpEnabled: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             totp: {
                 enabled: true,
                 totpSecretEncoded: 'G55E MZKC JFUD MQLT MFIF EVSB JFLG M6SO',

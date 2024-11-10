@@ -24,7 +24,7 @@ export const Default: Story = {};
  */
 export const WithCustomLogoutMessage: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             url: {
                 logoutConfirmAction: '/mock-logout-action'
             },

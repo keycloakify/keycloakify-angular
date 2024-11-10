@@ -17,7 +17,7 @@ export const Default: Story = {};
 
 export const WithProfileError: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             url: {
                 loginAction: '/mock-login-action'
             },

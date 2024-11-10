@@ -20,7 +20,7 @@ const meta: Meta<KcPageStory> = {
     decorators: decorators,
     globals: {
         pageId: 'login-idp-link-email.ftl',
-        overrides: {
+        kcContext: {
             mockKcContext
         }
     }
@@ -46,7 +46,7 @@ export const Default: Story = {};
  */
 export const WithIdpAlias: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             ...mockKcContext,
             idpAlias: 'Google',
             brokerContext: {
@@ -67,7 +67,7 @@ export const WithIdpAlias: Story = {
  */
 export const WithCustomRealmDisplayName: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             ...mockKcContext,
             idpAlias: 'Facebook',
             brokerContext: {
@@ -88,7 +88,7 @@ export const WithCustomRealmDisplayName: Story = {
  */
 export const WithFormSubmissionError: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             ...mockKcContext,
             url: {
                 loginAction: '/error'

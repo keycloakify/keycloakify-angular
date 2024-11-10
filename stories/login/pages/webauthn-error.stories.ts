@@ -18,7 +18,7 @@ export const Default: Story = {};
 
 export const WithRetryAvailable: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             url: {
                 loginAction: '/mock-login-action'
             },
@@ -33,7 +33,7 @@ export const WithRetryAvailable: Story = {
 
 export const WithAppInitiatedAction: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             url: {
                 loginAction: '/mock-login-action'
             },
@@ -48,7 +48,7 @@ export const WithAppInitiatedAction: Story = {
 
 export const WithJavaScriptDisabled: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             url: {
                 loginAction: '/mock-login-action'
             },

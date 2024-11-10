@@ -17,7 +17,7 @@ export const Default: Story = {};
 
 export const WithErrorMessage: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             url: {
                 loginRestartFlowUrl: '/mock-restart-flow',
                 loginAction: '/mock-continue-login'

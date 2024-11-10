@@ -18,7 +18,7 @@ export const Default: Story = {};
 
 export const WithDifferentAuthenticationMethods: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             auth: {
                 authenticationSelections: [
                     {
@@ -41,7 +41,7 @@ export const WithDifferentAuthenticationMethods: Story = {
 
 export const WithRealmTranslations: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             auth: {
                 authenticationSelections: [
                     {
@@ -83,7 +83,7 @@ export const WithRealmTranslations: Story = {
 
 export const WithoutAuthenticationSelections: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             url: {
                 loginAction: '/mock-login-action'
             },

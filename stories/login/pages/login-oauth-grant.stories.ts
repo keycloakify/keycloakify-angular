@@ -36,13 +36,13 @@ type Story = StoryObj<KcPageStory>;
 
 export const Default: Story = {
     globals: {
-        overrides: mockKcContext
+        kcContext: mockKcContext
     }
 };
 
 export const WithoutScopes: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             ...mockKcContext,
             oauth: {
                 ...mockKcContext.oauth,
@@ -54,7 +54,7 @@ export const WithoutScopes: Story = {
 
 export const WithFormSubmissionError: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             ...mockKcContext,
             url: {
                 oauthAction: '/error'

@@ -18,10 +18,8 @@ export const Default: Story = {};
 
 export const WithMessage: Story = {
     globals: {
-        overrides: {
-            kcContext: {
-                message: { type: 'success', summary: 'This is a test message' }
-            }
+        kcContext: {
+            message: { type: 'success', summary: 'This is a test message' }
         }
     }
 };
@@ -34,19 +32,17 @@ export const WithMessage: Story = {
  */
 export const FirstTimePasswordSetup: Story = {
     globals: {
-        overrides: {
-            kcContext: {
-                account: {
-                    username: 'john_doe'
-                },
-                password: {
-                    passwordSet: false
-                },
-                url: {
-                    passwordUrl: '/password'
-                },
-                stateChecker: 'state-checker'
-            }
+        kcContext: {
+            account: {
+                username: 'john_doe'
+            },
+            password: {
+                passwordSet: false
+            },
+            url: {
+                passwordUrl: '/password'
+            },
+            stateChecker: 'state-checker'
         }
     }
 };
@@ -59,20 +55,18 @@ export const FirstTimePasswordSetup: Story = {
  */
 export const IncorrectCurrentPassword: Story = {
     globals: {
-        overrides: {
-            kcContext: {
-                message: { type: 'error', summary: 'Incorrect current password.' },
-                account: {
-                    username: 'john_doe'
-                },
-                password: {
-                    passwordSet: true
-                },
-                url: {
-                    passwordUrl: '/password'
-                },
-                stateChecker: 'state-checker'
-            }
+        kcContext: {
+            message: { type: 'error', summary: 'Incorrect current password.' },
+            account: {
+                username: 'john_doe'
+            },
+            password: {
+                passwordSet: true
+            },
+            url: {
+                passwordUrl: '/password'
+            },
+            stateChecker: 'state-checker'
         }
     }
 };
@@ -85,20 +79,18 @@ export const IncorrectCurrentPassword: Story = {
  */
 export const SubmissionSuccessWithRedirect: Story = {
     globals: {
-        overrides: {
-            kcContext: {
-                message: { type: 'success', summary: 'Password successfully changed.' },
-                account: {
-                    username: 'john_doe'
-                },
-                password: {
-                    passwordSet: true
-                },
-                url: {
-                    passwordUrl: '/password'
-                },
-                stateChecker: 'state-checker'
-            }
+        kcContext: {
+            message: { type: 'success', summary: 'Password successfully changed.' },
+            account: {
+                username: 'john_doe'
+            },
+            password: {
+                passwordSet: true
+            },
+            url: {
+                passwordUrl: '/password'
+            },
+            stateChecker: 'state-checker'
         }
     }
 };

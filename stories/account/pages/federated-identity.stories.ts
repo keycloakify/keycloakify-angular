@@ -18,7 +18,7 @@ export const Default: Story = {};
 
 export const NotConnected: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             federatedIdentity: {
                 identities: [
                     {
@@ -35,7 +35,7 @@ export const NotConnected: Story = {
 
 export const RemoveLinkNotPossible: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             federatedIdentity: {
                 identities: [
                     {
@@ -57,7 +57,7 @@ export const RemoveLinkNotPossible: Story = {
 
 export const AddLinkForUnconnectedIdentity: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             federatedIdentity: {
                 identities: [
                     {

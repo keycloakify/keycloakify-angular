@@ -17,7 +17,7 @@ export const Default: Story = {};
 
 export const WithCustomCredentialLabel: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             credentialLabel: 'Test Credential',
             url: { loginAction: '/login-action' }
         }
@@ -26,7 +26,7 @@ export const WithCustomCredentialLabel: Story = {
 
 export const WithSuccessMessage: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             message: {
                 type: 'success',
                 summary: 'Credential has been successfully deleted.'
@@ -37,7 +37,7 @@ export const WithSuccessMessage: Story = {
 
 export const WithErrorMessage: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             message: {
                 type: 'error',
                 summary: 'Failed to delete the credential. Please try again.'
@@ -48,7 +48,7 @@ export const WithErrorMessage: Story = {
 
 export const WithDisabledDeleteButton: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             isDeleteButtonDisabled: true,
             credentialLabel: 'Non-deletable Credential'
         }

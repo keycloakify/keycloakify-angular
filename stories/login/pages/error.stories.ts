@@ -17,7 +17,7 @@ export const Default: Story = {};
 
 export const WithAnotherMessage: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             message: { summary: 'With another error message' }
         }
     }
@@ -25,7 +25,7 @@ export const WithAnotherMessage: Story = {
 
 export const WithHtmlErrorMessage: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             message: {
                 summary:
                     "<strong>Error:</strong> Something went wrong. <a href='https://example.com'>Go back</a>"
@@ -36,7 +36,7 @@ export const WithHtmlErrorMessage: Story = {
 
 export const FrenchError: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             locale: { currentLanguageTag: 'fr' },
             message: { summary: "Une erreur s'est produite" }
         }
@@ -45,7 +45,7 @@ export const FrenchError: Story = {
 
 export const WithSkipLink: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             message: { summary: 'An error occurred' },
             skipLink: true,
             client: {

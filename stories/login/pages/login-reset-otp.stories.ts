@@ -17,7 +17,7 @@ export const Default: Story = {};
 
 export const WithoutOtpCredentials: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             url: {
                 loginAction: '/mock-login'
             },
@@ -34,7 +34,7 @@ export const WithoutOtpCredentials: Story = {
 
 export const WithOtpError: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             url: {
                 loginAction: '/mock-login'
             },
@@ -55,7 +55,7 @@ export const WithOtpError: Story = {
 
 export const WithOnlyOneOtpCredential: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             url: {
                 loginAction: '/mock-login'
             },

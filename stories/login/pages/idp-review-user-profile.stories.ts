@@ -18,7 +18,7 @@ export const Default: Story = {};
 
 export const WithFormValidationErrors: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             messagesPerField: {
                 existsError: (fieldName: string) =>
                     ['email', 'firstName'].includes(fieldName),
@@ -34,7 +34,7 @@ export const WithFormValidationErrors: Story = {
 
 export const WithReadOnlyFields: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             profile: {
                 attributesByName: {
                     email: { value: 'jane.doe@example.com', readOnly: true },
@@ -47,7 +47,7 @@ export const WithReadOnlyFields: Story = {
 
 export const WithPrefilledFormFields: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             profile: {
                 attributesByName: {
                     firstName: { value: 'Jane' },

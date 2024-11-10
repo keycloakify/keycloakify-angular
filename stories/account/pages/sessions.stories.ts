@@ -16,7 +16,7 @@ type Story = StoryObj<KcPageStory>;
 
 export const Default: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             sessions: {
                 sessions: [
                     {
@@ -44,7 +44,7 @@ export const Default: Story = {
 
 export const WithError: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             url: { passwordUrl: '/auth/realms/keycloakify/account/password' },
             stateChecker: 'xQ7EOgFrLi4EvnJ8dbXKhwFGWk_bkOp0X89mhilt1os',
             message: {
@@ -61,7 +61,7 @@ export const WithError: Story = {
  */
 export const NoActiveSessions: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             sessions: {
                 sessions: []
             },
@@ -76,7 +76,7 @@ export const NoActiveSessions: Story = {
  */
 export const SingleSession: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             sessions: {
                 sessions: [
                     {
@@ -100,7 +100,7 @@ export const SingleSession: Story = {
  */
 export const MultipleClientsSession: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             sessions: {
                 sessions: [
                     {
@@ -124,7 +124,7 @@ export const MultipleClientsSession: Story = {
  */
 export const SessionWithoutClients: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             sessions: {
                 sessions: [
                     {

@@ -17,7 +17,7 @@ export const Default: Story = {};
 
 export const WithInvalidCredential: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             login: {
                 username: 'johndoe'
             },
@@ -40,7 +40,7 @@ export const WithInvalidCredential: Story = {
 
 export const WithoutRegistration: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             realm: { registrationAllowed: false }
         }
     }
@@ -48,7 +48,7 @@ export const WithoutRegistration: Story = {
 
 export const WithoutRememberMe: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             realm: { rememberMe: false }
         }
     }
@@ -56,7 +56,7 @@ export const WithoutRememberMe: Story = {
 
 export const WithoutPasswordReset: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             realm: { resetPasswordAllowed: false }
         }
     }
@@ -64,7 +64,7 @@ export const WithoutPasswordReset: Story = {
 
 export const WithEmailAsUsername: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             realm: { loginWithEmailAllowed: false }
         }
     }
@@ -72,7 +72,7 @@ export const WithEmailAsUsername: Story = {
 
 export const WithPresetUsername: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             login: { username: 'max.mustermann@mail.com' }
         }
     }
@@ -80,7 +80,7 @@ export const WithPresetUsername: Story = {
 
 export const WithImmutablePresetUsername: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             auth: {
                 attemptedUsername: 'max.mustermann@mail.com',
                 showUsername: true
@@ -96,7 +96,7 @@ export const WithImmutablePresetUsername: Story = {
 
 export const WithSocialProviders: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             social: {
                 displayInfo: true,
                 providers: [
@@ -136,7 +136,7 @@ export const WithSocialProviders: Story = {
 
 export const WithoutPasswordField: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             realm: { password: false }
         }
     }
@@ -144,7 +144,7 @@ export const WithoutPasswordField: Story = {
 
 export const WithErrorMessage: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             message: {
                 summary:
                     'The time allotted for the connection has elapsed.<br/>The login process will restart from the beginning.',
@@ -156,7 +156,7 @@ export const WithErrorMessage: Story = {
 
 export const WithOneSocialProvider: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             social: {
                 displayInfo: true,
                 providers: [
@@ -175,7 +175,7 @@ export const WithOneSocialProvider: Story = {
 
 export const WithTwoSocialProviders: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             social: {
                 displayInfo: true,
                 providers: [
@@ -201,7 +201,7 @@ export const WithTwoSocialProviders: Story = {
 
 export const WithMoreThanTwoSocialProviders: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             social: {
                 displayInfo: true,
                 providers: [
@@ -241,7 +241,7 @@ export const WithMoreThanTwoSocialProviders: Story = {
 
 export const WithSocialProvidersAndWithoutRememberMe: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             social: {
                 displayInfo: true,
                 providers: [

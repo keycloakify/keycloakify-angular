@@ -18,7 +18,7 @@ export const Default: Story = {};
 
 export const WithMultipleAuthenticators: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             url: {
                 loginAction: '/mock-login-action'
             },
@@ -51,7 +51,7 @@ export const WithMultipleAuthenticators: Story = {
 
 export const WithSingleAuthenticator: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             url: {
                 loginAction: '/mock-login-action'
             },
@@ -75,7 +75,7 @@ export const WithSingleAuthenticator: Story = {
 
 export const WithErrorDuringAuthentication: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             url: {
                 loginAction: '/mock-login-action'
             },
@@ -103,7 +103,7 @@ export const WithErrorDuringAuthentication: Story = {
 
 export const WithJavaScriptDisabled: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             url: {
                 loginAction: '/mock-login-action'
             },

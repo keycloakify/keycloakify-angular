@@ -18,7 +18,7 @@ export const Default: Story = {};
 
 export const WithEmailAsUsername: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             realm: {
                 loginWithEmailAllowed: true,
                 registrationEmailAsUsername: true

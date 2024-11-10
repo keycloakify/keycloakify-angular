@@ -16,7 +16,7 @@ type Story = StoryObj<KcPageStory>;
 
 export const Default: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             applications: {
                 applications: [
                     {
@@ -72,7 +72,7 @@ export const Default: Story = {
 
 export const NoAvailableRolesOrGrants: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             applications: {
                 applications: [
                     {
@@ -95,7 +95,7 @@ export const NoAvailableRolesOrGrants: Story = {
 
 export const ConsentNotRequired: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             applications: {
                 applications: [
                     {
@@ -118,7 +118,7 @@ export const ConsentNotRequired: Story = {
 
 export const NoRolesButConsentRequired: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             applications: {
                 applications: [
                     {
@@ -141,7 +141,7 @@ export const NoRolesButConsentRequired: Story = {
 
 export const OnlyResourceRolesAvailable: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             applications: {
                 applications: [
                     {
@@ -173,8 +173,7 @@ export const OnlyResourceRolesAvailable: Story = {
 
 export const NoAdditionalGrants: Story = {
     globals: {
-        overrides: {
-            pageId: 'applications.ftl',
+        kcContext: {
             applications: {
                 applications: [
                     {

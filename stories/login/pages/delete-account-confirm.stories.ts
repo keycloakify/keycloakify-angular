@@ -17,7 +17,7 @@ export const Default: Story = {};
 
 export const WithAIAFlow: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             triggered_from_aia: true,
             url: { loginAction: '/login-action' }
         }
@@ -26,7 +26,7 @@ export const WithAIAFlow: Story = {
 
 export const WithoutAIAFlow: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             triggered_from_aia: false,
             url: { loginAction: '/login-action' }
         }
@@ -35,7 +35,7 @@ export const WithoutAIAFlow: Story = {
 
 export const WithCustomButtonStyle: Story = {
     globals: {
-        overrides: {
+        kcContext: {
             triggered_from_aia: true,
             url: { loginAction: '/login-action' }
         }

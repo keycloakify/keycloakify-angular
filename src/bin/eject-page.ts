@@ -17,7 +17,8 @@ import {
     relative as pathRelative,
     sep as pathSep,
     dirname as pathDirname,
-    posix as pathPosix
+    posix as pathPosix,
+    basename as pathBase
 } from 'path';
 import { assert, Equals } from 'tsafe/assert';
 import chalk from 'chalk';
@@ -127,20 +128,25 @@ export async function command(params: { buildContext: BuildContext }) {
                 componentDirRelativeToThemeTypePath_i
             );
 
+            const dirName = pathBase(destDirPath);
+            const tsFilePath = pathJoin(destDirPath, `${dirName}.component.ts`);
             if (fs.existsSync(destDirPath) && fs.readdirSync(destDirPath).length !== 0) {
-                if (
-                    componentDirRelativeToThemeTypePath_i ===
-                    componentDirRelativeToThemeTypePath
-                ) {
-                    console.log(
-                        `${pageIdOrComponent.split('.ftl')[0]} is already ejected, ${pathRelative(
-                            process.cwd(),
-                            destDirPath
-                        )} already exists`
-                    );
-                    process.exit(-1);
+                // Check if the directory contains a .ts file with the same name as the directory
+                if (fs.existsSync(tsFilePath)) {
+                    if (
+                        componentDirRelativeToThemeTypePath_i ===
+                        componentDirRelativeToThemeTypePath
+                    ) {
+                        console.log(
+                            `${pageIdOrComponent.split('.ftl')[0]} is already ejected, ${pathRelative(
+                                process.cwd(),
+                                destDirPath
+                            )} already exists and contains ${dirName}.ts`
+                        );
+                        process.exit(-1);
+                    }
+                    continue;
                 }
-                continue;
             }
 
             const localThemeTypeDirPath = pathJoin(

@@ -46,7 +46,7 @@ export class UserProfileFormFieldsComponent extends ComponentReference {
 
     formState$ = this.#userProfileFormService.formState$;
 
-    @ContentChild('beforField') beforeField: TemplateRef<unknown> | undefined;
+    @ContentChild('beforeField') beforeField: TemplateRef<unknown> | undefined;
     @ContentChild('afterField') afterField: TemplateRef<unknown> | undefined;
 
     onDispatch(formAction: FormAction) {

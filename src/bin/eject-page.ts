@@ -161,7 +161,11 @@ export async function command(params: { buildContext: BuildContext }) {
                     componentDirRelativeToThemeTypePath_i
                 ),
                 destDirPath,
-                transformSourceCode: async ({ filePath, sourceCode }) => {
+                transformSourceCode: async ({
+                    filePath,
+                    fileRelativePath,
+                    sourceCode
+                }) => {
                     if (!filePath.endsWith('.ts')) {
                         let modifiedSourceCode_str = sourceCode.toString('utf8');
 
@@ -171,7 +175,7 @@ export async function command(params: { buildContext: BuildContext }) {
                             }
 
                             modifiedSourceCode_str = await runPrettier({
-                                filePath,
+                                filePath: pathJoin(destDirPath, fileRelativePath),
                                 sourceCode: modifiedSourceCode_str
                             });
                         }
@@ -259,7 +263,7 @@ export async function command(params: { buildContext: BuildContext }) {
                         }
 
                         modifiedSourceCode_str = await runPrettier({
-                            filePath,
+                            filePath: pathJoin(destDirPath, fileRelativePath),
                             sourceCode: modifiedSourceCode_str
                         });
                     }

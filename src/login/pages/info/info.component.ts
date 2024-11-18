@@ -12,7 +12,7 @@ import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
 @Component({
     standalone: true,
     imports: [KcSanitizePipe],
-    selector: 'kc-ínfo',
+    selector: 'kc-info',
     templateUrl: 'info.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [

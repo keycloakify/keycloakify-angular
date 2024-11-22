@@ -1,5 +1,10 @@
 import { DOCUMENT } from '@angular/common';
-import { APP_INITIALIZER, LOCALE_ID, makeEnvironmentProviders } from '@angular/core';
+import {
+    LOCALE_ID,
+    makeEnvironmentProviders,
+    inject,
+    provideAppInitializer
+} from '@angular/core';
 import type { KcContext } from '@keycloakify/angular/account/KcContext';
 import { I18nService } from '@keycloakify/angular/account/services/i18n';
 import { ACCOUNT_CLASSES } from '@keycloakify/angular/account/tokens/classes';
@@ -32,10 +37,8 @@ export const provideKeycloakifyAngular = (config: KeycloakifyAngularAccountConfi
             },
             deps: [DOCUMENT]
         },
-        {
-            provide: APP_INITIALIZER,
-            multi: true,
-            useFactory: (i18nService: I18nService, kcContext: KcContext) => async () => {
+        provideAppInitializer(
+            ((i18nService: I18nService, kcContext: KcContext) => async () => {
                 const getI18n = config.getI18n;
 
                 const { i18n, prI18n_currentLanguage } = getI18n({
@@ -49,9 +52,8 @@ export const provideKeycloakifyAngular = (config: KeycloakifyAngularAccountConfi
                     i18nService.i18n = i18n;
                     return true;
                 });
-            },
-            deps: [I18nService, KC_ACCOUNT_CONTEXT]
-        },
+            })(inject(I18nService), inject(KC_ACCOUNT_CONTEXT))
+        ),
         {
             provide: ACCOUNT_I18N,
             useFactory: (i18nService: I18nService) => i18nService.i18n,

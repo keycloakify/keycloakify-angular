@@ -11,7 +11,6 @@ import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
 import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
 
 @Component({
-    standalone: true,
     imports: [KcClassDirective, NgClass],
     selector: 'kc-select-authenticator',
     templateUrl: 'select-authenticator.component.html',

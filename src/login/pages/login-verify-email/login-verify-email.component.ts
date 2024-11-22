@@ -10,7 +10,6 @@ import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
 import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
 
 @Component({
-    standalone: true,
     imports: [KcClassDirective],
     selector: 'kc-login-verify-email',
     templateUrl: 'login-verify-email.component.html',

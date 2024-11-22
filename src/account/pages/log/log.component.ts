@@ -11,7 +11,6 @@ import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css
 import type { ClassKey } from 'keycloakify/account';
 
 @Component({
-    standalone: true,
     imports: [KcClassDirective, NgClass, DatePipe],
     selector: 'kc-log',
     templateUrl: 'log.component.html',

@@ -10,7 +10,6 @@ import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
 import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
 
 @Component({
-    standalone: true,
     imports: [KcSanitizePipe],
     selector: 'kc-error',
     templateUrl: 'error.component.html',

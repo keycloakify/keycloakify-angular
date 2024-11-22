@@ -12,7 +12,6 @@ import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
 import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
 
 @Component({
-    standalone: true,
     imports: [KcClassDirective, PasswordWrapperComponent, KcSanitizePipe],
     selector: 'kc-login-password',
     templateUrl: 'login-password.component.html',

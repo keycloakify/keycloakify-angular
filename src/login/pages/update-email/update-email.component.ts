@@ -13,7 +13,6 @@ import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
 import { map } from 'rxjs';
 
 @Component({
-    standalone: true,
     imports: [KcClassDirective, NgComponentOutlet, LogoutOtherSessionsComponent],
     selector: 'kc-update-email',
     templateUrl: 'update-email.component.html',

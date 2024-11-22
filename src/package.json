@@ -1,5 +1,6 @@
 {
     "name": "@keycloakify/angular",
+    "type": "module",
     "version": "0.0.0",
     "peerDependencies": {
         "keycloakify": "^11.3.16",

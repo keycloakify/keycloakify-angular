@@ -41,6 +41,7 @@ export async function command(params: { buildContext: BuildContext }) {
                 case 'login':
                     return buildContext.implementedThemeTypes.login.isImplemented;
             }
+            // @ts-ignore
             assert<Equals<typeof themeType, never>>(false);
         });
 
@@ -84,6 +85,7 @@ export async function command(params: { buildContext: BuildContext }) {
                 case 'account':
                     return [templateValue, ...ACCOUNT_THEME_PAGE_IDS];
             }
+            // @ts-ignore
             assert<Equals<typeof themeType, never>>(false);
         })()
     }).catch(() => {

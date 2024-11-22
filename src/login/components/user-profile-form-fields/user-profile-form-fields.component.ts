@@ -16,7 +16,6 @@ import { DO_MAKE_USER_CONFIRM_PASSWORD } from '@keycloakify/angular/login/tokens
 import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
 
 @Component({
-    standalone: true,
     styles: [
         `
             :host {

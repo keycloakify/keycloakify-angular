@@ -12,7 +12,6 @@ import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
 import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
 
 @Component({
-    standalone: true,
     imports: [KcClassDirective, KcSanitizePipe, LogoutOtherSessionsComponent],
     selector: 'kc-login-config-totp',
     templateUrl: 'login-config-totp.component.html',

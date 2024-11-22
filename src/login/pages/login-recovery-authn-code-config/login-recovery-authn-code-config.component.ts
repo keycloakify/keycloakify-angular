@@ -12,7 +12,6 @@ import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
 import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
 
 @Component({
-    standalone: true,
     imports: [KcClassDirective, LogoutOtherSessionsComponent],
     selector: 'kc-login-recovery-authn-code-config',
     templateUrl: 'login-recovery-authn-code-config.component.html',

@@ -1,5 +1,10 @@
 import { DOCUMENT } from '@angular/common';
-import { APP_INITIALIZER, LOCALE_ID, makeEnvironmentProviders } from '@angular/core';
+import {
+    LOCALE_ID,
+    makeEnvironmentProviders,
+    inject,
+    provideAppInitializer
+} from '@angular/core';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import type { KcContext } from '@keycloakify/angular/login/KcContext';
 import { I18nService } from '@keycloakify/angular/login/services/i18n';
@@ -38,10 +43,8 @@ export const provideKeycloakifyAngular = (config: KeycloakifyAngularLoginConfig)
             },
             deps: [DOCUMENT]
         },
-        {
-            provide: APP_INITIALIZER,
-            multi: true,
-            useFactory: (i18nService: I18nService, kcContext: KcContext) => async () => {
+        provideAppInitializer(
+            ((i18nService: I18nService, kcContext: KcContext) => async () => {
                 const getI18n = config.getI18n;
 
                 const { i18n, prI18n_currentLanguage } = getI18n({
@@ -55,9 +58,8 @@ export const provideKeycloakifyAngular = (config: KeycloakifyAngularLoginConfig)
                     i18nService.i18n = i18n;
                     return true;
                 });
-            },
-            deps: [I18nService, KC_LOGIN_CONTEXT]
-        },
+            })(inject(I18nService), inject(KC_LOGIN_CONTEXT))
+        ),
         {
             provide: LOGIN_I18N,
             useFactory: (i18nService: I18nService) => i18nService.i18n,

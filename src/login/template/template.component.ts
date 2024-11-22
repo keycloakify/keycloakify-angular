@@ -33,7 +33,6 @@ import type { Observable } from 'rxjs';
 @Component({
     selector: 'kc-root',
     templateUrl: 'template.component.html',
-    standalone: true,
     imports: [AsyncPipe, KcSanitizePipe, NgTemplateOutlet, KcClassDirective],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [

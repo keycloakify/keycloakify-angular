@@ -7,7 +7,6 @@ import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n';
 import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
 
 @Component({
-    standalone: true,
     imports: [KcClassDirective],
     selector: 'kc-logout-confirm',
     templateUrl: 'logout-confirm.component.html',

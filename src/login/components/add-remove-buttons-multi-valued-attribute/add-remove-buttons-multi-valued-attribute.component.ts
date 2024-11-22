@@ -5,7 +5,6 @@ import { type Attribute } from 'keycloakify/login/KcContext';
 import type { I18n } from '@keycloakify/angular/login/i18n';
 
 @Component({
-    standalone: true,
     styles: [
         `
             :host {

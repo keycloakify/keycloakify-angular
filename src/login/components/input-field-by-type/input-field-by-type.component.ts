@@ -13,7 +13,6 @@ import { type Attribute } from 'keycloakify/login/KcContext';
 import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
 
 @Component({
-    standalone: true,
     styles: [
         `
             :host {

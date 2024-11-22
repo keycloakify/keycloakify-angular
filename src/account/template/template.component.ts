@@ -34,7 +34,6 @@ type ActiveType = 'account' | 'password' | 'totp' | 'social' | 'sessions' | 'app
 @Component({
     selector: 'kc-root',
     templateUrl: 'template.component.html',
-    standalone: true,
     imports: [AsyncPipe, KcSanitizePipe, KcClassDirective, NgClass],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [

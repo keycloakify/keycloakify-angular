@@ -15,7 +15,6 @@ import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
 import { map } from 'rxjs';
 
 @Component({
-    standalone: true,
     imports: [KcClassDirective, NgComponentOutlet],
     selector: 'kc-idp-review-user-profile',
     templateUrl: 'idp-review-user-profile.component.html',

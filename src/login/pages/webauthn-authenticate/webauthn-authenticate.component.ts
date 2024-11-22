@@ -13,7 +13,6 @@ import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
 import { type ClassKey, getKcClsx } from 'keycloakify/login/lib/kcClsx';
 
 @Component({
-    standalone: true,
     imports: [KcClassDirective, LogoutOtherSessionsComponent],
     selector: 'kc-webauthn-authenticate',
     templateUrl: 'webauthn-authenticate.component.html',

@@ -18,7 +18,6 @@ import { map } from 'rxjs';
 @Component({
     selector: 'kc-register',
     templateUrl: 'register.component.html',
-    standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [KcClassDirective, AsyncPipe, KcSanitizePipe, NgClass, NgComponentOutlet],
     providers: [

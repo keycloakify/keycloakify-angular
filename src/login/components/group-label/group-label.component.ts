@@ -10,7 +10,6 @@ import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
 import type { I18n } from '@keycloakify/angular/login/i18n';
 
 @Component({
-    standalone: true,
     styles: [
         `
             :host {

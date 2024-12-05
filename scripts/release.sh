@@ -95,6 +95,6 @@ fi
 
 if [ -n "$tag" ] || [ "$versionType" != "none" ]; then
   # Gotta push them all
-  # git push --follow-tags
+  git push --follow-tags
 fi
 

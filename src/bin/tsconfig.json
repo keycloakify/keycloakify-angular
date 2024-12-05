@@ -16,5 +16,8 @@
         "moduleResolution": "node"
     },
     "include": ["**/*.ts"],
-    "exclude": ["initialize-account-theme/boilerplate"]
+    "exclude": ["initialize-account-theme/boilerplate"],
+    "ts-node": {
+      "esm": true
+    }
 }

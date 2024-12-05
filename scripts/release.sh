@@ -15,18 +15,16 @@
 # minor=y
 # patch=z
 
-while getopts ":v:r:t" arg; do
+while getopts ":v:r" arg; do
   case $arg in
   v) versionType=$OPTARG ;;
   r) releaseType=$OPTARG ;;
-  t) tag=1 ;;
   *)
     printf "\n"
-    printf "%s -v [none|patch|minor|major] -r [rel] -d -t" "$0"
+    printf "%s -v [none|patch|minor|major] -r [rel]" "$0"
     printf "\n"
     printf "\n\t -v version type, default: none"
     printf "\n\t -r release type, default: rel"
-    printf "\n\t -t define if should tag and commit, default: false"
     printf "\n\n"
     exit 0
     ;;
@@ -75,26 +73,13 @@ fi
 # Using the package.json version
 version="$(jq -r '.version' "$(dirname "$0")/../package.json")"
 
-# changelog from tags only on release
-if [ "$versionType" != "none" ] && [ -z "$tag" ]; then
-  git add package.json yarn.lock
-  git commit -m "chore(version): 💯 bump version to $version"
-fi
-
-# Avoid tagging prerelease
-if [ -n "$tag" ]; then
+# changelog
+if [ "$versionType" != "none" ]; then
   rm CHANGELOG.md
   npm run changelog
-
-  git add package.json CHANGELOG.md
-  git commit -m "chore(release): 📦 release $version"
-
-  # Create an annotated tag
-  git tag -a "$version" -m "🏷️ Release $version"
-fi
-
-if [ -n "$tag" ] || [ "$versionType" != "none" ]; then
+  git add package.json yarn.lock CHANGELOG.md
+  git commit -m "chore(version): 💯 bump version to $version"
   # Gotta push them all
-  git push --follow-tags
+  git push
 fi
 

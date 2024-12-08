@@ -3,13 +3,13 @@
     "type": "module",
     "version": "0.0.0",
     "peerDependencies": {
-        "keycloakify": "^11.3.16",
-        "@angular/core": "^18.0.0",
-        "@angular/common": "^18.0.0",
-        "@angular/platform-browser": "^18.0.0"
+        "keycloakify": "^11.4.3",
+        "@angular/core": "^19.0.0",
+        "@angular/common": "^19.0.0",
+        "@angular/platform-browser": "^19.0.0"
     },
     "dependencies": {
-        "tsafe": "^1.8.1"
+        "tsafe": "^1.8.5"
     },
     "sideEffects": false,
     "publishConfig": {

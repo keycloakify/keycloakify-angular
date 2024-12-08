@@ -90,7 +90,7 @@ export async function command(params: { buildContext: BuildContext }) {
                     : []),
                 `                    },`,
                 `                ] = await Promise.all([`,
-                `                    import('@keycloakify/angular/login/providers/keycloakify-angular'),`,
+                `                    import('@keycloakify/angular/${themeType}/providers/keycloakify-angular'),`,
                 `                    import('./${themeType}/i18n'),`,
                 `                    import('./${themeType}/KcPage').then(({ getKcPage }) => getKcPage(kcContext.pageId)),`,
                 `                ] as const);`,

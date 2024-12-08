@@ -37,23 +37,23 @@ export const provideKeycloakifyAngular = (config: KeycloakifyAngularAccountConfi
             },
             deps: [DOCUMENT]
         },
-        provideAppInitializer(
-            ((i18nService: I18nService, kcContext: KcContext) => async () => {
-                const getI18n = config.getI18n;
+        provideAppInitializer(() => {
+            const i18nService: I18nService = inject(I18nService);
+            const kcContext: KcContext = inject(KC_ACCOUNT_CONTEXT);
+            const getI18n = config.getI18n;
 
-                const { i18n, prI18n_currentLanguage } = getI18n({
-                    kcContext
-                });
-                let i18nPromise = new Promise<typeof i18n>(resolve => resolve(i18n));
-                if (prI18n_currentLanguage) {
-                    i18nPromise = prI18n_currentLanguage;
-                }
-                return i18nPromise.then(i18n => {
-                    i18nService.i18n = i18n;
-                    return true;
-                });
-            })(inject(I18nService), inject(KC_ACCOUNT_CONTEXT))
-        ),
+            const { i18n, prI18n_currentLanguage } = getI18n({
+                kcContext
+            });
+            let i18nPromise = new Promise<typeof i18n>(resolve => resolve(i18n));
+            if (prI18n_currentLanguage) {
+                i18nPromise = prI18n_currentLanguage;
+            }
+            return i18nPromise.then(i18n => {
+                i18nService.i18n = i18n;
+                return true;
+            });
+        }),
         {
             provide: ACCOUNT_I18N,
             useFactory: (i18nService: I18nService) => i18nService.i18n,

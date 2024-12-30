@@ -33,13 +33,12 @@
 
 ## Using the library
 
-Don't it's not ready yet. Subscribe to alerts on the repo to get notified when it is.
+See [getting started](https://docs.keycloakify.dev/).
 
- Angular       | @keycloakify/angular  | Maintained
- ------------- | --------------------- | --------------------------
- 19            | 0.2.x+                | yes
- 18            | 0.1.8                 | no
-
+| Angular | @keycloakify/angular | Maintained |
+| ------- | -------------------- | ---------- |
+| 19      | 0.2.x+               | yes        |
+| 18      | 0.1.8                | no         |
 
 ## Contributing
 

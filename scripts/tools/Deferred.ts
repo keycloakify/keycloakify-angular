@@ -35,5 +35,5 @@ export namespace Deferred {
 }
 
 export class VoidDeferred extends Deferred<undefined> {
-    public declare readonly resolve: () => void;
+    declare public readonly resolve: () => void;
 }

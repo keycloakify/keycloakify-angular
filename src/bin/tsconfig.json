@@ -18,6 +18,6 @@
     "include": ["**/*.ts"],
     "exclude": ["initialize-account-theme/boilerplate"],
     "ts-node": {
-      "esm": true
+        "esm": true
     }
 }

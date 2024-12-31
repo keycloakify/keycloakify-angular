@@ -33,6 +33,8 @@
 
 ## Using the library
 
+Don't, it's not ready yet. Subscribe to notifications to know when it it.
+
 See [getting started](https://docs.keycloakify.dev/).
 
 | Angular | @keycloakify/angular | Maintained |

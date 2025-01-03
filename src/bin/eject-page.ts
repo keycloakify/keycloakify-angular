@@ -68,12 +68,14 @@ export async function command(params: { buildContext: BuildContext }) {
     const templateValue = 'template.ftl (Layout common to every page)';
     const userProfileFormFieldsValue =
         'user-profile-commons.ftl (Renders the form of the register.ftl, login-update-profile.ftl, update-email.ftl and idp-review-user-profile.ftl)';
+    const otherPageValue = "The page you're looking for isn't listed here";
 
     const { value: pageIdOrComponent } = await cliSelect<
         | LoginThemePageId
         | AccountThemePageId
         | typeof templateValue
         | typeof userProfileFormFieldsValue
+        | typeof otherPageValue
     >({
         values: (() => {
             switch (themeType) {
@@ -81,10 +83,11 @@ export async function command(params: { buildContext: BuildContext }) {
                     return [
                         templateValue,
                         userProfileFormFieldsValue,
-                        ...LOGIN_THEME_PAGE_IDS
+                        ...LOGIN_THEME_PAGE_IDS,
+                        otherPageValue
                     ];
                 case 'account':
-                    return [templateValue, ...ACCOUNT_THEME_PAGE_IDS];
+                    return [templateValue, ...ACCOUNT_THEME_PAGE_IDS, otherPageValue];
                 case 'admin':
                     return [];
             }
@@ -93,6 +96,17 @@ export async function command(params: { buildContext: BuildContext }) {
     }).catch(() => {
         process.exit(-1);
     });
+
+    if (pageIdOrComponent === otherPageValue) {
+        console.log(
+            [
+                'To style a page not included in the base Keycloak, such as one added by a third-party Keycloak extension,',
+                'refer to the documentation: https://docs.keycloakify.dev/features/styling-a-custom-page-not-included-in-base-keycloak'
+            ].join(' ')
+        );
+
+        process.exit(0);
+    }
 
     console.log(`→ ${pageIdOrComponent}`);
 

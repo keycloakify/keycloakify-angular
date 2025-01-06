@@ -1,3 +1,28 @@
+## [0.2.15](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.14...v0.2.15) (2025-01-06)
+
+
+### Reverts
+
+* Revert "back to lts node" ([f9787c3](https://github.com/keycloakify/keycloakify-angular/commit/f9787c3354e1efa0af865e6bfd00bdbec74fa35f))
+
+
+
+## [0.2.14](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.13...v0.2.14) (2025-01-03)
+
+
+
+## [0.2.13](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.12...v0.2.13) (2025-01-03)
+
+
+
+## [0.2.12](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.11...v0.2.12) (2024-12-30)
+
+
+
+## [0.2.11](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.10...v0.2.11) (2024-12-16)
+
+
+
 ## [0.2.10](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.9...v0.2.10) (2024-12-09)
 
 

@@ -8,7 +8,7 @@ import {
     SafeUrl
 } from '@angular/platform-browser';
 
-@Pipe({ name: 'kcSanitize', standalone: true })
+@Pipe({ name: 'kcSanitize' })
 export class KcSanitizePipe implements PipeTransform {
     #sanitizer = inject(DomSanitizer);
 

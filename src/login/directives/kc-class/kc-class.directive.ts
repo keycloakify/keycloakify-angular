@@ -34,7 +34,7 @@ type NgClassSupportedTypes =
     | null
     | undefined;
 
-@Directive({ selector: '[kcClass]', standalone: true })
+@Directive({ selector: '[kcClass]' })
 export class KcClassDirective implements DoCheck {
     private initialClasses: string[] = [];
     private rawClass: NgClassSupportedTypes;

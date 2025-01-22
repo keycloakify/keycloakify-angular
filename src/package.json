@@ -3,7 +3,7 @@
     "type": "module",
     "version": "0.0.0",
     "peerDependencies": {
-        "keycloakify": "^11.7.0",
+        "keycloakify": "^11.8.0",
         "@angular/core": "^19.0.0",
         "@angular/common": "^19.0.0",
         "@angular/platform-browser": "^19.0.0"

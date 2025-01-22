@@ -1,3 +1,7 @@
+## [0.2.16](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.15...v0.2.16) (2025-01-22)
+
+
+
 ## [0.2.15](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.14...v0.2.15) (2025-01-06)
 
 

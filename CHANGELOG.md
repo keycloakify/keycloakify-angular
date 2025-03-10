@@ -1,3 +1,17 @@
+## [0.2.18](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.17...v0.2.18) (2025-03-10)
+
+
+### Bug Fixes
+
+* error message display ([6d7c80a](https://github.com/keycloakify/keycloakify-angular/commit/6d7c80a16db324ac53cf3f800c7133526a673e7e))
+
+
+### Features
+
+* update dependencies ([a54c508](https://github.com/keycloakify/keycloakify-angular/commit/a54c508fe26509ca685589480f4a1636e5441397))
+
+
+
 ## [0.2.17](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.16...v0.2.17) (2025-01-22)
 
 

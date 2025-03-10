@@ -40,7 +40,7 @@ export class RegisterComponent extends ComponentReference {
 
     displayRequiredFields = false;
     displayInfo = false;
-    displayMessage: boolean = !this.kcContext?.messagesPerField?.existsError('global');
+    displayMessage: boolean = this.kcContext?.messagesPerField?.existsError('global');
 
     headerNode = viewChild<TemplateRef<HTMLElement>>('headerNode');
     infoNode = viewChild<TemplateRef<HTMLElement>>('infoNode');

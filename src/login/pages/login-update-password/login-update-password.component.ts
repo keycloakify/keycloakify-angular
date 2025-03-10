@@ -36,7 +36,7 @@ export class LoginUpdatePasswordComponent extends ComponentReference {
 
     displayRequiredFields = false;
     displayInfo = false;
-    displayMessage = !this.kcContext.messagesPerField.existsError('password', 'password-confirm');
+    displayMessage = this.kcContext.messagesPerField.existsError('password', 'password-confirm');
 
     headerNode = viewChild<TemplateRef<HTMLElement>>('headerNode');
     infoNode = viewChild<TemplateRef<HTMLElement>>('infoNode');

@@ -38,7 +38,7 @@ export class IdpReviewUserProfileComponent extends ComponentReference {
 
     displayRequiredFields = true;
     displayInfo = false;
-    displayMessage = !this.kcContext?.messagesPerField?.existsError('global');
+    displayMessage = this.kcContext?.messagesPerField?.existsError('global');
 
     headerNode = viewChild<TemplateRef<HTMLElement>>('headerNode');
     infoNode = viewChild<TemplateRef<HTMLElement>>('infoNode');

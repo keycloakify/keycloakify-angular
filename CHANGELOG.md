@@ -1,3 +1,17 @@
+## [0.2.19](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.18...v0.2.19) (2025-03-14)
+
+
+### Bug Fixes
+
+* issue 38029 ([4a99ec3](https://github.com/keycloakify/keycloakify-angular/commit/4a99ec3df691de2b947af960660387044861443f))
+
+
+### Features
+
+* add eslint for better maintenability ([bba8b37](https://github.com/keycloakify/keycloakify-angular/commit/bba8b37d6510d73909a06d3c20cfc22144ed8d16))
+
+
+
 ## [0.2.18](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.17...v0.2.18) (2025-03-10)
 
 

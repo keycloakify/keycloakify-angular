@@ -1,4 +1,4 @@
-import { AsyncPipe, NgClass, NgTemplateOutlet } from '@angular/common';
+import { AsyncPipe, NgClass } from '@angular/common';
 import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
@@ -8,8 +8,6 @@ import {
     forwardRef,
     inject,
     input,
-    OnInit,
-    output,
     Renderer2,
     Type,
     viewChild,

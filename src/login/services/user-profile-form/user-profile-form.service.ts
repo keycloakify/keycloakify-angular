@@ -144,7 +144,7 @@ export class UserProfileFormService implements OnDestroy {
                         attribute: formFieldState_reactless.attribute,
                         valueOrValues: formFieldState_reactless.valueOrValues,
                         displayableErrors: formFieldState_reactless.displayableErrors.map(
-                            (formFieldError_reactless, i) => ({
+                            formFieldError_reactless => ({
                                 errorMessage: this.#domSanitizer.bypassSecurityTrustHtml(
                                     this.#i18n.advancedMsgStr(
                                         ...formFieldError_reactless.advancedMsgArgs

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/consistent-indexed-object-style */
+
 import {
     Directive,
     DoCheck,
@@ -44,19 +44,17 @@ export class KcClassDirective implements DoCheck {
     readonly #renderer = inject(Renderer2);
     readonly #el = inject(ElementRef);
     readonly #host = inject(ComponentReference);
-    // eslint-disable-next-line @angular-eslint/no-input-rename
+
     @Input('class')
     set klass(value: string) {
         this.initialClasses = value != null ? value.trim().split(/\s+/) : [];
     }
 
-    // eslint-disable-next-line @angular-eslint/no-input-rename
     @Input('ngClass')
     set ngClass(value: string | NgClassSupportedTypes) {
         this.rawClass = typeof value === 'string' ? value.trim().split(/\s+/) : value;
     }
 
-    // eslint-disable-next-line @angular-eslint/no-input-rename
     @Input('kcClass')
     set kcClass(value: ClassKey | KcClassSupportedTypes) {
         this.rawKcClass =

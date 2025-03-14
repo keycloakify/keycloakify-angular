@@ -12,7 +12,7 @@ import type { ClassKey } from 'keycloakify/account';
 
 @Component({
     imports: [KcClassDirective, NgClass],
-    selector: 'kc-federatedIdentity',
+    selector: 'kc-federated-identity',
     templateUrl: 'federatedIdentity.component.html',
     providers: [
         {

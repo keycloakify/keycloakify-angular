@@ -14,6 +14,7 @@ import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n';
 import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
 import { DO_MAKE_USER_CONFIRM_PASSWORD } from '@keycloakify/angular/login/tokens/make-user-confirm-password';
 import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
+import { map } from 'rxjs';
 
 @Component({
     styles: [
@@ -44,6 +45,7 @@ export class UserProfileFormFieldsComponent extends ComponentReference {
     override classes = inject<Partial<Record<ClassKey, string>>>(LOGIN_CLASSES);
 
     formState$ = this.#userProfileFormService.formState$;
+    xAttributeLocale$ = this.formState$.pipe(map(s => s.formFieldStates.find(x => x.attribute.name === 'locale')));
 
     @ContentChild('beforeField') beforeField: TemplateRef<unknown> | undefined;
     @ContentChild('afterField') afterField: TemplateRef<unknown> | undefined;

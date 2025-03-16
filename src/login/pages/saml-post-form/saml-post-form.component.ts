@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, forwardRef, inject, type TemplateRef, viewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, forwardRef, inject, type TemplateRef, viewChild } from '@angular/core';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
 import type { I18n } from '@keycloakify/angular/login/i18n';
@@ -37,7 +37,7 @@ export class SamlPostFormComponent extends ComponentReference implements AfterVi
     headerNode = viewChild<TemplateRef<HTMLElement>>('headerNode');
     infoNode = viewChild<TemplateRef<HTMLElement>>('infoNode');
     socialProvidersNode = viewChild<TemplateRef<HTMLElement>>('socialProvidersNode');
-    htmlFormElement = viewChild<HTMLFormElement>('setHtmlFormElement');
+    htmlFormElement = viewChild<ElementRef<HTMLFormElement>>('setHtmlFormElement');
 
     ngAfterViewInit(): void {
         if (this.htmlFormElement() === null || this.htmlFormElement() === undefined) {
@@ -49,6 +49,6 @@ export class SamlPostFormComponent extends ComponentReference implements AfterVi
             return;
         }
 
-        this.htmlFormElement()!.submit();
+        this.htmlFormElement()!.nativeElement.submit();
     }
 }

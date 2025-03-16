@@ -300,65 +300,69 @@ export async function command(params: { buildContext: BuildContext }) {
         }
     }
 
-    edit_KcPage: {
+    edit_KcFiles: {
         if (
             pageIdOrComponent !== templateValue &&
             pageIdOrComponent !== userProfileFormFieldsValue
         ) {
-            break edit_KcPage;
+            break edit_KcFiles;
         }
 
-        const kcAppTsFilePath = pathJoin(
-            buildContext.themeSrcDirPath,
-            themeType,
-            'KcPage.ts'
-        );
+        const filesToProcess = ['KcPage.ts', 'KcPageStory.ts'];
 
-        const kcAppTsCode = fs.readFileSync(kcAppTsFilePath).toString('utf8');
+        for (let fileName of filesToProcess) {
+            const filePath = pathJoin(buildContext.themeSrcDirPath, themeType, fileName);
 
-        const modifiedKcAppTsCode = await (async () => {
-            const componentRelativeDirPath_posix = componentDirRelativeToThemeTypePath
-                .split(pathSep)
-                .join('/');
-
-            let sourceCode = kcAppTsCode.replace(
-                `@keycloakify/angular/${themeType}/${componentRelativeDirPath_posix}`,
-                componentRelativeDirPath_posix_to_componentRelativeFilePath_posix({
-                    componentRelativeDirPath_posix: `./${componentRelativeDirPath_posix}`
-                })
-            );
-
-            run_prettier: {
-                if (!(await getIsPrettierAvailable())) {
-                    break run_prettier;
-                }
-
-                sourceCode = await runPrettier({
-                    filePath: kcAppTsFilePath,
-                    sourceCode
-                });
+            if (!fs.existsSync(filePath)) {
+                console.log(chalk.yellow(`${fileName} not found, skipping`));
+                continue;
             }
 
-            return sourceCode;
-        })();
+            const originalCode = fs.readFileSync(filePath).toString('utf8');
 
-        if (modifiedKcAppTsCode === kcAppTsCode) {
+            const modifiedCode = await (async () => {
+                const componentRelativeDirPath_posix = componentDirRelativeToThemeTypePath
+                    .split(pathSep)
+                    .join('/');
+
+                let sourceCode = originalCode.replace(
+                    `@keycloakify/angular/${themeType}/${componentRelativeDirPath_posix}`,
+                    componentRelativeDirPath_posix_to_componentRelativeFilePath_posix({
+                        componentRelativeDirPath_posix: `./${componentRelativeDirPath_posix}`
+                    })
+                );
+
+                run_prettier: {
+                    if (!(await getIsPrettierAvailable())) {
+                        break run_prettier;
+                    }
+
+                    sourceCode = await runPrettier({
+                        filePath,
+                        sourceCode
+                    });
+                }
+
+                return sourceCode;
+            })();
+
+            if (modifiedCode === originalCode) {
+                console.log(
+                    chalk.red(
+                        `Unable to automatically update ${fileName}, please update it manually`
+                    )
+                );
+                continue;
+            }
+
+            fs.writeFileSync(filePath, Buffer.from(modifiedCode, 'utf8'));
+
             console.log(
-                chalk.red(
-                    'Unable to automatically update KcPage.ts, please update it manually'
-                )
+                `${chalk.green('✓')} ${chalk.bold(
+                    `.${pathSep}${pathRelative(process.cwd(), filePath)}`
+                )} Updated`
             );
-            return;
         }
-
-        fs.writeFileSync(kcAppTsFilePath, Buffer.from(modifiedKcAppTsCode, 'utf8'));
-
-        console.log(
-            `${chalk.green('✓')} ${chalk.bold(
-                `.${pathSep}` + pathRelative(process.cwd(), kcAppTsFilePath)
-            )} Updated`
-        );
-
         return;
     }
 

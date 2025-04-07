@@ -36,7 +36,7 @@ export class LoginComponent extends ComponentReference {
 
     displayRequiredFields = false;
     displayInfo = !!this.kcContext?.realm?.password && !!this.kcContext?.realm?.registrationAllowed && !this.kcContext?.registrationDisabled;
-    displayMessage = this.kcContext?.messagesPerField?.existsError('username', 'password');
+    displayMessage = !this.kcContext?.messagesPerField?.existsError('username', 'password');
 
     headerNode = viewChild<TemplateRef<HTMLElement>>('headerNode');
     infoNode = viewChild<TemplateRef<HTMLElement>>('infoNode');

@@ -6,7 +6,7 @@
     <br>
     <br>
     <a href="https://github.com/keycloakify/keycloakify-angular/actions">
-      <img src="https://github.com/keycloakify/keycloakify/workflows/ci/badge.svg?branch=main">
+      <img src="https://github.com/keycloakify/keycloakify-angular/actions/workflows/ci.yaml/badge.svg">
     </a>
     <a href="https://www.npmjs.com/package/@keycloakify/angular">
       <img src="https://img.shields.io/npm/dm/@keycloakify/angular">

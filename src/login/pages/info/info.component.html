@@ -22,8 +22,7 @@
                 >
                 </a>
             </p>
-        }
-        @if (actionUri) {
+        } @else if (actionUri) {
             <p>
                 <a
                     [href]="actionUri"
@@ -31,8 +30,7 @@
                 >
                 </a>
             </p>
-        }
-        @if (client.baseUrl) {
+        } @else if (client.baseUrl) {
             <p>
                 <a
                     [href]="client.baseUrl"

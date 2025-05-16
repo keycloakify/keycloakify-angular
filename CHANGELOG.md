@@ -1,3 +1,30 @@
+## [0.2.23](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.22...v0.2.23) (2025-05-16)
+
+
+### Bug Fixes
+
+* input type hidden ([0702538](https://github.com/keycloakify/keycloakify-angular/commit/0702538701d8c30fb1a46dfe201c67e9eaff9657))
+
+
+
+## [0.2.22](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.21...v0.2.22) (2025-04-09)
+
+
+
+## [0.2.21](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.20...v0.2.21) (2025-03-16)
+
+
+### Bug Fixes
+
+* eject-script ([ae5d44b](https://github.com/keycloakify/keycloakify-angular/commit/ae5d44b600c3b814170ddc589d0c57edf0333907))
+* saml-post-form submit ([11ed5a7](https://github.com/keycloakify/keycloakify-angular/commit/11ed5a710970a621fc539efac46dbf0b016bac67))
+
+
+
+## [0.2.20](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.19...v0.2.20) (2025-03-16)
+
+
+
 ## [0.2.19](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.18...v0.2.19) (2025-03-14)
 
 

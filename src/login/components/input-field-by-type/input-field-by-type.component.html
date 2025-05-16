@@ -2,6 +2,13 @@
 @if (attr) {
     @let type = attr.annotations.inputType;
     @switch (type) {
+        @case ('hidden') {
+            <input
+                type="hidden"
+                [name]="attr.name"
+                [value]="$any(valueOrValues())"
+            />
+        }
         @case ('textarea') {
             <kc-textarea-tag
                 [attribute]="attribute()"

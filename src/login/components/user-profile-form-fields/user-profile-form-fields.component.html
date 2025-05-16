@@ -19,7 +19,12 @@
 
         <div
             [kcClass]="'kcFormGroupClass'"
-            [style.display]="fieldState.attribute.name === 'password-confirm' && !doMakeUserConfirmPassword ? 'none' : 'block'"
+            [style.display]="
+                fieldState.attribute.annotations.inputType === 'hidden' ||
+                (fieldState.attribute.name === 'password-confirm' && !doMakeUserConfirmPassword)
+                    ? 'none'
+                    : 'block'
+            "
         >
             <div [kcClass]="'kcLabelWrapperClass'">
                 <label
@@ -78,13 +83,5 @@
                 <!-- NOTE: Downloading of html5DataAnnotations scripts is done in the useUserProfileForm hook -->
             </div>
         </div>
-    }
-    <!-- See: https://github.com/keycloak/keycloak/issues/38029 -->
-    @if (kcContext.locale !== undefined && xAttributeLocale === undefined) {
-        <input
-            type="hidden"
-            name="locale"
-            [value]="i18n.currentLanguage.languageTag"
-        />
     }
 }

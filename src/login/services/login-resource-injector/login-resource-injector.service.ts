@@ -63,7 +63,7 @@ export class LoginResourceInjectorService {
                 id: 'authenticationSession',
                 textContent: `
         import { checkCookiesAndSetTimer } from "${this.kcContext.url.resourcesPath}/js/authChecker.js";
-          
+
         checkCookiesAndSetTimer(
             "${this.kcContext.url.ssoLoginInOtherTabsUrl}"
         );`

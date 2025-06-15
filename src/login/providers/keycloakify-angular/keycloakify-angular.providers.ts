@@ -1,9 +1,9 @@
-import { DOCUMENT } from '@angular/common';
 import {
     LOCALE_ID,
     makeEnvironmentProviders,
     inject,
-    provideAppInitializer
+    provideAppInitializer,
+    DOCUMENT
 } from '@angular/core';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import type { KcContext } from '@keycloakify/angular/login/KcContext';

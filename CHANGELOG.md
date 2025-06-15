@@ -1,8 +1,13 @@
+# [20.0.0](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.24...v20.0.0) (2025-06-15)
+
+
+
 ## [0.2.24](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.23...v0.2.24) (2025-05-18)
 
 
 ### Bug Fixes
 
+* changelog ([f2a19d7](https://github.com/keycloakify/keycloakify-angular/commit/f2a19d742afd0a58a75cec60983c88dc5fbdcc9c))
 * match info.ftl template ([0f45efc](https://github.com/keycloakify/keycloakify-angular/commit/0f45efc259fc17cd711ee9c1360d66980144eeb0))
 
 

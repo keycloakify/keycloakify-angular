@@ -1,9 +1,9 @@
-import { DOCUMENT } from '@angular/common';
 import {
     LOCALE_ID,
     makeEnvironmentProviders,
     inject,
-    provideAppInitializer
+    provideAppInitializer,
+    DOCUMENT
 } from '@angular/core';
 import type { KcContext } from '@keycloakify/angular/account/KcContext';
 import { I18nService } from '@keycloakify/angular/account/services/i18n';

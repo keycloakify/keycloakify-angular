@@ -37,7 +37,8 @@ See [getting started](https://docs.keycloakify.dev/).
 
 | Angular | @keycloakify/angular | Maintained |
 | ------- | -------------------- | ---------- |
-| 19      | 0.2.x+               | yes        |
+| 20      | 20.0.x+              | yes        |
+| 19      | 0.2.x+               | no         |
 | 18      | 0.1.8                | no         |
 
 ## Contributing

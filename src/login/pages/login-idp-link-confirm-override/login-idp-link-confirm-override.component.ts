@@ -27,7 +27,7 @@ export class LoginIdpLinkConfirmOverrideComponent extends ComponentReference {
 
     displayRequiredFields = false;
     displayInfo = false;
-    displayMessage = this.kcContext.messagesPerField.existsError('totp', 'userLabel');
+    displayMessage = !this.kcContext.messagesPerField.existsError('totp', 'userLabel');
 
     headerNode = viewChild<TemplateRef<HTMLElement>>('headerNode');
     infoNode = viewChild<TemplateRef<HTMLElement>>('infoNode');

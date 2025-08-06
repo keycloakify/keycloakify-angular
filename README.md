@@ -25,9 +25,9 @@
         -
         <a href="https://docs.keycloakify.dev">Documentation</a>
         -
-        <a href="https://github.com/keycloakify/keycloakify-starter-angular-vite">Starter Project Vite (Recommended)</a>
+        <a href="https://github.com/keycloakify/keycloakify-starter-angular-vite">Starter Project Vite</a>
         -
-        <a href="https://github.com/keycloakify/keycloakify-starter-angular-webpack">Starter Project Webpack</a>
+        <a href="https://github.com/keycloakify/keycloakify-starter-angular-webpack">Starter Project native Angular</a>
     </p>
 </p>
 

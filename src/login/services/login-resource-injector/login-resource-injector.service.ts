@@ -61,12 +61,14 @@ export class LoginResourceInjectorService {
             {
                 type: 'module',
                 id: 'authenticationSession',
-                textContent: `
-        import { checkCookiesAndSetTimer } from "${this.kcContext.url.resourcesPath}/js/authChecker.js";
-          
-        checkCookiesAndSetTimer(
-            "${this.kcContext.url.ssoLoginInOtherTabsUrl}"
-        );`
+                textContent: [
+                    `import { startSessionPolling, checkAuthSession } from "${this.kcContext.url.resourcesPath}/js/authChecker.js";`,
+                    ``,
+                    `startSessionPolling("${this.kcContext.url.ssoLoginInOtherTabsUrl}");`,
+                    this.kcContext.authenticationSession === undefined
+                        ? ''
+                        : `checkAuthSession("${this.kcContext.authenticationSession.authSessionIdHash}");`
+                ].join('\n')
             }
         ];
         this.insertAdditionalScripts(scripts);

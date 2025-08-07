@@ -51,6 +51,6 @@ export class RegisterComponent extends ComponentReference {
     userProfileFormFields = input<Type<UserProfileFormFieldsComponent>>();
 
     onCallback() {
-        (document.getElementById('kc-register-form') as HTMLFormElement).submit();
+        (document.getElementById('kc-register-form') as HTMLFormElement).requestSubmit();
     }
 }

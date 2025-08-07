@@ -49,6 +49,6 @@ export class SamlPostFormComponent extends ComponentReference implements AfterVi
             return;
         }
 
-        this.htmlFormElement()!.nativeElement.submit();
+        this.htmlFormElement()!.nativeElement.requestSubmit();
     }
 }

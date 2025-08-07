@@ -48,6 +48,6 @@ export class IdpReviewUserProfileComponent extends ComponentReference {
     isFormSubmittable = toSignal(this.#userProfileFormService.formState$.pipe(map(s => s.isFormSubmittable)), { initialValue: false });
 
     onCallback() {
-        (document.getElementById('kc-register-form') as HTMLFormElement).submit();
+        (document.getElementById('kc-register-form') as HTMLFormElement).requestSubmit();
     }
 }

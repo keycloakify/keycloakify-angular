@@ -110,7 +110,7 @@ export class TemplateComponent extends ComponentReference {
     }
 
     tryAnotherWay() {
-        document.forms['kc-select-try-another-way-form' as never].submit();
+        document.forms['kc-select-try-another-way-form' as never].requestSubmit();
     }
 
     onComponentCreated(compRef: object) {

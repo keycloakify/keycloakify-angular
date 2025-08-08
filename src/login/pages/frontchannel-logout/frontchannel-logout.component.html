@@ -5,17 +5,18 @@
 </ng-template>
 <p>{{ i18n.msgStr('frontchannel-logout.message') }}</p>
 <ul>
-    @for (client of logout.clients; track client.name; let idx = $index) {
+    @for (client of logout.clients; track client.name) {
         <li>
             {{ client.name }}
             <iframe
                 style="display: none"
                 [src]="client.frontChannelLogoutUrl | kcSanitize: 'resourceUrl'"
+                (load)="onIframeLoaded()"
             ></iframe>
         </li>
     }
 </ul>
-@if (logout.logoutRedirectUri) {
+@if (logout.logoutRedirectUri !== undefined) {
     <a
         id="continue"
         class="btn btn-primary"

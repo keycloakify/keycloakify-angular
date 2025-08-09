@@ -1,5 +1,17 @@
-import { AsyncPipe, NgClass, NgComponentOutlet } from '@angular/common';
-import { ChangeDetectionStrategy, Component, forwardRef, inject, input, signal, type TemplateRef, Type, viewChild } from '@angular/core';
+import { NgComponentOutlet } from '@angular/common';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    forwardRef,
+    inject,
+    input,
+    OnDestroy,
+    OnInit,
+    signal,
+    type TemplateRef,
+    Type,
+    viewChild
+} from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { KcSanitizePipe } from '@keycloakify/angular/lib/pipes/kc-sanitize';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
@@ -19,7 +31,7 @@ import { map } from 'rxjs';
     selector: 'kc-register',
     templateUrl: 'register.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [KcClassDirective, AsyncPipe, KcSanitizePipe, NgClass, NgComponentOutlet],
+    imports: [KcClassDirective, KcSanitizePipe, NgComponentOutlet],
     providers: [
         {
             provide: ComponentReference,
@@ -27,7 +39,7 @@ import { map } from 'rxjs';
         }
     ]
 })
-export class RegisterComponent extends ComponentReference {
+export class RegisterComponent extends ComponentReference implements OnInit, OnDestroy {
     #userProfileFormService = inject(UserProfileFormService);
     kcContext = inject<Extract<KcContext, { pageId: 'register.ftl' }>>(KC_LOGIN_CONTEXT);
     i18n = inject<I18n>(LOGIN_I18N);
@@ -50,7 +62,15 @@ export class RegisterComponent extends ComponentReference {
     areTermsAccepted = signal(false);
     userProfileFormFields = input<Type<UserProfileFormFieldsComponent>>();
 
-    onCallback() {
-        (document.getElementById('kc-register-form') as HTMLFormElement).requestSubmit();
+    ngOnInit(): void {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (window as any)['onSubmitRecaptcha'] = () => {
+            // @ts-expect-error
+            document.getElementById('kc-register-form').requestSubmit();
+        };
+    }
+    ngOnDestroy(): void {
+        // eslint-disable-next-line
+        delete (window as any)['onSubmitRecaptcha'];
     }
 }

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, forwardRef, inject, OnInit, type TemplateRef, viewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, type TemplateRef, viewChild, signal, effect } from '@angular/core';
 import { KcSanitizePipe } from '@keycloakify/angular/lib/pipes/kc-sanitize';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
@@ -21,7 +21,7 @@ import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
         }
     ]
 })
-export class FrontchannelLogoutComponent extends ComponentReference implements OnInit {
+export class FrontchannelLogoutComponent extends ComponentReference {
     kcContext = inject<Extract<KcContext, { pageId: 'frontchannel-logout.ftl' }>>(KC_LOGIN_CONTEXT);
     i18n = inject<I18n>(LOGIN_I18N);
 
@@ -39,9 +39,23 @@ export class FrontchannelLogoutComponent extends ComponentReference implements O
     infoNode = viewChild<TemplateRef<HTMLElement>>('infoNode');
     socialProvidersNode = viewChild<TemplateRef<HTMLElement>>('socialProvidersNode');
 
-    ngOnInit(): void {
-        if (this.kcContext.logout.logoutRedirectUri) {
-            window.location.replace(this.kcContext.logout.logoutRedirectUri);
-        }
+    readonly iframeLoadCount = signal(0);
+
+    constructor() {
+        super();
+        effect(() => {
+            const logout = this.kcContext.logout;
+            if (!logout.logoutRedirectUri) {
+                return;
+            }
+            if (this.iframeLoadCount() !== logout.clients.length) {
+                return;
+            }
+            window.location.replace(logout.logoutRedirectUri);
+        });
+    }
+
+    onIframeLoaded() {
+        this.iframeLoadCount.update(count => count + 1);
     }
 }

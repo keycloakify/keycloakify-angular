@@ -93,7 +93,7 @@
                     type="submit"
                     [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                     [attr.data-sitekey]="recaptchaSiteKey"
-                    [attr.data-callback]="onCallback"
+                    data-callback="onSubmitRecaptcha"
                     [attr.data-action]="recaptchaAction"
                 >
                     {{ i18n.msgStr('doRegister') }}

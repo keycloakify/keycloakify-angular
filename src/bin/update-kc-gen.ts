@@ -122,11 +122,11 @@ export async function command(params: { buildContext: BuildContext }) {
                     : []),
                 `                });`,
                 `            }`,
-                `            break;`,
-                `          default:`,
-                `            throw new Error('wrong themeType');`
+                `            break;`
             ])
             .flat(),
+        `      default:`,
+        `        throw new Error('wrong themeType');`,
         `    }`,
         ``,
         `    return appRef;`,

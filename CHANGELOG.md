@@ -1,3 +1,12 @@
+## [20.1.4](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.3...v20.1.4) (2025-08-12)
+
+
+### Bug Fixes
+
+* default case position ([ce488d1](https://github.com/keycloakify/keycloakify-angular/commit/ce488d19f147f4d7bda461abddd21e79e5c37358))
+
+
+
 ## [20.1.3](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.2...v20.1.3) (2025-08-12)
 
 

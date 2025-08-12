@@ -1,4 +1,25 @@
-## [20.0.2](https://github.com/keycloakify/keycloakify-angular/compare/v20.0.0...v20.0.2) (2025-07-24)
+## [20.1.3](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.2...v20.1.3) (2025-08-12)
+
+
+### Features
+
+* make bootstrapKcApplication return appRef ([27278b7](https://github.com/keycloakify/keycloakify-angular/commit/27278b78c905457209b44c9c17b4fccdaff13249))
+
+
+
+## [20.1.2](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.1...v20.1.2) (2025-08-10)
+
+
+
+## [20.1.1](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.0...v20.1.1) (2025-08-09)
+
+
+
+# [20.1.0](https://github.com/keycloakify/keycloakify-angular/compare/v20.0.2...v20.1.0) (2025-08-07)
+
+
+
+## [20.0.2](https://github.com/keycloakify/keycloakify-angular/compare/v20.0.1...v20.0.2) (2025-07-24)
 
 
 ### Bug Fixes

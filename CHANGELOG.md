@@ -1,3 +1,12 @@
+## [20.1.5](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.4...v20.1.5) (2025-08-15)
+
+
+### Bug Fixes
+
+* input attributes and wrong/missing autocompletes ([b2b4e08](https://github.com/keycloakify/keycloakify-angular/commit/b2b4e08f2b6a99b770d27fbda16f097952605a75)), closes [#37](https://github.com/keycloakify/keycloakify-angular/issues/37)
+
+
+
 ## [20.1.4](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.3...v20.1.4) (2025-08-12)
 
 

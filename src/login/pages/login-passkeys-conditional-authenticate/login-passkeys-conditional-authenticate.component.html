@@ -77,7 +77,7 @@
                 <input
                     type="hidden"
                     name="authn_use_chk"
-                    readOnly
+                    readonly
                     [value]="authenticator.credentialId"
                 />
             }
@@ -163,8 +163,8 @@
                             id="username"
                             name="username"
                             type="text"
-                            autoFocus
-                            autoComplete="off"
+                            autofocus
+                            autocomplete="username webauthn"
                             [attr.aria-invalid]="messagesPerField.existsError('username')"
                             [kcClass]="'kcInputClass'"
                             [value]="login.username ?? ''"
@@ -189,7 +189,7 @@
                 <input
                     id="authButtonId"
                     type="button"
-                    autoFocus
+                    autofocus
                     [value]="i18n.msgStr('passkey-doAuthenticate')"
                     [kcClass]="['kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
                 />

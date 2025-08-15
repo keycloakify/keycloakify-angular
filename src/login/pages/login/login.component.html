@@ -102,6 +102,7 @@
                             name="username"
                             type="text"
                             autofocus
+                            autocomplete="username"
                             [kcClass]="'kcInputClass'"
                             [defaultValue]="login?.username || ''"
                             [attr.aria-invalid]="messagesPerField?.existsError('username', 'password')"
@@ -132,7 +133,7 @@
                             id="password"
                             name="password"
                             type="password"
-                            autocomplete="off"
+                            autocomplete="current-password"
                             [kcClass]="'kcInputClass'"
                             [attr.aria-invalid]="messagesPerField.existsError('username', 'password')"
                         />

@@ -14,6 +14,9 @@
     <a href="https://github.com/keycloakify/keycloakify/blob/main/LICENSE">
       <img src="https://img.shields.io/npm/l/@keycloakify/angular">
     </a>
+    <a href="#contributors">
+      <img src="https://img.shields.io/github/all-contributors/keycloakify/keycloakify-angular?color=ee8449">
+    </a>
     <p align="center">
       Check out our discord server!<br/>
       <a href="https://discord.gg/mJdYJSdcm4">
@@ -57,3 +60,27 @@ yarn link-in-starter # When prompted select the starter you want to link into
 # At this point you can navigate to the starter you've picked.
 # The changes in the library will be reflected live in the starter.
 ```
+
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/kathari00"><img src="https://avatars.githubusercontent.com/u/42547712?v=4?s=100" width="100px;" alt="Katharina E."/><br /><sub><b>Katharina E.</b></sub></a><br /><a href="https://github.com/keycloakify/keycloakify-angular/commits?author=kathari00" title="Code">💻</a> <a href="https://github.com/keycloakify/keycloakify-angular/commits?author=kathari00" title="Tests">⚠️</a> <a href="https://github.com/keycloakify/keycloakify-angular/commits?author=kathari00" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/luca-peruzzo"><img src="https://avatars.githubusercontent.com/u/69015314?v=4?s=100" width="100px;" alt="Luca Peruzzo"/><br /><sub><b>Luca Peruzzo</b></sub></a><br /><a href="https://github.com/keycloakify/keycloakify-angular/commits?author=luca-peruzzo" title="Code">💻</a> <a href="https://github.com/keycloakify/keycloakify-angular/commits?author=luca-peruzzo" title="Tests">⚠️</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/garronej"><img src="https://avatars.githubusercontent.com/u/6702424?v=4?s=100" width="100px;" alt="Joseph Garrone"/><br /><sub><b>Joseph Garrone</b></sub></a><br /><a href="https://github.com/keycloakify/keycloakify-angular/commits?author=garronej" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/lekhmanrus"><img src="https://avatars.githubusercontent.com/u/2744696?v=4?s=100" width="100px;" alt="Ruslan Lekhman"/><br /><sub><b>Ruslan Lekhman</b></sub></a><br /><a href="https://github.com/keycloakify/keycloakify-angular/commits?author=lekhmanrus" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/vikashkumar29"><img src="https://avatars.githubusercontent.com/u/513033?v=4?s=100" width="100px;" alt="Vikash Kumar"/><br /><sub><b>Vikash Kumar</b></sub></a><br /><a href="https://github.com/keycloakify/keycloakify-angular/commits?author=vikashkumar29" title="Code">💻</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->

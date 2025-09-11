@@ -1,3 +1,16 @@
+## [20.1.7](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.6...v20.1.7) (2025-09-11)
+
+
+### Bug Fixes
+
+* build problems with tsx 4.20.5 ([3c434ee](https://github.com/keycloakify/keycloakify-angular/commit/3c434ee3733f887707155b926a2a20d1585eb7b8))
+
+
+
+## [20.1.6](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.5...v20.1.6) (2025-08-19)
+
+
+
 ## [20.1.5](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.4...v20.1.5) (2025-08-15)
 
 

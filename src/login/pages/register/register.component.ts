@@ -65,7 +65,7 @@ export class RegisterComponent extends ComponentReference implements OnInit, OnD
     ngOnInit(): void {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (window as any)['onSubmitRecaptcha'] = () => {
-            // @ts-expect-error
+            // @ts-expect-error: from native code
             document.getElementById('kc-register-form').requestSubmit();
         };
     }

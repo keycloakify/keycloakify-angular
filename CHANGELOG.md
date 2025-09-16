@@ -1,3 +1,12 @@
+## [20.1.8](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.7...v20.1.8) (2025-09-16)
+
+
+### Features
+
+* update packages and fix ([382d378](https://github.com/keycloakify/keycloakify-angular/commit/382d3785c5e8f1f976b6ad765bd6daec01210245))
+
+
+
 ## [20.1.7](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.6...v20.1.7) (2025-09-11)
 
 

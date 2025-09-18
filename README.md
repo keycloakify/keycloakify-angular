@@ -28,9 +28,9 @@
         -
         <a href="https://docs.keycloakify.dev">Documentation</a>
         -
-        <a href="https://github.com/keycloakify/keycloakify-starter-angular-vite">Starter Project Vite</a>
+        <a href="https://github.com/keycloakify/keycloakify-starter-angular-vite">Starter Project Analogjs + Vite</a>
         -
-        <a href="https://github.com/keycloakify/keycloakify-starter-angular">Starter Project ESBuild</a>
+        <a href="https://github.com/keycloakify/keycloakify-starter-angular">Starter Project Vanilla Angular + ESBuild</a>
     </p>
 </p>
 

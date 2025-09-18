@@ -30,7 +30,7 @@
         -
         <a href="https://github.com/keycloakify/keycloakify-starter-angular-vite">Starter Project Vite</a>
         -
-        <a href="https://github.com/keycloakify/keycloakify-starter-angular-webpack">Starter Project native Angular</a>
+        <a href="https://github.com/keycloakify/keycloakify-starter-angular">Starter Project ESBuild</a>
     </p>
 </p>
 
@@ -50,8 +50,8 @@ See [getting started](https://docs.keycloakify.dev/).
 
 ```bash
 git clone https://github.com/keycloakify/keycloakify-angular
-git clone https://github.com/keycloakify/keycloakify-angular-starter-vite
-git clone https://github.com/keycloakify/keycloakify-angular-starter-webpack
+git clone https://github.com/keycloakify/keycloakify-starter-angular-vite
+git clone https://github.com/keycloakify/keycloakify-starter-angular
 
 cd keycloakify-angular
 yarn install

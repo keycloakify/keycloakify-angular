@@ -42,7 +42,11 @@
     <div id="kc-info-message">
         @if (!logoutConfirm.skipLink && client.baseUrl) {
             <p>
-                <a [href]="client.baseUrl">{{ i18n.msgStr('backToApplication') }}</a>
+                <a
+                    [href]="client.baseUrl"
+                    [innerHTML]="i18n.msgStr('backToApplication') | kcSanitize: 'html'"
+                >
+                </a>
             </p>
         }
     </div>

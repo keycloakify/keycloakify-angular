@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, forwardRef, inject, type TemplateRef, viewChild } from '@angular/core';
+import { KcSanitizePipe } from '@keycloakify/angular/lib/pipes/kc-sanitize';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class';
 import type { I18n } from '@keycloakify/angular/login/i18n';
@@ -7,7 +8,7 @@ import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n';
 import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
 
 @Component({
-    imports: [KcClassDirective],
+    imports: [KcSanitizePipe, KcClassDirective],
     selector: 'kc-logout-confirm',
     templateUrl: 'logout-confirm.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,

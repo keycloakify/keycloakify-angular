@@ -137,7 +137,11 @@
         >
             <div>
                 @if (referrer) {
-                    <a [href]="referrer?.url">{{ i18n.msgStr('backToApplication') }}</a>
+                    <a
+                        [href]="referrer!.url"
+                        [innerHTML]="i18n.msgStr('backToApplication') | kcSanitize: 'html'"
+                    >
+                    </a>
                 }
                 <button
                     type="submit"

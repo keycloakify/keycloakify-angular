@@ -7,11 +7,12 @@ import type { KcContext } from '@keycloakify/angular/account/KcContext';
 import { ACCOUNT_CLASSES } from '@keycloakify/angular/account/tokens/classes';
 import { ACCOUNT_I18N } from '@keycloakify/angular/account/tokens/i18n';
 import { KC_ACCOUNT_CONTEXT } from '@keycloakify/angular/account/tokens/kc-context';
+import { KcSanitizePipe } from '@keycloakify/angular/lib/pipes/kc-sanitize';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import type { ClassKey } from 'keycloakify/account';
 
 @Component({
-    imports: [KcClassDirective, NgClass],
+    imports: [NgClass, KcClassDirective, KcSanitizePipe],
     selector: 'kc-account',
     templateUrl: 'account.component.html',
     providers: [

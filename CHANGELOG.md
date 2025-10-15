@@ -1,3 +1,13 @@
+## [20.1.9](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.8...v20.1.9) (2025-10-15)
+
+
+### Bug Fixes
+
+* broken links to starters ([f0c1aea](https://github.com/keycloakify/keycloakify-angular/commit/f0c1aeab29ac17e865ce17e092c41c1d47934968))
+* sanitize back to application html text ([8628a21](https://github.com/keycloakify/keycloakify-angular/commit/8628a216954dfdc8c1e44f639e521bba00e0b3a6))
+
+
+
 ## [20.1.8](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.7...v20.1.8) (2025-09-16)
 
 

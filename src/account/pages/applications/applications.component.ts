@@ -1,5 +1,5 @@
 import { KeyValuePipe, NgClass } from '@angular/common';
-import { Component, forwardRef, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, inject } from '@angular/core';
 import { ComponentReference } from '@keycloakify/angular/account/classes/component-reference';
 import { KcClassDirective } from '@keycloakify/angular/account/directives/kc-class';
 import type { I18n } from '@keycloakify/angular/account/i18n';
@@ -15,6 +15,7 @@ import type { ClassKey } from 'keycloakify/account';
     imports: [KcClassDirective, NgClass, KeyValuePipe, IsArrayWithEmptyObjectPipe],
     selector: 'kc-applications',
     templateUrl: 'applications.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         {
             provide: ComponentReference,

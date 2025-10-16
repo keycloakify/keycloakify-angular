@@ -12,7 +12,6 @@ import type { I18n } from '@keycloakify/angular/login/i18n';
             }
         `
     ],
-    imports: [],
     selector: 'kc-add-remove-buttons-multi-valued-attribute',
     templateUrl: 'add-remove-buttons-multi-valued-attribute.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush

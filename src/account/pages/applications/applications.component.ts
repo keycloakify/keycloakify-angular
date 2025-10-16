@@ -1,4 +1,4 @@
-import { KeyValuePipe, NgClass } from '@angular/common';
+import { KeyValuePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, forwardRef, inject } from '@angular/core';
 import { ComponentReference } from '@keycloakify/angular/account/classes/component-reference';
 import { KcClassDirective } from '@keycloakify/angular/account/directives/kc-class';
@@ -12,7 +12,7 @@ import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css
 import type { ClassKey } from 'keycloakify/account';
 
 @Component({
-    imports: [KcClassDirective, NgClass, KeyValuePipe, IsArrayWithEmptyObjectPipe],
+    imports: [KcClassDirective, KeyValuePipe, IsArrayWithEmptyObjectPipe],
     selector: 'kc-applications',
     templateUrl: 'applications.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,8 +1,7 @@
 import { ChangeDetectionStrategy, Component, forwardRef, inject, type TemplateRef, viewChild } from '@angular/core';
-import { type Script } from '@keycloakify/angular/lib/models/script';
+import type { Script } from '@keycloakify/angular/lib/models/script';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
-import { LogoutOtherSessionsComponent } from '@keycloakify/angular/login/components/logout-other-sessions';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class';
 import type { I18n } from '@keycloakify/angular/login/i18n';
 import type { KcContext } from '@keycloakify/angular/login/KcContext';
@@ -13,7 +12,7 @@ import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
 import { type ClassKey, getKcClsx } from 'keycloakify/login/lib/kcClsx';
 
 @Component({
-    imports: [KcClassDirective, LogoutOtherSessionsComponent],
+    imports: [KcClassDirective],
     selector: 'kc-webauthn-authenticate',
     templateUrl: 'webauthn-authenticate.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,

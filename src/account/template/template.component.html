@@ -66,35 +66,35 @@
     <div class="container">
         <div class="bs-sidebar col-sm-3">
             <ul>
-                <li [ngClass]="{ active: active === 'account' }">
+                <li [class.active]="active === 'account'">
                     <a [href]="url.accountUrl">{{ i18n.msgStr('account') }}</a>
                 </li>
                 @if (features.passwordUpdateSupported) {
-                    <li [ngClass]="{ active: active === 'password' }">
+                    <li [class.active]="active === 'password'">
                         <a [href]="url.passwordUrl">{{ i18n.msgStr('password') }}</a>
                     </li>
                 }
-                <li [ngClass]="{ active: active === 'totp' }">
+                <li [class.active]="active === 'totp'">
                     <a [href]="url.totpUrl">{{ i18n.msgStr('authenticator') }}</a>
                 </li>
                 @if (features.identityFederation) {
-                    <li [ngClass]="{ active: active === 'social' }">
+                    <li [class.active]="active === 'social'">
                         <a [href]="url.socialUrl">{{ i18n.msgStr('federatedIdentity') }}</a>
                     </li>
                 }
-                <li [ngClass]="{ active: active === 'sessions' }">
+                <li [class.active]="active === 'sessions'">
                     <a [href]="url.sessionsUrl">{{ i18n.msgStr('sessions') }}</a>
                 </li>
-                <li [ngClass]="{ active: active === 'applications' }">
+                <li [class.active]="active === 'applications'">
                     <a [href]="url.applicationsUrl">{{ i18n.msgStr('applications') }}</a>
                 </li>
                 @if (features.log) {
-                    <li [ngClass]="{ active: active === 'log' }">
+                    <li [class.active]="active === 'log'">
                         <a [href]="url.logUrl">{{ i18n.msgStr('log') }}</a>
                     </li>
                 }
                 @if (realm.userManagedAccessAllowed && features.authorization) {
-                    <li [ngClass]="{ active: active === 'authorization' }">
+                    <li [class.active]="active === 'authorization'">
                         <a [href]="url.resourceUrl">{{ i18n.msgStr('myResources') }}</a>
                     </li>
                 }

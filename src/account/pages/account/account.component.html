@@ -27,7 +27,7 @@
     @if (!realm.registrationEmailAsUsername) {
         <div
             class="form-group"
-            [ngClass]="{ 'has-error': messagesPerField.existsError('username') }"
+            [class.has-error]="messagesPerField.existsError('username')"
         >
             <div class="col-sm-2 col-md-2">
                 <label
@@ -56,7 +56,7 @@
 
     <div
         class="form-group"
-        [ngClass]="{ 'has-error': messagesPerField.existsError('email') }"
+        [class.has-error]="messagesPerField.existsError('email')"
     >
         <div class="col-sm-2 col-md-2">
             <label
@@ -82,7 +82,7 @@
 
     <div
         class="form-group"
-        [ngClass]="{ 'has-error': messagesPerField.existsError('firstName') }"
+        [class.has-error]="messagesPerField.existsError('firstName')"
     >
         <div class="col-sm-2 col-md-2">
             <label
@@ -107,7 +107,7 @@
 
     <div
         class="form-group"
-        [ngClass]="{ 'has-error': messagesPerField.existsError('lastName') }"
+        [class.has-error]="messagesPerField.existsError('lastName')"
     >
         <div class="col-sm-2 col-md-2">
             <label

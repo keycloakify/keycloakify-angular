@@ -12,7 +12,7 @@ import type { I18n } from '@keycloakify/angular/login/i18n';
 import { FormAction, FormFieldError } from '@keycloakify/angular/login/services/user-profile-form';
 import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes';
 import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n';
-import { type Attribute } from 'keycloakify/login/KcContext';
+import type { Attribute } from 'keycloakify/login/KcContext';
 import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
 
 @Component({

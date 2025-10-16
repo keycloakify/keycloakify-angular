@@ -9,7 +9,6 @@ import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
 import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
 
 @Component({
-    imports: [],
     selector: 'kc-login-page-expired',
     templateUrl: 'login-page-expired.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,

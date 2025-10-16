@@ -15,7 +15,6 @@ import {
 } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ComponentReference } from '@keycloakify/angular/account/classes/component-reference';
-import { KcClassDirective } from '@keycloakify/angular/account/directives/kc-class';
 import type { I18n } from '@keycloakify/angular/account/i18n';
 import type { KcContext } from '@keycloakify/angular/account/KcContext';
 import { AccountResourceInjectorService } from '@keycloakify/angular/account/services/account-resource-injector';
@@ -32,7 +31,7 @@ type ActiveType = 'account' | 'password' | 'totp' | 'social' | 'sessions' | 'app
 @Component({
     selector: 'kc-root',
     templateUrl: 'template.component.html',
-    imports: [AsyncPipe, KcSanitizePipe, KcClassDirective, NgClass],
+    imports: [AsyncPipe, KcSanitizePipe, NgClass],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         {

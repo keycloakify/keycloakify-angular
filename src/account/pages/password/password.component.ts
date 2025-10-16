@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, forwardRef, inject, signal } from '@angular/core';
 import { ComponentReference } from '@keycloakify/angular/account/classes/component-reference';
 import { KcClassDirective } from '@keycloakify/angular/account/directives/kc-class';
@@ -11,7 +10,7 @@ import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css
 import type { ClassKey } from 'keycloakify/account';
 
 @Component({
-    imports: [KcClassDirective, NgClass],
+    imports: [KcClassDirective],
     selector: 'kc-password',
     templateUrl: 'password.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,

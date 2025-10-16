@@ -1,4 +1,4 @@
-import { AsyncPipe, CommonModule, NgClass } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, forwardRef, inject, signal, type TemplateRef, viewChild } from '@angular/core';
 import { KcSanitizePipe } from '@keycloakify/angular/lib/pipes/kc-sanitize';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
@@ -16,7 +16,7 @@ import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
     selector: 'kc-login',
     templateUrl: 'login.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [KcClassDirective, AsyncPipe, KcSanitizePipe, PasswordWrapperComponent, NgClass, CommonModule],
+    imports: [KcClassDirective, KcSanitizePipe, PasswordWrapperComponent, CommonModule],
     providers: [
         {
             provide: ComponentReference,

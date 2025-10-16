@@ -1,7 +1,5 @@
-import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, forwardRef, inject } from '@angular/core';
 import { ComponentReference } from '@keycloakify/angular/account/classes/component-reference';
-import { KcClassDirective } from '@keycloakify/angular/account/directives/kc-class';
 import type { I18n } from '@keycloakify/angular/account/i18n';
 import type { KcContext } from '@keycloakify/angular/account/KcContext';
 import { ACCOUNT_CLASSES } from '@keycloakify/angular/account/tokens/classes';
@@ -11,7 +9,6 @@ import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css
 import type { ClassKey } from 'keycloakify/account';
 
 @Component({
-    imports: [KcClassDirective, NgClass],
     selector: 'kc-federated-identity',
     templateUrl: 'federatedIdentity.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,

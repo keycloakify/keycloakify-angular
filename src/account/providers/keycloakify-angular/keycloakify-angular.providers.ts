@@ -11,7 +11,7 @@ import { ACCOUNT_CLASSES } from '@keycloakify/angular/account/tokens/classes';
 import { ACCOUNT_I18N } from '@keycloakify/angular/account/tokens/i18n';
 import { KC_ACCOUNT_CONTEXT } from '@keycloakify/angular/account/tokens/kc-context';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
-import { type KcContextLike } from 'keycloakify/account/i18n/noJsx';
+import type { KcContextLike } from 'keycloakify/account/i18n/noJsx';
 import type { ClassKey } from 'keycloakify/account/lib/kcClsx';
 
 export type KeycloakifyAngularAccountConfig = {
@@ -39,7 +39,7 @@ export const provideKeycloakifyAngular = (config: KeycloakifyAngularAccountConfi
         },
         provideAppInitializer(() => {
             const i18nService: I18nService = inject(I18nService);
-            const kcContext: KcContext = inject(KC_ACCOUNT_CONTEXT);
+            const kcContext = inject<KcContext>(KC_ACCOUNT_CONTEXT);
             const getI18n = config.getI18n;
 
             const { i18n, prI18n_currentLanguage } = getI18n({

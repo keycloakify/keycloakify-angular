@@ -9,7 +9,6 @@ import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
 import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
 
 @Component({
-    imports: [],
     selector: 'kc-saml-post-form',
     templateUrl: 'saml-post-form.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,

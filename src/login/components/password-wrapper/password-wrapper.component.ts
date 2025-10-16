@@ -1,4 +1,3 @@
-import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, forwardRef, inject, input, Renderer2, signal, WritableSignal } from '@angular/core';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
@@ -18,7 +17,7 @@ import type { I18n } from '@keycloakify/angular/login/i18n';
         `
     ],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [KcClassDirective, AsyncPipe],
+    imports: [KcClassDirective],
     templateUrl: 'password-wrapper.component.html',
     providers: [
         {

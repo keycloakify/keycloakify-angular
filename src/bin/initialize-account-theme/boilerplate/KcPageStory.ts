@@ -1,5 +1,6 @@
 /* eslint-disable @angular-eslint/component-class-suffix */
 import { Component, inject, OnInit, Type } from '@angular/core';
+import type { KcContext } from '@keycloakify/angular/account/KcContext';
 import { provideKeycloakifyAngular } from '@keycloakify/angular/account/providers/keycloakify-angular';
 import { TemplateComponent } from '@keycloakify/angular/account/template';
 import { getKcPage } from './KcPage';
@@ -54,7 +55,7 @@ export const decorators = (_: unknown, context: StoryContextLike) => ({
 })
 export class KcPageStory implements OnInit {
     pageComponent: Type<unknown> | undefined;
-    kcContext = inject(KC_ACCOUNT_CONTEXT);
+    kcContext = inject<KcContext>(KC_ACCOUNT_CONTEXT);
     ngOnInit() {
         getKcPage(this.kcContext.pageId).then(kcPage => {
             this.pageComponent = kcPage.PageComponent;

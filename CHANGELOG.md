@@ -1,3 +1,12 @@
+## [20.1.10](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.9...v20.1.10) (2025-10-16)
+
+
+### Features
+
+* add missing OnPush change detection ([be1812c](https://github.com/keycloakify/keycloakify-angular/commit/be1812ccaab0143a915a2f64445cdac11907af4b))
+
+
+
 ## [20.1.9](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.8...v20.1.9) (2025-10-15)
 
 

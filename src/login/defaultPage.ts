@@ -149,5 +149,7 @@ export function getDefaultPageComponent(
             return import(
                 '@keycloakify/angular/login/pages/login-idp-link-confirm-override'
             ).then(c => c.LoginIdpLinkConfirmOverrideComponent);
+        default:
+            throw new Error('FTL page not found!');
     }
 }

@@ -15,39 +15,46 @@ const DefaultPage = async (
     let ComponentBootstrapPromise;
     switch (pageId) {
         case 'password.ftl':
-            ComponentBootstrapPromise = import(
-                '@keycloakify/angular/account/pages/password'
-            ).then(c => c.PasswordComponent);
+            ComponentBootstrapPromise =
+                import('@keycloakify/angular/account/pages/password').then(
+                    c => c.PasswordComponent
+                );
             break;
         case 'account.ftl':
-            ComponentBootstrapPromise = import(
-                '@keycloakify/angular/account/pages/account'
-            ).then(c => c.AccountComponent);
+            ComponentBootstrapPromise =
+                import('@keycloakify/angular/account/pages/account').then(
+                    c => c.AccountComponent
+                );
             break;
         case 'sessions.ftl':
-            ComponentBootstrapPromise = import(
-                '@keycloakify/angular/account/pages/sessions'
-            ).then(c => c.SessionsComponent);
+            ComponentBootstrapPromise =
+                import('@keycloakify/angular/account/pages/sessions').then(
+                    c => c.SessionsComponent
+                );
             break;
         case 'totp.ftl':
-            ComponentBootstrapPromise = import(
-                '@keycloakify/angular/account/pages/totp'
-            ).then(c => c.TotpComponent);
+            ComponentBootstrapPromise =
+                import('@keycloakify/angular/account/pages/totp').then(
+                    c => c.TotpComponent
+                );
             break;
         case 'applications.ftl':
-            ComponentBootstrapPromise = import(
-                '@keycloakify/angular/account/pages/applications'
-            ).then(c => c.ApplicationsComponent);
+            ComponentBootstrapPromise =
+                import('@keycloakify/angular/account/pages/applications').then(
+                    c => c.ApplicationsComponent
+                );
             break;
         case 'log.ftl':
-            ComponentBootstrapPromise = import(
-                '@keycloakify/angular/account/pages/log'
-            ).then(c => c.LogComponent);
+            ComponentBootstrapPromise =
+                import('@keycloakify/angular/account/pages/log').then(
+                    c => c.LogComponent
+                );
             break;
         case 'federatedIdentity.ftl':
-            ComponentBootstrapPromise = import(
-                '@keycloakify/angular/account/pages/federatedIdentity'
-            ).then(c => c.FederatedIdentityComponent);
+            ComponentBootstrapPromise =
+                import('@keycloakify/angular/account/pages/federatedIdentity').then(
+                    c => c.FederatedIdentityComponent
+                );
             break;
     }
     return ComponentBootstrapPromise?.then(ComponentBootstrap => ({

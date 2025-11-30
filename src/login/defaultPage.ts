@@ -50,9 +50,9 @@ export function getDefaultPageComponent(
                 c => c.TermsComponent
             );
         case 'login-oauth2-device-verify-user-code.ftl':
-            return import(
-                '@keycloakify/angular/login/pages/login-oauth2-device-verify-user-code'
-            ).then(c => c.LoginOauth2DeviceVerifyUserCodeComponent);
+            return import('@keycloakify/angular/login/pages/login-oauth2-device-verify-user-code').then(
+                c => c.LoginOauth2DeviceVerifyUserCodeComponent
+            );
         case 'login-oauth-grant.ftl':
             return import('@keycloakify/angular/login/pages/login-oauth-grant').then(
                 c => c.LoginOauthGrantComponent
@@ -90,9 +90,9 @@ export function getDefaultPageComponent(
                 c => c.LogoutConfirmComponent
             );
         case 'idp-review-user-profile.ftl':
-            return import(
-                '@keycloakify/angular/login/pages/idp-review-user-profile'
-            ).then(c => c.IdpReviewUserProfileComponent);
+            return import('@keycloakify/angular/login/pages/idp-review-user-profile').then(
+                c => c.IdpReviewUserProfileComponent
+            );
         case 'update-email.ftl':
             return import('@keycloakify/angular/login/pages/update-email').then(
                 c => c.UpdateEmailComponent
@@ -122,13 +122,13 @@ export function getDefaultPageComponent(
                 c => c.FrontchannelLogoutComponent
             );
         case 'login-recovery-authn-code-config.ftl':
-            return import(
-                '@keycloakify/angular/login/pages/login-recovery-authn-code-config'
-            ).then(c => c.LoginRecoveryAuthnCodeConfigComponent);
+            return import('@keycloakify/angular/login/pages/login-recovery-authn-code-config').then(
+                c => c.LoginRecoveryAuthnCodeConfigComponent
+            );
         case 'login-recovery-authn-code-input.ftl':
-            return import(
-                '@keycloakify/angular/login/pages/login-recovery-authn-code-input'
-            ).then(c => c.LoginRecoveryAuthnCodeInputComponent);
+            return import('@keycloakify/angular/login/pages/login-recovery-authn-code-input').then(
+                c => c.LoginRecoveryAuthnCodeInputComponent
+            );
         case 'login-reset-otp.ftl':
             return import('@keycloakify/angular/login/pages/login-reset-otp').then(
                 c => c.LoginResetOtpComponent
@@ -142,13 +142,13 @@ export function getDefaultPageComponent(
                 c => c.WebauthnErrorComponent
             );
         case 'login-passkeys-conditional-authenticate.ftl':
-            return import(
-                '@keycloakify/angular/login/pages/login-passkeys-conditional-authenticate'
-            ).then(c => c.LoginPasskeysConditionalAuthenticateComponent);
+            return import('@keycloakify/angular/login/pages/login-passkeys-conditional-authenticate').then(
+                c => c.LoginPasskeysConditionalAuthenticateComponent
+            );
         case 'login-idp-link-confirm-override.ftl':
-            return import(
-                '@keycloakify/angular/login/pages/login-idp-link-confirm-override'
-            ).then(c => c.LoginIdpLinkConfirmOverrideComponent);
+            return import('@keycloakify/angular/login/pages/login-idp-link-confirm-override').then(
+                c => c.LoginIdpLinkConfirmOverrideComponent
+            );
         default:
             throw new Error(`FTL page "${pageId}" not found!`);
     }

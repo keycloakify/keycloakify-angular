@@ -1,9 +1,9 @@
 import { NgComponentOutlet } from '@angular/common';
-import { ChangeDetectionStrategy, Component, forwardRef, inject, input, type TemplateRef, Type, viewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input, type TemplateRef, type Type, viewChild } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
 import { LogoutOtherSessionsComponent } from '@keycloakify/angular/login/components/logout-other-sessions';
-import { UserProfileFormFieldsComponent } from '@keycloakify/angular/login/components/user-profile-form-fields';
+import { type UserProfileFormFieldsComponent } from '@keycloakify/angular/login/components/user-profile-form-fields';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class';
 import type { I18n } from '@keycloakify/angular/login/i18n';
 import type { KcContext } from '@keycloakify/angular/login/KcContext';

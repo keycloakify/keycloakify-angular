@@ -3,10 +3,10 @@
     "type": "module",
     "version": "0.0.0",
     "peerDependencies": {
-        "keycloakify": "^11.9.3",
-        "@angular/core": "^20.0.0",
-        "@angular/common": "^20.0.0",
-        "@angular/platform-browser": "^20.0.0"
+        "keycloakify": "^11.13.0",
+        "@angular/core": "^21.0.0",
+        "@angular/common": "^21.0.0",
+        "@angular/platform-browser": "^21.0.0"
     },
     "dependencies": {
         "tsafe": "^1.8.5"

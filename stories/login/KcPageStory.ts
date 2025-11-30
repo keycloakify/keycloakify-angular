@@ -1,12 +1,17 @@
-/* eslint-disable @angular-eslint/component-class-suffix */
-import { Component, inject, OnInit, Type } from '@angular/core';
+import {
+    ChangeDetectorRef,
+    Component,
+    inject,
+    type OnInit,
+    type Type
+} from '@angular/core';
 import { provideKeycloakifyAngular } from '@keycloakify/angular/login/providers/keycloakify-angular';
 import { TemplateComponent } from '@keycloakify/angular/login/template';
-import { StoryContext } from '@storybook/angular';
+import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
+import type { StoryContext } from '@storybook/angular';
 import { getI18n } from './i18n';
 import { getKcContextMock } from './KcContextMock';
 import { getKcPage } from './KcPage';
-import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
 
 export const decorators = (_: unknown, context: StoryContext) => ({
     applicationConfig: {
@@ -37,11 +42,13 @@ export const decorators = (_: unknown, context: StoryContext) => ({
 export class KcPageStory implements OnInit {
     pageComponent: Type<unknown> | undefined;
     kcContext = inject(KC_LOGIN_CONTEXT);
+    readonly #cd = inject(ChangeDetectorRef);
     userProfileFormFieldsComponent: Type<unknown> | undefined;
     ngOnInit() {
         getKcPage(this.kcContext.pageId).then(kcPage => {
             this.pageComponent = kcPage.PageComponent;
             this.userProfileFormFieldsComponent = kcPage.UserProfileFormFieldsComponent;
+            this.#cd.markForCheck();
         });
     }
 }

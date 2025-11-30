@@ -5,18 +5,18 @@ import {
     forwardRef,
     inject,
     input,
-    OnDestroy,
-    OnInit,
+    type OnDestroy,
+    type OnInit,
     signal,
     type TemplateRef,
-    Type,
+    type Type,
     viewChild
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { KcSanitizePipe } from '@keycloakify/angular/lib/pipes/kc-sanitize';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
-import { UserProfileFormFieldsComponent } from '@keycloakify/angular/login/components/user-profile-form-fields';
+import { type UserProfileFormFieldsComponent } from '@keycloakify/angular/login/components/user-profile-form-fields';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class';
 import type { I18n } from '@keycloakify/angular/login/i18n';
 import type { KcContext } from '@keycloakify/angular/login/KcContext';

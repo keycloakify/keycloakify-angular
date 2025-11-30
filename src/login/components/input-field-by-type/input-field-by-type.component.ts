@@ -7,7 +7,7 @@ import { InputTagSelectsComponent } from '@keycloakify/angular/login/components/
 import { PasswordWrapperComponent } from '@keycloakify/angular/login/components/password-wrapper';
 import { SelectTagComponent } from '@keycloakify/angular/login/components/select-tag';
 import { TextareaTagComponent } from '@keycloakify/angular/login/components/textarea-tag';
-import { FormAction, FormFieldError } from '@keycloakify/angular/login/services/user-profile-form';
+import { type FormAction, type FormFieldError } from '@keycloakify/angular/login/services/user-profile-form';
 import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes';
 import type { Attribute } from 'keycloakify/login/KcContext';
 import type { ClassKey } from 'keycloakify/login/lib/kcClsx';

@@ -1,7 +1,6 @@
-import { ThemeName } from '../kc.gen';
+import type { ThemeName } from '../kc.gen';
 import { i18nBuilder } from '../../src/account';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const { getI18n, ofTypeI18n } = i18nBuilder
     .withThemeName<ThemeName>()
     .withExtraLanguages({}) // See: https://docs.keycloakify.dev/i18n/adding-support-for-extra-languages

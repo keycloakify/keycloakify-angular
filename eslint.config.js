@@ -1,27 +1,43 @@
 // @ts-check
 import eslint from '@eslint/js';
-import tseslint from 'typescript-eslint';
 import angular from 'angular-eslint';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import eslintPluginPrettier from 'eslint-plugin-prettier';
 import unusedImports from 'eslint-plugin-unused-imports';
+import { defineConfig } from 'eslint/config';
+import tseslint from 'typescript-eslint';
 
-export default tseslint.config(
+export default defineConfig(
     {
         ignores: ['src/bin/**/*'],
         files: ['**/*.ts'],
         plugins: {
             prettier: eslintPluginPrettier,
-            'unused-imports': unusedImports
+            'unused-imports': unusedImports,
+            '@typescript-eslint': tseslint.plugin
+        },
+        languageOptions: {
+            parser: tseslint.parser,
+            parserOptions: {
+                projectService: true
+            }
         },
         extends: [
             eslint.configs.recommended,
-            ...tseslint.configs.recommended,
-            ...tseslint.configs.stylistic,
-            ...angular.configs.tsRecommended
+            tseslint.configs.recommended,
+            tseslint.configs.stylistic,
+            angular.configs.tsRecommended
         ],
         processor: angular.processInlineTemplates,
         rules: {
+            '@typescript-eslint/consistent-type-imports': [
+                'error',
+                {
+                    disallowTypeAnnotations: true,
+                    fixStyle: 'inline-type-imports',
+                    prefer: 'type-imports'
+                }
+            ],
             'no-unused-vars': 'off',
             '@typescript-eslint/no-unused-vars': 'off',
             'unused-imports/no-unused-imports': 'error',
@@ -60,15 +76,7 @@ export default tseslint.config(
             '@angular-eslint/no-output-rename': 'off',
             '@angular-eslint/no-input-rename': 'off',
             ...eslintConfigPrettier.rules,
-            'prettier/prettier': [
-                'error',
-                {
-                    endOfLine: 'auto'
-                },
-                {
-                    usePrettierrc: true
-                }
-            ]
+            'prettier/prettier': ['error']
         }
     },
     {
@@ -76,7 +84,7 @@ export default tseslint.config(
         plugins: {
             prettier: eslintPluginPrettier
         },
-        extends: [...angular.configs.templateRecommended],
+        extends: [angular.configs.templateRecommended],
         rules: {
             ...eslintConfigPrettier.rules,
             'prettier/prettier': ['error', { parser: 'angular' }]

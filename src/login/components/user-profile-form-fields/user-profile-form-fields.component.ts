@@ -1,5 +1,5 @@
 import { AsyncPipe, NgTemplateOutlet } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ContentChild, forwardRef, inject, TemplateRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ContentChild, forwardRef, inject, type TemplateRef } from '@angular/core';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
 import { FieldErrorsComponent } from '@keycloakify/angular/login/components/field-errors';

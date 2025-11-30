@@ -5,7 +5,7 @@ import {
     Component,
     computed,
     effect,
-    EffectRef,
+    type EffectRef,
     forwardRef,
     inject,
     input,
@@ -22,7 +22,7 @@ import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class';
 import type { I18n } from '@keycloakify/angular/login/i18n';
-import { KcContext } from '@keycloakify/angular/login/KcContext';
+import { type KcContext } from '@keycloakify/angular/login/KcContext';
 import { LoginResourceInjectorService } from '@keycloakify/angular/login/services/login-resource-injector';
 import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes';
 import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n';

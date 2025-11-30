@@ -1,6 +1,6 @@
-import { Meta, StoryObj } from '@storybook/angular';
+import type { Meta, StoryObj } from '@storybook/angular';
+import { type Attribute } from 'keycloakify/login';
 import { decorators, KcPageStory } from '../KcPageStory';
-import { Attribute } from 'keycloakify/login';
 
 const meta: Meta<KcPageStory> = {
     title: 'login/register.ftl',

@@ -35,6 +35,7 @@
         "@angular/core": "^21.0.1",
         "@angular/platform-browser": "^21.0.1",
         "@eslint/compat": "^2.0.0",
+        "@storybook/angular": "^10.1.2",
         "@types/node": "^24.10.1",
         "@vercel/ncc": "^0.38.4",
         "angular-eslint": "^21.0.1",

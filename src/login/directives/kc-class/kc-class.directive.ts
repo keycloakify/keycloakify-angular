@@ -2,7 +2,7 @@
 
 import {
     Directive,
-    DoCheck,
+    type DoCheck,
     ElementRef,
     inject,
     Input,

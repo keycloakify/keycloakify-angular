@@ -4,12 +4,12 @@ import {
     ChangeDetectorRef,
     Component,
     effect,
-    EffectRef,
+    type EffectRef,
     forwardRef,
     inject,
     input,
     Renderer2,
-    Type,
+    type Type,
     viewChild,
     ViewContainerRef
 } from '@angular/core';
@@ -23,8 +23,8 @@ import { ACCOUNT_I18N } from '@keycloakify/angular/account/tokens/i18n';
 import { KC_ACCOUNT_CONTEXT } from '@keycloakify/angular/account/tokens/kc-context';
 import { KcSanitizePipe } from '@keycloakify/angular/lib/pipes/kc-sanitize';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
-import { ClassKey, getKcClsx } from 'keycloakify/account/lib/kcClsx';
-import { Observable } from 'rxjs';
+import { type ClassKey, getKcClsx } from 'keycloakify/account/lib/kcClsx';
+import { type Observable } from 'rxjs';
 
 type ActiveType = 'account' | 'password' | 'totp' | 'social' | 'sessions' | 'applications' | 'log' | 'authorization' | undefined;
 

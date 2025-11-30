@@ -1,6 +1,6 @@
-import { inject, Injectable, OnDestroy } from '@angular/core';
+import { inject, Injectable, type OnDestroy } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer, type SafeHtml } from '@angular/platform-browser';
 import type { I18n } from '@keycloakify/angular/login/i18n';
 import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n';
 import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
@@ -11,7 +11,7 @@ import type {
     Validators
 } from 'keycloakify/login/KcContext';
 import * as reactlessApi from 'keycloakify/login/lib/getUserProfileApi';
-import { BehaviorSubject, map, Observable } from 'rxjs';
+import { BehaviorSubject, map, type Observable } from 'rxjs';
 import { assert, type Equals } from 'tsafe/assert';
 
 export { getButtonToDisplayForMultivaluedAttributeField } from 'keycloakify/login/lib/getUserProfileApi';

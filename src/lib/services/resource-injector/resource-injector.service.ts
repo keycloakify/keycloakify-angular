@@ -1,6 +1,6 @@
-import { inject, Injectable, Renderer2, RendererFactory2 } from '@angular/core';
+import { inject, Injectable, type Renderer2, RendererFactory2 } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Script } from '@keycloakify/angular/lib/models/script';
+import { type Script } from '@keycloakify/angular/lib/models/script';
 
 @Injectable({
     providedIn: 'root'

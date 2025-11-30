@@ -1,11 +1,11 @@
 // @ts-check
 import eslint from '@eslint/js';
-import { defineConfig } from 'eslint/config';
-import tseslint from 'typescript-eslint';
 import angular from 'angular-eslint';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import eslintPluginPrettier from 'eslint-plugin-prettier';
 import unusedImports from 'eslint-plugin-unused-imports';
+import { defineConfig } from 'eslint/config';
+import tseslint from 'typescript-eslint';
 
 export default defineConfig(
     {
@@ -30,6 +30,14 @@ export default defineConfig(
         ],
         processor: angular.processInlineTemplates,
         rules: {
+            '@typescript-eslint/consistent-type-imports': [
+                'error',
+                {
+                    disallowTypeAnnotations: true,
+                    fixStyle: 'inline-type-imports',
+                    prefer: 'type-imports'
+                }
+            ],
             'no-unused-vars': 'off',
             '@typescript-eslint/no-unused-vars': 'off',
             'unused-imports/no-unused-imports': 'error',
@@ -68,15 +76,7 @@ export default defineConfig(
             '@angular-eslint/no-output-rename': 'off',
             '@angular-eslint/no-input-rename': 'off',
             ...eslintConfigPrettier.rules,
-            'prettier/prettier': [
-                'error',
-                {
-                    endOfLine: 'auto'
-                },
-                {
-                    usePrettierrc: true
-                }
-            ]
+            'prettier/prettier': ['error']
         }
     },
     {

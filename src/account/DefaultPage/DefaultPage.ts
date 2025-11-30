@@ -1,6 +1,6 @@
-import { Type } from '@angular/core';
-import type { ClassKey } from 'keycloakify/account';
+import { type Type } from '@angular/core';
 import type { KcContext } from '@keycloakify/angular/account/KcContext';
+import type { ClassKey } from 'keycloakify/account';
 
 const DefaultPage = async (
     pageId: KcContext['pageId'],

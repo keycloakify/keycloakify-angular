@@ -2,7 +2,7 @@
 
 import {
     Directive,
-    DoCheck,
+    type DoCheck,
     ElementRef,
     inject,
     Input,
@@ -10,7 +10,7 @@ import {
     Renderer2,
     ɵstringify as stringify
 } from '@angular/core';
-import { ClassKey } from 'keycloakify/account';
+import { type ClassKey } from 'keycloakify/account';
 import { getKcClsx } from 'keycloakify/account/lib/kcClsx';
 import { ComponentReference } from '@keycloakify/angular/account/classes/component-reference';
 

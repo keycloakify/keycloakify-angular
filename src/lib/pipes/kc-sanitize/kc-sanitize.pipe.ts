@@ -1,11 +1,11 @@
-import { inject, Pipe, PipeTransform } from '@angular/core';
+import { inject, Pipe, type PipeTransform } from '@angular/core';
 import {
     DomSanitizer,
-    SafeHtml,
-    SafeResourceUrl,
-    SafeScript,
-    SafeStyle,
-    SafeUrl
+    type SafeHtml,
+    type SafeResourceUrl,
+    type SafeScript,
+    type SafeStyle,
+    type SafeUrl
 } from '@angular/platform-browser';
 
 @Pipe({ name: 'kcSanitize' })

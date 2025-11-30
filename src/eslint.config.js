@@ -1,5 +1,5 @@
 // @ts-check
-import tseslint from 'typescript-eslint';
+import { defineConfig } from 'eslint/config';
 import rootConfig from '../eslint.config.js';
 
-export default tseslint.config(...rootConfig);
+export default defineConfig(...rootConfig);

@@ -20,3 +20,10 @@ export function getThisCodebaseRootDirPath(): string {
 
     return (result = getThisCodebaseRootDirPath_rec(__dirname));
 }
+
+export function getNearestPackageJsonDirPath(dirPath: string): string {
+    if (fs.existsSync(path.join(dirPath, 'package.json'))) {
+        return dirPath;
+    }
+    return getNearestPackageJsonDirPath(path.join(dirPath, '..'));
+}

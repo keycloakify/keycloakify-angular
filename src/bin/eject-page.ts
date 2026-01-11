@@ -20,7 +20,7 @@ import {
     posix as pathPosix,
     basename as pathBase
 } from 'path';
-import { assert, Equals } from 'tsafe/assert';
+import { assert, type Equals } from 'tsafe/assert';
 import chalk from 'chalk';
 import { transformCodebase } from './tools/transformCodebase_async';
 import { kebabCaseToCamelCase } from './tools/kebabCaseToSnakeCase';
@@ -129,6 +129,8 @@ export async function command(params: { buildContext: BuildContext }) {
         return pathJoin('pages', pageIdOrComponent.replace(/\.ftl$/, ''));
     })();
 
+    let hasEjectedUserProfileFormFieldsComponent = false;
+
     {
         const componentDirRelativeToThemeTypePaths = [
             componentDirRelativeToThemeTypePath
@@ -139,6 +141,13 @@ export async function command(params: { buildContext: BuildContext }) {
                 componentDirRelativeToThemeTypePaths.pop();
 
             assert(componentDirRelativeToThemeTypePath_i !== undefined);
+
+            if (
+                componentDirRelativeToThemeTypePath_i ===
+                pathJoin('components', 'user-profile-form-fields')
+            ) {
+                hasEjectedUserProfileFormFieldsComponent = true;
+            }
 
             const destDirPath = pathJoin(
                 buildContext.themeSrcDirPath,
@@ -301,16 +310,28 @@ export async function command(params: { buildContext: BuildContext }) {
     }
 
     edit_KcFiles: {
-        if (
-            pageIdOrComponent !== templateValue &&
-            pageIdOrComponent !== userProfileFormFieldsValue
-        ) {
+        const componentRelativeDirPath_posix = (() => {
+            if (pageIdOrComponent === templateValue) {
+                return 'template';
+            }
+
+            if (
+                pageIdOrComponent === userProfileFormFieldsValue ||
+                hasEjectedUserProfileFormFieldsComponent
+            ) {
+                return 'components/user-profile-form-fields';
+            }
+
+            return undefined;
+        })();
+
+        if (componentRelativeDirPath_posix === undefined) {
             break edit_KcFiles;
         }
 
         const filesToProcess = ['KcPage.ts', 'KcPageStory.ts'];
 
-        for (let fileName of filesToProcess) {
+        for (const fileName of filesToProcess) {
             const filePath = pathJoin(buildContext.themeSrcDirPath, themeType, fileName);
 
             if (!fs.existsSync(filePath)) {
@@ -321,10 +342,6 @@ export async function command(params: { buildContext: BuildContext }) {
             const originalCode = fs.readFileSync(filePath).toString('utf8');
 
             const modifiedCode = await (async () => {
-                const componentRelativeDirPath_posix = componentDirRelativeToThemeTypePath
-                    .split(pathSep)
-                    .join('/');
-
                 let sourceCode = originalCode.replace(
                     `@keycloakify/angular/${themeType}/${componentRelativeDirPath_posix}`,
                     componentRelativeDirPath_posix_to_componentRelativeFilePath_posix({

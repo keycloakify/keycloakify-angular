@@ -1,3 +1,45 @@
+# [21.0.0](https://github.com/keycloakify/keycloakify-angular/compare/v21.0.0-rc.4...v21.0.0) (2026-01-14)
+
+
+
+# [21.0.0-rc.4](https://github.com/keycloakify/keycloakify-angular/compare/v21.0.0-rc.3...v21.0.0-rc.4) (2026-01-12)
+
+
+### Bug Fixes
+
+* Incorrect import of user profile form field component after ejecting register.ftl [#46](https://github.com/keycloakify/keycloakify-angular/issues/46) ([1f36c38](https://github.com/keycloakify/keycloakify-angular/commit/1f36c38509604b4dabe4d1f2fcecfe00ddbc3c1d))
+
+
+
+# [21.0.0-rc.3](https://github.com/keycloakify/keycloakify-angular/compare/v21.0.0-rc.2...v21.0.0-rc.3) (2025-12-16)
+
+
+
+# [21.0.0-rc.2](https://github.com/keycloakify/keycloakify-angular/compare/v21.0.0-rc.1...v21.0.0-rc.2) (2025-11-30)
+
+
+### Bug Fixes
+
+* stories import and reactivity ([d9375bb](https://github.com/keycloakify/keycloakify-angular/commit/d9375bba9f7df2179236dc74f1fc7efd0c7b2159))
+
+
+
+# [21.0.0-rc.1](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.12...v21.0.0-rc.1) (2025-11-30)
+
+
+### Bug Fixes
+
+* lint ([4e54630](https://github.com/keycloakify/keycloakify-angular/commit/4e546308f607112f8aae340598c2bb75051e1473))
+
+
+### Features
+
+* setup verbatimModuleSyntax ([778d933](https://github.com/keycloakify/keycloakify-angular/commit/778d9338cdcc07251d4432145dda7b4cb5a2602f))
+* support angular 21 ([d7efd70](https://github.com/keycloakify/keycloakify-angular/commit/d7efd7063426771e2a9e41624400a094d36c32d3))
+* update config ([04331a4](https://github.com/keycloakify/keycloakify-angular/commit/04331a4e83d577fd30920109b0edeaa196602ee4))
+
+
+
 ## [20.1.12](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.11...v20.1.12) (2025-11-15)
 
 

@@ -7,20 +7,16 @@ import unusedImports from 'eslint-plugin-unused-imports';
 import { defineConfig } from 'eslint/config';
 import tseslint from 'typescript-eslint';
 
-export default defineConfig(
+const eslintConfig = defineConfig(
     {
-        ignores: ['src/bin/**/*'],
-        files: ['**/*.ts'],
+        ignores: ['**/node_modules', '**/dist', 'src/bin/**/*']
+    },
+    {
+        files: ['**/*.ts', '**/*.js', '**/*.mjs', '**/*.cjs'],
         plugins: {
             prettier: eslintPluginPrettier,
             'unused-imports': unusedImports,
             '@typescript-eslint': tseslint.plugin
-        },
-        languageOptions: {
-            parser: tseslint.parser,
-            parserOptions: {
-                projectService: true
-            }
         },
         extends: [
             eslint.configs.recommended,
@@ -89,5 +85,12 @@ export default defineConfig(
             ...eslintConfigPrettier.rules,
             'prettier/prettier': ['error', { parser: 'angular' }]
         }
+    },
+    {
+        // disable type-aware linting on JS files
+        files: ['**/*.js', '**/*.mjs', '**/*.cjs'],
+        extends: [tseslint.configs.disableTypeChecked]
     }
 );
+
+export default eslintConfig;

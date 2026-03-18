@@ -1,3 +1,10 @@
+## [21.0.5](https://github.com/keycloakify/keycloakify-angular/compare/v21.0.4...v21.0.5) (2026-03-18)
+
+
+### Bug Fixes
+
+* exports ([2e83cc5](https://github.com/keycloakify/keycloakify-angular/commit/2e83cc5d8bcb48cb53104df1a6af5639016e2fa7))
+
 ## [21.0.4](https://github.com/keycloakify/keycloakify-angular/compare/v21.0.3...v21.0.4) (2026-03-18)
 
 

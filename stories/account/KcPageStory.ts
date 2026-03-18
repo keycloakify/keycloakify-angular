@@ -35,6 +35,7 @@ export const decorators = (_: unknown, context: StoryContext) => ({
     template: `@if (pageComponent) {
         <kc-root [page]="pageComponent"></kc-root>
     }`,
+    standalone: true,
     imports: [TemplateComponent]
 })
 export class KcPageStory implements OnInit {

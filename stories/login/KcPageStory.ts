@@ -11,14 +11,15 @@ import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
 import type { StoryContext } from '@storybook/angular';
 import { getI18n } from './i18n';
 import { getKcContextMock } from './KcContextMock';
-import { getKcPage } from './KcPage';
+import { classes, doMakeUserConfirmPassword, doUseDefaultCss, getKcPage } from './KcPage';
 
 export const decorators = (_: unknown, context: StoryContext) => ({
     applicationConfig: {
         providers: [
             provideKeycloakifyAngular({
-                doUseDefaultCss: true,
-                classes: {},
+                doMakeUserConfirmPassword: doMakeUserConfirmPassword,
+                doUseDefaultCss: doUseDefaultCss,
+                classes: classes,
                 kcContext: getKcContextMock({
                     pageId: context.globals['pageId'],
                     overrides: context.globals['kcContext']

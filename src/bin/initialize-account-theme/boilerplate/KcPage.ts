@@ -3,8 +3,8 @@ import { TemplateComponent } from '@keycloakify/angular/account/template';
 import type { ClassKey } from 'keycloakify/account/lib/kcClsx';
 import type { KcContext } from './KcContext';
 
-const classes = {} satisfies { [key in ClassKey]?: string };
-const doUseDefaultCss = true;
+export const classes = {} satisfies { [key in ClassKey]?: string };
+export const doUseDefaultCss = true;
 
 export async function getKcPage(pageId: KcContext['pageId']): Promise<KcPage> {
     switch (pageId) {

@@ -1,3 +1,10 @@
+## [21.0.3](https://github.com/keycloakify/keycloakify-angular/compare/v21.0.2...v21.0.3) (2026-03-18)
+
+
+### Bug Fixes
+
+* account ClassKey import ([957b480](https://github.com/keycloakify/keycloakify-angular/commit/957b480b2221abc73f457bceae49937ea54fe58a))
+
 ## [21.0.2](https://github.com/keycloakify/keycloakify-angular/compare/v21.0.1...v21.0.2) (2026-03-15)
 
 ## [21.0.1](https://github.com/keycloakify/keycloakify-angular/compare/v21.0.0...v21.0.1) (2026-02-28)

@@ -1,6 +1,6 @@
 import { getDefaultPageComponent, type KcPage } from '@keycloakify/angular/account';
 import { TemplateComponent } from '@keycloakify/angular/account/template';
-import type { ClassKey } from 'keycloakify/account';
+import type { ClassKey } from 'keycloakify/account/lib/kcClsx';
 import type { KcContext } from './KcContext';
 
 const classes = {} satisfies { [key in ClassKey]?: string };

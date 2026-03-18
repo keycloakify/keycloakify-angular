@@ -8,7 +8,7 @@ import { ACCOUNT_I18N } from '@keycloakify/angular/account/tokens/i18n';
 import { KC_ACCOUNT_CONTEXT } from '@keycloakify/angular/account/tokens/kc-context';
 import { KcSanitizePipe } from '@keycloakify/angular/lib/pipes/kc-sanitize';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
-import type { ClassKey } from 'keycloakify/account';
+import type { ClassKey } from 'keycloakify/account/lib/kcClsx';
 
 @Component({
     imports: [KcClassDirective, KcSanitizePipe],

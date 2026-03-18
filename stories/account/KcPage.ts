@@ -1,4 +1,4 @@
-import type { ClassKey } from 'keycloakify/account';
+import type { ClassKey } from 'keycloakify/account/lib/kcClsx';
 import { getDefaultPageComponent, type KcPage } from '../../src/account';
 import { TemplateComponent } from '../../src/login/template';
 import type { KcContext } from './KcContext';

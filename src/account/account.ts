@@ -1,5 +1,5 @@
 import type { Type } from '@angular/core';
-import type { ClassKey } from 'keycloakify/account';
+import type { ClassKey } from 'keycloakify/account/lib/kcClsx';
 
 export { i18nBuilder } from 'keycloakify/account/i18n/noJsx';
 

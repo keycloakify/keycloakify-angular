@@ -10,9 +10,8 @@ import {
     Renderer2,
     ɵstringify as stringify
 } from '@angular/core';
-import { type ClassKey } from 'keycloakify/account';
-import { getKcClsx } from 'keycloakify/account/lib/kcClsx';
 import { ComponentReference } from '@keycloakify/angular/account/classes/component-reference';
+import { type ClassKey, getKcClsx } from 'keycloakify/account/lib/kcClsx';
 
 interface CssClassState {
     // PERF: could use a bit mask to represent state as all fields are boolean flags

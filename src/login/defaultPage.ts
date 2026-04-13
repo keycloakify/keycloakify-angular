@@ -93,6 +93,10 @@ export function getDefaultPageComponent(
             return import('@keycloakify/angular/login/pages/idp-review-user-profile').then(
                 c => c.IdpReviewUserProfileComponent
             );
+        case 'link-idp-action.ftl':
+            return import('@keycloakify/angular/login/pages/link-idp-action').then(
+                c => c.LinkIdpActionComponent
+            );
         case 'update-email.ftl':
             return import('@keycloakify/angular/login/pages/update-email').then(
                 c => c.UpdateEmailComponent

@@ -1,3 +1,10 @@
+## [21.1.1](https://github.com/keycloakify/keycloakify-angular/compare/v21.1.0...v21.1.1) (2026-04-13)
+
+
+### Bug Fixes
+
+* missing case on default page ([13f0518](https://github.com/keycloakify/keycloakify-angular/commit/13f05180f09b02bc1203a9aae64dbfaf46b06c90))
+
 # [21.1.0](https://github.com/keycloakify/keycloakify-angular/compare/v21.0.6...v21.1.0) (2026-04-13)
 
 

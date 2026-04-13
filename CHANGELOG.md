@@ -1,3 +1,15 @@
+# [21.1.0](https://github.com/keycloakify/keycloakify-angular/compare/v21.0.6...v21.1.0) (2026-04-13)
+
+
+### Bug Fixes
+
+* rename story ([ae7e866](https://github.com/keycloakify/keycloakify-angular/commit/ae7e866d53c167303746aa5adfc35f69867d398d)), closes [#48](https://github.com/keycloakify/keycloakify-angular/issues/48)
+
+
+### Features
+
+* add link-idp-action ([4762826](https://github.com/keycloakify/keycloakify-angular/commit/476282633327b096e9d65f12bf02ee99c9157d60)), closes [#49](https://github.com/keycloakify/keycloakify-angular/issues/49)
+
 ## [21.0.6](https://github.com/keycloakify/keycloakify-angular/compare/v21.0.5...v21.0.6) (2026-04-07)
 
 ## [21.0.5](https://github.com/keycloakify/keycloakify-angular/compare/v21.0.4...v21.0.5) (2026-03-18)

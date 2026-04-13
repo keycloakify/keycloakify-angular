@@ -2,6 +2,7 @@
 @let url = kcContext.url;
 
 <ng-template #headerNode>
+    @let idpDisplayName = kcContext.idpDisplayName;
     {{ i18n.msgStr('linkIdpActionTitle', idpDisplayName) }}
 </ng-template>
 <div

@@ -1,3 +1,10 @@
+## [21.1.2](https://github.com/keycloakify/keycloakify-angular/compare/v21.1.1...v21.1.2) (2026-04-13)
+
+
+### Bug Fixes
+
+* let variable scope ([0a02804](https://github.com/keycloakify/keycloakify-angular/commit/0a028048e495126ff7cfa99f26208459373f6912))
+
 ## [21.1.1](https://github.com/keycloakify/keycloakify-angular/compare/v21.1.0...v21.1.1) (2026-04-13)
 
 

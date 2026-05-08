@@ -375,10 +375,12 @@ export async function command(params: { buildContext: BuildContext }) {
                         `.${pathSep}${pathRelative(process.cwd(), filePath)}`
                     )} Updated`
                 );
-            } catch {
+            } catch (error) {
+                const errorMessage =
+                    error instanceof Error ? error.message : String(error);
                 console.log(
                     chalk.red(
-                        `Unable to automatically update ${fileName}, please update it manually`
+                        `Unable to automatically update ${fileName}, please update it manually (${errorMessage})`
                     )
                 );
             }

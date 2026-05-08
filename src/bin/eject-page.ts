@@ -364,21 +364,24 @@ export async function command(params: { buildContext: BuildContext }) {
             })();
 
             if (modifiedCode === originalCode) {
+                console.log(chalk.yellow(`No changes for file ${fileName}, ignoring.`));
+                continue;
+            }
+
+            try {
+                fs.writeFileSync(filePath, Buffer.from(modifiedCode, 'utf8'));
+                console.log(
+                    `${chalk.green('✓')} ${chalk.bold(
+                        `.${pathSep}${pathRelative(process.cwd(), filePath)}`
+                    )} Updated`
+                );
+            } catch {
                 console.log(
                     chalk.red(
                         `Unable to automatically update ${fileName}, please update it manually`
                     )
                 );
-                continue;
             }
-
-            fs.writeFileSync(filePath, Buffer.from(modifiedCode, 'utf8'));
-
-            console.log(
-                `${chalk.green('✓')} ${chalk.bold(
-                    `.${pathSep}${pathRelative(process.cwd(), filePath)}`
-                )} Updated`
-            );
         }
         return;
     }

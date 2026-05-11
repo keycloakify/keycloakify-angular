@@ -1,3 +1,10 @@
+## [21.1.3](https://github.com/keycloakify/keycloakify-angular/compare/v21.1.2...v21.1.3) (2026-05-11)
+
+
+### Bug Fixes
+
+* warning when updated file content is the same as current ([8ef8742](https://github.com/keycloakify/keycloakify-angular/commit/8ef8742e4579e00262c2b3a88967eee6037a7909))
+
 ## [21.1.2](https://github.com/keycloakify/keycloakify-angular/compare/v21.1.1...v21.1.2) (2026-04-13)
 
 

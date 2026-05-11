@@ -1,3 +1,10 @@
+## [21.1.4](https://github.com/keycloakify/keycloakify-angular/compare/v21.1.3...v21.1.4) (2026-05-11)
+
+
+### Bug Fixes
+
+* missing story ([8e4a25a](https://github.com/keycloakify/keycloakify-angular/commit/8e4a25a90e8721cb0d164cf31a550a5796d2cae6))
+
 ## [21.1.3](https://github.com/keycloakify/keycloakify-angular/compare/v21.1.2...v21.1.3) (2026-05-11)
 
 

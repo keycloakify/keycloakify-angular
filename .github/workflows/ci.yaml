@@ -54,10 +54,16 @@ jobs:
       is_upgraded_version: ${{ steps.step1.outputs.is_upgraded_version }}
       is_pre_release: ${{steps.step1.outputs.is_pre_release }}
     steps:
-    - uses: garronej/ts-ci@v2.1.2
-      id: step1
-      with: 
-        action_name: is_package_json_version_upgraded
+    - uses: actions/checkout@v5
+      with:
+        fetch-depth: 1
+        fetch-tags: true
+    - uses: actions/setup-node@v5
+      with:
+        node-version-file: '.nvmrc'
+    - id: step1
+      name: Check if package.json version was upgraded
+      run: node .github/scripts/check-version-upgraded.mjs
 
   create_github_release:
     runs-on: ubuntu-latest

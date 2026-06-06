@@ -1,4 +1,5 @@
 import {
+    ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
     inject,
@@ -57,6 +58,7 @@ export const decorators = (_: unknown, context: StoryContextLike) => ({
         <kc-root [page]="pageComponent"></kc-root>
     }`,
     standalone: true,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [TemplateComponent]
 })
 export class KcPageStory implements OnInit {

@@ -1,7 +1,6 @@
 import * as fs from 'fs';
 import {
     basename as pathBasename,
-    dirname as pathDirname,
     join as pathJoin,
     relative as pathRelative,
     sep as pathSep
@@ -41,46 +40,30 @@ export function postNgBuild() {
 }
 
 function buildBin() {
-    const binDirPath = pathJoin(getThisCodebaseRootDirPath(), 'src', 'bin');
+    const rootDirPath = getThisCodebaseRootDirPath();
     const distDirPath_bin = pathJoin(distDirPath, 'bin');
 
-    fs.cpSync(binDirPath, distDirPath_bin, { recursive: true });
+    fs.mkdirSync(distDirPath_bin, { recursive: true });
 
-    const nccOutDirPath = pathJoin(distDirPath_bin, 'ncc_out');
+    const entrypointFilePath = pathJoin(rootDirPath, 'src', 'bin', 'main.ts');
+    const outFilePath = pathJoin(distDirPath_bin, 'index.js');
 
-    const entrypointFilePath = pathJoin(distDirPath_bin, 'main.ts');
+    // ESM bundle needs a `require` for transitive `require()` of node built-ins
+    // (e.g. cli-select's `require("readline")`). esbuild's __require shim throws
+    // under pure ESM, so we restore `require` via createRequire, like ncc did.
+    const banner =
+        "import { createRequire } from 'module'; const require = createRequire(import.meta.url);";
 
-    run(`npx ncc build ${entrypointFilePath} --external prettier -t -o ${nccOutDirPath}`);
-
-    transformCodebase({
-        srcDirPath: distDirPath_bin,
-        destDirPath: distDirPath_bin,
-        transformSourceCode: ({ filePath, sourceCode }) => {
-            if (filePath.startsWith(nccOutDirPath)) {
-                return { modifiedSourceCode: sourceCode };
-            }
-
-            return undefined;
-        }
-    });
-
-    const newEntrypointFilePath = entrypointFilePath.replace('main.ts', 'index.js');
-
-    fs.readdirSync(nccOutDirPath).forEach(basename => {
-        const destFilePath =
-            basename === 'index.js'
-                ? newEntrypointFilePath
-                : pathJoin(pathDirname(newEntrypointFilePath), basename);
-        const srcFilePath = pathJoin(nccOutDirPath, basename);
-
-        fs.cpSync(srcFilePath, destFilePath);
-    });
-
-    fs.rmSync(nccOutDirPath, { recursive: true });
+    // The `direct-eval` warning comes from the intentional `eval` in
+    // runPrettier.ts, which loads the consumer project's prettier by absolute
+    // path while hiding it from the bundler. It's deliberate, so silence it.
+    run(
+        `npx esbuild ${entrypointFilePath} --bundle --minify --external:prettier --platform=node --format=esm --log-override:direct-eval=silent --banner:js="${banner}" --outfile=${outFilePath}`
+    );
 
     fs.chmodSync(
-        newEntrypointFilePath,
-        fs.statSync(newEntrypointFilePath).mode |
+        outFilePath,
+        fs.statSync(outFilePath).mode |
             fs.constants.S_IXUSR |
             fs.constants.S_IXGRP |
             fs.constants.S_IXOTH
@@ -88,10 +71,7 @@ function buildBin() {
 
     return {
         packageJsonBinProperty: {
-            [BIN_NAME]: pathRelative(distDirPath, newEntrypointFilePath).replaceAll(
-                pathSep,
-                '/'
-            )
+            [BIN_NAME]: pathRelative(distDirPath, outFilePath).replaceAll(pathSep, '/')
         }
     };
 }

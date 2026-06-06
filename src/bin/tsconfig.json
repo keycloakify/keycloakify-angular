@@ -5,18 +5,17 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "strict": true,
-        "downlevelIteration": true,
         "noFallthroughCasesInSwitch": true,
         "composite": true,
-        "rootDir": ".",
+        "rootDir": "./",
         "module": "ES2020",
         "target": "ES2017",
         "esModuleInterop": true,
         "lib": ["es2015", "ES2019.Object"],
-        "moduleResolution": "node"
+        "moduleResolution": "bundler"
     },
-    "include": ["**/*.ts"],
-    "exclude": ["initialize-account-theme/boilerplate"],
+    "include": ["./**/*.ts"],
+    "exclude": ["./initialize-account-theme/boilerplate"],
     "ts-node": {
         "esm": true
     }

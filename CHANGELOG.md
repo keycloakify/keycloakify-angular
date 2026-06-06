@@ -1,3 +1,5 @@
+## [21.1.5](https://github.com/keycloakify/keycloakify-angular/compare/v21.1.4...v21.1.5) (2026-06-06)
+
 ## [21.1.4](https://github.com/keycloakify/keycloakify-angular/compare/v21.1.3...v21.1.4) (2026-05-11)
 
 

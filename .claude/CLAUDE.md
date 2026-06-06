@@ -59,6 +59,7 @@ export class MyComponent extends ComponentReference {
 ```
 
 Key points:
+
 - All components are **standalone** with `ChangeDetectionStrategy.OnPush`
 - They **extend `ComponentReference`** (a base class holding `doUseDefaultCss` and `classes`)
 - Context, i18n, and classes arrive via **DI tokens**, not `@Input()`
@@ -67,12 +68,12 @@ Key points:
 
 ### DI Tokens
 
-| Token | Purpose |
-|---|---|
-| `KC_LOGIN_CONTEXT` / `KC_ACCOUNT_CONTEXT` | Typed Keycloak context for the current page |
-| `LOGIN_I18N` / `ACCOUNT_I18N` | Internationalization service |
-| `LOGIN_CLASSES` / `ACCOUNT_CLASSES` | CSS class overrides from the consumer |
-| `USE_DEFAULT_CSS` | Boolean — whether to apply keycloakify's default CSS |
+| Token                                     | Purpose                                              |
+| ----------------------------------------- | ---------------------------------------------------- |
+| `KC_LOGIN_CONTEXT` / `KC_ACCOUNT_CONTEXT` | Typed Keycloak context for the current page          |
+| `LOGIN_I18N` / `ACCOUNT_I18N`             | Internationalization service                         |
+| `LOGIN_CLASSES` / `ACCOUNT_CLASSES`       | CSS class overrides from the consumer                |
+| `USE_DEFAULT_CSS`                         | Boolean — whether to apply keycloakify's default CSS |
 
 ### Shared Utilities (`src/lib/`)
 
@@ -95,6 +96,5 @@ Key points:
 ## Decision Protocol
 
 When analysis reveals multiple valid implementation approaches, always stop and present the options clearly before writing any code. Wait for explicit confirmation of which approach to take. Never pick one unilaterally.
-
 
 @AGENTS.md

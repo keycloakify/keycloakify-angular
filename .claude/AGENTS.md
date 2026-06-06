@@ -1,6 +1,6 @@
 ---
-name: "Keycloakify Agents & Skills"
-description: "Guide for available agents and skills in Keycloakify"
+name: 'Keycloakify Agents & Skills'
+description: 'Guide for available agents and skills in Keycloakify'
 ---
 
 # Keycloakify Agents & Skills Guide
@@ -9,8 +9,8 @@ Specialized agents and skills to accelerate common development tasks. Type `/` i
 
 ## ⚡ Quick Reference
 
-| Command | Type | Use When |
-|---------|------|----------|
+| Command     | Type  | Use When                                                                                                                                |
+| ----------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | `/grill-me` | Skill | Interview the user relentlessly about a plan or design until reaching shared understanding, resolving each branch of the decision tree. |
 
 ---

@@ -1,0 +1,13 @@
+{
+  "enabledMcpjsonServers": [],
+  "enableAllProjectMcpServers": true,
+  "permissions": {
+    "allow": [
+      "Bash(*)"
+    ],
+    "deny": [
+      "Edit(node_modules/**)",
+      "Write(node_modules/**)"
+    ]
+  }
+}

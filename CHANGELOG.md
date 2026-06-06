@@ -1,3 +1,5 @@
+# [22.0.0-rc.1](https://github.com/keycloakify/keycloakify-angular/compare/v22.0.0-rc.0...v22.0.0-rc.1) (2026-06-06)
+
 # [22.0.0-rc.0](https://github.com/keycloakify/keycloakify-angular/compare/v21.1.5...v22.0.0-rc.0) (2026-06-06)
 
 

@@ -42,6 +42,20 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/513033?v=4",
       "profile": "https://github.com/vikashkumar29",
       "contributions": ["code"]
+    },
+    {
+      "login": "eduardoRoth",
+      "name": "Eduardo Roth",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5419161?v=4",
+      "profile": "https://github.com/eduardoRoth",
+      "contributions": ["code"]
+    },
+    {
+      "login": "jogerj",
+      "name": "Jonathan Joewono",
+      "avatar_url": "https://avatars.githubusercontent.com/u/30559735?v=4",
+      "profile": "https://github.com/jogerj",
+      "contributions": ["code"]
     }
   ],
   "contributorsPerLine": 7,

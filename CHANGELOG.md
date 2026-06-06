@@ -1,3 +1,10 @@
+# [22.0.0-rc.2](https://github.com/keycloakify/keycloakify-angular/compare/v22.0.0-rc.1...v22.0.0-rc.2) (2026-06-06)
+
+
+### Bug Fixes
+
+* peers ([6d709d0](https://github.com/keycloakify/keycloakify-angular/commit/6d709d0abf02431ac70e3874ef5cb574891590a4))
+
 # [22.0.0-rc.1](https://github.com/keycloakify/keycloakify-angular/compare/v22.0.0-rc.0...v22.0.0-rc.1) (2026-06-06)
 
 # [22.0.0-rc.0](https://github.com/keycloakify/keycloakify-angular/compare/v21.1.5...v22.0.0-rc.0) (2026-06-06)

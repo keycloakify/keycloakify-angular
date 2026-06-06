@@ -2,10 +2,10 @@ name: ci
 on:
   push:
     branches:
-      - main
+      - feature/next
   pull_request:
     branches:
-      - main
+      - feature/next
 
 permissions:
   id-token: write
@@ -61,8 +61,8 @@ jobs:
 
   create_github_release:
     runs-on: ubuntu-latest
-    # We create release only if the version in the package.json have been upgraded and this CI is running against the main branch.
-    # We allow branches with a PR open on main to publish pre-release (x.y.z-rc.u) but not actual releases.
+    # We create release only if the version in the package.json have been upgraded and this CI is running against the feature/next branch.
+    # We allow branches with a PR open on feature/next to publish pre-release (x.y.z-rc.u) but not actual releases.
     if: |
       needs.check_if_version_upgraded.outputs.is_upgraded_version == 'true' &&
       (

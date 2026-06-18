@@ -1,23 +1,22 @@
-# [22.0.0-rc.2](https://github.com/keycloakify/keycloakify-angular/compare/v22.0.0-rc.1...v22.0.0-rc.2) (2026-06-06)
+# [22.0.0](https://github.com/keycloakify/keycloakify-angular/compare/v21.1.5...v22.0.0) (2026-06-18)
 
 
 ### Bug Fixes
 
-* peers ([6d709d0](https://github.com/keycloakify/keycloakify-angular/commit/6d709d0abf02431ac70e3874ef5cb574891590a4))
+* ci ([aa3d28e](https://github.com/keycloakify/keycloakify-angular/commit/aa3d28e774ec1e6dee86b149cbb82c91ea9b80a6))
+* peers ([c811683](https://github.com/keycloakify/keycloakify-angular/commit/c811683f4006a1ae8c0cd92c097cf2437df47ca5))
 
-# [22.0.0-rc.1](https://github.com/keycloakify/keycloakify-angular/compare/v22.0.0-rc.0...v22.0.0-rc.1) (2026-06-06)
 
-# [22.0.0-rc.0](https://github.com/keycloakify/keycloakify-angular/compare/v21.1.5...v22.0.0-rc.0) (2026-06-06)
+### Features
+
+* update to angular 22 ([8946746](https://github.com/keycloakify/keycloakify-angular/commit/8946746be1c7f3584a90261ae6f35b65b383f05a))
+
+## [21.1.5](https://github.com/keycloakify/keycloakify-angular/compare/v21.1.4...v21.1.5) (2026-06-06)
 
 
 ### Bug Fixes
 
 * lint ([1b41fab](https://github.com/keycloakify/keycloakify-angular/commit/1b41fab4110f37aba57566f86fef1fbfee9c02ee))
-
-
-### Features
-
-* update to angular 22 ([d6596fc](https://github.com/keycloakify/keycloakify-angular/commit/d6596fc40649366b5c14a4e5af5e345c88702581))
 
 ## [21.1.4](https://github.com/keycloakify/keycloakify-angular/compare/v21.1.3...v21.1.4) (2026-05-11)
 

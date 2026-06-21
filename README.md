@@ -40,7 +40,9 @@ See [getting started](https://docs.keycloakify.dev/).
 
 | Angular | @keycloakify/angular | Maintained |
 | ------- | -------------------- | ---------- |
-| 20      | 20.0.x+              | yes        |
+| 22      | 22.0.x+              | yes        |
+| 21      | 21.0.x+              | no         |
+| 20      | 20.0.x+              | no         |
 | 19      | 0.2.x+               | no         |
 | 18      | 0.1.8                | no         |
 

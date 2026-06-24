@@ -4086,9 +4086,9 @@ jsonparse@^1.3.1:
   integrity sha512-POQXvpdL69+CluYsillJ7SUhKvytYjW9vG/GKpnf+xP8UWgYEM/RaMzHHofbALDiKbbP1W8UEYmgGl39WkPZsg==
 
 keycloakify@^11.15.9:
-  version "11.15.9"
-  resolved "https://registry.yarnpkg.com/keycloakify/-/keycloakify-11.15.9.tgz#2f2e935f3b5008a5416727ea7680629dbd5b3cad"
-  integrity sha512-iMlA8sNwG58cMZGECSJmfGglzvl9zBJdDfzsOZI7WkmARfGDN8k3bRHmjJaLx4+yeZkJUOiVzcid5c+6PgbR3g==
+  version "11.15.10"
+  resolved "https://registry.yarnpkg.com/keycloakify/-/keycloakify-11.15.10.tgz#38f43159def85980e0056ba092283340811c3d38"
+  integrity sha512-r8f3Os0XCMMOqS7NtjVyy0hJD1CwVjQeBk4FTfvOaJ5codFvBM9loSa5e2lUG/Ju93a5p04nkMxHylU5B8433w==
   dependencies:
     tsafe "^1.8.5"
 

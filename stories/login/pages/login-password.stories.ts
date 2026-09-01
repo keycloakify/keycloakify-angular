@@ -50,3 +50,11 @@ export const WithoutResetPasswordOption: Story = {
         }
     }
 };
+
+export const WithWebAuthnConditionalUI: Story = {
+    globals: {
+        kcContext: {
+            enableWebAuthnConditionalUI: true
+        }
+    }
+};

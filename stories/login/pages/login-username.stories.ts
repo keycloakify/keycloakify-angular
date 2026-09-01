@@ -26,3 +26,11 @@ export const WithEmailAsUsername: Story = {
         }
     }
 };
+
+export const WithWebAuthnConditionalUI: Story = {
+    globals: {
+        kcContext: {
+            enableWebAuthnConditionalUI: true
+        }
+    }
+};

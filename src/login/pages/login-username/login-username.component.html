@@ -3,6 +3,8 @@
 @let messagesPerField = kcContext.messagesPerField;
 @let url = kcContext.url;
 @let login = kcContext.login;
+@let enableWebAuthnConditionalUI = kcContext.enableWebAuthnConditionalUI;
+@let authenticators = kcContext.authenticators;
 
 <ng-template #headerNode>
     {{ i18n.msgStr('doLogIn') }}
@@ -98,7 +100,7 @@
                             name="username"
                             type="text"
                             autofocus
-                            autocomplete="username"
+                            [attr.autocomplete]="enableWebAuthnConditionalUI ? 'username webauthn' : 'username'"
                             [kcClass]="'kcInputClass'"
                             [defaultValue]="login?.username || ''"
                             [attr.aria-invalid]="messagesPerField?.existsError('username')"
@@ -150,3 +152,66 @@
         }
     </div>
 </div>
+@if (enableWebAuthnConditionalUI) {
+    <form
+        id="webauth"
+        method="post"
+        [action]="url.loginAction"
+    >
+        <input
+            type="hidden"
+            id="clientDataJSON"
+            name="clientDataJSON"
+        />
+        <input
+            type="hidden"
+            id="authenticatorData"
+            name="authenticatorData"
+        />
+        <input
+            type="hidden"
+            id="signature"
+            name="signature"
+        />
+        <input
+            type="hidden"
+            id="credentialId"
+            name="credentialId"
+        />
+        <input
+            type="hidden"
+            id="userHandle"
+            name="userHandle"
+        />
+        <input
+            type="hidden"
+            id="error"
+            name="error"
+        />
+    </form>
+
+    @if (authenticators !== undefined && authenticators.authenticators.length !== 0) {
+        <form
+            id="authn_select"
+            [kcClass]="'kcFormClass'"
+        >
+            @for (authenticator of authenticators.authenticators; track authenticator.credentialId) {
+                <input
+                    type="hidden"
+                    name="authn_use_chk"
+                    readonly
+                    [value]="authenticator.credentialId"
+                />
+            }
+        </form>
+    }
+
+    <br />
+
+    <input
+        [id]="webAuthnButtonId"
+        type="button"
+        [kcClass]="['kcButtonClass', 'kcButtonDefaultClass', 'kcButtonBlockClass', 'kcButtonLargeClass']"
+        [value]="i18n.msgStr('passkey-doAuthenticate')"
+    />
+}

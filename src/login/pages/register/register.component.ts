@@ -16,6 +16,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { KcSanitizePipe } from '@keycloakify/angular/lib/pipes/kc-sanitize';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
+import type { TemplateSlots } from '@keycloakify/angular/login/classes/template-slots';
 import { type UserProfileFormFieldsComponent } from '@keycloakify/angular/login/components/user-profile-form-fields';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class';
 import type { I18n } from '@keycloakify/angular/login/i18n';
@@ -39,7 +40,7 @@ import { map } from 'rxjs';
         }
     ]
 })
-export class RegisterComponent extends ComponentReference implements OnInit, OnDestroy {
+export class RegisterComponent extends ComponentReference implements OnInit, OnDestroy, TemplateSlots {
     #userProfileFormService = inject(UserProfileFormService);
     kcContext = inject<Extract<KcContext, { pageId: 'register.ftl' }>>(KC_LOGIN_CONTEXT);
     i18n = inject<I18n>(LOGIN_I18N);

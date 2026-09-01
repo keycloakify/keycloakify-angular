@@ -2,6 +2,7 @@ import { NgComponentOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, forwardRef, inject, input, type TemplateRef, type Type, viewChild } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
+import type { TemplateSlots } from '@keycloakify/angular/login/classes/template-slots';
 import { LogoutOtherSessionsComponent } from '@keycloakify/angular/login/components/logout-other-sessions';
 import { type UserProfileFormFieldsComponent } from '@keycloakify/angular/login/components/user-profile-form-fields';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class';
@@ -24,7 +25,7 @@ import { map } from 'rxjs';
         }
     ]
 })
-export class UpdateEmailComponent extends ComponentReference {
+export class UpdateEmailComponent extends ComponentReference implements TemplateSlots {
     #userProfileFormService = inject(UserProfileFormService);
     kcContext = inject<Extract<KcContext, { pageId: 'update-email.ftl' }>>(KC_LOGIN_CONTEXT);
     i18n = inject<I18n>(LOGIN_I18N);

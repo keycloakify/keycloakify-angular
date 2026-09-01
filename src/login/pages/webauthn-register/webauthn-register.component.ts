@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, forwardRef, inject, type TemplateRe
 import type { Script } from '@keycloakify/angular/lib/models/script';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
+import type { TemplateSlots } from '@keycloakify/angular/login/classes/template-slots';
 import { LogoutOtherSessionsComponent } from '@keycloakify/angular/login/components/logout-other-sessions';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class';
 import type { I18n } from '@keycloakify/angular/login/i18n';
@@ -24,7 +25,7 @@ import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
         }
     ]
 })
-export class WebauthnRegisterComponent extends ComponentReference {
+export class WebauthnRegisterComponent extends ComponentReference implements TemplateSlots {
     kcContext = inject<Extract<KcContext, { pageId: 'webauthn-register.ftl' }>>(KC_LOGIN_CONTEXT);
     loginResourceInjectorService = inject(LoginResourceInjectorService);
     i18n = inject<I18n>(LOGIN_I18N);

@@ -1,5 +1,6 @@
 import type { Type } from '@angular/core';
 import type { KcContext } from '@keycloakify/angular/login/KcContext';
+import { assert, type Equals } from 'tsafe/assert';
 
 export function getDefaultPageComponent(
     pageId: KcContext['pageId']
@@ -153,7 +154,12 @@ export function getDefaultPageComponent(
             return import('@keycloakify/angular/login/pages/login-idp-link-confirm-override').then(
                 c => c.LoginIdpLinkConfirmOverrideComponent
             );
+        case 'select-organization.ftl':
+            return import('@keycloakify/angular/login/pages/select-organization').then(
+                c => c.SelectOrganizationComponent
+            );
         default:
+            assert<Equals<typeof pageId, never>>();
             throw new Error(`FTL page "${pageId}" not found!`);
     }
 }

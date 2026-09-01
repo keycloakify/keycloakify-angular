@@ -20,6 +20,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { KcSanitizePipe } from '@keycloakify/angular/lib/pipes/kc-sanitize';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
+import type { TemplateSlots } from '@keycloakify/angular/login/classes/template-slots';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class';
 import type { I18n } from '@keycloakify/angular/login/i18n';
 import { type KcContext } from '@keycloakify/angular/login/KcContext';
@@ -66,9 +67,9 @@ export class TemplateComponent extends ComponentReference {
     pageRef = viewChild('pageRef', { read: ViewContainerRef });
 
     userProfileFormFields = input<Type<unknown>>();
-    headerNode: Signal<TemplateRef<HTMLElement>> | undefined;
-    infoNode: Signal<TemplateRef<HTMLElement>> | undefined;
-    socialProvidersNode: Signal<TemplateRef<HTMLElement>> | undefined;
+    headerNode: Signal<TemplateRef<HTMLElement> | undefined> | undefined;
+    infoNode: Signal<TemplateRef<HTMLElement> | undefined> | undefined;
+    socialProvidersNode: Signal<TemplateRef<HTMLElement> | undefined> | undefined;
 
     constructor() {
         super();
@@ -86,7 +87,7 @@ export class TemplateComponent extends ComponentReference {
                 if ('userProfileFormFields' in (compRef.instance as object) && userProfileFormFields) {
                     compRef.setInput('userProfileFormFields', userProfileFormFields);
                 }
-                this.onComponentCreated(compRef.instance as object);
+                this.onComponentCreated(compRef.instance as TemplateSlots);
             },
             { manualCleanup: true }
         );
@@ -113,39 +114,33 @@ export class TemplateComponent extends ComponentReference {
         document.forms['kc-select-try-another-way-form' as never].requestSubmit();
     }
 
-    onComponentCreated(compRef: object) {
+    onComponentCreated(compRef: TemplateSlots) {
         if ('displayInfo' in compRef) {
-            this.displayInfo = !!compRef.displayInfo as boolean;
+            this.displayInfo = !!compRef.displayInfo;
         }
         if ('displayMessage' in compRef) {
-            this.displayMessage = !!compRef.displayMessage as boolean;
+            this.displayMessage = !!compRef.displayMessage;
         }
         if ('displayRequiredFields' in compRef) {
-            this.displayRequiredFields = !!compRef.displayRequiredFields as boolean;
+            this.displayRequiredFields = !!compRef.displayRequiredFields;
         }
         if ('documentTitle' in compRef && compRef.documentTitle) {
-            this.documentTitle = compRef.documentTitle as string;
+            this.documentTitle = compRef.documentTitle;
         }
         if ('bodyClassName' in compRef && compRef.bodyClassName) {
-            this.bodyClassName = compRef.bodyClassName as string;
+            this.bodyClassName = compRef.bodyClassName;
         }
         if ('headerNode' in compRef && compRef.headerNode) {
-            this.headerNode = computed(() => {
-                const headerNode = (compRef.headerNode as Signal<TemplateRef<HTMLElement>>)();
-                return headerNode;
-            });
+            const headerNodeSignal = compRef.headerNode;
+            this.headerNode = computed(() => headerNodeSignal());
         }
         if ('infoNode' in compRef && compRef.infoNode) {
-            this.infoNode = computed(() => {
-                const infoNode = (compRef.infoNode as Signal<TemplateRef<HTMLElement>>)();
-                return infoNode;
-            });
+            const infoNodeSignal = compRef.infoNode;
+            this.infoNode = computed(() => infoNodeSignal());
         }
         if ('socialProvidersNode' in compRef && compRef.socialProvidersNode) {
-            this.socialProvidersNode = computed(() => {
-                const socialProvidersNode = (compRef.socialProvidersNode as Signal<TemplateRef<HTMLElement>>)();
-                return socialProvidersNode;
-            });
+            const socialProvidersNodeSignal = compRef.socialProvidersNode;
+            this.socialProvidersNode = computed(() => socialProvidersNodeSignal());
         }
         this.title.setTitle(this.documentTitle ?? this.i18n.msgStr('loginTitle', this.kcContext.realm.displayName));
         this.applyKcIndexClasses();

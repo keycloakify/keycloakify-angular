@@ -1,10 +1,13 @@
 import { ChangeDetectionStrategy, Component, forwardRef, inject, signal, type TemplateRef, viewChild } from '@angular/core';
+import type { Script } from '@keycloakify/angular/lib/models/script';
 import { KcSanitizePipe } from '@keycloakify/angular/lib/pipes/kc-sanitize';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
+import type { TemplateSlots } from '@keycloakify/angular/login/classes/template-slots';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class';
 import type { I18n } from '@keycloakify/angular/login/i18n';
 import type { KcContext } from '@keycloakify/angular/login/KcContext';
+import { LoginResourceInjectorService } from '@keycloakify/angular/login/services/login-resource-injector';
 import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes';
 import { LOGIN_I18N } from '@keycloakify/angular/login/tokens/i18n';
 import { KC_LOGIN_CONTEXT } from '@keycloakify/angular/login/tokens/kc-context';
@@ -22,9 +25,10 @@ import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
         }
     ]
 })
-export class LoginUsernameComponent extends ComponentReference {
+export class LoginUsernameComponent extends ComponentReference implements TemplateSlots {
     kcContext = inject<Extract<KcContext, { pageId: 'login-username.ftl' }>>(KC_LOGIN_CONTEXT);
     i18n = inject<I18n>(LOGIN_I18N);
+    loginResourceInjectorService = inject(LoginResourceInjectorService);
     override doUseDefaultCss = inject<boolean>(USE_DEFAULT_CSS);
     override classes = inject<Partial<Record<ClassKey, string>>>(LOGIN_CLASSES);
 
@@ -40,4 +44,46 @@ export class LoginUsernameComponent extends ComponentReference {
     socialProvidersNode = viewChild<TemplateRef<HTMLElement>>('socialProvidersNode');
 
     isLoginButtonDisabled = signal(false);
+    webAuthnButtonId = 'authenticateWebAuthnButton';
+
+    constructor() {
+        super();
+
+        if (!this.kcContext.enableWebAuthnConditionalUI) {
+            return;
+        }
+
+        const { url, challenge, rpId, userVerification, isUserIdentified, createTimeout } = this.kcContext;
+        const scripts: Script[] = [
+            {
+                type: 'module',
+                id: 'LoginUsernameWebAuthnConditionalUI',
+                textContent: `
+                    import { authenticateByWebAuthn } from "${url.resourcesPath}/js/webauthnAuthenticate.js";
+                    import { initAuthenticate } from "${url.resourcesPath}/js/passkeysConditionalAuth.js";
+
+                    const authButton = document.getElementById("${this.webAuthnButtonId}");
+                    const input = {
+                        isUserIdentified : ${isUserIdentified},
+                        challenge : ${JSON.stringify(challenge)},
+                        userVerification : ${JSON.stringify(userVerification)},
+                        rpId : ${JSON.stringify(rpId)},
+                        createTimeout : ${createTimeout}
+                    };
+                    authButton.addEventListener("click", () => {
+                        authenticateByWebAuthn({
+                            ...input,
+                            errmsg : ${JSON.stringify(this.i18n.msgStr('webauthn-unsupported-browser-text'))}
+                        });
+                    });
+
+                    initAuthenticate({
+                        ...input,
+                        errmsg : ${JSON.stringify(this.i18n.msgStr('passkey-unsupported-browser-text'))}
+                    });
+          `
+            }
+        ];
+        this.loginResourceInjectorService.insertAdditionalScripts(scripts);
+    }
 }

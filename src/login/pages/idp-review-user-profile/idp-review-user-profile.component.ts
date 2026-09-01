@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, forwardRef, inject, input, type Tem
 import { toSignal } from '@angular/core/rxjs-interop';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
+import type { TemplateSlots } from '@keycloakify/angular/login/classes/template-slots';
 import type { UserProfileFormFieldsComponent } from '@keycloakify/angular/login/components/user-profile-form-fields';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class';
 import type { I18n } from '@keycloakify/angular/login/i18n';
@@ -26,7 +27,7 @@ import { map } from 'rxjs';
         }
     ]
 })
-export class IdpReviewUserProfileComponent extends ComponentReference {
+export class IdpReviewUserProfileComponent extends ComponentReference implements TemplateSlots {
     kcContext = inject<Extract<KcContext, { pageId: 'idp-review-user-profile.ftl' }>>(KC_LOGIN_CONTEXT);
     i18n = inject<I18n>(LOGIN_I18N);
     #userProfileFormService = inject(UserProfileFormService);

@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, forwardRef, inject, type TemplateRe
 import { KcSanitizePipe } from '@keycloakify/angular/lib/pipes/kc-sanitize';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
+import type { TemplateSlots } from '@keycloakify/angular/login/classes/template-slots';
 import { LogoutOtherSessionsComponent } from '@keycloakify/angular/login/components/logout-other-sessions';
 import { PasswordWrapperComponent } from '@keycloakify/angular/login/components/password-wrapper';
 import { KcClassDirective } from '@keycloakify/angular/login/directives/kc-class';
@@ -24,7 +25,7 @@ import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
         }
     ]
 })
-export class LoginUpdatePasswordComponent extends ComponentReference {
+export class LoginUpdatePasswordComponent extends ComponentReference implements TemplateSlots {
     kcContext = inject<Extract<KcContext, { pageId: 'login-update-password.ftl' }>>(KC_LOGIN_CONTEXT);
     i18n = inject<I18n>(LOGIN_I18N);
 

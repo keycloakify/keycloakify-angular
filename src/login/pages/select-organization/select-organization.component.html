@@ -1,0 +1,41 @@
+<form
+    #formRef
+    method="post"
+    class="form-vertical"
+    [action]="kcContext.url.loginAction"
+>
+    <div
+        id="kc-user-organizations"
+        [kcClass]="'kcFormGroupClass'"
+    >
+        <h2>{{ i18n.msgStr('organization.select') }}</h2>
+        <ul
+            [kcClass]="{
+                kcFormSocialAccountListClass: true,
+                kcFormSocialAccountListGridClass: shouldDisplayGrid
+            }"
+        >
+            @for (organization of organizations; track organization.alias) {
+                <li>
+                    <button
+                        [id]="'organization-' + organization.alias"
+                        type="button"
+                        [kcClass]="{
+                            kcFormSocialAccountListButtonClass: true,
+                            kcFormSocialAccountGridItem: shouldDisplayGrid
+                        }"
+                        [disabled]="isSubmitting()"
+                        (click)="selectOrganization(organization.alias)"
+                    >
+                        <span [kcClass]="'kcFormSocialAccountNameClass'">{{ organization.name ?? organization.alias }}</span>
+                    </button>
+                </li>
+            }
+        </ul>
+    </div>
+    <input
+        #organizationInputRef
+        type="hidden"
+        name="kc.org"
+    />
+</form>

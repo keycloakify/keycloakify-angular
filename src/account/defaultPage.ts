@@ -1,5 +1,6 @@
 import type { Type } from '@angular/core';
 import type { KcContext } from '@keycloakify/angular/account/KcContext';
+import { assert, type Equals } from 'tsafe/assert';
 
 export function getDefaultPageComponent(
     pageId: KcContext['pageId']
@@ -40,5 +41,8 @@ export function getDefaultPageComponent(
                 c => c.FederatedIdentityComponent
             );
             break;
+        default:
+            assert<Equals<typeof pageId, never>>();
+            throw new Error(`FTL page "${pageId}" not found!`);
     }
 }

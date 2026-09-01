@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, forwardRef, inject, type TemplateRe
 import { KcSanitizePipe } from '@keycloakify/angular/lib/pipes/kc-sanitize';
 import { USE_DEFAULT_CSS } from '@keycloakify/angular/lib/tokens/use-default-css';
 import { ComponentReference } from '@keycloakify/angular/login/classes/component-reference';
+import type { TemplateSlots } from '@keycloakify/angular/login/classes/template-slots';
 import type { I18n } from '@keycloakify/angular/login/i18n';
 import type { KcContext } from '@keycloakify/angular/login/KcContext';
 import { LOGIN_CLASSES } from '@keycloakify/angular/login/tokens/classes';
@@ -21,7 +22,7 @@ import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
         }
     ]
 })
-export class InfoComponent extends ComponentReference {
+export class InfoComponent extends ComponentReference implements TemplateSlots {
     kcContext = inject<Extract<KcContext, { pageId: 'info.ftl' }>>(KC_LOGIN_CONTEXT);
     i18n = inject<I18n>(LOGIN_I18N);
 

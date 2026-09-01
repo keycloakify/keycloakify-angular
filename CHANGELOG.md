@@ -1,363 +1,351 @@
-## [22.0.1](https://github.com/keycloakify/keycloakify-angular/compare/v22.0.0...v22.0.1) (2026-06-18)
-
-
-### Bug Fixes
-
-* ci ([aa3d28e](https://github.com/keycloakify/keycloakify-angular/commit/aa3d28e774ec1e6dee86b149cbb82c91ea9b80a6))
-* peers ([c811683](https://github.com/keycloakify/keycloakify-angular/commit/c811683f4006a1ae8c0cd92c097cf2437df47ca5))
-
-
-### Features
-
-* update to angular 22 ([8946746](https://github.com/keycloakify/keycloakify-angular/commit/8946746be1c7f3584a90261ae6f35b65b383f05a))
-
-## [21.1.5](https://github.com/keycloakify/keycloakify-angular/compare/v21.1.4...v21.1.5) (2026-06-06)
-
-
-### Bug Fixes
-
-* lint ([1b41fab](https://github.com/keycloakify/keycloakify-angular/commit/1b41fab4110f37aba57566f86fef1fbfee9c02ee))
-
-## [21.1.4](https://github.com/keycloakify/keycloakify-angular/compare/v21.1.3...v21.1.4) (2026-05-11)
-
-
-### Bug Fixes
-
-* missing story ([8e4a25a](https://github.com/keycloakify/keycloakify-angular/commit/8e4a25a90e8721cb0d164cf31a550a5796d2cae6))
-
-## [21.1.3](https://github.com/keycloakify/keycloakify-angular/compare/v21.1.2...v21.1.3) (2026-05-11)
-
-
-### Bug Fixes
-
-* warning when updated file content is the same as current ([8ef8742](https://github.com/keycloakify/keycloakify-angular/commit/8ef8742e4579e00262c2b3a88967eee6037a7909))
-
-## [21.1.2](https://github.com/keycloakify/keycloakify-angular/compare/v21.1.1...v21.1.2) (2026-04-13)
-
-
-### Bug Fixes
-
-* let variable scope ([0a02804](https://github.com/keycloakify/keycloakify-angular/commit/0a028048e495126ff7cfa99f26208459373f6912))
-
-## [21.1.1](https://github.com/keycloakify/keycloakify-angular/compare/v21.1.0...v21.1.1) (2026-04-13)
-
-
-### Bug Fixes
-
-* missing case on default page ([13f0518](https://github.com/keycloakify/keycloakify-angular/commit/13f05180f09b02bc1203a9aae64dbfaf46b06c90))
-
-# [21.1.0](https://github.com/keycloakify/keycloakify-angular/compare/v21.0.6...v21.1.0) (2026-04-13)
-
-
-### Bug Fixes
-
-* rename story ([ae7e866](https://github.com/keycloakify/keycloakify-angular/commit/ae7e866d53c167303746aa5adfc35f69867d398d)), closes [#48](https://github.com/keycloakify/keycloakify-angular/issues/48)
-
-
-### Features
-
-* add link-idp-action ([4762826](https://github.com/keycloakify/keycloakify-angular/commit/476282633327b096e9d65f12bf02ee99c9157d60)), closes [#49](https://github.com/keycloakify/keycloakify-angular/issues/49)
-
-## [21.0.6](https://github.com/keycloakify/keycloakify-angular/compare/v21.0.5...v21.0.6) (2026-04-07)
-
-## [21.0.5](https://github.com/keycloakify/keycloakify-angular/compare/v21.0.4...v21.0.5) (2026-03-18)
-
-
-### Bug Fixes
-
-* exports ([2e83cc5](https://github.com/keycloakify/keycloakify-angular/commit/2e83cc5d8bcb48cb53104df1a6af5639016e2fa7))
-
-## [21.0.4](https://github.com/keycloakify/keycloakify-angular/compare/v21.0.3...v21.0.4) (2026-03-18)
-
-
-### Bug Fixes
-
-* imports ([cf19d0b](https://github.com/keycloakify/keycloakify-angular/commit/cf19d0b02cf17b49dbe081af00fe6588c213f5d7))
-
-## [21.0.3](https://github.com/keycloakify/keycloakify-angular/compare/v21.0.2...v21.0.3) (2026-03-18)
-
-
-### Bug Fixes
-
-* account ClassKey import ([957b480](https://github.com/keycloakify/keycloakify-angular/commit/957b480b2221abc73f457bceae49937ea54fe58a))
-
-## [21.0.2](https://github.com/keycloakify/keycloakify-angular/compare/v21.0.1...v21.0.2) (2026-03-15)
-
-## [21.0.1](https://github.com/keycloakify/keycloakify-angular/compare/v21.0.0...v21.0.1) (2026-02-28)
-
-# [21.0.0](https://github.com/keycloakify/keycloakify-angular/compare/v21.0.0-rc.4...v21.0.0) (2026-01-14)
-
-# [21.0.0-rc.4](https://github.com/keycloakify/keycloakify-angular/compare/v21.0.0-rc.3...v21.0.0-rc.4) (2026-01-12)
-
-
-### Bug Fixes
-
-* Incorrect import of user profile form field component after ejecting register.ftl [#46](https://github.com/keycloakify/keycloakify-angular/issues/46) ([1f36c38](https://github.com/keycloakify/keycloakify-angular/commit/1f36c38509604b4dabe4d1f2fcecfe00ddbc3c1d))
-
-# [21.0.0-rc.3](https://github.com/keycloakify/keycloakify-angular/compare/v21.0.0-rc.2...v21.0.0-rc.3) (2025-12-16)
-
-# [21.0.0-rc.2](https://github.com/keycloakify/keycloakify-angular/compare/v21.0.0-rc.1...v21.0.0-rc.2) (2025-11-30)
-
-
-### Bug Fixes
-
-* stories import and reactivity ([d9375bb](https://github.com/keycloakify/keycloakify-angular/commit/d9375bba9f7df2179236dc74f1fc7efd0c7b2159))
-
-# [21.0.0-rc.1](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.12...v21.0.0-rc.1) (2025-11-30)
-
-
-### Bug Fixes
-
-* lint ([4e54630](https://github.com/keycloakify/keycloakify-angular/commit/4e546308f607112f8aae340598c2bb75051e1473))
-
-
-### Features
-
-* setup verbatimModuleSyntax ([778d933](https://github.com/keycloakify/keycloakify-angular/commit/778d9338cdcc07251d4432145dda7b4cb5a2602f))
-* support angular 21 ([d7efd70](https://github.com/keycloakify/keycloakify-angular/commit/d7efd7063426771e2a9e41624400a094d36c32d3))
-* update config ([04331a4](https://github.com/keycloakify/keycloakify-angular/commit/04331a4e83d577fd30920109b0edeaa196602ee4))
-
-## [20.1.12](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.11...v20.1.12) (2025-11-15)
-
-## [20.1.11](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.10...v20.1.11) (2025-10-21)
-
-## [20.1.10](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.9...v20.1.10) (2025-10-16)
-
-
-### Features
-
-* add missing OnPush change detection ([be1812c](https://github.com/keycloakify/keycloakify-angular/commit/be1812ccaab0143a915a2f64445cdac11907af4b))
-
-## [20.1.9](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.8...v20.1.9) (2025-10-15)
-
-
-### Bug Fixes
-
-* broken links to starters ([f0c1aea](https://github.com/keycloakify/keycloakify-angular/commit/f0c1aeab29ac17e865ce17e092c41c1d47934968))
-* sanitize back to application html text ([8628a21](https://github.com/keycloakify/keycloakify-angular/commit/8628a216954dfdc8c1e44f639e521bba00e0b3a6))
-
-## [20.1.8](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.7...v20.1.8) (2025-09-16)
-
-
-### Features
-
-* update packages and fix ([382d378](https://github.com/keycloakify/keycloakify-angular/commit/382d3785c5e8f1f976b6ad765bd6daec01210245))
-
-## [20.1.7](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.6...v20.1.7) (2025-09-11)
-
-
-### Bug Fixes
-
-* build problems with tsx 4.20.5 ([3c434ee](https://github.com/keycloakify/keycloakify-angular/commit/3c434ee3733f887707155b926a2a20d1585eb7b8))
-
-## [20.1.6](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.5...v20.1.6) (2025-08-19)
-
-## [20.1.5](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.4...v20.1.5) (2025-08-15)
-
-
-### Bug Fixes
-
-* input attributes and wrong/missing autocompletes ([b2b4e08](https://github.com/keycloakify/keycloakify-angular/commit/b2b4e08f2b6a99b770d27fbda16f097952605a75)), closes [#37](https://github.com/keycloakify/keycloakify-angular/issues/37)
-
-## [20.1.4](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.3...v20.1.4) (2025-08-12)
-
-
-### Bug Fixes
-
-* default case position ([ce488d1](https://github.com/keycloakify/keycloakify-angular/commit/ce488d19f147f4d7bda461abddd21e79e5c37358))
-
-## [20.1.3](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.2...v20.1.3) (2025-08-12)
-
-
-### Features
-
-* make bootstrapKcApplication return appRef ([27278b7](https://github.com/keycloakify/keycloakify-angular/commit/27278b78c905457209b44c9c17b4fccdaff13249))
-
-## [20.1.2](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.1...v20.1.2) (2025-08-10)
-
-## [20.1.1](https://github.com/keycloakify/keycloakify-angular/compare/v20.1.0...v20.1.1) (2025-08-09)
-
-# [20.1.0](https://github.com/keycloakify/keycloakify-angular/compare/v20.0.2...v20.1.0) (2025-08-07)
-
-
-### Bug Fixes
-
-* wrong displayMessage validation ([81be1e0](https://github.com/keycloakify/keycloakify-angular/commit/81be1e07c215909339c97f7ae42813cc8022f089)), closes [#33](https://github.com/keycloakify/keycloakify-angular/issues/33)
-
-
-### Features
-
-* update to v20 to match angular versioning ([acb1d3e](https://github.com/keycloakify/keycloakify-angular/commit/acb1d3ecdabccdeb40daa54854ede0e13c1648dc))
-
-## [0.2.24](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.23...v0.2.24) (2025-05-18)
-
-
-### Bug Fixes
-
-* changelog ([f2a19d7](https://github.com/keycloakify/keycloakify-angular/commit/f2a19d742afd0a58a75cec60983c88dc5fbdcc9c))
-* match info.ftl template ([0f45efc](https://github.com/keycloakify/keycloakify-angular/commit/0f45efc259fc17cd711ee9c1360d66980144eeb0))
-
-## [0.2.23](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.22...v0.2.23) (2025-05-16)
-
-
-### Bug Fixes
-
-* input type hidden ([0702538](https://github.com/keycloakify/keycloakify-angular/commit/0702538701d8c30fb1a46dfe201c67e9eaff9657))
-
-## [0.2.22](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.21...v0.2.22) (2025-04-09)
-
-## [0.2.21](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.20...v0.2.21) (2025-03-16)
-
-
-### Bug Fixes
-
-* eject-script ([ae5d44b](https://github.com/keycloakify/keycloakify-angular/commit/ae5d44b600c3b814170ddc589d0c57edf0333907))
-* saml-post-form submit ([11ed5a7](https://github.com/keycloakify/keycloakify-angular/commit/11ed5a710970a621fc539efac46dbf0b016bac67))
-
-## [0.2.20](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.19...v0.2.20) (2025-03-16)
-
-## [0.2.19](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.18...v0.2.19) (2025-03-14)
-
-
-### Bug Fixes
-
-* issue 38029 ([4a99ec3](https://github.com/keycloakify/keycloakify-angular/commit/4a99ec3df691de2b947af960660387044861443f))
-
-
-### Features
-
-* add eslint for better maintenability ([bba8b37](https://github.com/keycloakify/keycloakify-angular/commit/bba8b37d6510d73909a06d3c20cfc22144ed8d16))
-
-## [0.2.18](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.17...v0.2.18) (2025-03-10)
-
-
-### Bug Fixes
-
-* error message display ([6d7c80a](https://github.com/keycloakify/keycloakify-angular/commit/6d7c80a16db324ac53cf3f800c7133526a673e7e))
-
-
-### Features
-
-* update dependencies ([a54c508](https://github.com/keycloakify/keycloakify-angular/commit/a54c508fe26509ca685589480f4a1636e5441397))
-
-## [0.2.17](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.16...v0.2.17) (2025-01-22)
-
-## [0.2.16](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.15...v0.2.16) (2025-01-22)
-
-## [0.2.15](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.14...v0.2.15) (2025-01-06)
-
-
-### Reverts
-
-* Revert "back to lts node" ([f9787c3](https://github.com/keycloakify/keycloakify-angular/commit/f9787c3354e1efa0af865e6bfd00bdbec74fa35f))
-
-## [0.2.14](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.13...v0.2.14) (2025-01-03)
-
-## [0.2.13](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.12...v0.2.13) (2025-01-03)
-
-## [0.2.12](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.11...v0.2.12) (2024-12-30)
-
-## [0.2.11](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.10...v0.2.11) (2024-12-16)
-
-## [0.2.10](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.9...v0.2.10) (2024-12-09)
-
-## [0.2.9](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.8...v0.2.9) (2024-12-08)
-
-## [0.2.8](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.7...v0.2.8) (2024-12-08)
-
-## [0.2.7](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.6...v0.2.7) (2024-12-08)
-
-## [0.2.6](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.5...v0.2.6) (2024-12-08)
-
-## [0.2.5](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.4...v0.2.5) (2024-12-08)
-
-## [0.2.4](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.3...v0.2.4) (2024-12-05)
-
-## [0.2.3](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.2...v0.2.3) (2024-12-05)
-
-## [0.2.2](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.1...v0.2.2) (2024-11-26)
-
-## [0.2.1](https://github.com/keycloakify/keycloakify-angular/compare/v0.2.0...v0.2.1) (2024-11-22)
-
-# [0.2.0](https://github.com/keycloakify/keycloakify-angular/compare/v0.1.8...v0.2.0) (2024-11-22)
-
-## [0.1.8](https://github.com/keycloakify/keycloakify-angular/compare/v0.1.7...v0.1.8) (2024-11-18)
-
-## [0.1.7](https://github.com/keycloakify/keycloakify-angular/compare/v0.1.6...v0.1.7) (2024-11-17)
-
-
-### Bug Fixes
-
-* **login:** typos ([ee966c8](https://github.com/keycloakify/keycloakify-angular/commit/ee966c8142837e4263f5c436680e1efb88ff5f77))
-
-## [0.1.6](https://github.com/keycloakify/keycloakify-angular/compare/v0.1.5...v0.1.6) (2024-11-16)
-
-## [0.1.5](https://github.com/keycloakify/keycloakify-angular/compare/v0.1.4...v0.1.5) (2024-11-12)
-
-
-### Bug Fixes
-
-* **login:** username/email label ([f2fbc43](https://github.com/keycloakify/keycloakify-angular/commit/f2fbc436002f9e72683868add5544478b9fa4a39))
-
-## [0.1.4](https://github.com/keycloakify/keycloakify-angular/compare/v0.1.3...v0.1.4) (2024-11-10)
-
-## [0.1.3](https://github.com/keycloakify/keycloakify-angular/compare/v0.1.2...v0.1.3) (2024-11-10)
-
-## [0.1.2](https://github.com/keycloakify/keycloakify-angular/compare/v0.1.1...v0.1.2) (2024-11-10)
-
-## [0.1.1](https://github.com/keycloakify/keycloakify-angular/compare/v0.1.0...v0.1.1) (2024-11-10)
-
-# [0.1.0](https://github.com/keycloakify/keycloakify-angular/compare/v0.0.11...v0.1.0) (2024-11-10)
-
-## [0.0.11](https://github.com/keycloakify/keycloakify-angular/compare/v0.0.10...v0.0.11) (2024-11-09)
-
-
-### Bug Fixes
-
-* also account template ([736ebf1](https://github.com/keycloakify/keycloakify-angular/commit/736ebf18521a2379487717c497247796ef8d118c))
-* node engine ([91a28f6](https://github.com/keycloakify/keycloakify-angular/commit/91a28f643ee621a1238ba5134f6d74cbb95b1208))
-* pageRef not required ([230b7f1](https://github.com/keycloakify/keycloakify-angular/commit/230b7f1de96e87affdb48c6c022d145fe9eef224))
-* remove containers sub path also for account ([4d53015](https://github.com/keycloakify/keycloakify-angular/commit/4d53015f3951b174d363a56921e8ba948bd1be19))
-
-
-### Features
-
-* ensure effect is destoyed after page rendering ([8816f4e](https://github.com/keycloakify/keycloakify-angular/commit/8816f4e29bb4698519915a8aadeab0eaa797f5a7))
-
-## [0.0.10](https://github.com/keycloakify/keycloakify-angular/compare/v0.0.9...v0.0.10) (2024-10-25)
-
-## [0.0.9](https://github.com/keycloakify/keycloakify-angular/compare/v0.0.8...v0.0.9) (2024-10-25)
-
-## [0.0.8](https://github.com/keycloakify/keycloakify-angular/compare/v0.0.7...v0.0.8) (2024-10-25)
-
-## [0.0.7](https://github.com/keycloakify/keycloakify-angular/compare/v0.0.6...v0.0.7) (2024-10-24)
-
-## [0.0.6](https://github.com/keycloakify/keycloakify-angular/compare/v0.0.5...v0.0.6) (2024-10-24)
-
-
-### Bug Fixes
-
-* missing script injection ([8a4b9b1](https://github.com/keycloakify/keycloakify-angular/commit/8a4b9b1999f9bae98cf8230bce2547df90df52ce))
-
-## [0.0.4](https://github.com/keycloakify/keycloakify-angular/compare/v0.0.3...v0.0.4) (2024-10-21)
-
-## [0.0.3](https://github.com/keycloakify/keycloakify-angular/compare/v0.0.2...v0.0.3) (2024-10-15)
-
-## [0.0.2](https://github.com/keycloakify/keycloakify-angular/compare/v0.0.1...v0.0.2) (2024-10-15)
-
-## [0.0.1](https://github.com/keycloakify/keycloakify-angular/compare/v0.0.1-rc.27...v0.0.1) (2024-10-11)
-
-## [0.0.1-rc.27](https://github.com/keycloakify/keycloakify-angular/compare/v0.0.1-rc.26...v0.0.1-rc.27) (2024-10-10)
-
-## [0.0.1-rc.26](https://github.com/keycloakify/keycloakify-angular/compare/v0.0.1-rc.25...v0.0.1-rc.26) (2024-10-09)
-
-## [0.0.1-rc.24](https://github.com/keycloakify/keycloakify-angular/compare/v0.0.1-rc.21...v0.0.1-rc.24) (2024-10-07)
-
-
-### Reverts
-
-* Revert "Treate user-profile-form-fields as any other component" ([2c4b605](https://github.com/keycloakify/keycloakify-angular/commit/2c4b605feabfda2d268335f002078b1cde47fab5))
-
-## [0.0.1-rc.21](https://github.com/keycloakify/keycloakify-angular/compare/v0.0.1-rc.20...v0.0.1-rc.21) (2024-10-05)
-
-## 0.0.1-rc.20 (2024-10-05)
+## 22.1.0 (2026-09-01)
+
+* chore: new dep ([9ba0be9](https://github.com/keycloakify/keycloakify-angular/commit/9ba0be9))
+* chore: package manager ([075d567](https://github.com/keycloakify/keycloakify-angular/commit/075d567))
+* chore: release candidate ([7b08e6f](https://github.com/keycloakify/keycloakify-angular/commit/7b08e6f))
+* chore: release candidate ([f7ba6ea](https://github.com/keycloakify/keycloakify-angular/commit/f7ba6ea))
+* chore: release candidate ([c05ab95](https://github.com/keycloakify/keycloakify-angular/commit/c05ab95))
+* chore: release candidate ([ed29f23](https://github.com/keycloakify/keycloakify-angular/commit/ed29f23))
+* chore: reset CI to main ([9b5ed5f](https://github.com/keycloakify/keycloakify-angular/commit/9b5ed5f))
+* chore: restore to main ([13be49b](https://github.com/keycloakify/keycloakify-angular/commit/13be49b))
+* chore: set contribution ([7fb1632](https://github.com/keycloakify/keycloakify-angular/commit/7fb1632))
+* chore: update actions ([ae004cb](https://github.com/keycloakify/keycloakify-angular/commit/ae004cb))
+* chore: update angular with migrations ([c0fd0b0](https://github.com/keycloakify/keycloakify-angular/commit/c0fd0b0))
+* chore: update contributors ([4456277](https://github.com/keycloakify/keycloakify-angular/commit/4456277))
+* chore: update dependencies ([8b0c208](https://github.com/keycloakify/keycloakify-angular/commit/8b0c208))
+* chore: update dependencies ([d40f1c4](https://github.com/keycloakify/keycloakify-angular/commit/d40f1c4))
+* chore: update dependencies ([9bcfe35](https://github.com/keycloakify/keycloakify-angular/commit/9bcfe35))
+* chore: update dependencies ([0f57e21](https://github.com/keycloakify/keycloakify-angular/commit/0f57e21))
+* chore: update dependencies ([eac33c5](https://github.com/keycloakify/keycloakify-angular/commit/eac33c5))
+* chore: update dependencies ([f44a8a5](https://github.com/keycloakify/keycloakify-angular/commit/f44a8a5))
+* chore: update dependencies ([6db8fde](https://github.com/keycloakify/keycloakify-angular/commit/6db8fde))
+* chore: update dependencies ([182abbc](https://github.com/keycloakify/keycloakify-angular/commit/182abbc))
+* chore: update dependencies ([9399a1d](https://github.com/keycloakify/keycloakify-angular/commit/9399a1d))
+* chore: update dependencies ([4a972de](https://github.com/keycloakify/keycloakify-angular/commit/4a972de))
+* chore: update deps ([c7d38a2](https://github.com/keycloakify/keycloakify-angular/commit/c7d38a2))
+* chore: update deps ([6dbdea9](https://github.com/keycloakify/keycloakify-angular/commit/6dbdea9))
+* chore: update other dependencies ([68e82db](https://github.com/keycloakify/keycloakify-angular/commit/68e82db))
+* chore(): add error on message ([4198cf5](https://github.com/keycloakify/keycloakify-angular/commit/4198cf5))
+* chore(deps): bump qs from 6.14.0 to 6.14.1 ([9c77501](https://github.com/keycloakify/keycloakify-angular/commit/9c77501))
+* chore(version): 💯 bump version to 0.2.10 ([b85efce](https://github.com/keycloakify/keycloakify-angular/commit/b85efce))
+* chore(version): 💯 bump version to 0.2.15 ([fe23151](https://github.com/keycloakify/keycloakify-angular/commit/fe23151))
+* chore(version): 💯 bump version to 0.2.16 ([a207087](https://github.com/keycloakify/keycloakify-angular/commit/a207087))
+* chore(version): 💯 bump version to 0.2.17 ([8338bdd](https://github.com/keycloakify/keycloakify-angular/commit/8338bdd))
+* chore(version): 💯 bump version to 0.2.18 ([23cd1cf](https://github.com/keycloakify/keycloakify-angular/commit/23cd1cf))
+* chore(version): 💯 bump version to 0.2.19 ([8c36bae](https://github.com/keycloakify/keycloakify-angular/commit/8c36bae))
+* chore(version): 💯 bump version to 0.2.23 ([97a9f9c](https://github.com/keycloakify/keycloakify-angular/commit/97a9f9c))
+* chore(version): 💯 bump version to 0.2.24 ([8195e2a](https://github.com/keycloakify/keycloakify-angular/commit/8195e2a))
+* chore(version): 💯 bump version to 0.2.3 ([18d3cce](https://github.com/keycloakify/keycloakify-angular/commit/18d3cce))
+* chore(version): 💯 bump version to 0.2.4 ([dc55321](https://github.com/keycloakify/keycloakify-angular/commit/dc55321))
+* chore(version): 💯 bump version to 0.2.5 ([47c91b4](https://github.com/keycloakify/keycloakify-angular/commit/47c91b4))
+* chore(version): 💯 bump version to 0.2.6 ([62ebb7b](https://github.com/keycloakify/keycloakify-angular/commit/62ebb7b))
+* chore(version): 💯 bump version to 0.2.7 ([2872798](https://github.com/keycloakify/keycloakify-angular/commit/2872798))
+* chore(version): 💯 bump version to 0.2.8 ([43c56e8](https://github.com/keycloakify/keycloakify-angular/commit/43c56e8))
+* chore(version): 💯 bump version to 0.2.9 ([d43d042](https://github.com/keycloakify/keycloakify-angular/commit/d43d042))
+* chore(version): 💯 bump version to 20.0.1 ([40f2079](https://github.com/keycloakify/keycloakify-angular/commit/40f2079))
+* chore(version): 💯 bump version to 20.0.2 ([97e2d1b](https://github.com/keycloakify/keycloakify-angular/commit/97e2d1b))
+* chore(version): 💯 bump version to 20.1.10 ([6a63d03](https://github.com/keycloakify/keycloakify-angular/commit/6a63d03))
+* chore(version): 💯 bump version to 20.1.11 ([6414eaa](https://github.com/keycloakify/keycloakify-angular/commit/6414eaa))
+* chore(version): 💯 bump version to 20.1.12 ([61d2b8b](https://github.com/keycloakify/keycloakify-angular/commit/61d2b8b))
+* chore(version): 💯 bump version to 20.1.3 ([02fcea8](https://github.com/keycloakify/keycloakify-angular/commit/02fcea8))
+* chore(version): 💯 bump version to 20.1.4 ([a9b13da](https://github.com/keycloakify/keycloakify-angular/commit/a9b13da))
+* chore(version): 💯 bump version to 20.1.5 ([05e79e7](https://github.com/keycloakify/keycloakify-angular/commit/05e79e7))
+* chore(version): 💯 bump version to 20.1.7 ([605d3c0](https://github.com/keycloakify/keycloakify-angular/commit/605d3c0))
+* chore(version): 💯 bump version to 20.1.8 ([bed639b](https://github.com/keycloakify/keycloakify-angular/commit/bed639b))
+* chore(version): 💯 bump version to 20.1.9 ([612ca57](https://github.com/keycloakify/keycloakify-angular/commit/612ca57))
+* chore(version): 💯 bump version to 21.0.0 ([90879fc](https://github.com/keycloakify/keycloakify-angular/commit/90879fc))
+* chore(version): 💯 bump version to 21.0.1 ([a707070](https://github.com/keycloakify/keycloakify-angular/commit/a707070))
+* chore(version): 💯 bump version to 21.0.2 ([6b9ac1c](https://github.com/keycloakify/keycloakify-angular/commit/6b9ac1c))
+* chore(version): 💯 bump version to 21.0.3 ([5223ac6](https://github.com/keycloakify/keycloakify-angular/commit/5223ac6))
+* chore(version): 💯 bump version to 21.0.4 ([65b8e55](https://github.com/keycloakify/keycloakify-angular/commit/65b8e55))
+* chore(version): 💯 bump version to 21.0.5 ([d040423](https://github.com/keycloakify/keycloakify-angular/commit/d040423))
+* chore(version): 💯 bump version to 21.0.6 ([d26adf5](https://github.com/keycloakify/keycloakify-angular/commit/d26adf5))
+* chore(version): 💯 bump version to 21.1.0 ([759ebbd](https://github.com/keycloakify/keycloakify-angular/commit/759ebbd))
+* chore(version): 💯 bump version to 21.1.1 ([42d3103](https://github.com/keycloakify/keycloakify-angular/commit/42d3103))
+* chore(version): 💯 bump version to 21.1.2 ([75ea05a](https://github.com/keycloakify/keycloakify-angular/commit/75ea05a))
+* chore(version): 💯 bump version to 21.1.3 ([f3a9151](https://github.com/keycloakify/keycloakify-angular/commit/f3a9151))
+* chore(version): 💯 bump version to 21.1.4 ([9ef4daa](https://github.com/keycloakify/keycloakify-angular/commit/9ef4daa))
+* chore(version): 💯 bump version to 21.1.5 ([acca85f](https://github.com/keycloakify/keycloakify-angular/commit/acca85f))
+* chore(version): 💯 bump version to 22.0.0 ([11a6836](https://github.com/keycloakify/keycloakify-angular/commit/11a6836))
+* chore(version): 💯 bump version to 22.0.0-rc.0 ([9093aba](https://github.com/keycloakify/keycloakify-angular/commit/9093aba))
+* chore(version): 💯 bump version to 22.0.0-rc.1 ([ccce710](https://github.com/keycloakify/keycloakify-angular/commit/ccce710))
+* chore(version): 💯 bump version to 22.0.0-rc.2 ([74a67fb](https://github.com/keycloakify/keycloakify-angular/commit/74a67fb))
+* chore(version): 💯 bump version to 22.0.1 ([49add1d](https://github.com/keycloakify/keycloakify-angular/commit/49add1d))
+* fix: account ClassKey import ([957b480](https://github.com/keycloakify/keycloakify-angular/commit/957b480))
+* fix: also account template ([736ebf1](https://github.com/keycloakify/keycloakify-angular/commit/736ebf1))
+* fix: broken links to starters ([f0c1aea](https://github.com/keycloakify/keycloakify-angular/commit/f0c1aea))
+* fix: build problems with tsx 4.20.5 ([3c434ee](https://github.com/keycloakify/keycloakify-angular/commit/3c434ee))
+* fix: changelog ([f2a19d7](https://github.com/keycloakify/keycloakify-angular/commit/f2a19d7))
+* fix: ci ([aa3d28e](https://github.com/keycloakify/keycloakify-angular/commit/aa3d28e))
+* fix: default case position ([ce488d1](https://github.com/keycloakify/keycloakify-angular/commit/ce488d1))
+* fix: eject-script ([ae5d44b](https://github.com/keycloakify/keycloakify-angular/commit/ae5d44b))
+* fix: error message display ([6d7c80a](https://github.com/keycloakify/keycloakify-angular/commit/6d7c80a))
+* fix: exports ([2e83cc5](https://github.com/keycloakify/keycloakify-angular/commit/2e83cc5))
+* fix: imports ([cf19d0b](https://github.com/keycloakify/keycloakify-angular/commit/cf19d0b))
+* fix: Incorrect import of user profile form field component after ejecting register.ftl #46 ([1f36c38](https://github.com/keycloakify/keycloakify-angular/commit/1f36c38)), closes [#46](https://github.com/keycloakify/keycloakify-angular/issues/46)
+* fix: input attributes and wrong/missing autocompletes ([b2b4e08](https://github.com/keycloakify/keycloakify-angular/commit/b2b4e08)), closes [#37](https://github.com/keycloakify/keycloakify-angular/issues/37)
+* fix: input type hidden ([0702538](https://github.com/keycloakify/keycloakify-angular/commit/0702538))
+* fix: issue 38029 ([4a99ec3](https://github.com/keycloakify/keycloakify-angular/commit/4a99ec3))
+* fix: let variable scope ([0a02804](https://github.com/keycloakify/keycloakify-angular/commit/0a02804))
+* fix: lint ([1b41fab](https://github.com/keycloakify/keycloakify-angular/commit/1b41fab))
+* fix: lint ([4e54630](https://github.com/keycloakify/keycloakify-angular/commit/4e54630))
+* fix: match info.ftl template ([0f45efc](https://github.com/keycloakify/keycloakify-angular/commit/0f45efc))
+* fix: missing case on default page ([13f0518](https://github.com/keycloakify/keycloakify-angular/commit/13f0518))
+* fix: missing script injection ([8a4b9b1](https://github.com/keycloakify/keycloakify-angular/commit/8a4b9b1))
+* fix: missing stories ([e0ffb5a](https://github.com/keycloakify/keycloakify-angular/commit/e0ffb5a))
+* fix: missing story ([8e4a25a](https://github.com/keycloakify/keycloakify-angular/commit/8e4a25a))
+* fix: node engine ([91a28f6](https://github.com/keycloakify/keycloakify-angular/commit/91a28f6))
+* fix: pageRef not required ([230b7f1](https://github.com/keycloakify/keycloakify-angular/commit/230b7f1))
+* fix: peers ([c811683](https://github.com/keycloakify/keycloakify-angular/commit/c811683))
+* fix: remove containers sub path also for account ([4d53015](https://github.com/keycloakify/keycloakify-angular/commit/4d53015))
+* fix: rename story ([ae7e866](https://github.com/keycloakify/keycloakify-angular/commit/ae7e866)), closes [#48](https://github.com/keycloakify/keycloakify-angular/issues/48)
+* fix: saml-post-form submit ([11ed5a7](https://github.com/keycloakify/keycloakify-angular/commit/11ed5a7))
+* fix: sanitize back to application html text ([8628a21](https://github.com/keycloakify/keycloakify-angular/commit/8628a21))
+* fix: stories import and reactivity ([d9375bb](https://github.com/keycloakify/keycloakify-angular/commit/d9375bb))
+* fix: wrong displayMessage validation ([81be1e0](https://github.com/keycloakify/keycloakify-angular/commit/81be1e0)), closes [#33](https://github.com/keycloakify/keycloakify-angular/issues/33)
+* fix(): warning when updated file content is the same as current ([8ef8742](https://github.com/keycloakify/keycloakify-angular/commit/8ef8742))
+* fix(login): typos ([ee966c8](https://github.com/keycloakify/keycloakify-angular/commit/ee966c8))
+* fix(login): username/email label ([f2fbc43](https://github.com/keycloakify/keycloakify-angular/commit/f2fbc43))
+* feat: add eslint for better maintenability ([bba8b37](https://github.com/keycloakify/keycloakify-angular/commit/bba8b37))
+* feat: add link-idp-action ([4762826](https://github.com/keycloakify/keycloakify-angular/commit/4762826)), closes [#49](https://github.com/keycloakify/keycloakify-angular/issues/49)
+* feat: add missing OnPush change detection ([be1812c](https://github.com/keycloakify/keycloakify-angular/commit/be1812c))
+* feat: adjust features from react repo ([0c3a3e3](https://github.com/keycloakify/keycloakify-angular/commit/0c3a3e3))
+* feat: ensure effect is destoyed after page rendering ([8816f4e](https://github.com/keycloakify/keycloakify-angular/commit/8816f4e))
+* feat: make bootstrapKcApplication return appRef ([27278b7](https://github.com/keycloakify/keycloakify-angular/commit/27278b7))
+* feat: setup verbatimModuleSyntax ([778d933](https://github.com/keycloakify/keycloakify-angular/commit/778d933))
+* feat: support angular 21 ([d7efd70](https://github.com/keycloakify/keycloakify-angular/commit/d7efd70))
+* feat: update config ([04331a4](https://github.com/keycloakify/keycloakify-angular/commit/04331a4))
+* feat: update dependencies ([a54c508](https://github.com/keycloakify/keycloakify-angular/commit/a54c508))
+* feat: update packages and fix ([382d378](https://github.com/keycloakify/keycloakify-angular/commit/382d378))
+* feat: update to angular 22 ([8946746](https://github.com/keycloakify/keycloakify-angular/commit/8946746))
+* feat: update to v20 to match angular versioning ([acb1d3e](https://github.com/keycloakify/keycloakify-angular/commit/acb1d3e))
+* . ([9c831b0](https://github.com/keycloakify/keycloakify-angular/commit/9c831b0))
+* 💯 bump version to 2.21 ([279aad7](https://github.com/keycloakify/keycloakify-angular/commit/279aad7))
+* Add a note to say that this is still work in progress ([13ea602](https://github.com/keycloakify/keycloakify-angular/commit/13ea602))
+* add account stories ([1ae8cc9](https://github.com/keycloakify/keycloakify-angular/commit/1ae8cc9))
+* Add add-story script and only format generated files ([cbc8075](https://github.com/keycloakify/keycloakify-angular/commit/cbc8075))
+* add changelog and release script ([83f5630](https://github.com/keycloakify/keycloakify-angular/commit/83f5630))
+* add class checkbox to manage padding ([cd32b5f](https://github.com/keycloakify/keycloakify-angular/commit/cd32b5f))
+* add code.ftl ([272b31f](https://github.com/keycloakify/keycloakify-angular/commit/272b31f))
+* Add initialize-account-theme to the main index ([37ffd2a](https://github.com/keycloakify/keycloakify-angular/commit/37ffd2a))
+* add input ([1c58cb5](https://github.com/keycloakify/keycloakify-angular/commit/1c58cb5))
+* add login stories ([1ff4883](https://github.com/keycloakify/keycloakify-angular/commit/1ff4883))
+* add minimal project repro ([b3d28d3](https://github.com/keycloakify/keycloakify-angular/commit/b3d28d3))
+* add other exports ([d1cdbf3](https://github.com/keycloakify/keycloakify-angular/commit/d1cdbf3))
+* add user profile form field input ([d58df82](https://github.com/keycloakify/keycloakify-angular/commit/d58df82))
+* adds delete-account-confirm.ftl ([c478e22](https://github.com/keycloakify/keycloakify-angular/commit/c478e22))
+* adds login-passkeys-conditional-authenticate.ftl ([937be05](https://github.com/keycloakify/keycloakify-angular/commit/937be05))
+* adds login-password.ftl ([b04924a](https://github.com/keycloakify/keycloakify-angular/commit/b04924a))
+* adds login-recovery-authn-code-config.ftl ([9d1b8b8](https://github.com/keycloakify/keycloakify-angular/commit/9d1b8b8))
+* adds login-recovery-authn-code-input.ftl ([f63a97b](https://github.com/keycloakify/keycloakify-angular/commit/f63a97b))
+* adds login-reset-otp.ftl ([26c3853](https://github.com/keycloakify/keycloakify-angular/commit/26c3853))
+* adds login-reset-password.ftl ([e66dc73](https://github.com/keycloakify/keycloakify-angular/commit/e66dc73))
+* adds login-update-password.ftl ([a4ec011](https://github.com/keycloakify/keycloakify-angular/commit/a4ec011))
+* adds login-update-profile.ftl ([8591bcc](https://github.com/keycloakify/keycloakify-angular/commit/8591bcc))
+* adds login-verify-email.ftl ([13815ed](https://github.com/keycloakify/keycloakify-angular/commit/13815ed))
+* adds login-x509-info.ftl ([741b03a](https://github.com/keycloakify/keycloakify-angular/commit/741b03a))
+* adds logout-confirm.ftl ([67fe227](https://github.com/keycloakify/keycloakify-angular/commit/67fe227))
+* adds saml-post-form.ftl ([abe589a](https://github.com/keycloakify/keycloakify-angular/commit/abe589a))
+* adds select-authenticator.ftl ([f048003](https://github.com/keycloakify/keycloakify-angular/commit/f048003))
+* adds terms.ftl ([4c89b27](https://github.com/keycloakify/keycloakify-angular/commit/4c89b27))
+* adds update-email.ftl ([12a9392](https://github.com/keycloakify/keycloakify-angular/commit/12a9392))
+* Apply patches ([a3fe427](https://github.com/keycloakify/keycloakify-angular/commit/a3fe427))
+* Automatically run the format or lint command after page ejection ([750a61c](https://github.com/keycloakify/keycloakify-angular/commit/750a61c))
+* Better ejection script ([eee4ac9](https://github.com/keycloakify/keycloakify-angular/commit/eee4ac9))
+* bump version ([985c87f](https://github.com/keycloakify/keycloakify-angular/commit/985c87f))
+* bump version ([22e98e9](https://github.com/keycloakify/keycloakify-angular/commit/22e98e9))
+* bump version ([306e13c](https://github.com/keycloakify/keycloakify-angular/commit/306e13c))
+* bump version ([523ac17](https://github.com/keycloakify/keycloakify-angular/commit/523ac17))
+* Bump version ([cc6738b](https://github.com/keycloakify/keycloakify-angular/commit/cc6738b))
+* Bump version ([7e15291](https://github.com/keycloakify/keycloakify-angular/commit/7e15291))
+* Bump version ([9256cca](https://github.com/keycloakify/keycloakify-angular/commit/9256cca))
+* Bump version ([3a134f8](https://github.com/keycloakify/keycloakify-angular/commit/3a134f8))
+* Bump version ([115df85](https://github.com/keycloakify/keycloakify-angular/commit/115df85))
+* Bump version ([5fcd48b](https://github.com/keycloakify/keycloakify-angular/commit/5fcd48b))
+* Bump version ([d2613ed](https://github.com/keycloakify/keycloakify-angular/commit/d2613ed))
+* Bump version ([0713c73](https://github.com/keycloakify/keycloakify-angular/commit/0713c73))
+* Bump version ([20ec03b](https://github.com/keycloakify/keycloakify-angular/commit/20ec03b))
+* Bump version ([4f89375](https://github.com/keycloakify/keycloakify-angular/commit/4f89375))
+* Bump version ([7dcd83c](https://github.com/keycloakify/keycloakify-angular/commit/7dcd83c))
+* Bump version ([1599e29](https://github.com/keycloakify/keycloakify-angular/commit/1599e29))
+* Bump version ([16a600a](https://github.com/keycloakify/keycloakify-angular/commit/16a600a))
+* Bump version ([59159de](https://github.com/keycloakify/keycloakify-angular/commit/59159de))
+* Bump version ([92b52d8](https://github.com/keycloakify/keycloakify-angular/commit/92b52d8))
+* Bump version ([e778386](https://github.com/keycloakify/keycloakify-angular/commit/e778386))
+* Bump version ([54990e6](https://github.com/keycloakify/keycloakify-angular/commit/54990e6))
+* Bump version ([4d8f9f1](https://github.com/keycloakify/keycloakify-angular/commit/4d8f9f1))
+* Bump version ([6fec1cf](https://github.com/keycloakify/keycloakify-angular/commit/6fec1cf))
+* Bump version, Stop labeling it as unusable ([b887ea5](https://github.com/keycloakify/keycloakify-angular/commit/b887ea5))
+* change naming in stories ([b64ff39](https://github.com/keycloakify/keycloakify-angular/commit/b64ff39))
+* clean dependencies ([1575ba4](https://github.com/keycloakify/keycloakify-angular/commit/1575ba4))
+* clean scripts ([c4a5c1e](https://github.com/keycloakify/keycloakify-angular/commit/c4a5c1e))
+* compiling library ([cd3b761](https://github.com/keycloakify/keycloakify-angular/commit/cd3b761))
+* Complete the implementation of the eject-page command ([3362fca](https://github.com/keycloakify/keycloakify-angular/commit/3362fca))
+* corrections ([5039ff5](https://github.com/keycloakify/keycloakify-angular/commit/5039ff5))
+* corrections ([5d2346b](https://github.com/keycloakify/keycloakify-angular/commit/5d2346b))
+* delete login-device-verify-user-code.ftl ([bd20674](https://github.com/keycloakify/keycloakify-angular/commit/bd20674))
+* Do not restrict the keycloakify version for testing ([364ea9f](https://github.com/keycloakify/keycloakify-angular/commit/364ea9f))
+* Don't make it seem this is pure ([fcfd0eb](https://github.com/keycloakify/keycloakify-angular/commit/fcfd0eb))
+* enable push ([a1d163a](https://github.com/keycloakify/keycloakify-angular/commit/a1d163a))
+* ensure input value ([f2c091f](https://github.com/keycloakify/keycloakify-angular/commit/f2c091f))
+* Expose index for /login ([fba501c](https://github.com/keycloakify/keycloakify-angular/commit/fba501c))
+* Factorize runFormat and use it in eject-pages ([c7796c8](https://github.com/keycloakify/keycloakify-angular/commit/c7796c8))
+* Feature/angular build (#6) ([b2670f0](https://github.com/keycloakify/keycloakify-angular/commit/b2670f0)), closes [#6](https://github.com/keycloakify/keycloakify-angular/issues/6)
+* Feature/pages (#3) ([a4651ce](https://github.com/keycloakify/keycloakify-angular/commit/a4651ce)), closes [#3](https://github.com/keycloakify/keycloakify-angular/issues/3)
+* fix __dirname not defined ([8e976df](https://github.com/keycloakify/keycloakify-angular/commit/8e976df)), closes [#26](https://github.com/keycloakify/keycloakify-angular/issues/26)
+* fix @let scope ([7ee3fd1](https://github.com/keycloakify/keycloakify-angular/commit/7ee3fd1))
+* fix applications null pointer ([337d537](https://github.com/keycloakify/keycloakify-angular/commit/337d537))
+* Fix badge ([e0fa680](https://github.com/keycloakify/keycloakify-angular/commit/e0fa680))
+* fix build ([6f2451f](https://github.com/keycloakify/keycloakify-angular/commit/6f2451f))
+* fix case admin ([dc28d7f](https://github.com/keycloakify/keycloakify-angular/commit/dc28d7f))
+* fix class override ([630a825](https://github.com/keycloakify/keycloakify-angular/commit/630a825))
+* Fix code hint ([1b9b2ad](https://github.com/keycloakify/keycloakify-angular/commit/1b9b2ad))
+* fix duplicated message ([a423324](https://github.com/keycloakify/keycloakify-angular/commit/a423324))
+* fix eject-page when story already exists ([d3b5cd1](https://github.com/keycloakify/keycloakify-angular/commit/d3b5cd1))
+* fix ejecting pages ([b367b8f](https://github.com/keycloakify/keycloakify-angular/commit/b367b8f))
+* Fix error in message ([c440fb3](https://github.com/keycloakify/keycloakify-angular/commit/c440fb3))
+* fix esm bin files ([c5a9f79](https://github.com/keycloakify/keycloakify-angular/commit/c5a9f79)), closes [#24](https://github.com/keycloakify/keycloakify-angular/issues/24)
+* fix exports ([c75d5b7](https://github.com/keycloakify/keycloakify-angular/commit/c75d5b7))
+* Fix formating of ejected pages ([9dd4673](https://github.com/keycloakify/keycloakify-angular/commit/9dd4673))
+* Fix formatting ([b6978b8](https://github.com/keycloakify/keycloakify-angular/commit/b6978b8))
+* fix frontchannel iframe url ([94aa3f8](https://github.com/keycloakify/keycloakify-angular/commit/94aa3f8))
+* Fix import error ([66ae299](https://github.com/keycloakify/keycloakify-angular/commit/66ae299))
+* fix imports ([fd0bd61](https://github.com/keycloakify/keycloakify-angular/commit/fd0bd61))
+* Fix imports ([5f2943d](https://github.com/keycloakify/keycloakify-angular/commit/5f2943d))
+* Fix incorrect character ([9e02ca0](https://github.com/keycloakify/keycloakify-angular/commit/9e02ca0))
+* Fix index generation ([27e4064](https://github.com/keycloakify/keycloakify-angular/commit/27e4064))
+* fix injection context ([3fdafae](https://github.com/keycloakify/keycloakify-angular/commit/3fdafae))
+* fix inputs ([308d62b](https://github.com/keycloakify/keycloakify-angular/commit/308d62b))
+* Fix linking script ([99672a4](https://github.com/keycloakify/keycloakify-angular/commit/99672a4))
+* fix password-wrapper ([198b121](https://github.com/keycloakify/keycloakify-angular/commit/198b121))
+* fix peer dependencies ([05baae7](https://github.com/keycloakify/keycloakify-angular/commit/05baae7))
+* fix project ([e382baf](https://github.com/keycloakify/keycloakify-angular/commit/e382baf))
+* fix single provider ([3f6bf77](https://github.com/keycloakify/keycloakify-angular/commit/3f6bf77))
+* Fix some unused imports ([6019261](https://github.com/keycloakify/keycloakify-angular/commit/6019261))
+* fix story ([fbd4ca7](https://github.com/keycloakify/keycloakify-angular/commit/fbd4ca7))
+* fix story ([f530f28](https://github.com/keycloakify/keycloakify-angular/commit/f530f28))
+* fix template ([e7a9e9e](https://github.com/keycloakify/keycloakify-angular/commit/e7a9e9e))
+* Fix the generation script and the watch script ([56dbd3a](https://github.com/keycloakify/keycloakify-angular/commit/56dbd3a))
+* fix title ([5b59e39](https://github.com/keycloakify/keycloakify-angular/commit/5b59e39))
+* fix type check when user adds custom pages ([3552899](https://github.com/keycloakify/keycloakify-angular/commit/3552899))
+* fix update kc gen for account ([c87020b](https://github.com/keycloakify/keycloakify-angular/commit/c87020b))
+* fix user profile form fields not rendered ([dab999c](https://github.com/keycloakify/keycloakify-angular/commit/dab999c))
+* fix user profile form fields not rendered ([acc1fa0](https://github.com/keycloakify/keycloakify-angular/commit/acc1fa0))
+* fix wrong class attribute ([5c12a82](https://github.com/keycloakify/keycloakify-angular/commit/5c12a82))
+* Fmt ([c9adc41](https://github.com/keycloakify/keycloakify-angular/commit/c9adc41))
+* Give an error is users try to initialize an admin theme ([23ee7fe](https://github.com/keycloakify/keycloakify-angular/commit/23ee7fe))
+* Have the same export names for the two providers ([fc8af4f](https://github.com/keycloakify/keycloakify-angular/commit/fc8af4f))
+* https://github.com/keycloakify/keycloakify/issues/903 ([9959568](https://github.com/keycloakify/keycloakify-angular/commit/9959568))
+* Implement 'other page' option ([60f4543](https://github.com/keycloakify/keycloakify-angular/commit/60f4543))
+* Implement eject page, need rework ([1969c35](https://github.com/keycloakify/keycloakify-angular/commit/1969c35))
+* Implement initialize-account-theme command handler ([880e472](https://github.com/keycloakify/keycloakify-angular/commit/880e472))
+* Implement update-kc-gen.ts ([1917b43](https://github.com/keycloakify/keycloakify-angular/commit/1917b43))
+* improve eject-page log ([166fef9](https://github.com/keycloakify/keycloakify-angular/commit/166fef9))
+* init and add tools ([9d984f6](https://github.com/keycloakify/keycloakify-angular/commit/9d984f6))
+* inject after view init ([e52b30b](https://github.com/keycloakify/keycloakify-angular/commit/e52b30b))
+* install ([22ea58e](https://github.com/keycloakify/keycloakify-angular/commit/22ea58e))
+* Linking script required when package declares binaries ([42075ea](https://github.com/keycloakify/keycloakify-angular/commit/42075ea))
+* Make eject-pages without indexes ([4f316c5](https://github.com/keycloakify/keycloakify-angular/commit/4f316c5))
+* Make eslint happy ([a378875](https://github.com/keycloakify/keycloakify-angular/commit/a378875))
+* Make linking script works on windows server ([a5bc334](https://github.com/keycloakify/keycloakify-angular/commit/a5bc334))
+* Mark back as unusable ([5150189](https://github.com/keycloakify/keycloakify-angular/commit/5150189))
+* minor fixes ([6e1435f](https://github.com/keycloakify/keycloakify-angular/commit/6e1435f))
+* minor fixes ([f79ffb2](https://github.com/keycloakify/keycloakify-angular/commit/f79ffb2))
+* missing part ([563fa62](https://github.com/keycloakify/keycloakify-angular/commit/563fa62))
+* missing pipe export ([5464f65](https://github.com/keycloakify/keycloakify-angular/commit/5464f65))
+* missing standalone removal ([62390c8](https://github.com/keycloakify/keycloakify-angular/commit/62390c8))
+* Move bin and stories to src ([80d3d6c](https://github.com/keycloakify/keycloakify-angular/commit/80d3d6c))
+* move files and decorator ([f1806de](https://github.com/keycloakify/keycloakify-angular/commit/f1806de))
+* partial rework to integrate account ([4aa2239](https://github.com/keycloakify/keycloakify-angular/commit/4aa2239))
+* passing kcContext as an input ([b2c25c5](https://github.com/keycloakify/keycloakify-angular/commit/b2c25c5))
+* Pin node version until bug in node (or tsx) is fixed ([0a8ccbe](https://github.com/keycloakify/keycloakify-angular/commit/0a8ccbe))
+* Prepend styles ([1c8c35e](https://github.com/keycloakify/keycloakify-angular/commit/1c8c35e))
+* prettier fix ([6a70367](https://github.com/keycloakify/keycloakify-angular/commit/6a70367))
+* Refactor DefaultPage into getDefaultPageComponent ([c5a853d](https://github.com/keycloakify/keycloakify-angular/commit/c5a853d))
+* refactor kcTranslate ([96a45eb](https://github.com/keycloakify/keycloakify-angular/commit/96a45eb))
+* release ([11d4b3c](https://github.com/keycloakify/keycloakify-angular/commit/11d4b3c))
+* release ([4e94e19](https://github.com/keycloakify/keycloakify-angular/commit/4e94e19))
+* Release ([6454e29](https://github.com/keycloakify/keycloakify-angular/commit/6454e29))
+* Release ([7666a3b](https://github.com/keycloakify/keycloakify-angular/commit/7666a3b))
+* Release ([ad3788c](https://github.com/keycloakify/keycloakify-angular/commit/ad3788c))
+* Release ([ba51908](https://github.com/keycloakify/keycloakify-angular/commit/ba51908))
+* Release ([8451a93](https://github.com/keycloakify/keycloakify-angular/commit/8451a93))
+* Release candidate ([0253228](https://github.com/keycloakify/keycloakify-angular/commit/0253228))
+* Release candidate ([d9187ad](https://github.com/keycloakify/keycloakify-angular/commit/d9187ad))
+* Release candidate ([a56fe0a](https://github.com/keycloakify/keycloakify-angular/commit/a56fe0a))
+* Release candidate ([d2fc8b8](https://github.com/keycloakify/keycloakify-angular/commit/d2fc8b8))
+* Release Candidate ([d99cab9](https://github.com/keycloakify/keycloakify-angular/commit/d99cab9))
+* Release Candidate ([1911333](https://github.com/keycloakify/keycloakify-angular/commit/1911333))
+* Release Candidate ([891c5ff](https://github.com/keycloakify/keycloakify-angular/commit/891c5ff))
+* Release Candidate ([42af1ac](https://github.com/keycloakify/keycloakify-angular/commit/42af1ac))
+* Remove debug log ([7480c0c](https://github.com/keycloakify/keycloakify-angular/commit/7480c0c))
+* remove storybook env ([3b2a72f](https://github.com/keycloakify/keycloakify-angular/commit/3b2a72f))
+* Remove the ignore instructions that don't work anyway ([359137f](https://github.com/keycloakify/keycloakify-angular/commit/359137f))
+* Remove unessesary .npmrc file ([dc654e5](https://github.com/keycloakify/keycloakify-angular/commit/dc654e5))
+* remove zone ([efe9103](https://github.com/keycloakify/keycloakify-angular/commit/efe9103))
+* removed kcTranslatePipe and rename KcSanitize filename ([3fd352c](https://github.com/keycloakify/keycloakify-angular/commit/3fd352c))
+* removed public-api ([79565b8](https://github.com/keycloakify/keycloakify-angular/commit/79565b8))
+* reproduction removed ([9cdbd24](https://github.com/keycloakify/keycloakify-angular/commit/9cdbd24))
+* restore tsconfig ([aaae11e](https://github.com/keycloakify/keycloakify-angular/commit/aaae11e))
+* Revert 'Update register.component.html' ([de40c0d](https://github.com/keycloakify/keycloakify-angular/commit/de40c0d))
+* Revise Angular version support in README ([b189c6e](https://github.com/keycloakify/keycloakify-angular/commit/b189c6e))
+* rework dynamic page injector ([5f4fc3d](https://github.com/keycloakify/keycloakify-angular/commit/5f4fc3d))
+* Same issue as https://github.com/keycloakify/keycloakify-svelte/issues/10 ([ee5c9bf](https://github.com/keycloakify/keycloakify-angular/commit/ee5c9bf))
+* Same root export for /account as for /login ([64b48a0](https://github.com/keycloakify/keycloakify-angular/commit/64b48a0))
+* Setup CLI compilation ([1e519df](https://github.com/keycloakify/keycloakify-angular/commit/1e519df))
+* Setup dummy custom handler ([4719ebe](https://github.com/keycloakify/keycloakify-angular/commit/4719ebe))
+* small fixes ([2cb6d77](https://github.com/keycloakify/keycloakify-angular/commit/2cb6d77))
+* Stay on husky v4 and remove .npmrc (the registry is specified in the CI) ([bcb39e9](https://github.com/keycloakify/keycloakify-angular/commit/bcb39e9))
+* storybook infrastructure ([8101c4e](https://github.com/keycloakify/keycloakify-angular/commit/8101c4e))
+* tag not needed ([f55acac](https://github.com/keycloakify/keycloakify-angular/commit/f55acac))
+* Tell if we should regenerate kc-gen with a hash ([50ed40d](https://github.com/keycloakify/keycloakify-angular/commit/50ed40d))
+* template and components export ([fed67b2](https://github.com/keycloakify/keycloakify-angular/commit/fed67b2))
+* The lib can be used now ([e705c09](https://github.com/keycloakify/keycloakify-angular/commit/e705c09))
+* throw out template ([21daccc](https://github.com/keycloakify/keycloakify-angular/commit/21daccc))
+* try build without engines ([e1f7d2c](https://github.com/keycloakify/keycloakify-angular/commit/e1f7d2c))
+* Type safety fix ([6ff1e3f](https://github.com/keycloakify/keycloakify-angular/commit/6ff1e3f))
+* Update .nvmrc ([3563dc7](https://github.com/keycloakify/keycloakify-angular/commit/3563dc7))
+* Update account boilerplate ([8dbe879](https://github.com/keycloakify/keycloakify-angular/commit/8dbe879))
+* Update account boilerplate ([5b52a8c](https://github.com/keycloakify/keycloakify-angular/commit/5b52a8c))
+* update account templates ([673acb8](https://github.com/keycloakify/keycloakify-angular/commit/673acb8))
+* update applications template ([c4ece2f](https://github.com/keycloakify/keycloakify-angular/commit/c4ece2f))
+* Update boilerplate ([b84be16](https://github.com/keycloakify/keycloakify-angular/commit/b84be16))
+* Update CI workflow with permissions and npm commands ([3d32914](https://github.com/keycloakify/keycloakify-angular/commit/3d32914))
+* update dependencies ([dbcdbfe](https://github.com/keycloakify/keycloakify-angular/commit/dbcdbfe))
+* update dependencies and fix scripts possibly undefined ([162cc70](https://github.com/keycloakify/keycloakify-angular/commit/162cc70))
+* update federated identity template ([307f025](https://github.com/keycloakify/keycloakify-angular/commit/307f025))
+* update keycloakify ([379d1be](https://github.com/keycloakify/keycloakify-angular/commit/379d1be))
+* update keycloakify ([6be2265](https://github.com/keycloakify/keycloakify-angular/commit/6be2265))
+* Update keycloakify ([9ce1056](https://github.com/keycloakify/keycloakify-angular/commit/9ce1056))
+* Update keycloakify ([52699ce](https://github.com/keycloakify/keycloakify-angular/commit/52699ce))
+* Update keycloakify ([410f2ad](https://github.com/keycloakify/keycloakify-angular/commit/410f2ad))
+* Update keycloakify (fix issue static js scripts) ([7c92ed3](https://github.com/keycloakify/keycloakify-angular/commit/7c92ed3))
+* Update linking script so that postinstall is ran after linking ([4d24b4a](https://github.com/keycloakify/keycloakify-angular/commit/4d24b4a))
+* update log template ([1198730](https://github.com/keycloakify/keycloakify-angular/commit/1198730))
+* Update login.component.ts ([7875b70](https://github.com/keycloakify/keycloakify-angular/commit/7875b70))
+* update node to 22.12.0 ([b43e2d9](https://github.com/keycloakify/keycloakify-angular/commit/b43e2d9))
+* update node version ([e4003e3](https://github.com/keycloakify/keycloakify-angular/commit/e4003e3)), closes [#19](https://github.com/keycloakify/keycloakify-angular/issues/19)
+* update password template ([608055f](https://github.com/keycloakify/keycloakify-angular/commit/608055f))
+* update README ([bb5ccc9](https://github.com/keycloakify/keycloakify-angular/commit/bb5ccc9))
+* Update readme ([55b581b](https://github.com/keycloakify/keycloakify-angular/commit/55b581b))
+* Update readme ([b61ba02](https://github.com/keycloakify/keycloakify-angular/commit/b61ba02))
+* Update Readme ([d240a29](https://github.com/keycloakify/keycloakify-angular/commit/d240a29))
+* Update README ([e83c8bd](https://github.com/keycloakify/keycloakify-angular/commit/e83c8bd))
+* Update README.md ([c696bcf](https://github.com/keycloakify/keycloakify-angular/commit/c696bcf))
+* Update README.md ([bb6eabb](https://github.com/keycloakify/keycloakify-angular/commit/bb6eabb))
+* Update README.md ([1b4a36a](https://github.com/keycloakify/keycloakify-angular/commit/1b4a36a))
+* Update register.component.html ([6d43cff](https://github.com/keycloakify/keycloakify-angular/commit/6d43cff))
+* Update required version of keycloakify ([7f57579](https://github.com/keycloakify/keycloakify-angular/commit/7f57579))
+* Update required version of keycloakify ([de47b23](https://github.com/keycloakify/keycloakify-angular/commit/de47b23))
+* Update runPrettier script to it uses overrides ([03c05b0](https://github.com/keycloakify/keycloakify-angular/commit/03c05b0))
+* Update runPrettier so it works as expected when the module is linked ([c2e8774](https://github.com/keycloakify/keycloakify-angular/commit/c2e8774))
+* update sessions template ([25ae9e3](https://github.com/keycloakify/keycloakify-angular/commit/25ae9e3))
+* update to angular v19 ([bf70a75](https://github.com/keycloakify/keycloakify-angular/commit/bf70a75)), closes [#20](https://github.com/keycloakify/keycloakify-angular/issues/20)
+* Update to the required keycloakify version ([125cac0](https://github.com/keycloakify/keycloakify-angular/commit/125cac0))
+* update totp template ([74489af](https://github.com/keycloakify/keycloakify-angular/commit/74489af))
+* update user profile form service ([ce6b27d](https://github.com/keycloakify/keycloakify-angular/commit/ce6b27d))
+* viewChild not undefined ([710af86](https://github.com/keycloakify/keycloakify-angular/commit/710af86))
+* webauthn complete ([d4b5238](https://github.com/keycloakify/keycloakify-angular/commit/d4b5238))
+* webauthn register ([91abe50](https://github.com/keycloakify/keycloakify-angular/commit/91abe50))
+* without + ([b784bb8](https://github.com/keycloakify/keycloakify-angular/commit/b784bb8))
+* refactor: remove unused imports, NgClass cleanup ([2918b1a](https://github.com/keycloakify/keycloakify-angular/commit/2918b1a))

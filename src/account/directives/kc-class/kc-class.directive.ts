@@ -21,18 +21,10 @@ interface CssClassState {
 }
 
 type KcClassSupportedTypes =
-    | ClassKey[]
-    | Set<ClassKey>
-    | Partial<{ [key in ClassKey]: any }>
-    | null
-    | undefined;
+    ClassKey[] | Set<ClassKey> | Partial<{ [key in ClassKey]: any }> | null | undefined;
 
 type NgClassSupportedTypes =
-    | string[]
-    | Set<string>
-    | { [key: string]: any }
-    | null
-    | undefined;
+    string[] | Set<string> | { [key: string]: any } | null | undefined;
 
 @Directive({ selector: '[kcClass]' })
 export class KcClassDirective implements DoCheck {

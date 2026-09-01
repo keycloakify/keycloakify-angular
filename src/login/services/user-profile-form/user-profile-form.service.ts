@@ -32,10 +32,7 @@ export type FormFieldError = {
 
 export namespace FormFieldError {
     export type Source =
-        | Source.Validator
-        | Source.PasswordPolicy
-        | Source.Server
-        | Source.Other;
+        Source.Validator | Source.PasswordPolicy | Source.Server | Source.Other;
 
     export namespace Source {
         export type Validator = {

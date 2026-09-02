@@ -36,7 +36,7 @@
         "@angular/platform-browser": "^22.1.4",
         "@eslint/js": "^10.0.1",
         "@storybook/angular": "^10.5.10",
-        "@types/node": "^24.13.3",
+        "@types/node": "^26.4.0",
         "all-contributors-cli": "^6.26.1",
         "angular-eslint": "^22.2.0",
         "chalk": "^6.0.0",

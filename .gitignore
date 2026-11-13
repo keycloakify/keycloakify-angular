@@ -41,13 +41,10 @@ jspm_packages
 .DS_Store
 
 /dist
-/.yarn_home/
 
 .idea
 
 # VS Code devcontainers
 .devcontainer
-/.yarn
-/.yarnrc.yml
 
 .angular

@@ -61,19 +61,18 @@ import { Deferred } from './tools/Deferred';
         recursive: true,
         force: true
     });
-    fs.rmSync(pathJoin(getThisCodebaseRootDirPath(), '.yarn_home'), {
-        recursive: true,
-        force: true
-    });
-
-    run('yarn install');
+    run('pnpm install');
 
     const dInitialCompilationCompleted = new Deferred<void>();
 
     {
         const child = child_process.spawn(
-            'npx',
-            ['tsx', pathJoin(getThisCodebaseRootDirPath(), 'scripts', 'watch.ts')],
+            'pnpm',
+            [
+                'exec',
+                'tsx',
+                pathJoin(getThisCodebaseRootDirPath(), 'scripts', 'watch.ts')
+            ],
             {
                 shell: true,
                 cwd: getThisCodebaseRootDirPath()
@@ -110,9 +109,7 @@ import { Deferred } from './tools/Deferred';
         nodeModulesDirPath: pathJoin(starterDirPath, 'node_modules')
     });
 
-    run('yarn install', { cwd: pathJoin('..', starterName) });
-
-    run(`npx tsx ${pathJoin('scripts', 'link-in-app.ts')} ${starterName}`);
+    run(`pnpm exec tsx ${pathJoin('scripts', 'link-in-app.ts')} ${starterName}`);
 
     const durationSeconds = Math.round((Date.now() - startTime) / 1000);
 

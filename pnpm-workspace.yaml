@@ -1,0 +1,10 @@
+ignoreWorkspaceRootCheck: true
+minimumReleaseAge: 0
+overrides:
+  tmp: ^0.2.7
+
+allowBuilds:
+  '@parcel/watcher': false
+  esbuild: true
+  lmdb: false
+  msgpackr-extract: false

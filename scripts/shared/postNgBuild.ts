@@ -58,7 +58,7 @@ function buildBin() {
     // runPrettier.ts, which loads the consumer project's prettier by absolute
     // path while hiding it from the bundler. It's deliberate, so silence it.
     run(
-        `npx esbuild ${entrypointFilePath} --bundle --minify --external:prettier --platform=node --format=esm --log-override:direct-eval=silent --banner:js="${banner}" --outfile=${outFilePath}`
+        `pnpm exec esbuild ${entrypointFilePath} --bundle --minify --external:prettier --platform=node --format=esm --log-override:direct-eval=silent --banner:js="${banner}" --outfile=${outFilePath}`
     );
 
     fs.chmodSync(

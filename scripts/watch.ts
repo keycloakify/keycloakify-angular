@@ -42,8 +42,8 @@ import * as fs from 'fs';
 
     {
         const child = child_process.spawn(
-            'npx',
-            ['ng', 'build', '--watch', '--configuration', 'development'],
+            'pnpm',
+            ['exec', 'ng', 'build', '--watch', '--configuration', 'development'],
             {
                 shell: true,
                 cwd: getThisCodebaseRootDirPath()

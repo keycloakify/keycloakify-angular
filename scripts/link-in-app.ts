@@ -1,8 +1,7 @@
 import { execSync } from 'child_process';
-import { join as pathJoin, relative as pathRelative } from 'path';
+import { join as pathJoin, relative as pathRelative, sep as pathSep } from 'path';
 import { getThisCodebaseRootDirPath } from './tools/getThisCodebaseRootDirPath';
 import * as fs from 'fs';
-import * as os from 'os';
 
 const singletonDependencies: string[] = ['keycloakify', 'rxjs', 'tslib', 'typescript'];
 
@@ -24,49 +23,51 @@ const commonThirdPartyDeps = [
     ...singletonDependencies
 ];
 
-const yarnGlobalDirPath = pathJoin(rootDirPath, '.yarn_home');
+const thisPackageName = (
+    JSON.parse(
+        fs.readFileSync(pathJoin(rootDirPath, 'package.json')).toString('utf8')
+    ) as { name: string }
+).name;
 
-fs.rmSync(yarnGlobalDirPath, { recursive: true, force: true });
-fs.mkdirSync(yarnGlobalDirPath);
+// We link through pnpm `overrides` (written in the test app's pnpm-workspace.yaml)
+// rather than `pnpm link`: overrides apply to transitive dependencies too
+// (e.g. the @angular/core required by @angular/router), so the singletons are
+// truly shared, and the test app's package.json is left untouched.
+const linkDependencies = (params: { testAppPath: string }) => {
+    const { testAppPath } = params;
 
-const execYarnLink = (params: { targetModuleName?: string; cwd: string }) => {
-    const { targetModuleName, cwd } = params;
+    const toLinkSpecifier = (targetDirPath: string) =>
+        `link:${pathRelative(testAppPath, targetDirPath).split(pathSep).join('/')}`;
 
-    if (targetModuleName === undefined) {
-        const packageJsonFilePath = pathJoin(cwd, 'package.json');
+    const linkOverrides: Record<string, string> = {
+        ...Object.fromEntries(
+            commonThirdPartyDeps.map(dep => [
+                dep,
+                toLinkSpecifier(pathJoin(rootDirPath, 'node_modules', ...dep.split('/')))
+            ])
+        ),
+        [thisPackageName]: toLinkSpecifier(pathJoin(rootDirPath, 'dist'))
+    };
 
-        const packageJson = JSON.parse(
-            fs.readFileSync(packageJsonFilePath).toString('utf8')
-        );
+    const runInTestApp = (cmd: string) => {
+        console.log(`$ cd ${pathRelative(rootDirPath, testAppPath)} && ${cmd}`);
 
-        delete packageJson['packageManager'];
+        return execSync(cmd, { cwd: testAppPath }).toString('utf8');
+    };
 
-        fs.writeFileSync(
-            packageJsonFilePath,
-            Buffer.from(JSON.stringify(packageJson, null, 2))
-        );
-    }
+    const existingOverrides = (JSON.parse(
+        runInTestApp('pnpm config get --location project overrides --json')
+    ) ?? {}) as Record<string, string>;
 
-    const cmd = [
-        'yarn',
-        'link',
-        ...(targetModuleName !== undefined ? [targetModuleName] : ['--no-bin-links'])
-    ].join(' ');
+    const overrides = { ...existingOverrides, ...linkOverrides };
 
-    console.log(`$ cd ${pathRelative(rootDirPath, cwd) || '.'} && ${cmd}`);
+    runInTestApp(
+        `pnpm config set --location project overrides ${JSON.stringify(JSON.stringify(overrides))} --json`
+    );
 
-    execSync(cmd, {
-        cwd,
-        env: {
-            ...process.env,
-            ...(os.platform() === 'win32'
-                ? {
-                      USERPROFILE: yarnGlobalDirPath,
-                      LOCALAPPDATA: yarnGlobalDirPath
-                  }
-                : { HOME: yarnGlobalDirPath })
-        }
-    });
+    console.log(`$ cd ${pathRelative(rootDirPath, testAppPath)} && pnpm install`);
+
+    execSync('pnpm install --no-frozen-lockfile', { cwd: testAppPath, stdio: 'inherit' });
 };
 
 const testAppPaths = (() => {
@@ -133,60 +134,11 @@ testAppPaths.forEach(testAppPath => {
     };
 
     try {
-        execSync('yarn install', { cwd: testAppPath });
-    } catch (error) {
+        linkDependencies({ testAppPath });
+    } finally {
         restorePackageJson();
-
-        throw error;
     }
-
-    restorePackageJson();
 });
-
-console.log('=== Linking common dependencies ===');
-
-const total = commonThirdPartyDeps.length;
-let current = 0;
-
-commonThirdPartyDeps.forEach(commonThirdPartyDep => {
-    current++;
-
-    console.log(`${current}/${total} ${commonThirdPartyDep}`);
-
-    const localInstallPath = pathJoin(
-        ...[
-            rootDirPath,
-            'node_modules',
-            ...(commonThirdPartyDep.startsWith('@')
-                ? commonThirdPartyDep.split('/')
-                : [commonThirdPartyDep])
-        ]
-    );
-
-    execYarnLink({ cwd: localInstallPath });
-});
-
-commonThirdPartyDeps.forEach(commonThirdPartyDep =>
-    testAppPaths.forEach(testAppPath =>
-        execYarnLink({
-            cwd: testAppPath,
-            targetModuleName: commonThirdPartyDep
-        })
-    )
-);
-
-console.log('=== Linking in house dependencies ===');
-
-execYarnLink({ cwd: pathJoin(rootDirPath, 'dist') });
-
-testAppPaths.forEach(testAppPath =>
-    execYarnLink({
-        cwd: testAppPath,
-        targetModuleName: JSON.parse(
-            fs.readFileSync(pathJoin(rootDirPath, 'package.json')).toString('utf8')
-        )['name']
-    })
-);
 
 testAppPaths.forEach(testAppPath => {
     const ngFilePath = pathJoin(testAppPath, 'node_modules', '.bin', 'ng');
@@ -288,8 +240,18 @@ testAppPaths.forEach(testAppPath => {
             continue;
         }
 
-        execSync(`yarn run ${scriptName}`, { cwd: testAppPath });
+        execSync(`pnpm run ${scriptName}`, { cwd: testAppPath });
     }
 });
+
+testAppPaths.forEach(testAppPath =>
+    console.log(
+        [
+            `\nNOTE: ${pathRelative(rootDirPath, testAppPath)}/pnpm-workspace.yaml and pnpm-lock.yaml`,
+            'now contain `link:` overrides, do not commit them.',
+            'To unlink: revert those two files and run `pnpm install`.'
+        ].join('\n')
+    )
+);
 
 export {};

@@ -76,8 +76,8 @@ version="$(jq -r '.version' "$(dirname "$0")/../package.json")"
 # changelog
 if [ "$versionType" != "none" ]; then
   rm CHANGELOG.md
-  npm run changelog
-  git add package.json yarn.lock CHANGELOG.md
+  pnpm changelog
+  git add package.json pnpm-lock.yaml CHANGELOG.md
   git commit -m "chore(version): 💯 bump version to $version"
   # Gotta push them all
   git push

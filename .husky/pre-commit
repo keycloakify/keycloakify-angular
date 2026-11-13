@@ -1,2 +1,2 @@
 #!/bin/sh
-npm run format && npm run lint
+pnpm format && pnpm lint

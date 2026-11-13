@@ -13,7 +13,7 @@ const distDirPath = pathJoin(getThisCodebaseRootDirPath(), 'dist');
 
 cleanup({ distDirPath });
 
-run('npx ng build', { cwd: getThisCodebaseRootDirPath() });
+run('pnpm exec ng build', { cwd: getThisCodebaseRootDirPath() });
 
 postNgBuild();
 

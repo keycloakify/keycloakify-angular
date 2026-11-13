@@ -9,12 +9,12 @@ An Angular component library for [Keycloakify](https://www.keycloakify.dev/) —
 ## Commands
 
 ```bash
-yarn build           # Build the library via ng-packagr → dist/
-yarn watch           # Watch mode: rebuild on change + apply RC version patch
-yarn lint            # ESLint with auto-fix
-yarn format          # Prettier write
-yarn link-in-starter # Interactive CLI to link dist/ into a local starter project
-yarn changelog       # Generate changelog (conventional-changelog)
+pnpm build           # Build the library via ng-packagr → dist/
+pnpm watch           # Watch mode: rebuild on change + apply RC version patch
+pnpm lint            # ESLint with auto-fix
+pnpm format          # Prettier write
+pnpm link-in-starter # Interactive CLI to link dist/ into a local starter project
+pnpm changelog       # Generate changelog (conventional-changelog)
 ```
 
 There are no unit tests. Components are developed and tested via Storybook stories and by linking the library into starter projects.

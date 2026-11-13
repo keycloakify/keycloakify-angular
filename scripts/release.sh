@@ -73,11 +73,10 @@ fi
 # Using the package.json version
 version="$(jq -r '.version' "$(dirname "$0")/../package.json")"
 
-# changelog
+# stable release: stamp the changelog version delimiter (entries are written by hand)
 if [ "$versionType" != "none" ]; then
-  rm CHANGELOG.md
-  pnpm changelog
-  git add package.json pnpm-lock.yaml CHANGELOG.md
+  sh "$(dirname "$0")/stamp-changelog.sh" "$version" || exit 1
+  git add package.json CHANGELOG.md
   git commit -m "chore(version): 💯 bump version to $version"
   # Gotta push them all
   git push

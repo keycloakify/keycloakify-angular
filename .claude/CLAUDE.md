@@ -14,8 +14,10 @@ pnpm watch           # Watch mode: rebuild on change + apply RC version patch
 pnpm lint            # ESLint with auto-fix
 pnpm format          # Prettier write
 pnpm link-in-starter # Interactive CLI to link dist/ into a local starter project
-pnpm changelog       # Generate changelog (conventional-changelog)
+pnpm release         # Version bump + changelog delimiter stamp (main branch only; see scripts/release.sh)
 ```
+
+`CHANGELOG.md` is written by hand, newest entry on top: follow the `changelog-update` skill (`.claude/skills/changelog-update/SKILL.md`) whenever a change is worth an entry.
 
 There are no unit tests. Components are developed and tested via Storybook stories and by linking the library into starter projects.
 

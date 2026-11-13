@@ -1,351 +1,1119 @@
-## 22.1.0 (2026-09-01)
+# Changelog
 
-* chore: new dep ([9ba0be9](https://github.com/keycloakify/keycloakify-angular/commit/9ba0be9))
-* chore: package manager ([075d567](https://github.com/keycloakify/keycloakify-angular/commit/075d567))
-* chore: release candidate ([7b08e6f](https://github.com/keycloakify/keycloakify-angular/commit/7b08e6f))
-* chore: release candidate ([f7ba6ea](https://github.com/keycloakify/keycloakify-angular/commit/f7ba6ea))
-* chore: release candidate ([c05ab95](https://github.com/keycloakify/keycloakify-angular/commit/c05ab95))
-* chore: release candidate ([ed29f23](https://github.com/keycloakify/keycloakify-angular/commit/ed29f23))
-* chore: reset CI to main ([9b5ed5f](https://github.com/keycloakify/keycloakify-angular/commit/9b5ed5f))
-* chore: restore to main ([13be49b](https://github.com/keycloakify/keycloakify-angular/commit/13be49b))
-* chore: set contribution ([7fb1632](https://github.com/keycloakify/keycloakify-angular/commit/7fb1632))
-* chore: update actions ([ae004cb](https://github.com/keycloakify/keycloakify-angular/commit/ae004cb))
-* chore: update angular with migrations ([c0fd0b0](https://github.com/keycloakify/keycloakify-angular/commit/c0fd0b0))
-* chore: update contributors ([4456277](https://github.com/keycloakify/keycloakify-angular/commit/4456277))
-* chore: update dependencies ([8b0c208](https://github.com/keycloakify/keycloakify-angular/commit/8b0c208))
-* chore: update dependencies ([d40f1c4](https://github.com/keycloakify/keycloakify-angular/commit/d40f1c4))
-* chore: update dependencies ([9bcfe35](https://github.com/keycloakify/keycloakify-angular/commit/9bcfe35))
-* chore: update dependencies ([0f57e21](https://github.com/keycloakify/keycloakify-angular/commit/0f57e21))
-* chore: update dependencies ([eac33c5](https://github.com/keycloakify/keycloakify-angular/commit/eac33c5))
-* chore: update dependencies ([f44a8a5](https://github.com/keycloakify/keycloakify-angular/commit/f44a8a5))
-* chore: update dependencies ([6db8fde](https://github.com/keycloakify/keycloakify-angular/commit/6db8fde))
-* chore: update dependencies ([182abbc](https://github.com/keycloakify/keycloakify-angular/commit/182abbc))
-* chore: update dependencies ([9399a1d](https://github.com/keycloakify/keycloakify-angular/commit/9399a1d))
-* chore: update dependencies ([4a972de](https://github.com/keycloakify/keycloakify-angular/commit/4a972de))
-* chore: update deps ([c7d38a2](https://github.com/keycloakify/keycloakify-angular/commit/c7d38a2))
-* chore: update deps ([6dbdea9](https://github.com/keycloakify/keycloakify-angular/commit/6dbdea9))
-* chore: update other dependencies ([68e82db](https://github.com/keycloakify/keycloakify-angular/commit/68e82db))
-* chore(): add error on message ([4198cf5](https://github.com/keycloakify/keycloakify-angular/commit/4198cf5))
-* chore(deps): bump qs from 6.14.0 to 6.14.1 ([9c77501](https://github.com/keycloakify/keycloakify-angular/commit/9c77501))
-* chore(version): 💯 bump version to 0.2.10 ([b85efce](https://github.com/keycloakify/keycloakify-angular/commit/b85efce))
-* chore(version): 💯 bump version to 0.2.15 ([fe23151](https://github.com/keycloakify/keycloakify-angular/commit/fe23151))
-* chore(version): 💯 bump version to 0.2.16 ([a207087](https://github.com/keycloakify/keycloakify-angular/commit/a207087))
-* chore(version): 💯 bump version to 0.2.17 ([8338bdd](https://github.com/keycloakify/keycloakify-angular/commit/8338bdd))
-* chore(version): 💯 bump version to 0.2.18 ([23cd1cf](https://github.com/keycloakify/keycloakify-angular/commit/23cd1cf))
-* chore(version): 💯 bump version to 0.2.19 ([8c36bae](https://github.com/keycloakify/keycloakify-angular/commit/8c36bae))
-* chore(version): 💯 bump version to 0.2.23 ([97a9f9c](https://github.com/keycloakify/keycloakify-angular/commit/97a9f9c))
-* chore(version): 💯 bump version to 0.2.24 ([8195e2a](https://github.com/keycloakify/keycloakify-angular/commit/8195e2a))
-* chore(version): 💯 bump version to 0.2.3 ([18d3cce](https://github.com/keycloakify/keycloakify-angular/commit/18d3cce))
-* chore(version): 💯 bump version to 0.2.4 ([dc55321](https://github.com/keycloakify/keycloakify-angular/commit/dc55321))
-* chore(version): 💯 bump version to 0.2.5 ([47c91b4](https://github.com/keycloakify/keycloakify-angular/commit/47c91b4))
-* chore(version): 💯 bump version to 0.2.6 ([62ebb7b](https://github.com/keycloakify/keycloakify-angular/commit/62ebb7b))
-* chore(version): 💯 bump version to 0.2.7 ([2872798](https://github.com/keycloakify/keycloakify-angular/commit/2872798))
-* chore(version): 💯 bump version to 0.2.8 ([43c56e8](https://github.com/keycloakify/keycloakify-angular/commit/43c56e8))
-* chore(version): 💯 bump version to 0.2.9 ([d43d042](https://github.com/keycloakify/keycloakify-angular/commit/d43d042))
-* chore(version): 💯 bump version to 20.0.1 ([40f2079](https://github.com/keycloakify/keycloakify-angular/commit/40f2079))
-* chore(version): 💯 bump version to 20.0.2 ([97e2d1b](https://github.com/keycloakify/keycloakify-angular/commit/97e2d1b))
-* chore(version): 💯 bump version to 20.1.10 ([6a63d03](https://github.com/keycloakify/keycloakify-angular/commit/6a63d03))
-* chore(version): 💯 bump version to 20.1.11 ([6414eaa](https://github.com/keycloakify/keycloakify-angular/commit/6414eaa))
-* chore(version): 💯 bump version to 20.1.12 ([61d2b8b](https://github.com/keycloakify/keycloakify-angular/commit/61d2b8b))
-* chore(version): 💯 bump version to 20.1.3 ([02fcea8](https://github.com/keycloakify/keycloakify-angular/commit/02fcea8))
-* chore(version): 💯 bump version to 20.1.4 ([a9b13da](https://github.com/keycloakify/keycloakify-angular/commit/a9b13da))
-* chore(version): 💯 bump version to 20.1.5 ([05e79e7](https://github.com/keycloakify/keycloakify-angular/commit/05e79e7))
-* chore(version): 💯 bump version to 20.1.7 ([605d3c0](https://github.com/keycloakify/keycloakify-angular/commit/605d3c0))
-* chore(version): 💯 bump version to 20.1.8 ([bed639b](https://github.com/keycloakify/keycloakify-angular/commit/bed639b))
-* chore(version): 💯 bump version to 20.1.9 ([612ca57](https://github.com/keycloakify/keycloakify-angular/commit/612ca57))
-* chore(version): 💯 bump version to 21.0.0 ([90879fc](https://github.com/keycloakify/keycloakify-angular/commit/90879fc))
-* chore(version): 💯 bump version to 21.0.1 ([a707070](https://github.com/keycloakify/keycloakify-angular/commit/a707070))
-* chore(version): 💯 bump version to 21.0.2 ([6b9ac1c](https://github.com/keycloakify/keycloakify-angular/commit/6b9ac1c))
-* chore(version): 💯 bump version to 21.0.3 ([5223ac6](https://github.com/keycloakify/keycloakify-angular/commit/5223ac6))
-* chore(version): 💯 bump version to 21.0.4 ([65b8e55](https://github.com/keycloakify/keycloakify-angular/commit/65b8e55))
-* chore(version): 💯 bump version to 21.0.5 ([d040423](https://github.com/keycloakify/keycloakify-angular/commit/d040423))
-* chore(version): 💯 bump version to 21.0.6 ([d26adf5](https://github.com/keycloakify/keycloakify-angular/commit/d26adf5))
-* chore(version): 💯 bump version to 21.1.0 ([759ebbd](https://github.com/keycloakify/keycloakify-angular/commit/759ebbd))
-* chore(version): 💯 bump version to 21.1.1 ([42d3103](https://github.com/keycloakify/keycloakify-angular/commit/42d3103))
-* chore(version): 💯 bump version to 21.1.2 ([75ea05a](https://github.com/keycloakify/keycloakify-angular/commit/75ea05a))
-* chore(version): 💯 bump version to 21.1.3 ([f3a9151](https://github.com/keycloakify/keycloakify-angular/commit/f3a9151))
-* chore(version): 💯 bump version to 21.1.4 ([9ef4daa](https://github.com/keycloakify/keycloakify-angular/commit/9ef4daa))
-* chore(version): 💯 bump version to 21.1.5 ([acca85f](https://github.com/keycloakify/keycloakify-angular/commit/acca85f))
-* chore(version): 💯 bump version to 22.0.0 ([11a6836](https://github.com/keycloakify/keycloakify-angular/commit/11a6836))
-* chore(version): 💯 bump version to 22.0.0-rc.0 ([9093aba](https://github.com/keycloakify/keycloakify-angular/commit/9093aba))
-* chore(version): 💯 bump version to 22.0.0-rc.1 ([ccce710](https://github.com/keycloakify/keycloakify-angular/commit/ccce710))
-* chore(version): 💯 bump version to 22.0.0-rc.2 ([74a67fb](https://github.com/keycloakify/keycloakify-angular/commit/74a67fb))
-* chore(version): 💯 bump version to 22.0.1 ([49add1d](https://github.com/keycloakify/keycloakify-angular/commit/49add1d))
-* fix: account ClassKey import ([957b480](https://github.com/keycloakify/keycloakify-angular/commit/957b480))
-* fix: also account template ([736ebf1](https://github.com/keycloakify/keycloakify-angular/commit/736ebf1))
-* fix: broken links to starters ([f0c1aea](https://github.com/keycloakify/keycloakify-angular/commit/f0c1aea))
-* fix: build problems with tsx 4.20.5 ([3c434ee](https://github.com/keycloakify/keycloakify-angular/commit/3c434ee))
-* fix: changelog ([f2a19d7](https://github.com/keycloakify/keycloakify-angular/commit/f2a19d7))
-* fix: ci ([aa3d28e](https://github.com/keycloakify/keycloakify-angular/commit/aa3d28e))
-* fix: default case position ([ce488d1](https://github.com/keycloakify/keycloakify-angular/commit/ce488d1))
-* fix: eject-script ([ae5d44b](https://github.com/keycloakify/keycloakify-angular/commit/ae5d44b))
-* fix: error message display ([6d7c80a](https://github.com/keycloakify/keycloakify-angular/commit/6d7c80a))
-* fix: exports ([2e83cc5](https://github.com/keycloakify/keycloakify-angular/commit/2e83cc5))
-* fix: imports ([cf19d0b](https://github.com/keycloakify/keycloakify-angular/commit/cf19d0b))
-* fix: Incorrect import of user profile form field component after ejecting register.ftl #46 ([1f36c38](https://github.com/keycloakify/keycloakify-angular/commit/1f36c38)), closes [#46](https://github.com/keycloakify/keycloakify-angular/issues/46)
-* fix: input attributes and wrong/missing autocompletes ([b2b4e08](https://github.com/keycloakify/keycloakify-angular/commit/b2b4e08)), closes [#37](https://github.com/keycloakify/keycloakify-angular/issues/37)
-* fix: input type hidden ([0702538](https://github.com/keycloakify/keycloakify-angular/commit/0702538))
-* fix: issue 38029 ([4a99ec3](https://github.com/keycloakify/keycloakify-angular/commit/4a99ec3))
-* fix: let variable scope ([0a02804](https://github.com/keycloakify/keycloakify-angular/commit/0a02804))
-* fix: lint ([1b41fab](https://github.com/keycloakify/keycloakify-angular/commit/1b41fab))
-* fix: lint ([4e54630](https://github.com/keycloakify/keycloakify-angular/commit/4e54630))
-* fix: match info.ftl template ([0f45efc](https://github.com/keycloakify/keycloakify-angular/commit/0f45efc))
-* fix: missing case on default page ([13f0518](https://github.com/keycloakify/keycloakify-angular/commit/13f0518))
-* fix: missing script injection ([8a4b9b1](https://github.com/keycloakify/keycloakify-angular/commit/8a4b9b1))
-* fix: missing stories ([e0ffb5a](https://github.com/keycloakify/keycloakify-angular/commit/e0ffb5a))
-* fix: missing story ([8e4a25a](https://github.com/keycloakify/keycloakify-angular/commit/8e4a25a))
-* fix: node engine ([91a28f6](https://github.com/keycloakify/keycloakify-angular/commit/91a28f6))
-* fix: pageRef not required ([230b7f1](https://github.com/keycloakify/keycloakify-angular/commit/230b7f1))
-* fix: peers ([c811683](https://github.com/keycloakify/keycloakify-angular/commit/c811683))
-* fix: remove containers sub path also for account ([4d53015](https://github.com/keycloakify/keycloakify-angular/commit/4d53015))
-* fix: rename story ([ae7e866](https://github.com/keycloakify/keycloakify-angular/commit/ae7e866)), closes [#48](https://github.com/keycloakify/keycloakify-angular/issues/48)
-* fix: saml-post-form submit ([11ed5a7](https://github.com/keycloakify/keycloakify-angular/commit/11ed5a7))
-* fix: sanitize back to application html text ([8628a21](https://github.com/keycloakify/keycloakify-angular/commit/8628a21))
-* fix: stories import and reactivity ([d9375bb](https://github.com/keycloakify/keycloakify-angular/commit/d9375bb))
-* fix: wrong displayMessage validation ([81be1e0](https://github.com/keycloakify/keycloakify-angular/commit/81be1e0)), closes [#33](https://github.com/keycloakify/keycloakify-angular/issues/33)
-* fix(): warning when updated file content is the same as current ([8ef8742](https://github.com/keycloakify/keycloakify-angular/commit/8ef8742))
-* fix(login): typos ([ee966c8](https://github.com/keycloakify/keycloakify-angular/commit/ee966c8))
-* fix(login): username/email label ([f2fbc43](https://github.com/keycloakify/keycloakify-angular/commit/f2fbc43))
-* feat: add eslint for better maintenability ([bba8b37](https://github.com/keycloakify/keycloakify-angular/commit/bba8b37))
-* feat: add link-idp-action ([4762826](https://github.com/keycloakify/keycloakify-angular/commit/4762826)), closes [#49](https://github.com/keycloakify/keycloakify-angular/issues/49)
-* feat: add missing OnPush change detection ([be1812c](https://github.com/keycloakify/keycloakify-angular/commit/be1812c))
-* feat: adjust features from react repo ([0c3a3e3](https://github.com/keycloakify/keycloakify-angular/commit/0c3a3e3))
-* feat: ensure effect is destoyed after page rendering ([8816f4e](https://github.com/keycloakify/keycloakify-angular/commit/8816f4e))
-* feat: make bootstrapKcApplication return appRef ([27278b7](https://github.com/keycloakify/keycloakify-angular/commit/27278b7))
-* feat: setup verbatimModuleSyntax ([778d933](https://github.com/keycloakify/keycloakify-angular/commit/778d933))
-* feat: support angular 21 ([d7efd70](https://github.com/keycloakify/keycloakify-angular/commit/d7efd70))
-* feat: update config ([04331a4](https://github.com/keycloakify/keycloakify-angular/commit/04331a4))
-* feat: update dependencies ([a54c508](https://github.com/keycloakify/keycloakify-angular/commit/a54c508))
-* feat: update packages and fix ([382d378](https://github.com/keycloakify/keycloakify-angular/commit/382d378))
-* feat: update to angular 22 ([8946746](https://github.com/keycloakify/keycloakify-angular/commit/8946746))
-* feat: update to v20 to match angular versioning ([acb1d3e](https://github.com/keycloakify/keycloakify-angular/commit/acb1d3e))
-* . ([9c831b0](https://github.com/keycloakify/keycloakify-angular/commit/9c831b0))
-* 💯 bump version to 2.21 ([279aad7](https://github.com/keycloakify/keycloakify-angular/commit/279aad7))
-* Add a note to say that this is still work in progress ([13ea602](https://github.com/keycloakify/keycloakify-angular/commit/13ea602))
-* add account stories ([1ae8cc9](https://github.com/keycloakify/keycloakify-angular/commit/1ae8cc9))
-* Add add-story script and only format generated files ([cbc8075](https://github.com/keycloakify/keycloakify-angular/commit/cbc8075))
-* add changelog and release script ([83f5630](https://github.com/keycloakify/keycloakify-angular/commit/83f5630))
-* add class checkbox to manage padding ([cd32b5f](https://github.com/keycloakify/keycloakify-angular/commit/cd32b5f))
-* add code.ftl ([272b31f](https://github.com/keycloakify/keycloakify-angular/commit/272b31f))
-* Add initialize-account-theme to the main index ([37ffd2a](https://github.com/keycloakify/keycloakify-angular/commit/37ffd2a))
-* add input ([1c58cb5](https://github.com/keycloakify/keycloakify-angular/commit/1c58cb5))
-* add login stories ([1ff4883](https://github.com/keycloakify/keycloakify-angular/commit/1ff4883))
-* add minimal project repro ([b3d28d3](https://github.com/keycloakify/keycloakify-angular/commit/b3d28d3))
-* add other exports ([d1cdbf3](https://github.com/keycloakify/keycloakify-angular/commit/d1cdbf3))
-* add user profile form field input ([d58df82](https://github.com/keycloakify/keycloakify-angular/commit/d58df82))
-* adds delete-account-confirm.ftl ([c478e22](https://github.com/keycloakify/keycloakify-angular/commit/c478e22))
-* adds login-passkeys-conditional-authenticate.ftl ([937be05](https://github.com/keycloakify/keycloakify-angular/commit/937be05))
-* adds login-password.ftl ([b04924a](https://github.com/keycloakify/keycloakify-angular/commit/b04924a))
-* adds login-recovery-authn-code-config.ftl ([9d1b8b8](https://github.com/keycloakify/keycloakify-angular/commit/9d1b8b8))
-* adds login-recovery-authn-code-input.ftl ([f63a97b](https://github.com/keycloakify/keycloakify-angular/commit/f63a97b))
-* adds login-reset-otp.ftl ([26c3853](https://github.com/keycloakify/keycloakify-angular/commit/26c3853))
-* adds login-reset-password.ftl ([e66dc73](https://github.com/keycloakify/keycloakify-angular/commit/e66dc73))
-* adds login-update-password.ftl ([a4ec011](https://github.com/keycloakify/keycloakify-angular/commit/a4ec011))
-* adds login-update-profile.ftl ([8591bcc](https://github.com/keycloakify/keycloakify-angular/commit/8591bcc))
-* adds login-verify-email.ftl ([13815ed](https://github.com/keycloakify/keycloakify-angular/commit/13815ed))
-* adds login-x509-info.ftl ([741b03a](https://github.com/keycloakify/keycloakify-angular/commit/741b03a))
-* adds logout-confirm.ftl ([67fe227](https://github.com/keycloakify/keycloakify-angular/commit/67fe227))
-* adds saml-post-form.ftl ([abe589a](https://github.com/keycloakify/keycloakify-angular/commit/abe589a))
-* adds select-authenticator.ftl ([f048003](https://github.com/keycloakify/keycloakify-angular/commit/f048003))
-* adds terms.ftl ([4c89b27](https://github.com/keycloakify/keycloakify-angular/commit/4c89b27))
-* adds update-email.ftl ([12a9392](https://github.com/keycloakify/keycloakify-angular/commit/12a9392))
-* Apply patches ([a3fe427](https://github.com/keycloakify/keycloakify-angular/commit/a3fe427))
-* Automatically run the format or lint command after page ejection ([750a61c](https://github.com/keycloakify/keycloakify-angular/commit/750a61c))
-* Better ejection script ([eee4ac9](https://github.com/keycloakify/keycloakify-angular/commit/eee4ac9))
-* bump version ([985c87f](https://github.com/keycloakify/keycloakify-angular/commit/985c87f))
-* bump version ([22e98e9](https://github.com/keycloakify/keycloakify-angular/commit/22e98e9))
-* bump version ([306e13c](https://github.com/keycloakify/keycloakify-angular/commit/306e13c))
-* bump version ([523ac17](https://github.com/keycloakify/keycloakify-angular/commit/523ac17))
-* Bump version ([cc6738b](https://github.com/keycloakify/keycloakify-angular/commit/cc6738b))
-* Bump version ([7e15291](https://github.com/keycloakify/keycloakify-angular/commit/7e15291))
-* Bump version ([9256cca](https://github.com/keycloakify/keycloakify-angular/commit/9256cca))
-* Bump version ([3a134f8](https://github.com/keycloakify/keycloakify-angular/commit/3a134f8))
-* Bump version ([115df85](https://github.com/keycloakify/keycloakify-angular/commit/115df85))
-* Bump version ([5fcd48b](https://github.com/keycloakify/keycloakify-angular/commit/5fcd48b))
-* Bump version ([d2613ed](https://github.com/keycloakify/keycloakify-angular/commit/d2613ed))
-* Bump version ([0713c73](https://github.com/keycloakify/keycloakify-angular/commit/0713c73))
-* Bump version ([20ec03b](https://github.com/keycloakify/keycloakify-angular/commit/20ec03b))
-* Bump version ([4f89375](https://github.com/keycloakify/keycloakify-angular/commit/4f89375))
-* Bump version ([7dcd83c](https://github.com/keycloakify/keycloakify-angular/commit/7dcd83c))
-* Bump version ([1599e29](https://github.com/keycloakify/keycloakify-angular/commit/1599e29))
-* Bump version ([16a600a](https://github.com/keycloakify/keycloakify-angular/commit/16a600a))
-* Bump version ([59159de](https://github.com/keycloakify/keycloakify-angular/commit/59159de))
-* Bump version ([92b52d8](https://github.com/keycloakify/keycloakify-angular/commit/92b52d8))
-* Bump version ([e778386](https://github.com/keycloakify/keycloakify-angular/commit/e778386))
-* Bump version ([54990e6](https://github.com/keycloakify/keycloakify-angular/commit/54990e6))
-* Bump version ([4d8f9f1](https://github.com/keycloakify/keycloakify-angular/commit/4d8f9f1))
-* Bump version ([6fec1cf](https://github.com/keycloakify/keycloakify-angular/commit/6fec1cf))
-* Bump version, Stop labeling it as unusable ([b887ea5](https://github.com/keycloakify/keycloakify-angular/commit/b887ea5))
-* change naming in stories ([b64ff39](https://github.com/keycloakify/keycloakify-angular/commit/b64ff39))
-* clean dependencies ([1575ba4](https://github.com/keycloakify/keycloakify-angular/commit/1575ba4))
-* clean scripts ([c4a5c1e](https://github.com/keycloakify/keycloakify-angular/commit/c4a5c1e))
-* compiling library ([cd3b761](https://github.com/keycloakify/keycloakify-angular/commit/cd3b761))
-* Complete the implementation of the eject-page command ([3362fca](https://github.com/keycloakify/keycloakify-angular/commit/3362fca))
-* corrections ([5039ff5](https://github.com/keycloakify/keycloakify-angular/commit/5039ff5))
-* corrections ([5d2346b](https://github.com/keycloakify/keycloakify-angular/commit/5d2346b))
-* delete login-device-verify-user-code.ftl ([bd20674](https://github.com/keycloakify/keycloakify-angular/commit/bd20674))
-* Do not restrict the keycloakify version for testing ([364ea9f](https://github.com/keycloakify/keycloakify-angular/commit/364ea9f))
-* Don't make it seem this is pure ([fcfd0eb](https://github.com/keycloakify/keycloakify-angular/commit/fcfd0eb))
-* enable push ([a1d163a](https://github.com/keycloakify/keycloakify-angular/commit/a1d163a))
-* ensure input value ([f2c091f](https://github.com/keycloakify/keycloakify-angular/commit/f2c091f))
-* Expose index for /login ([fba501c](https://github.com/keycloakify/keycloakify-angular/commit/fba501c))
-* Factorize runFormat and use it in eject-pages ([c7796c8](https://github.com/keycloakify/keycloakify-angular/commit/c7796c8))
-* Feature/angular build (#6) ([b2670f0](https://github.com/keycloakify/keycloakify-angular/commit/b2670f0)), closes [#6](https://github.com/keycloakify/keycloakify-angular/issues/6)
-* Feature/pages (#3) ([a4651ce](https://github.com/keycloakify/keycloakify-angular/commit/a4651ce)), closes [#3](https://github.com/keycloakify/keycloakify-angular/issues/3)
-* fix __dirname not defined ([8e976df](https://github.com/keycloakify/keycloakify-angular/commit/8e976df)), closes [#26](https://github.com/keycloakify/keycloakify-angular/issues/26)
-* fix @let scope ([7ee3fd1](https://github.com/keycloakify/keycloakify-angular/commit/7ee3fd1))
-* fix applications null pointer ([337d537](https://github.com/keycloakify/keycloakify-angular/commit/337d537))
-* Fix badge ([e0fa680](https://github.com/keycloakify/keycloakify-angular/commit/e0fa680))
-* fix build ([6f2451f](https://github.com/keycloakify/keycloakify-angular/commit/6f2451f))
-* fix case admin ([dc28d7f](https://github.com/keycloakify/keycloakify-angular/commit/dc28d7f))
-* fix class override ([630a825](https://github.com/keycloakify/keycloakify-angular/commit/630a825))
-* Fix code hint ([1b9b2ad](https://github.com/keycloakify/keycloakify-angular/commit/1b9b2ad))
-* fix duplicated message ([a423324](https://github.com/keycloakify/keycloakify-angular/commit/a423324))
-* fix eject-page when story already exists ([d3b5cd1](https://github.com/keycloakify/keycloakify-angular/commit/d3b5cd1))
-* fix ejecting pages ([b367b8f](https://github.com/keycloakify/keycloakify-angular/commit/b367b8f))
-* Fix error in message ([c440fb3](https://github.com/keycloakify/keycloakify-angular/commit/c440fb3))
-* fix esm bin files ([c5a9f79](https://github.com/keycloakify/keycloakify-angular/commit/c5a9f79)), closes [#24](https://github.com/keycloakify/keycloakify-angular/issues/24)
-* fix exports ([c75d5b7](https://github.com/keycloakify/keycloakify-angular/commit/c75d5b7))
-* Fix formating of ejected pages ([9dd4673](https://github.com/keycloakify/keycloakify-angular/commit/9dd4673))
-* Fix formatting ([b6978b8](https://github.com/keycloakify/keycloakify-angular/commit/b6978b8))
-* fix frontchannel iframe url ([94aa3f8](https://github.com/keycloakify/keycloakify-angular/commit/94aa3f8))
-* Fix import error ([66ae299](https://github.com/keycloakify/keycloakify-angular/commit/66ae299))
-* fix imports ([fd0bd61](https://github.com/keycloakify/keycloakify-angular/commit/fd0bd61))
-* Fix imports ([5f2943d](https://github.com/keycloakify/keycloakify-angular/commit/5f2943d))
-* Fix incorrect character ([9e02ca0](https://github.com/keycloakify/keycloakify-angular/commit/9e02ca0))
-* Fix index generation ([27e4064](https://github.com/keycloakify/keycloakify-angular/commit/27e4064))
-* fix injection context ([3fdafae](https://github.com/keycloakify/keycloakify-angular/commit/3fdafae))
-* fix inputs ([308d62b](https://github.com/keycloakify/keycloakify-angular/commit/308d62b))
-* Fix linking script ([99672a4](https://github.com/keycloakify/keycloakify-angular/commit/99672a4))
-* fix password-wrapper ([198b121](https://github.com/keycloakify/keycloakify-angular/commit/198b121))
-* fix peer dependencies ([05baae7](https://github.com/keycloakify/keycloakify-angular/commit/05baae7))
-* fix project ([e382baf](https://github.com/keycloakify/keycloakify-angular/commit/e382baf))
-* fix single provider ([3f6bf77](https://github.com/keycloakify/keycloakify-angular/commit/3f6bf77))
-* Fix some unused imports ([6019261](https://github.com/keycloakify/keycloakify-angular/commit/6019261))
-* fix story ([fbd4ca7](https://github.com/keycloakify/keycloakify-angular/commit/fbd4ca7))
-* fix story ([f530f28](https://github.com/keycloakify/keycloakify-angular/commit/f530f28))
-* fix template ([e7a9e9e](https://github.com/keycloakify/keycloakify-angular/commit/e7a9e9e))
-* Fix the generation script and the watch script ([56dbd3a](https://github.com/keycloakify/keycloakify-angular/commit/56dbd3a))
-* fix title ([5b59e39](https://github.com/keycloakify/keycloakify-angular/commit/5b59e39))
-* fix type check when user adds custom pages ([3552899](https://github.com/keycloakify/keycloakify-angular/commit/3552899))
-* fix update kc gen for account ([c87020b](https://github.com/keycloakify/keycloakify-angular/commit/c87020b))
-* fix user profile form fields not rendered ([dab999c](https://github.com/keycloakify/keycloakify-angular/commit/dab999c))
-* fix user profile form fields not rendered ([acc1fa0](https://github.com/keycloakify/keycloakify-angular/commit/acc1fa0))
-* fix wrong class attribute ([5c12a82](https://github.com/keycloakify/keycloakify-angular/commit/5c12a82))
-* Fmt ([c9adc41](https://github.com/keycloakify/keycloakify-angular/commit/c9adc41))
-* Give an error is users try to initialize an admin theme ([23ee7fe](https://github.com/keycloakify/keycloakify-angular/commit/23ee7fe))
-* Have the same export names for the two providers ([fc8af4f](https://github.com/keycloakify/keycloakify-angular/commit/fc8af4f))
-* https://github.com/keycloakify/keycloakify/issues/903 ([9959568](https://github.com/keycloakify/keycloakify-angular/commit/9959568))
-* Implement 'other page' option ([60f4543](https://github.com/keycloakify/keycloakify-angular/commit/60f4543))
-* Implement eject page, need rework ([1969c35](https://github.com/keycloakify/keycloakify-angular/commit/1969c35))
-* Implement initialize-account-theme command handler ([880e472](https://github.com/keycloakify/keycloakify-angular/commit/880e472))
-* Implement update-kc-gen.ts ([1917b43](https://github.com/keycloakify/keycloakify-angular/commit/1917b43))
-* improve eject-page log ([166fef9](https://github.com/keycloakify/keycloakify-angular/commit/166fef9))
-* init and add tools ([9d984f6](https://github.com/keycloakify/keycloakify-angular/commit/9d984f6))
-* inject after view init ([e52b30b](https://github.com/keycloakify/keycloakify-angular/commit/e52b30b))
-* install ([22ea58e](https://github.com/keycloakify/keycloakify-angular/commit/22ea58e))
-* Linking script required when package declares binaries ([42075ea](https://github.com/keycloakify/keycloakify-angular/commit/42075ea))
-* Make eject-pages without indexes ([4f316c5](https://github.com/keycloakify/keycloakify-angular/commit/4f316c5))
-* Make eslint happy ([a378875](https://github.com/keycloakify/keycloakify-angular/commit/a378875))
-* Make linking script works on windows server ([a5bc334](https://github.com/keycloakify/keycloakify-angular/commit/a5bc334))
-* Mark back as unusable ([5150189](https://github.com/keycloakify/keycloakify-angular/commit/5150189))
-* minor fixes ([6e1435f](https://github.com/keycloakify/keycloakify-angular/commit/6e1435f))
-* minor fixes ([f79ffb2](https://github.com/keycloakify/keycloakify-angular/commit/f79ffb2))
-* missing part ([563fa62](https://github.com/keycloakify/keycloakify-angular/commit/563fa62))
-* missing pipe export ([5464f65](https://github.com/keycloakify/keycloakify-angular/commit/5464f65))
-* missing standalone removal ([62390c8](https://github.com/keycloakify/keycloakify-angular/commit/62390c8))
-* Move bin and stories to src ([80d3d6c](https://github.com/keycloakify/keycloakify-angular/commit/80d3d6c))
-* move files and decorator ([f1806de](https://github.com/keycloakify/keycloakify-angular/commit/f1806de))
-* partial rework to integrate account ([4aa2239](https://github.com/keycloakify/keycloakify-angular/commit/4aa2239))
-* passing kcContext as an input ([b2c25c5](https://github.com/keycloakify/keycloakify-angular/commit/b2c25c5))
-* Pin node version until bug in node (or tsx) is fixed ([0a8ccbe](https://github.com/keycloakify/keycloakify-angular/commit/0a8ccbe))
-* Prepend styles ([1c8c35e](https://github.com/keycloakify/keycloakify-angular/commit/1c8c35e))
-* prettier fix ([6a70367](https://github.com/keycloakify/keycloakify-angular/commit/6a70367))
-* Refactor DefaultPage into getDefaultPageComponent ([c5a853d](https://github.com/keycloakify/keycloakify-angular/commit/c5a853d))
-* refactor kcTranslate ([96a45eb](https://github.com/keycloakify/keycloakify-angular/commit/96a45eb))
-* release ([11d4b3c](https://github.com/keycloakify/keycloakify-angular/commit/11d4b3c))
-* release ([4e94e19](https://github.com/keycloakify/keycloakify-angular/commit/4e94e19))
-* Release ([6454e29](https://github.com/keycloakify/keycloakify-angular/commit/6454e29))
-* Release ([7666a3b](https://github.com/keycloakify/keycloakify-angular/commit/7666a3b))
-* Release ([ad3788c](https://github.com/keycloakify/keycloakify-angular/commit/ad3788c))
-* Release ([ba51908](https://github.com/keycloakify/keycloakify-angular/commit/ba51908))
-* Release ([8451a93](https://github.com/keycloakify/keycloakify-angular/commit/8451a93))
-* Release candidate ([0253228](https://github.com/keycloakify/keycloakify-angular/commit/0253228))
-* Release candidate ([d9187ad](https://github.com/keycloakify/keycloakify-angular/commit/d9187ad))
-* Release candidate ([a56fe0a](https://github.com/keycloakify/keycloakify-angular/commit/a56fe0a))
-* Release candidate ([d2fc8b8](https://github.com/keycloakify/keycloakify-angular/commit/d2fc8b8))
-* Release Candidate ([d99cab9](https://github.com/keycloakify/keycloakify-angular/commit/d99cab9))
-* Release Candidate ([1911333](https://github.com/keycloakify/keycloakify-angular/commit/1911333))
-* Release Candidate ([891c5ff](https://github.com/keycloakify/keycloakify-angular/commit/891c5ff))
-* Release Candidate ([42af1ac](https://github.com/keycloakify/keycloakify-angular/commit/42af1ac))
-* Remove debug log ([7480c0c](https://github.com/keycloakify/keycloakify-angular/commit/7480c0c))
-* remove storybook env ([3b2a72f](https://github.com/keycloakify/keycloakify-angular/commit/3b2a72f))
-* Remove the ignore instructions that don't work anyway ([359137f](https://github.com/keycloakify/keycloakify-angular/commit/359137f))
-* Remove unessesary .npmrc file ([dc654e5](https://github.com/keycloakify/keycloakify-angular/commit/dc654e5))
-* remove zone ([efe9103](https://github.com/keycloakify/keycloakify-angular/commit/efe9103))
-* removed kcTranslatePipe and rename KcSanitize filename ([3fd352c](https://github.com/keycloakify/keycloakify-angular/commit/3fd352c))
-* removed public-api ([79565b8](https://github.com/keycloakify/keycloakify-angular/commit/79565b8))
-* reproduction removed ([9cdbd24](https://github.com/keycloakify/keycloakify-angular/commit/9cdbd24))
-* restore tsconfig ([aaae11e](https://github.com/keycloakify/keycloakify-angular/commit/aaae11e))
-* Revert 'Update register.component.html' ([de40c0d](https://github.com/keycloakify/keycloakify-angular/commit/de40c0d))
-* Revise Angular version support in README ([b189c6e](https://github.com/keycloakify/keycloakify-angular/commit/b189c6e))
-* rework dynamic page injector ([5f4fc3d](https://github.com/keycloakify/keycloakify-angular/commit/5f4fc3d))
-* Same issue as https://github.com/keycloakify/keycloakify-svelte/issues/10 ([ee5c9bf](https://github.com/keycloakify/keycloakify-angular/commit/ee5c9bf))
-* Same root export for /account as for /login ([64b48a0](https://github.com/keycloakify/keycloakify-angular/commit/64b48a0))
-* Setup CLI compilation ([1e519df](https://github.com/keycloakify/keycloakify-angular/commit/1e519df))
-* Setup dummy custom handler ([4719ebe](https://github.com/keycloakify/keycloakify-angular/commit/4719ebe))
-* small fixes ([2cb6d77](https://github.com/keycloakify/keycloakify-angular/commit/2cb6d77))
-* Stay on husky v4 and remove .npmrc (the registry is specified in the CI) ([bcb39e9](https://github.com/keycloakify/keycloakify-angular/commit/bcb39e9))
-* storybook infrastructure ([8101c4e](https://github.com/keycloakify/keycloakify-angular/commit/8101c4e))
-* tag not needed ([f55acac](https://github.com/keycloakify/keycloakify-angular/commit/f55acac))
-* Tell if we should regenerate kc-gen with a hash ([50ed40d](https://github.com/keycloakify/keycloakify-angular/commit/50ed40d))
-* template and components export ([fed67b2](https://github.com/keycloakify/keycloakify-angular/commit/fed67b2))
-* The lib can be used now ([e705c09](https://github.com/keycloakify/keycloakify-angular/commit/e705c09))
-* throw out template ([21daccc](https://github.com/keycloakify/keycloakify-angular/commit/21daccc))
-* try build without engines ([e1f7d2c](https://github.com/keycloakify/keycloakify-angular/commit/e1f7d2c))
-* Type safety fix ([6ff1e3f](https://github.com/keycloakify/keycloakify-angular/commit/6ff1e3f))
-* Update .nvmrc ([3563dc7](https://github.com/keycloakify/keycloakify-angular/commit/3563dc7))
-* Update account boilerplate ([8dbe879](https://github.com/keycloakify/keycloakify-angular/commit/8dbe879))
-* Update account boilerplate ([5b52a8c](https://github.com/keycloakify/keycloakify-angular/commit/5b52a8c))
-* update account templates ([673acb8](https://github.com/keycloakify/keycloakify-angular/commit/673acb8))
-* update applications template ([c4ece2f](https://github.com/keycloakify/keycloakify-angular/commit/c4ece2f))
-* Update boilerplate ([b84be16](https://github.com/keycloakify/keycloakify-angular/commit/b84be16))
-* Update CI workflow with permissions and npm commands ([3d32914](https://github.com/keycloakify/keycloakify-angular/commit/3d32914))
-* update dependencies ([dbcdbfe](https://github.com/keycloakify/keycloakify-angular/commit/dbcdbfe))
-* update dependencies and fix scripts possibly undefined ([162cc70](https://github.com/keycloakify/keycloakify-angular/commit/162cc70))
-* update federated identity template ([307f025](https://github.com/keycloakify/keycloakify-angular/commit/307f025))
-* update keycloakify ([379d1be](https://github.com/keycloakify/keycloakify-angular/commit/379d1be))
-* update keycloakify ([6be2265](https://github.com/keycloakify/keycloakify-angular/commit/6be2265))
-* Update keycloakify ([9ce1056](https://github.com/keycloakify/keycloakify-angular/commit/9ce1056))
-* Update keycloakify ([52699ce](https://github.com/keycloakify/keycloakify-angular/commit/52699ce))
-* Update keycloakify ([410f2ad](https://github.com/keycloakify/keycloakify-angular/commit/410f2ad))
-* Update keycloakify (fix issue static js scripts) ([7c92ed3](https://github.com/keycloakify/keycloakify-angular/commit/7c92ed3))
-* Update linking script so that postinstall is ran after linking ([4d24b4a](https://github.com/keycloakify/keycloakify-angular/commit/4d24b4a))
-* update log template ([1198730](https://github.com/keycloakify/keycloakify-angular/commit/1198730))
-* Update login.component.ts ([7875b70](https://github.com/keycloakify/keycloakify-angular/commit/7875b70))
-* update node to 22.12.0 ([b43e2d9](https://github.com/keycloakify/keycloakify-angular/commit/b43e2d9))
-* update node version ([e4003e3](https://github.com/keycloakify/keycloakify-angular/commit/e4003e3)), closes [#19](https://github.com/keycloakify/keycloakify-angular/issues/19)
-* update password template ([608055f](https://github.com/keycloakify/keycloakify-angular/commit/608055f))
-* update README ([bb5ccc9](https://github.com/keycloakify/keycloakify-angular/commit/bb5ccc9))
-* Update readme ([55b581b](https://github.com/keycloakify/keycloakify-angular/commit/55b581b))
-* Update readme ([b61ba02](https://github.com/keycloakify/keycloakify-angular/commit/b61ba02))
-* Update Readme ([d240a29](https://github.com/keycloakify/keycloakify-angular/commit/d240a29))
-* Update README ([e83c8bd](https://github.com/keycloakify/keycloakify-angular/commit/e83c8bd))
-* Update README.md ([c696bcf](https://github.com/keycloakify/keycloakify-angular/commit/c696bcf))
-* Update README.md ([bb6eabb](https://github.com/keycloakify/keycloakify-angular/commit/bb6eabb))
-* Update README.md ([1b4a36a](https://github.com/keycloakify/keycloakify-angular/commit/1b4a36a))
-* Update register.component.html ([6d43cff](https://github.com/keycloakify/keycloakify-angular/commit/6d43cff))
-* Update required version of keycloakify ([7f57579](https://github.com/keycloakify/keycloakify-angular/commit/7f57579))
-* Update required version of keycloakify ([de47b23](https://github.com/keycloakify/keycloakify-angular/commit/de47b23))
-* Update runPrettier script to it uses overrides ([03c05b0](https://github.com/keycloakify/keycloakify-angular/commit/03c05b0))
-* Update runPrettier so it works as expected when the module is linked ([c2e8774](https://github.com/keycloakify/keycloakify-angular/commit/c2e8774))
-* update sessions template ([25ae9e3](https://github.com/keycloakify/keycloakify-angular/commit/25ae9e3))
-* update to angular v19 ([bf70a75](https://github.com/keycloakify/keycloakify-angular/commit/bf70a75)), closes [#20](https://github.com/keycloakify/keycloakify-angular/issues/20)
-* Update to the required keycloakify version ([125cac0](https://github.com/keycloakify/keycloakify-angular/commit/125cac0))
-* update totp template ([74489af](https://github.com/keycloakify/keycloakify-angular/commit/74489af))
-* update user profile form service ([ce6b27d](https://github.com/keycloakify/keycloakify-angular/commit/ce6b27d))
-* viewChild not undefined ([710af86](https://github.com/keycloakify/keycloakify-angular/commit/710af86))
-* webauthn complete ([d4b5238](https://github.com/keycloakify/keycloakify-angular/commit/d4b5238))
-* webauthn register ([91abe50](https://github.com/keycloakify/keycloakify-angular/commit/91abe50))
-* without + ([b784bb8](https://github.com/keycloakify/keycloakify-angular/commit/b784bb8))
-* refactor: remove unused imports, NgClass cleanup ([2918b1a](https://github.com/keycloakify/keycloakify-angular/commit/2918b1a))
+All notable changes to this project will be documented in this file.
+
+## [2026-11-13] — Hand-written changelog
+
+**Type:** chore
+
+### Changes
+
+- **Changelog rewritten by hand**: one readable entry per stable release (v0.0.1 → v22.1.0), rebuilt from commits and
+  diffs, instead of the single conventional-changelog block listing every commit.
+- **No more regeneration at release time**: `release.sh` used to delete `CHANGELOG.md` and rebuild it with
+  conventional-changelog, which would have overwritten the hand-written entries. Stable releases now only stamp a
+  version delimiter above the new entries through `scripts/stamp-changelog.sh` (idempotent, same script as
+  angular-email). The `changelog` script and the `conventional-changelog*` dev dependencies are removed.
+- `changelog-update` skill documents entry format, ordering and delimiters.
+- Verified: stamping a fake v22.1.1 puts the delimiter above the topmost entry, a second run is a no-op.
+
+### Files modified
+
+- `CHANGELOG.md` — rewritten
+- `scripts/stamp-changelog.sh` (new) — version delimiter
+- `scripts/release.sh` — stamps the changelog on stable releases instead of regenerating it
+- `package.json`, `pnpm-lock.yaml` — `changelog` script and `conventional-changelog*` removed
+- `.claude/skills/changelog-update/SKILL.md` (new), `.claude/CLAUDE.md`, `.claude/AGENTS.md` — changelog rules
+
+## [2026-11-13] — Template diagnostics cleanup
+
+**Type:** chore
+
+### Changes
+
+- **No more build warnings**: Angular's extended diagnostics reported 11 warnings (NG8102, NG8107, NG8112). The
+  redundant `?.` / `??` operators are removed where the type is already narrowed or non-nullable: social providers
+  grid in `login` and `login-username` (inside the `@if` that checks them, as in keycloakify's `Login.tsx`),
+  `realm.displayNameHtml` in the login template header, `kcContext.applications` in the account `applications` page.
+  Rendering is unchanged.
+- **`UserProfileFormFieldsComponent.xAttributeLocale$` removed**, together with its unused `@let`: the hidden `locale`
+  input that read it was dropped in v0.2.23 (port of keycloakify `fa5814ac`). Only custom templates that still
+  reference it are affected.
+- Verified: `pnpm build` with zero warnings, `ng lint`.
+
+### Files modified
+
+- `src/login/pages/login/login.component.html`, `src/login/pages/login-username/login-username.component.html`
+- `src/login/template/template.component.html`
+- `src/account/pages/applications/applications.component.html`
+- `src/login/components/user-profile-form-fields/user-profile-form-fields.component.{ts,html}`
+
+## [2026-11-13] — keycloakify 11.16 password policies
+
+**Type:** bugfix
+**Ref:** https://github.com/keycloakify/keycloakify/pull/1071
+
+### Changes
+
+- keycloakify 11.16.4 adds `passwordHistory` and `forceExpiredPasswordChange` to `PasswordPolicies` (exposed by
+  Keycloak 26+) and excludes them from `FormFieldError.Source.PasswordPolicy['name']`, since they can't be validated
+  client side (they need the stored credentials). The Angular `FormFieldError` type mirrors the change (port of
+  keycloakify `bfaf6b60`): without it the type equality checks against keycloakify's `getUserProfileApi` failed and the
+  library didn't build. Peer dependency range unchanged.
+- The other keycloakify 11.16.1 → 11.16.4 changes (custom handler resolution, `termsTitle` forwarding,
+  `application.client` in the account `applications.ftl` context) live in the CLI and the FTL templates: nothing to
+  port.
+
+### Files modified
+
+- `src/login/services/user-profile-form/user-profile-form.service.ts` — `FormFieldError.Source.PasswordPolicy`
+
+## [2026-11-13] — Migrate to pnpm, dependency update
+
+**Type:** chore
+
+### Changes
+
+- **pnpm 12.18** replaces yarn: `packageManager` field, `pnpm-lock.yaml` imported from `yarn.lock`, `yarn.lock`
+  removed. `pnpm-workspace.yaml`: the `tmp` resolution becomes an override; `allowBuilds` runs only esbuild's
+  postinstall — `@parcel/watcher`, `lmdb` and `msgpackr-extract` only compile from source when no prebuilt binary is
+  available.
+- `tsafe` declared as a development dependency: the sources import it and the published package already depends on
+  it (`src/package.json`), but under yarn it was only reachable through keycloakify's hoisted copy. pnpm's strict
+  layout made the missing declaration a build error.
+- Scripts run through pnpm (`build`, `watch`, esbuild bundling of the CLI, `release`, husky `pre-commit`).
+- **Linking into a starter** (`pnpm link-in-starter`) now writes `link:` overrides into the starter's
+  `pnpm-workspace.yaml` instead of using `yarn link` with an isolated `.yarn_home`. Overrides also apply to transitive
+  dependencies, so Angular, keycloakify, rxjs, tslib and typescript stay single copies (e.g. the `@angular/core`
+  required by `@angular/router`), and the starter's `package.json` is left untouched. The starter must use pnpm; the
+  overrides and the lockfile changes must not be committed (the script prints how to undo them).
+- CI installs with `pnpm/action-setup` + `pnpm install --frozen-lockfile`; publishing still uses `npm publish`
+  (OIDC trusted publishing).
+- **Format check now real**: `npm run _format --list-different` never forwarded the flag to prettier, so the CI check
+  always passed. pnpm forwards it (no file was out of format).
+- Development dependencies: Angular 22.2.6 / CLI-build 22.2.7, keycloakify 11.16.4, ng-packagr 22.2.6, Storybook 10.6,
+  eslint 10.14, prettier 3.10, chokidar 6, all-contributors-cli 7, `@types/node` 26. Development Node version moved
+  to `lts/lithium` (26). Library peer and runtime dependency ranges are unchanged.
+- Verified: `pnpm install --frozen-lockfile`, `pnpm build`, `ng lint`, `pnpm _format --list-different`,
+  `link-in-app.ts` against a pnpm copy of the Vite starter (every Angular package resolves the same `@angular/core`).
+
+### Files modified
+
+- `package.json`, `pnpm-workspace.yaml` (new), `pnpm-lock.yaml` (new), `yarn.lock` (removed)
+- `.nvmrc` — `lts/lithium`
+- `.github/workflows/ci.yaml` — pnpm setup and install
+- `scripts/build.ts`, `scripts/watch.ts`, `scripts/shared/postNgBuild.ts`, `scripts/release.sh` — pnpm commands
+- `scripts/link-in-starter.ts`, `scripts/link-in-app.ts` — linking through pnpm overrides
+- `.husky/pre-commit` — pnpm commands
+- `.gitignore`, `.prettierignore` — yarn entries removed
+- `README.md`, `.claude/CLAUDE.md` — pnpm commands
+
+**═══════════════════ v22.1.0 — released 2026-09-01 ═══════════════════**
+
+## [2026-09-01] — select-organization page, passkey conditional UI, TemplateSlots
+
+**Type:** feat
+
+### Changes
+
+- **New `select-organization.ftl` page** (`@keycloakify/angular/login/pages/select-organization`,
+  `SelectOrganizationComponent`, selector `kc-select-organization`), wired into `getDefaultPageComponent`. It lists
+  `kcContext.user.organizations` as buttons (grid layout above 3 entries, reusing the `kcFormSocialAccount*` classes)
+  and submits the chosen alias as `kc.org`. Ported from the upstream keycloakify React implementation.
+- **Passkey conditional UI on `login-username.ftl` and `login-password.ftl`**: when
+  `kcContext.enableWebAuthnConditionalUI` is set, the pages render the hidden `webauth` / `authn_select` forms and a
+  "passkey-doAuthenticate" button, inject Keycloak's `webauthnAuthenticate.js` / `passkeysConditionalAuth.js`, and the
+  username input gets `autocomplete="username webauthn"`. On `login-password` the unused `authButtonId` property is
+  replaced by `webAuthnButtonId`.
+- **Fix `login-passkeys-conditional-authenticate.ftl`**: the authenticate button had the literal id `authButtonId`
+  instead of the bound value, so the injected script could not find it; the injected script also reused the
+  `LoginRecoveryAuthnCodeConfig` id and now has its own.
+- **New `TemplateSlots` interface** (`@keycloakify/angular/login/classes/template-slots`) describing what a page can
+  expose to the template (`displayInfo`, `displayMessage`, `displayRequiredFields`, `documentTitle`, `bodyClassName`,
+  `headerNode`, `infoNode`, `socialProvidersNode`). All login pages now `implements TemplateSlots` and the login
+  `TemplateComponent` uses it instead of untyped casts; custom pages can implement it for type checking.
+- `getDefaultPageComponent` (login and account) now has an exhaustive `pageId` check, so a page id added to
+  keycloakify but missing here fails at compile time. Dependencies: Angular 22.1, keycloakify 11.16.0 (peer ranges
+  unchanged).
+
+**═══════════════════ v22.0.1 — released 2026-06-18 ═══════════════════**
+
+## [2026-06-18] — Dependency update
+
+**Type:** chore
+
+### Changes
+
+- Dependency update only: Angular 22.0.2, keycloakify 11.15.9 (dev). No library code changes.
+
+**═══════════════════ v22.0.0 — released 2026-06-18 ═══════════════════**
+
+## [2026-06-18] — Angular 22
+
+**Type:** chore (breaking)
+
+### Changes
+
+- **Peer dependencies moved to Angular 22** (`@angular/core`, `@angular/common`, `@angular/platform-browser`
+  `^22.0.0`) and **keycloakify `^11.15.3`**; `tsafe` runtime dependency raised to `^1.8.12`.
+- The CLI binary (eject-page, initialize-account-theme) is now bundled with esbuild into a single ESM
+  `bin/index.js` instead of `@vercel/ncc`; the bin TypeScript sources are no longer copied into the published package.
+  Prettier stays external so the consumer project's version is used.
+- The account theme boilerplate `KcPageStory` generated by `initialize-account-theme` now uses `OnPush` change
+  detection.
+- Internals: TypeScript 6.0, ng-packagr 22, all-contributors setup.
+
+**═══════════════════ v21.1.5 — released 2026-06-06 ═══════════════════**
+
+## [2026-06-06] — Dependency update
+
+**Type:** chore
+
+### Changes
+
+- Dependency update only (Storybook 10.4, ESLint 10.4). No library code changes.
+
+**═══════════════════ v21.1.4 — released 2026-05-11 ═══════════════════**
+
+## [2026-05-11] — Storybook story
+
+**Type:** chore
+
+### Changes
+
+- Adds a Storybook story for `select-organization.ftl`. No library code changes.
+
+**═══════════════════ v21.1.3 — released 2026-05-11 ═══════════════════**
+
+## [2026-05-11] — eject-page messages
+
+**Type:** bugfix
+
+### Changes
+
+- `eject-page`: when `KcPage.ts` / `KcPageStory.ts` need no change it now prints a yellow "No changes for file …,
+  ignoring." notice instead of the misleading "Unable to automatically update" error; that error is now shown only
+  when writing the file actually fails, and includes the underlying error message.
+- Dependencies: Angular 21.2.12.
+
+**═══════════════════ v21.1.2 — released 2026-04-13 ═══════════════════**
+
+## [2026-04-13] — link-idp-action header
+
+**Type:** bugfix
+
+### Changes
+
+- `link-idp-action.ftl`: the header template now declares its own `@let idpDisplayName`, so the IdP name is resolved
+  inside the `headerNode` template rendered by the template component.
+
+**═══════════════════ v21.1.1 — released 2026-04-13 ═══════════════════**
+
+## [2026-04-13] — link-idp-action default page
+
+**Type:** bugfix
+
+### Changes
+
+- `getDefaultPageComponent` was missing the `link-idp-action.ftl` case added in 21.1.0, so the default page threw
+  "FTL page not found"; it now loads `LinkIdpActionComponent`.
+
+**═══════════════════ v21.1.0 — released 2026-04-13 ═══════════════════**
+
+## [2026-04-13] — link-idp-action page
+
+**Type:** feat
+**Ref:** https://github.com/keycloakify/keycloakify-angular/issues/49
+
+### Changes
+
+- **New `link-idp-action.ftl` page** (`@keycloakify/angular/login/pages/link-idp-action`, `LinkIdpActionComponent`,
+  selector `kc-link-idp-action`): shows `linkIdpActionTitle` / `linkIdpActionMessage` for the IdP and offers
+  Continue / Cancel (`cancel-aia`) buttons.
+- Storybook: the account `federatedIdentity` story file renamed to match the page id
+  ([#48](https://github.com/keycloakify/keycloakify-angular/issues/48)).
+
+**═══════════════════ v21.0.6 — released 2026-04-07 ═══════════════════**
+
+## [2026-04-07] — Dependency update
+
+**Type:** chore
+
+### Changes
+
+- Dependency update only: Angular 21.2.7, keycloakify 11.15.3 (dev). No library code changes.
+
+**═══════════════════ v21.0.5 — released 2026-03-18 ═══════════════════**
+
+## [2026-03-18] — Account boilerplate exports
+
+**Type:** bugfix
+
+### Changes
+
+- `initialize-account-theme` boilerplate: `KcPage.ts` now exports `classes` and `doUseDefaultCss`, which the
+  `KcPageStory.ts` boilerplate updated in 21.0.3 imports.
+
+**═══════════════════ v21.0.4 — released 2026-03-18 ═══════════════════**
+
+## [2026-03-18] — Account ClassKey imports
+
+**Type:** bugfix
+
+### Changes
+
+- All account pages, the account `KcClassDirective`, `account.ts` and the account `KcPage.ts` boilerplate now import
+  `ClassKey` from `keycloakify/account/lib/kcClsx` instead of the `keycloakify/account` root entry (completing the
+  21.0.3 fix).
+
+**═══════════════════ v21.0.3 — released 2026-03-18 ═══════════════════**
+
+## [2026-03-18] — Account ClassKey import, DefaultPage removed
+
+**Type:** bugfix
+
+### Changes
+
+- Account `ComponentReference` imports `ClassKey` from `keycloakify/account/lib/kcClsx` instead of the
+  `keycloakify/account` root entry.
+- **Removed the leftover `@keycloakify/angular/account/DefaultPage` entry point**; use `getDefaultPageComponent` from
+  `@keycloakify/angular/account`.
+- `initialize-account-theme` boilerplate `KcPageStory.ts`: passes the `classes` / `doUseDefaultCss` defined in
+  `KcPage.ts` to `provideKeycloakifyAngular` instead of hard-coded values, and calls `markForCheck()` after the page
+  loads so the story renders.
+
+**═══════════════════ v21.0.2 — released 2026-03-15 ═══════════════════**
+
+## [2026-03-15] — Dependency update
+
+**Type:** chore
+
+### Changes
+
+- Dependency update only: Angular 21.2.4, ESLint 10. No library code changes.
+
+**═══════════════════ v21.0.1 — released 2026-02-28 ═══════════════════**
+
+## [2026-02-28] — Dependency update
+
+**Type:** chore
+**Ref:** https://github.com/keycloakify/keycloakify-angular/pull/47
+
+### Changes
+
+- Dependency update only: Angular 21.2, keycloakify 11.15.1 (dev), `qs` 6.14.1 (Dependabot). No library code
+  changes.
+
+**═══════════════════ v21.0.0 — released 2026-01-14 ═══════════════════**
+
+## [2026-01-14] — Angular 21
+
+**Type:** chore (breaking)
+**Ref:** https://github.com/keycloakify/keycloakify-angular/pull/44
+
+### Changes
+
+- **Peer dependencies moved to Angular 21** (`@angular/core`, `@angular/common`, `@angular/platform-browser`
+  `^21.0.0`) and **keycloakify `^11.13.0`**.
+- **`eject-page` fix**: after ejecting `register.ftl` (or any page that also ejects `user-profile-form-fields`),
+  `KcPage.ts` / `KcPageStory.ts` kept importing the user profile form fields component from the library; they now
+  point to the ejected copy ([#46](https://github.com/keycloakify/keycloakify-angular/issues/46)).
+- **CLI prettier resolution**: the bin now always loads prettier from the consumer project's `node_modules` (and
+  resolves its config from the project root), the same fix as keycloakify-svelte#10.
+- Internals: `verbatimModuleSyntax` enabled, so the sources use `import type` / inline `type` imports throughout;
+  `login` page imports `NgClass` instead of `CommonModule`; the default-page error now names the missing `pageId`.
+
+**═══════════════════ v20.1.12 — released 2025-11-15 ═══════════════════**
+
+## [2025-11-15] — Explicit error for unknown login pages
+
+**Type:** bugfix
+
+### Changes
+
+- `getDefaultPageComponent()` (login) now ends with a `default` branch that throws `FTL page not found!`, so an
+  unhandled `pageId` fails loudly instead of silently resolving to `undefined`.
+- Dependency update: keycloakify 11.11.3, Angular 20.3.12 (dev dependencies; peer ranges unchanged).
+
+**═══════════════════ v20.1.11 — released 2025-10-21 ═══════════════════**
+
+## [2025-10-21] — Dependency update
+
+**Type:** chore
+
+### Changes
+
+- Dev dependencies bumped (Angular 20.3.6, keycloakify 11.9.14). No library code changes.
+
+**═══════════════════ v20.1.10 — released 2025-10-16 ═══════════════════**
+
+## [2025-10-16] — OnPush everywhere, NgClass cleanup
+
+**Type:** feat
+**Ref:** https://github.com/keycloakify/keycloakify-angular/pull/42
+
+### Changes
+
+- **All account pages now use `ChangeDetectionStrategy.OnPush`** (account, applications, federatedIdentity, log,
+  password, sessions, totp), matching the login pages and the template.
+- **`[ngClass]` replaced by native `[class.x]` bindings** in the account template (`active` menu item) and account page
+  (`has-error`); the rendered CSS classes are the same.
+- Internal cleanup: unused `NgClass`, `AsyncPipe`, `KcClassDirective` and `LogoutOtherSessionsComponent` imports
+  removed from many components, type-only imports normalised to `import type`, and `inject<KcContext>()` typing added
+  (also in the generated account `KcPageStory.ts` boilerplate). Contributed by Ruslan Lekhman (PRs #42, #43).
+
+**═══════════════════ v20.1.9 — released 2025-10-15 ═══════════════════**
+
+## [2025-10-15] — "Back to application" link renders HTML
+
+**Type:** bugfix
+
+### Changes
+
+- **The `backToApplication` message is now rendered as sanitized HTML** (`[innerHTML]` + `kcSanitize: 'html'`) in the
+  account page and in `logout-confirm.ftl`, so entities/markup in the translation (e.g. `&laquo;`) display correctly
+  instead of as raw text.
+- README fixes (broken starter links, PRs #38 and #39).
+- Dependency update: Angular 20.3.4, keycloakify 11.9.12 (dev dependencies).
+
+**═══════════════════ v20.1.8 — released 2025-09-16 ═══════════════════**
+
+## [2025-09-16] — Zod 4 fix in the account theme initializer
+
+**Type:** bugfix
+
+### Changes
+
+- `initialize-account-theme` CLI: the `package.json` schema uses `z.record(z.string(), z.unknown())`, the two-argument
+  form required by Zod 4 (bumped in v20.1.7).
+- Dependency update: keycloakify 11.9.6, Angular CLI/build 20.3.1 (dev dependencies).
+
+**═══════════════════ v20.1.7 — released 2025-09-11 ═══════════════════**
+
+## [2025-09-11] — Build fix for tsx 4.20.5
+
+**Type:** chore
+
+### Changes
+
+- `tsx` pinned to `4.20.4` to work around build failures introduced by tsx 4.20.5.
+- Tooling: Husky 4 → 9 (hook moved to `.husky/`, `lint-staged` config removed), TypeScript 5.9, Zod 4, Angular
+  20.3.0, keycloakify 11.9.4 (dev dependencies; peer ranges unchanged).
+
+**═══════════════════ v20.1.6 — released 2025-08-19 ═══════════════════**
+
+## [2025-08-19] — keycloakify 11.9.3 (static JS scripts fix)
+
+**Type:** bugfix
+
+### Changes
+
+- **Peer dependency raised to `keycloakify ^11.9.3`**, which fixes an issue with static JS scripts.
+- README: all-contributors section added.
+
+**═══════════════════ v20.1.5 — released 2025-08-15 ═══════════════════**
+
+## [2025-08-15] — Correct input attributes and autocomplete hints
+
+**Type:** bugfix
+**Ref:** https://github.com/keycloakify/keycloakify-angular/issues/37
+
+### Changes
+
+- **JSX-style attributes fixed in templates**: `autoComplete`, `autoFocus` and `readOnly` (React casing, ignored by the
+  browser) became `autocomplete`, `autofocus` and `readonly` across account (account, password, totp) and login pages
+  (login-config-totp, login-otp, login-oauth2-device-verify-user-code, login-passkeys-conditional-authenticate,
+  login-recovery-authn-code-input, login-reset-password, login-update-password).
+- **Better autocomplete hints for password managers**: `login.ftl` username gets `autocomplete="username"` and password
+  `current-password` (was `off`); `login-username.ftl` uses `username` (was `off`); passkeys conditional login uses
+  `username webauthn`; `login-password.ftl` gets `autocomplete="on"`.
+
+**═══════════════════ v20.1.4 — released 2025-08-12 ═══════════════════**
+
+## [2025-08-12] — Fix generated bootstrapKcApplication
+
+**Type:** bugfix
+
+### Changes
+
+- The `default: throw new Error('wrong themeType')` branch added in v20.1.3 was emitted once per theme type inside the
+  generated `switch`, producing duplicate `default` labels in `kc.gen.ts`; it is now emitted once, after all cases.
+
+**═══════════════════ v20.1.3 — released 2025-08-12 ═══════════════════**
+
+## [2025-08-12] — bootstrapKcApplication returns the ApplicationRef
+
+**Type:** feat
+
+### Changes
+
+- **The generated `bootstrapKcApplication()` (written to `kc.gen.ts` by `update-kc-gen`) now returns
+  `Promise<ApplicationRef>`**, and its `bootstrapApplication` callback is typed with Angular's `ApplicationRef` instead
+  of the local `ApplicationRefLike`, so consumers can use the bootstrapped app reference.
+
+**═══════════════════ v20.1.2 — released 2025-08-10 ═══════════════════**
+
+## [2025-08-10] — keycloakify 11.9.2
+
+**Type:** chore
+
+### Changes
+
+- Peer dependency raised to `keycloakify ^11.9.2`.
+
+**═══════════════════ v20.1.1 — released 2025-08-09 ═══════════════════**
+
+## [2025-08-09] — frontchannel-logout and register fixes
+
+**Type:** bugfix
+**Ref:** https://github.com/keycloakify/keycloakify-angular/issues/34
+
+### Changes
+
+- **`frontchannel-logout.ftl` waits for the client iframes before redirecting**: the redirect to `logoutRedirectUri`
+  previously fired immediately in `ngOnInit`; it now happens only after every client logout iframe has loaded, so
+  front-channel logouts are not cut short.
+- **`register.ftl` reCAPTCHA callback fixed**: the button's `data-callback` now points to a global
+  `onSubmitRecaptcha` function (registered on init, removed on destroy) that calls `requestSubmit()` on the form,
+  instead of binding a component method that reCAPTCHA could not resolve. Contributed in PR #36.
+
+**═══════════════════ v20.1.0 — released 2025-08-07 ═══════════════════**
+
+## [2025-08-07] — New Keycloak session checker, requestSubmit
+
+**Type:** feat
+
+### Changes
+
+- **Peer dependency raised to `keycloakify ^11.9.0`.** Port of the upstream fix for keycloakify issue #903
+  (https://github.com/keycloakify/keycloakify/issues/903).
+- **Session checking updated to the new `authChecker.js` API**: the login resource injector now imports
+  `startSessionPolling` (replacing `checkCookiesAndSetTimer`) and, when `kcContext.authenticationSession` is present,
+  calls `checkAuthSession(authSessionIdHash)`.
+- **Forms are submitted with `requestSubmit()` instead of `submit()`** (register, idp-review-user-profile,
+  saml-post-form, webauthn-error, "try another way" in the login template), so `submit` events and handlers fire.
+- Dependency update: Angular 20.1.3 (dev dependencies).
+
+**═══════════════════ v20.0.2 — released 2025-07-24 ═══════════════════**
+
+## [2025-07-24] — Re-release of v20.0.1
+
+**Type:** chore
+
+### Changes
+
+- No changes: `v20.0.2` points to the same commit as `v20.0.1` (the version-bump commit to 20.0.2 that both tags
+  share).
+
+**═══════════════════ v20.0.1 — released 2025-07-24 ═══════════════════**
+
+## [2025-07-24] — Fix inverted displayMessage
+
+**Type:** bugfix
+**Ref:** https://github.com/keycloakify/keycloakify-angular/issues/33
+
+### Changes
+
+- **`displayMessage` was inverted** on several login pages: it was `true` exactly when a field error existed, so the
+  global alert showed (or hid) the wrong way round. It is now `!messagesPerField.existsError(...)` on
+  idp-review-user-profile, login-config-totp, login-idp-link-confirm, login-idp-link-confirm-override,
+  login-update-password, login-username and register.
+
+**═══════════════════ v20.0.0 — released 2025-06-15 ═══════════════════**
+
+## [2025-06-15] — Angular 20, version aligned with Angular
+
+**Type:** feat (breaking)
+**Ref:** https://github.com/keycloakify/keycloakify-angular/pull/32
+
+### Changes
+
+- **Version jump 0.2.24 → 20.0.0**: the library's major version now matches the supported Angular major.
+- **Peer dependencies moved to Angular `^20.0.0`** (`@angular/core`, `@angular/common`, `@angular/platform-browser`);
+  Angular 19 is no longer supported. keycloakify peer stays `^11.8.0`.
+- Angular migrations applied: `DOCUMENT` is now imported from `@angular/core` in the login and account providers;
+  the build moved from `@angular-devkit/build-angular` to `@angular/build`.
+
+**═══════════════════ v0.2.24 — released 2025-05-18 ═══════════════════**
+
+## [2025-05-18] — Info page matches info.ftl
+
+**Type:** bugfix
+
+### Changes
+
+- **`info.ftl` page:** the three links (`pageRedirectUri`, `actionUri`, `client.baseUrl`) are now mutually exclusive
+  (`@if / @else if`) as in the Keycloak template; before, two independent `@if` blocks could render a duplicated
+  "Back to Application" link.
+
+**═══════════════════ v0.2.23 — released 2025-05-16 ═══════════════════**
+
+## [2025-05-16] — Hidden user profile attributes
+
+**Type:** bugfix
+
+### Changes
+
+- **User profile attributes with `inputType: 'hidden'`** are now rendered by `kc-input-field-by-type` as a plain
+  `<input type="hidden">`, and `kc-user-profile-form-fields` hides their form group (`display: none`). Port of the
+  upstream keycloakify fix (https://github.com/keycloakify/keycloakify/commit/fa5814ac8f5391569d04bfed0f8a183d4bdef92e).
+- The hidden `locale` input added in v0.2.19 as a workaround for Keycloak issue 38029 was removed from the user
+  profile form.
+- Dependencies: Angular 19.2.11, keycloakify 11.8.27 (dev).
+
+**═══════════════════ v0.2.22 — released 2025-04-09 ═══════════════════**
+
+## [2025-04-09] — Login page message display restored
+
+**Type:** bugfix
+**Ref:** https://github.com/keycloakify/keycloakify-angular/pull/29
+
+### Changes
+
+- **`login.ftl` page:** `displayMessage` is again `!messagesPerField.existsError('username', 'password')`, reverting
+  for this page the inversion made in v0.2.18 (community contribution).
+
+**═══════════════════ v0.2.21 — released 2025-03-16 ═══════════════════**
+
+## [2025-03-16] — SAML POST form auto-submit
+
+**Type:** bugfix
+
+### Changes
+
+- **`saml-post-form.ftl` page:** the form reference is now read as `viewChild<ElementRef<HTMLFormElement>>` and
+  submitted via `nativeElement.submit()`; previously `.submit()` was called on the `ElementRef` itself, so the SAML
+  form was never auto-submitted.
+- **CLI `eject-page`:** when ejecting the template or `user-profile-form-fields`, the import is now rewritten in both
+  `KcPage.ts` and `KcPageStory.ts` (missing files are skipped with a warning) instead of only `KcPage.ts`.
+
+**═══════════════════ v0.2.20 — released 2025-03-16 ═══════════════════**
+
+## [2025-03-16] — CLI linking fixes
+
+**Type:** chore
+
+### Changes
+
+- CLI internals: the package root is now located by its `LICENSE` file instead of the first `package.json`, and, when
+  the library is linked locally (version `0.0.0`), Prettier is loaded through a dynamic `import()` in ESM mode instead
+  of `require()`.
+
+**═══════════════════ v0.2.19 — released 2025-03-14 ═══════════════════**
+
+## [2025-03-14] — Locale in user profile forms, account selector rename
+
+**Type:** bugfix (breaking)
+
+### Changes
+
+- **User profile forms:** `kc-user-profile-form-fields` now adds a hidden `locale` input with the current language
+  when the realm has a locale and no `locale` attribute is part of the form, working around Keycloak issue
+  https://github.com/keycloak/keycloak/issues/38029.
+- **Selector rename:** the account `federatedIdentity` page component selector changed from `kc-federatedIdentity`
+  to `kc-federated-identity`; update any template that references the old selector.
+- ESLint configuration extended to `src/` and lint warnings fixed (unused imports in the account template, unused
+  `eslint-disable` comments in `KcClassDirective`).
+- Dependencies: Angular 19.2.2, keycloakify 11.8.21 (dev).
+
+**═══════════════════ v0.2.18 — released 2025-03-10 ═══════════════════**
+
+## [2025-03-10] — Error message display, library declared usable
+
+**Type:** bugfix
+
+### Changes
+
+- **Error message display:** the `displayMessage` flag passed to the template was inverted on `login.ftl`,
+  `login-username.ftl`, `register.ftl`, `login-update-password.ftl`, `login-config-totp.ftl`,
+  `login-idp-link-confirm.ftl`, `login-idp-link-confirm-override.ftl` and `idp-review-user-profile.ftl`: the alert
+  banner is now shown when the page's fields have errors (the `login.ftl` change was reverted in v0.2.22).
+- The README no longer warns that the library is not ready for use.
+- Dependencies: Angular 19.2, TypeScript 5.8, keycloakify 11.8.17 (dev).
+
+**═══════════════════ v0.2.17 — released 2025-01-22 ═══════════════════**
+
+## [2025-01-22] — Node engine pin removed
+
+**Type:** chore
+
+### Changes
+
+- The `engines.node` pin (`22.12.0`) was removed from the root `package.json` to unblock the build; no library change.
+
+**═══════════════════ v0.2.16 — released 2025-01-22 ═══════════════════**
+
+## [2025-01-22] — keycloakify 11.8 peer
+
+**Type:** chore
+
+### Changes
+
+- `keycloakify` peer dependency raised to `^11.8.0`.
+- Dependencies: Angular 19.1 (dev).
+
+**═══════════════════ v0.2.15 — released 2025-01-06 ═══════════════════**
+
+## [2025-01-06] — Standalone cleanup
+
+**Type:** chore
+
+### Changes
+
+- The redundant `standalone: true` flag (default since Angular 19) was removed from the remaining directives
+  (`kcClass`, `kcAttributes`) and pipes (`kcSanitize`, `inputType`, `toArray`, `toNumber`, `isArrayWithEmptyObject`).
+- Dependencies: Angular 19.0.5, angular-eslint 19, TypeScript 5.6, keycloakify 11.8.5 (dev).
+
+**═══════════════════ v0.2.14 — released 2025-01-03 ═══════════════════**
+
+## [2025-01-03] — Account theme boilerplate i18n
+
+**Type:** chore
+
+### Changes
+
+- The `i18n.ts` generated by `initialize-account-theme` is simplified: plain
+  `i18nBuilder.withThemeName<ThemeName>().build()` with a link to the i18n docs, type-only `ThemeName` import, and no
+  more empty `withExtraLanguages({})` / `withCustomTranslations({})` placeholders.
+
+**═══════════════════ v0.2.13 — released 2025-01-03 ═══════════════════**
+
+## [2025-01-03] — eject-page "other page" option
+
+**Type:** feat
+
+### Changes
+
+- **CLI `eject-page`:** new last choice "The page you're looking for isn't listed here", for both login and account
+  themes, which points to the docs on styling a page not included in base Keycloak (e.g. from a third-party extension)
+  and exits.
+- The README again flags the library as not ready yet.
+
+**═══════════════════ v0.2.12 — released 2024-12-30 ═══════════════════**
+
+## [2024-12-30] — keycloakify 11.7, admin theme guard
+
+**Type:** chore
+
+### Changes
+
+- `keycloakify` peer dependency raised to `^11.7.0`.
+- **CLI:** `initialize-admin-theme` now exits with "Cannot create an admin theme when using Angular." instead of
+  falling through as not implemented.
+- The README no longer warns that the library is not ready (the warning came back in v0.2.13).
+
+**═══════════════════ v0.2.11 — released 2024-12-16 ═══════════════════**
+
+## [2024-12-16] — keycloakify 11.5
+
+**Type:** chore
+
+### Changes
+
+- `keycloakify` peer dependency raised to `^11.5.0`; development Node version moved to 22.12.0.
+
+**═══════════════════ v0.2.10 — released 2024-12-09 ═══════════════════**
+
+## [2024-12-09] — keycloakify 11.4.5
+
+**Type:** chore
+
+### Changes
+
+- `keycloakify` peer dependency raised to `^11.4.5`.
+
+**═══════════════════ v0.2.9 — released 2024-12-08 ═══════════════════**
+
+## [2024-12-08] — kc.gen.ts for account themes
+
+**Type:** bugfix
+
+### Changes
+
+- **CLI `update-kc-gen`:** the generated `kc.gen.ts` imported `@keycloakify/angular/login/providers/keycloakify-angular`
+  for every theme type; it now imports the providers of the matching theme type, so account themes get
+  `@keycloakify/angular/account/providers/keycloakify-angular`.
+
+**═══════════════════ v0.2.8 — released 2024-12-08 ═══════════════════**
+
+## [2024-12-08] — CLI admin theme type
+
+**Type:** bugfix
+
+### Changes
+
+- **CLI `eject-page` / `add-story`:** the new `admin` theme type from keycloakify is handled explicitly (reported as
+  not implemented, no pages offered) instead of being silenced with `@ts-ignore`.
+
+**═══════════════════ v0.2.7 — released 2024-12-08 ═══════════════════**
+
+## [2024-12-08] — App initializer injection context
+
+**Type:** bugfix
+
+### Changes
+
+- **`provideKeycloakifyAngular` (login and account):** the `provideAppInitializer` introduced in v0.2.0 called
+  `inject(I18nService)` and `inject(KC_*_CONTEXT)` when the providers were built, outside an injection context; the
+  `inject()` calls now run inside the initializer callback, so i18n loads correctly at bootstrap.
+
+**═══════════════════ v0.2.6 — released 2024-12-08 ═══════════════════**
+
+## [2024-12-08] — CLI `__dirname` in ESM
+
+**Type:** bugfix
+**Ref:** https://github.com/keycloakify/keycloakify-angular/pull/27
+
+### Changes
+
+- The CLI failed with "`__dirname` is not defined" now that it runs as ESM: `__dirname` is derived from
+  `import.meta.url` in `getThisCodebaseRootDirPath`.
+
+**═══════════════════ v0.2.5 — released 2024-12-08 ═══════════════════**
+
+## [2024-12-08] — Peer dependencies for Angular 19
+
+**Type:** bugfix
+
+### Changes
+
+- **Peer dependencies fixed:** `@angular/core`, `@angular/common` and `@angular/platform-browser` now require `^19.0.0`
+  (they still said `^18.0.0` after the v0.2.0 migration), and `keycloakify` is raised to `^11.4.3`.
+
+**═══════════════════ v0.2.4 — released 2024-12-05 ═══════════════════**
+
+## [2024-12-05] — Release script
+
+**Type:** chore
+
+### Changes
+
+- The release script no longer creates the git tag itself; no library change.
+
+**═══════════════════ v0.2.3 — released 2024-12-05 ═══════════════════**
+
+## [2024-12-05] — ESM CLI build
+
+**Type:** bugfix
+**Ref:** https://github.com/keycloakify/keycloakify-angular/pull/25
+
+### Changes
+
+- **CLI build for ESM:** the bin is now bundled by ncc directly from the TypeScript sources and published as
+  `bin/index.js`; `BIN_NAME`, `NOT_IMPLEMENTED_EXIT_CODE` and `readParams` are re-exported explicitly from
+  keycloakify's `customHandler` instead of `export *`.
+- Release tooling added (`scripts/release.sh`, conventional-changelog).
+
+**═══════════════════ v0.2.2 — released 2024-11-26 ═══════════════════**
+
+## [2024-11-26] — Story cleanup
+
+**Type:** chore
+
+### Changes
+
+- The Storybook story for the removed `login-device-verify-user-code.ftl` page was deleted; no library change.
+
+**═══════════════════ v0.2.1 — released 2024-11-22 ═══════════════════**
+
+## [2024-11-22] — CLI tsconfig restored
+
+**Type:** chore
+
+### Changes
+
+- The CLI `tsconfig.json` changed in v0.2.0 (ES2022, `bundler` resolution) was restored to its previous settings
+  (ES2020 module, ES2017 target, `node` resolution).
+
+**═══════════════════ v0.2.0 — released 2024-11-22 ═══════════════════**
+
+## [2024-11-22] — Angular 19
+
+**Type:** feat (breaking)
+**Ref:** https://github.com/keycloakify/keycloakify-angular/pull/22
+
+### Changes
+
+- **Angular 19:** the library is built with Angular 19 and ng-packagr 19; Angular 18 stays on 0.1.8. (The peer ranges
+  in the published package were only updated to `^19.0.0` in v0.2.5.)
+- **`provideKeycloakifyAngular` (login and account):** the deprecated `APP_INITIALIZER` multi-provider is replaced by
+  `provideAppInitializer` (see v0.2.7 for the injection-context fix).
+- The redundant `standalone: true` flag was removed from all page, template and shared components (standalone is the
+  default in Angular 19); the published package is now marked `"type": "module"`.
+- Internals: development Node 22.11.0; `link-in-app` runs the app's `postinstall` / `prepare` scripts after linking.
+
+**═══════════════════ v0.1.8 — released 2024-11-18 ═══════════════════**
+
+## [2024-11-18] — Info page selector fix, Prettier when linked
+
+**Type:** bugfix
+
+### Changes
+
+- **The `info.ftl` page selector was `kc-ínfo`** (accented `í`): it is now `kc-info`.
+- CLI internals: when the package is linked into a project for local development (version `0.0.0-*`), the CLI now
+  loads the project's own Prettier instead of the one bundled with this repo, so generated files are formatted with
+  the right version.
+
+**═══════════════════ v0.1.7 — released 2024-11-17 ═══════════════════**
+
+## [2024-11-17] — `beforeField` template slot and Terms button typos
+
+**Type:** bugfix
+**Ref:** https://github.com/keycloakify/keycloakify-angular/pull/17
+
+### Changes
+
+- **`UserProfileFormFieldsComponent` looked for a `#beforField` content template**: the query is now `#beforeField`,
+  so a projected `<ng-template #beforeField>` is actually rendered before each field (the `#afterField` slot was
+  already correct).
+- `terms.ftl`: the Accept button listed `kcButtonClass` three times; the duplicates were removed.
+- CLI: Prettier now resolves its configuration per generated file, so `overrides` in the project's Prettier config
+  are honoured by `eject-page`, `add-story` and `update-kc-gen`.
+
+**═══════════════════ v0.1.6 — released 2024-11-16 ═══════════════════**
+
+## [2024-11-16] — Formatting of ejected pages
+
+**Type:** bugfix
+
+### Changes
+
+- `eject-page` ran Prettier against the source path inside `node_modules` instead of the destination path in the
+  project, so the project's Prettier config/ignore rules were not applied: it now formats using the destination
+  path.
+
+**═══════════════════ v0.1.5 — released 2024-11-12 ═══════════════════**
+
+## [2024-11-12] — Reset password label fix, eject-page next to stories
+
+**Type:** bugfix
+**Ref:** https://github.com/keycloakify/keycloakify-angular/pull/16
+
+### Changes
+
+- **`login-reset-password.ftl` showed the wrong label**: the condition was inverted, so "Username" appeared when
+  login with email was allowed. It now shows "Username" only when email login is disabled, "Username or email"
+  otherwise (or "Email" when email is used as username).
+- `eject-page` refused to eject a page whose folder already existed, e.g. because `add-story` had put a
+  `*.stories.ts` there: it now only stops when the folder already contains the `<page>.component.ts`.
+
+**═══════════════════ v0.1.4 — released 2024-11-10 ═══════════════════**
+
+## [2024-11-10] — Storybook global renamed to `kcContext`
+
+**Type:** chore
+
+### Changes
+
+- In the Storybook setup (`KcPageStory` decorators of the bundled stories and of the `initialize-account-theme`
+  boilerplate) the global used to override the mock context was renamed from `overrides` to `kcContext`; the bundled
+  stories were updated accordingly.
+
+**═══════════════════ v0.1.3 — released 2024-11-10 ═══════════════════**
+
+## [2024-11-10] — Clearer `eject-page` instructions
+
+**Type:** chore
+
+### Changes
+
+- After ejecting a page, the CLI now prints a cleaner, colour-highlighted snippet of the `getKcPage()` `case` to add
+  to `KcPage.ts`, including the `TemplateComponent`, `doUseDefaultCss`, `classes` (and, for login,
+  `UserProfileFormFieldsComponent` / `doMakeUserConfirmPassword`) entries and the `default` branch.
+
+**═══════════════════ v0.1.2 — released 2024-11-10 ═══════════════════**
+
+## [2024-11-10] — Account boilerplate: `KcPageStory.ts`
+
+**Type:** bugfix
+
+### Changes
+
+- The account theme boilerplate file added in v0.1.1 was renamed from `KcContextMock.ts` to `KcPageStory.ts` and
+  now imports the **account** providers, template, `KC_ACCOUNT_CONTEXT` and `createGetKcContextMock` (v0.1.1
+  mistakenly imported the login ones).
+
+**═══════════════════ v0.1.1 — released 2024-11-10 ═══════════════════**
+
+## [2024-11-10] — Storybook support in the account boilerplate
+
+**Type:** feat
+
+### Changes
+
+- `initialize-account-theme` now generates, besides the context mock, the Storybook `decorators` and a `KcPageStory`
+  component (`kc-page-story`) that render the selected account page inside `kc-root`, so account stories work out
+  of the box.
+
+**═══════════════════ v0.1.0 — released 2024-11-10 ═══════════════════**
+
+## [2024-11-10] — Storybook stories and `add-story` command
+
+**Type:** feat
+**Ref:** https://github.com/keycloakify/keycloakify-angular/pull/15
+
+### Changes
+
+- **Storybook stories for every page** (login and account) now ship with the package under `stories/`, together with
+  a `KcPageStory` helper per theme type that accepts a `userProfileFormFields` input.
+- **`npx keycloakify add-story` is now supported**: it asks for the theme type and page and copies the matching
+  `*.stories.ts` into `<theme>/pages/<page>/` of the project (previously the command printed "not yet supported").
+- The CLI no longer runs the project's `format`/`lint` npm scripts on the whole codebase: only the files it generates
+  (`eject-page`, `add-story`, `kc.gen.ts`) are formatted, using the project's Prettier when available.
+
+**═══════════════════ v0.0.11 — released 2024-11-09 ═══════════════════**
+
+## [2024-11-09] — Template moved out of `containers`, reworked page injection
+
+**Type:** feat (breaking)
+**Ref:** https://github.com/keycloakify/keycloakify-angular/pull/14
+
+### Changes
+
+- **Template entry points moved**: `@keycloakify/angular/login/containers/template` and
+  `@keycloakify/angular/account/containers/template` are now `@keycloakify/angular/login/template` and
+  `@keycloakify/angular/account/template`. Update the `TemplateComponent` import in `KcPage.ts` (the CLI boilerplate
+  and `eject-page` already use the new paths).
+- **Page injection reworked**: the intermediate `kc-dynamic-page-injector` component is gone; `kc-root` now creates the
+  page component directly into an `<ng-template #pageRef>` from an effect that is destroyed once the page is rendered,
+  so the page is instantiated only once.
+- Peer dependency: `keycloakify` `^11.3.16`.
+- Internals: every secondary entry point uses `index.ts` as entry file instead of `public-api.ts`; node engine
+  pinned to 22.9.0.
+
+**═══════════════════ v0.0.10 — released 2024-10-25 ═══════════════════**
+
+## [2024-10-25] — keycloakify 11.3.12
+
+**Type:** chore
+
+### Changes
+
+- Peer dependency `keycloakify` raised to `^11.3.12`; README updates.
+
+**═══════════════════ v0.0.9 — released 2024-10-25 ═══════════════════**
+
+## [2024-10-25] — `kc.gen.ts` regenerated only on change
+
+**Type:** chore
+
+### Changes
+
+- `update-kc-gen` now writes a SHA-256 hash in the header of `kc.gen.ts` and skips the regeneration (and the
+  formatting) when the content has not changed. The generated file is marked `/* eslint-disable */` and
+  `// @ts-nocheck`.
+- Peer dependency: `keycloakify` `^11.3.11`.
+
+**═══════════════════ v0.0.8 — released 2024-10-25 ═══════════════════**
+
+## [2024-10-25] — Formatted `kc.gen.ts`
+
+**Type:** chore
+
+### Changes
+
+- `update-kc-gen` no longer wraps `kc.gen.ts` in `prettier-ignore`/`eslint-disable` markers: after writing it, it runs
+  the project's `format` and `lint` scripts (the same helper is now shared with `eject-page`).
+- Peer dependency: `keycloakify` `^11.3.10`.
+- Internals: the `link-in-app` script now works on Windows.
+
+**═══════════════════ v0.0.7 — released 2024-10-24 ═══════════════════**
+
+## [2024-10-24] — Recovery codes script after view init
+
+**Type:** bugfix
+
+### Changes
+
+- `login-recovery-authn-code-config.ftl`: the copy/download/print script is now injected in `ngAfterViewInit`
+  instead of the constructor, so it finds the buttons and the codes list in the DOM.
+
+**═══════════════════ v0.0.6 — released 2024-10-24 ═══════════════════**
+
+## [2024-10-24] — Recovery codes buttons working
+
+**Type:** bugfix
+
+### Changes
+
+- **`login-recovery-authn-code-config.ftl` buttons did nothing**: the page now injects the script (as Keycloak does)
+  that wires the Copy, Download and Print buttons for the recovery codes.
+- `register.ftl`: the "Back to login" link is rendered again via `[innerHTML]` with `kcSanitize`, reverting the
+  plain-text change made in v0.0.5.
+
+**═══════════════════ v0.0.5 — released 2024-10-21 ═══════════════════**
+
+## [2024-10-21] — User profile form on keycloakify's framework-agnostic API
+
+**Type:** chore (breaking)
+**Ref:** https://github.com/keycloakify/keycloakify-angular/pull/10
+
+### Changes
+
+- **`UserProfileFormService` rewritten** on top of `keycloakify/login/lib/getUserProfileApi` (the framework-agnostic
+  user profile logic of keycloakify core) instead of a ~1500-line Angular copy; it exposes the form state as the
+  `formState$` observable, and `getButtonToDisplayForMultivaluedAttributeField` is re-exported from it.
+- **`SubmitService` removed** (entry point `@keycloakify/angular/login/services/submit`): `register`,
+  `login-update-profile`, `idp-review-user-profile` and `update-email` now derive `isFormSubmittable` from
+  `UserProfileFormService.formState$`. Ejected pages using `SubmitService` must be updated.
+- Peer dependency: `keycloakify` `^11.3.9` (required by the new API).
+- Internals: `zone.js` removed from the dev setup (zoneless), TypeScript 5.5.
+
+**═══════════════════ v0.0.4 — released 2024-10-21 ═══════════════════**
+
+## [2024-10-21] — Default CSS prepended to `<head>`
+
+**Type:** bugfix
+
+### Changes
+
+- **Keycloak's default stylesheets are now inserted at the top of `<head>`** instead of appended, so the theme's own
+  styles come after them and win the cascade. The login stylesheet list was reversed to keep the original order.
+- `login-username.ftl`: removed a stray empty HTML comment.
+- Internals: Node pinned to 22.4.1 in CI/engines while a Node/tsx bug is open; README updated.
+
+**═══════════════════ v0.0.3 — released 2024-10-15 ═══════════════════**
+
+## [2024-10-15] — Custom pages type-check
+
+**Type:** bugfix
+
+### Changes
+
+- `provideKeycloakifyAngular()` (login and account) now types `kcContext` as `unknown`, so projects whose `KcContext`
+  is extended with custom pages or properties no longer fail type-checking when passing it.
+
+**═══════════════════ v0.0.2 — released 2024-10-15 ═══════════════════**
+
+## [2024-10-15] — `class` attribute fix
+
+**Type:** bugfix
+
+### Changes
+
+- `login-oauth-grant`, `register` and `terms` used the React `className` attribute in their templates, so
+  `clearfix` and `form-group` were never applied: they now use `class`.
+
+**═══════════════════ v0.0.1 — released 2024-10-11 ═══════════════════**
+
+## [2024-10-11] — First release
+
+**Type:** feat
+
+### Changes
+
+- **First stable release** after 126 commits started on 2024-09-23 and 26 release candidates (`v0.0.1-rc.0`, published
+  2024-09-30, to `v0.0.1-rc.27`).
+- **Login theme**: 36 standalone, `OnPush` page components (from `login.ftl`, `register.ftl` and the WebAuthn pages to
+  `saml-post-form.ftl`) plus the shared form components (`UserProfileFormFieldsComponent`, field errors, password
+  wrapper, input/select/textarea tags, multi-valued attribute buttons, logout-other-sessions), rendered inside the
+  `kc-root` template component.
+- **Account theme**: 7 pages (`account`, `password`, `totp`, `federatedIdentity`, `sessions`, `applications`, `log`)
+  with their own template.
+- **Configuration through `provideKeycloakifyAngular()`**, which fills the DI tokens `KC_LOGIN_CONTEXT` /
+  `KC_ACCOUNT_CONTEXT`, `LOGIN_I18N` / `ACCOUNT_I18N`, `LOGIN_CLASSES` / `ACCOUNT_CLASSES`, `USE_DEFAULT_CSS` and
+  `DO_MAKE_USER_CONFIRM_PASSWORD`; `getDefaultPageComponent()` lazy-loads the page for a `pageId`. Shared
+  utilities: `kcClass` directive, `kcSanitize`/`toArray`/`inputType` pipes, resource injector for Keycloak's CSS/JS.
+- **CLI integration with keycloakify**: `update-kc-gen` (generates `kc.gen.ts` with `bootstrapKcApplication`),
+  `eject-page` and `initialize-account-theme`. Peer dependencies: Angular `^18.0.0`, keycloakify `^11.3.4`.

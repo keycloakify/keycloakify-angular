@@ -37,17 +37,17 @@
             <ul
                 [kcClass]="{
                     kcFormSocialAccountListClass: true,
-                    kcFormSocialAccountListGridClass: (social?.providers?.length ?? 0) > 3
+                    kcFormSocialAccountListGridClass: social.providers.length > 3
                 }"
             >
-                @for (provider of social?.providers; track provider.alias; let idx = $index) {
+                @for (provider of social.providers; track provider.alias; let idx = $index) {
                     <li>
                         <a
                             type="button"
                             [id]="provider.alias"
                             [kcClass]="{
                                 kcFormSocialAccountListButtonClass: true,
-                                kcFormSocialAccountGridItem: (social?.providers?.length ?? 0) > 3
+                                kcFormSocialAccountGridItem: social.providers.length > 3
                             }"
                             [href]="provider.loginUrl"
                         >

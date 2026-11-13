@@ -15,7 +15,7 @@
                 id="kc-header-wrapper"
                 [kcClass]="'kcHeaderWrapperClass'"
             >
-                <div [innerHTML]="realm?.displayNameHtml ?? '' | kcSanitize: 'html'"></div>
+                <div [innerHTML]="realm.displayNameHtml | kcSanitize: 'html'"></div>
             </div>
         </div>
 

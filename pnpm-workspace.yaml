@@ -1,3 +1,5 @@
+packages:
+  - src
 ignoreWorkspaceRootCheck: true
 minimumReleaseAge: 0
 overrides:
@@ -8,3 +10,12 @@ allowBuilds:
   esbuild: true
   lmdb: false
   msgpackr-extract: false
+
+supportedArchitectures:
+  cpu:
+    - x64
+    - arm64
+  os:
+    - win32
+    - darwin
+    - linux

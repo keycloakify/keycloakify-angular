@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2026-11-23] — Build with the Angular library builder
+
+**Type:** chore
+
+### Changes
+
+- **Same public API**: every `@keycloakify/angular/...` import path is unchanged, the `exports` map lists the same 93
+  secondary entry points, bundles are still FESM2022 in partial compilation mode with source maps. The only visible
+  difference in `dist` is that four bundle file names are now lower case (`login-KcContext`, `account-KcContext`,
+  `account-pages-federatedIdentity`, under `fesm2022/` and `types/`); they are reached through `exports`, never by
+  file name. The generated `package.json` also gains `main` and `types`.
+- **`@angular/build:library` replaces `@angular/build:ng-packagr`**, deprecated since Angular 22.3. The new builder
+  reads entry points from the `exports` field of `src/package.json`, so the 94 identical `ng-package.json` files are
+  gone: adding a secondary entry point now means adding a `"./path": "./path/index.ts"` line to `exports`.
+  `allowedNonPeerDependencies` and the output path move to `angular.json`; `ng-packagr` is removed.
+- **Watch mode**: the new builder prints "Watching for file changes" only after the first build, so `pnpm watch` now
+  runs the post-build step on "Library bundle generation complete", which it prints after every rebuild.
+- **`src` is no longer a pnpm workspace package**: with `packages: - src` in `pnpm-workspace.yaml`, every install
+  created `src/node_modules`, and the post-build copy of `src` to `dist/src` crashed on its symlinks (`EISDIR`). The
+  workspace is now declared in the root `package.json` `workspaces` field, which pnpm ignores and npm-check-updates
+  reads, so `pnpm deps:update` still bumps the peer dependencies in `src/package.json`.
+- Verified: `pnpm build` (whole `dist` diffed against the ng-packagr output), `pnpm watch` (an incremental rebuild
+  re-runs the post-build step), `pnpm lint`.
+
+### Files modified
+
+- `angular.json` — `@angular/build:library` builder, `outputPath`, `allowedNonPeerDependencies`
+- `src/package.json` — `exports` map with all entry points
+- `src/**/ng-package.json` — removed (94 files)
+- `scripts/watch.ts` — detects the end of each rebuild from the new builder's output
+- `scripts/shared/postNgBuild.ts` — drops the `ng-package.json` filter
+- `package.json`, `pnpm-lock.yaml` — `ng-packagr` removed, `workspaces` added
+- `pnpm-workspace.yaml` — `packages` removed
+- `.claude/CLAUDE.md` — build docs updated
+
 **═══════════════════ v22.1.1 — released 2026-11-13 ═══════════════════**
 
 ## [2026-11-13] — Hand-written changelog

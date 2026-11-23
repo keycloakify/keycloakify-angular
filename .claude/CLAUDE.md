@@ -9,7 +9,7 @@ An Angular component library for [Keycloakify](https://www.keycloakify.dev/) —
 ## Commands
 
 ```bash
-pnpm build           # Build the library via ng-packagr → dist/
+pnpm build           # Build the library via @angular/build:library → dist/
 pnpm watch           # Watch mode: rebuild on change + apply RC version patch
 pnpm lint            # ESLint with auto-fix
 pnpm format          # Prettier write
@@ -93,7 +93,9 @@ Key points:
 
 ## Build Internals
 
-`scripts/build.ts` runs `ng build` (ng-packagr) then post-processes the output to adjust entry points for modular exports. `scripts/watch.ts` does the same on file changes and additionally patches the version to an RC suffix for local development linking.
+`scripts/build.ts` runs `ng build` (`@angular/build:library`) then post-processes the output to adjust entry points for modular exports. `scripts/watch.ts` does the same on file changes and additionally patches the version to an RC suffix for local development linking.
+
+Entry points are declared in the `exports` field of `src/package.json` (there are no `ng-package.json` files): adding a secondary entry point means adding a `"./path": "./path/index.ts"` line there.
 
 ## Decision Protocol
 

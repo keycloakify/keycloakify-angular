@@ -51,12 +51,11 @@ import * as fs from 'fs';
         );
 
         child.stdout.on('data', data => {
-            if (data.toString('utf8').includes('Watching for file changes')) {
-                eeNgBuildComplete.emit('');
-                return;
-            }
-
             process.stdout.write(data);
+
+            if (data.toString('utf8').includes('Library bundle generation complete')) {
+                eeNgBuildComplete.emit('');
+            }
         });
 
         child.stderr.on('data', data => process.stderr.write(data));

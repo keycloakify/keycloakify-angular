@@ -83,10 +83,6 @@ function copyTransformSrcDirToDist() {
         srcDirPath: pathJoin(getThisCodebaseRootDirPath(), 'src'),
         destDirPath: srcDirPath_dist,
         transformSourceCode: ({ fileRelativePath, sourceCode }) => {
-            if (fileRelativePath.endsWith('ng-package.json')) {
-                return undefined;
-            }
-
             if (fileRelativePath.endsWith('package.json')) {
                 return undefined;
             }

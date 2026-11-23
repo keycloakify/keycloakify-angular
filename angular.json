@@ -10,9 +10,10 @@
             "prefix": "kc",
             "architect": {
                 "build": {
-                    "builder": "@angular/build:ng-packagr",
+                    "builder": "@angular/build:library",
                     "options": {
-                        "project": "src/ng-package.json"
+                        "outputPath": "dist",
+                        "allowedNonPeerDependencies": ["tsafe"]
                     },
                     "configurations": {
                         "production": {

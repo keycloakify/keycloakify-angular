@@ -57,10 +57,6 @@ import { Deferred } from './tools/Deferred';
         nodeModulesDirPath: pathJoin(getThisCodebaseRootDirPath(), 'node_modules')
     });
 
-    fs.rmSync(pathJoin(getThisCodebaseRootDirPath(), 'dist'), {
-        recursive: true,
-        force: true
-    });
     run('pnpm install');
 
     const dInitialCompilationCompleted = new Deferred<void>();
@@ -79,10 +75,12 @@ import { Deferred } from './tools/Deferred';
             }
         );
 
-        const NG_BUILD_WATCHING_FOR_FILE_CHANGES = 'Watching for file changes';
+        // Printed by watch.ts once postNgBuild is done, not the builder's own
+        // "Watching for file changes" line, which comes before postNgBuild runs.
+        const WATCH_READY = '@keycloakify/angular Watching for file changes';
 
         const onData = (data: Buffer) => {
-            if (!data.toString('utf8').includes(NG_BUILD_WATCHING_FOR_FILE_CHANGES)) {
+            if (!data.toString('utf8').includes(WATCH_READY)) {
                 process.stdout.write(data);
                 return;
             }

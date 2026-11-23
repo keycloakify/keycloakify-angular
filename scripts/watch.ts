@@ -5,16 +5,11 @@ import chokidar from 'chokidar';
 import { join as pathJoin } from 'path';
 import { createWaitForThrottle } from './tools/waitForThrottle';
 import { postNgBuild as postNgBuild_base } from './shared/postNgBuild';
-import { cleanup } from './shared/cleanup';
 import { EventEmitter } from 'events';
 import * as fs from 'fs';
 
 (async () => {
-    const startTime = Date.now();
-
     const distDirPath = pathJoin(getThisCodebaseRootDirPath(), 'dist');
-
-    cleanup({ distDirPath });
 
     const postNgBuild = () => {
         postNgBuild_base();
@@ -69,13 +64,12 @@ import * as fs from 'fs';
 
     const { waitForThrottle } = createWaitForThrottle({ delay: 400 });
 
+    // The CLI in src/bin is not part of the Angular compilation, so ng build does not
+    // watch it. Stories, README and LICENSE are builder assets and watched by ng build.
     chokidar
-        .watch(
-            ['bin', 'stories'].map(relativePath =>
-                pathJoin(getThisCodebaseRootDirPath(), 'src', relativePath)
-            ),
-            { ignoreInitial: true }
-        )
+        .watch(pathJoin(getThisCodebaseRootDirPath(), 'src', 'bin'), {
+            ignoreInitial: true
+        })
         .on('all', async (event, path) => {
             console.log(chalk.bold(`${event}: ${path}`));
 

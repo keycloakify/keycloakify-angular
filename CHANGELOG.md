@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2026-11-23] — Build scripts cleanup
+
+**Type:** chore
+
+### Changes
+
+- **No change to the published package**: `dist` has exactly the same files as before.
+- **README, LICENSE and stories are builder assets**: `angular.json` copies them into `dist` instead of
+  `postNgBuild`. In watch mode the builder also watches them, so an edited story now reaches `dist`; before,
+  `watch.ts` watched `src/stories`, which does not exist (stories live in `stories/`). chokidar now only watches
+  `src/bin`, the one thing outside the Angular compilation.
+- **`pnpm link-in-starter` waits for the post-build step**: it now waits for the line printed by `watch.ts` after
+  `postNgBuild`, not for the builder's own "Watching for file changes" line, which can come before `postNgBuild` is
+  done and let the starter link a half-built `dist`.
+- **Removed dead code**: `scripts/shared/cleanup.ts` (the builder already deletes `dist` before building, as does
+  the `dist` removal in `link-in-starter.ts`), and the unused `scripts/tools/fs.existsAsync.ts` and
+  `scripts/tools/fs.rm.ts` (which imported a missing `SemVer` module).
+- Verified: `pnpm build` (`dist` file list unchanged), `pnpm watch` (editing a story and a `src/bin` file both re-run
+  the post-build step), prettier and eslint on `scripts`.
+
+### Files modified
+
+- `angular.json` — `assets` for README, LICENSE and stories
+- `scripts/shared/postNgBuild.ts` — README, LICENSE and stories copy removed
+- `scripts/watch.ts` — chokidar only on `src/bin`, no `cleanup` call
+- `scripts/build.ts` — no `cleanup` call
+- `scripts/link-in-starter.ts` — waits for `watch.ts`'s ready line, no `dist` removal
+- `scripts/shared/cleanup.ts`, `scripts/tools/fs.existsAsync.ts`, `scripts/tools/fs.rm.ts` — removed
+
 ## [2026-11-23] — Build with the Angular library builder
 
 **Type:** chore

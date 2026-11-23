@@ -13,7 +13,16 @@
                     "builder": "@angular/build:library",
                     "options": {
                         "outputPath": "dist",
-                        "allowedNonPeerDependencies": ["tsafe"]
+                        "allowedNonPeerDependencies": ["tsafe"],
+                        "assets": [
+                            { "glob": "README.md", "input": ".", "output": "." },
+                            { "glob": "LICENSE", "input": ".", "output": "." },
+                            {
+                                "glob": "**/*.stories.ts",
+                                "input": "stories",
+                                "output": "stories"
+                            }
+                        ]
                     },
                     "configurations": {
                         "production": {

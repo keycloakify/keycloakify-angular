@@ -15,25 +15,6 @@ const distDirPath = pathJoin(getThisCodebaseRootDirPath(), 'dist');
 export function postNgBuild() {
     copyTransformSrcDirToDist();
 
-    transformCodebase({
-        srcDirPath: pathJoin(getThisCodebaseRootDirPath(), 'stories'),
-        destDirPath: pathJoin(distDirPath, 'stories'),
-        transformSourceCode: ({ filePath, sourceCode }) => {
-            if (!filePath.endsWith('stories.ts')) {
-                return undefined;
-            }
-
-            return { modifiedSourceCode: sourceCode };
-        }
-    });
-
-    for (const basename of ['README.md', 'LICENSE']) {
-        fs.cpSync(
-            pathJoin(getThisCodebaseRootDirPath(), basename),
-            pathJoin(distDirPath, basename)
-        );
-    }
-
     const { packageJsonBinProperty } = buildBin();
 
     preparePackageJson({ packageJsonBinProperty });

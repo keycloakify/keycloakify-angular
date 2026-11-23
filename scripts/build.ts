@@ -1,17 +1,11 @@
-import { join as pathJoin } from 'path';
 import chalk from 'chalk';
 import { getThisCodebaseRootDirPath } from './tools/getThisCodebaseRootDirPath';
 import { postNgBuild } from './shared/postNgBuild';
-import { cleanup } from './shared/cleanup';
 import { run } from './shared/run';
 
 console.log(chalk.cyan(`Building @keycloakify/angular...`));
 
 const startTime = Date.now();
-
-const distDirPath = pathJoin(getThisCodebaseRootDirPath(), 'dist');
-
-cleanup({ distDirPath });
 
 run('pnpm exec ng build', { cwd: getThisCodebaseRootDirPath() });
 
